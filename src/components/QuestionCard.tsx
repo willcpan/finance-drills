@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import { Question } from "@/utils/questionGenerator";
 import { ArrowRight, TrendingUp, Percent, DollarSign, BadgeDollarSign, Brain } from "lucide-react";
@@ -24,6 +23,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 
   // Set focus to input when question changes or when answering
   useEffect(() => {
+    setUserAnswer(""); // Clear previous answer when question changes
     if (isAnswering && inputRef.current) {
       inputRef.current.focus();
     }

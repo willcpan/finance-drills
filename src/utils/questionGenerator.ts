@@ -1,5 +1,17 @@
+// Define the structure for stock data here, as it's no longer imported
+// This should match the structure being created in vite.config.ts
+interface StockData {
+  ticker: string;
+  companyName: string;
+  currentPrice: number;
+  previousClose: number;
+  dividendYield: number;
+  dividendPerShare: number;
+}
 
-import { StockData, mockStocks } from "./mockData";
+// Access the globally injected stock data from vite.config.ts
+declare const __GAME_STOCK_DATA__: StockData[];
+const gameStockData: StockData[] = __GAME_STOCK_DATA__ || []; // Use || [] as fallback
 
 export type QuestionType = 
   | "priceIncrease" 
@@ -101,10 +113,13 @@ const generatePercentageChangeQuestion = (stock: StockData, difficulty: Difficul
 // Function to generate a dividend yield question
 const generateDividendYieldQuestion = (stock: StockData, difficulty: DifficultyLevel): Question => {
   // Skip stocks with no dividends
-  if (stock.dividendYield === 0) {
+  if (stock.dividendYield === 0 && gameStockData.length > 0) {
     // Find a different stock with dividends
-    const stocksWithDividends = mockStocks.filter(s => s.dividendYield > 0);
-    stock = stocksWithDividends[getRandomInt(0, stocksWithDividends.length - 1)];
+    const stocksWithDividends = gameStockData.filter(s => s.dividendYield > 0);
+    // Only switch if there are stocks with dividends available
+    if (stocksWithDividends.length > 0) {
+        stock = stocksWithDividends[getRandomInt(0, stocksWithDividends.length - 1)];
+    }
   }
   
   let allowedErrorMargin: number;
@@ -139,10 +154,13 @@ const generateDividendYieldQuestion = (stock: StockData, difficulty: DifficultyL
 // Function to generate a dividend per share question
 const generateDividendPerShareQuestion = (stock: StockData, difficulty: DifficultyLevel): Question => {
   // Skip stocks with no dividends
-  if (stock.dividendPerShare === 0) {
+  if (stock.dividendPerShare === 0 && gameStockData.length > 0) {
     // Find a different stock with dividends
-    const stocksWithDividends = mockStocks.filter(s => s.dividendPerShare > 0);
-    stock = stocksWithDividends[getRandomInt(0, stocksWithDividends.length - 1)];
+    const stocksWithDividends = gameStockData.filter(s => s.dividendPerShare > 0);
+    // Only switch if there are stocks with dividends available
+    if (stocksWithDividends.length > 0) {
+        stock = stocksWithDividends[getRandomInt(0, stocksWithDividends.length - 1)];
+    }
   }
   
   let allowedErrorMargin: number;
@@ -176,8 +194,23 @@ const generateDividendPerShareQuestion = (stock: StockData, difficulty: Difficul
 
 // Main function to generate a question
 export const generateQuestion = (type?: QuestionType, difficulty: DifficultyLevel = "easy"): Question => {
+  // Handle case where gameStockData might be empty (e.g., CSV read error)
+  if (gameStockData.length === 0) {
+    console.error("No stock data available to generate questions.");
+    // Return a fallback dummy question or throw an error
+    return {
+      id: 'error-no-data',
+      text: 'Error: Could not load stock data.',
+      stockData: { ticker: 'ERR', companyName: 'Error', currentPrice: 0, previousClose: 0, dividendYield: 0, dividendPerShare: 0 },
+      correctAnswer: 0,
+      type: 'priceIncrease', 
+      difficulty: 'easy',
+      allowedErrorMargin: 1
+    };
+  }
+
   // Get a random stock
-  const randomStock = mockStocks[getRandomInt(0, mockStocks.length - 1)];
+  let randomStock = gameStockData[getRandomInt(0, gameStockData.length - 1)];
   
   // If no type is specified, choose a random type
   if (!type) {
@@ -191,8 +224,28 @@ export const generateQuestion = (type?: QuestionType, difficulty: DifficultyLeve
     case "percentageChange":
       return generatePercentageChangeQuestion(randomStock, difficulty);
     case "dividendYield":
+      // Ensure the selected stock is suitable for dividend yield questions
+      if (randomStock.dividendYield === 0) {
+        const suitableStocks = gameStockData.filter(s => s.dividendYield > 0);
+        if (suitableStocks.length > 0) {
+          randomStock = suitableStocks[getRandomInt(0, suitableStocks.length - 1)];
+        } else {
+          // Fallback if NO stocks have dividends
+          return generatePriceIncreaseQuestion(randomStock, difficulty);
+        }
+      }
       return generateDividendYieldQuestion(randomStock, difficulty);
     case "dividendPerShare":
+       // Ensure the selected stock is suitable for dividend per share questions
+      if (randomStock.dividendPerShare === 0) {
+        const suitableStocks = gameStockData.filter(s => s.dividendPerShare > 0);
+         if (suitableStocks.length > 0) {
+          randomStock = suitableStocks[getRandomInt(0, suitableStocks.length - 1)];
+        } else {
+           // Fallback if NO stocks have dividends
+          return generatePercentageChangeQuestion(randomStock, difficulty);
+        }
+      }
       return generateDividendPerShareQuestion(randomStock, difficulty);
     default:
       return generatePriceIncreaseQuestion(randomStock, difficulty);
