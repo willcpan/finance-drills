@@ -82,7 +82,7 @@ const gameStockData = loadStockData();
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   // Conditionally set base path only for production build (GitHub Pages)
-  base: mode === 'production' ? '/finance-math-whiz-game/' : '/',
+  base: mode === 'production' ? '/finance-drills/' : '/',
   server: {
     host: "::",
     port: 8082, // Keep the last successful port
