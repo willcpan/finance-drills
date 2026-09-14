@@ -21,6 +21,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   const [userAnswer, setUserAnswer] = useState<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
 
+  // The question says what unit its answer is in. This used to be inferred from
+  // the question type, which happened to be right only because two of the types
+  // were named the wrong way round.
+  const isPercentAnswer = question.answerUnit === "percentagePoints";
+
   // Set focus to input when question changes or when answering
   useEffect(() => {
     setUserAnswer(""); // Clear previous answer when question changes
@@ -101,8 +106,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              {question.type === "percentageChange" || question.type === "dividendPerShare" ? 
-                <Percent className="h-5 w-5 text-gray-400" /> : 
+              {isPercentAnswer ?
+                <Percent className="h-5 w-5 text-gray-400" /> :
                 <DollarSign className="h-5 w-5 text-gray-400" />
               }
             </div>
@@ -111,7 +116,7 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               id="answer"
               type="number"
               step="0.01"
-              placeholder={question.type === "percentageChange" || question.type === "dividendPerShare" ? 
+              placeholder={isPercentAnswer ?
                 "Enter percentage..." : "Enter amount..."}
               value={userAnswer}
               onChange={(e) => setUserAnswer(e.target.value)}
@@ -124,9 +129,9 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               "mt-2 text-sm font-medium",
               feedbackState === "correct" ? "text-finance-green" : "text-finance-red"
             )}>
-              {feedbackState === "correct" ? 
-                `Correct! The answer is ${question.correctAnswer.toFixed(2)}${question.type === "percentageChange" || question.type === "dividendPerShare" ? "%" : ""}` : 
-                `Incorrect. The correct answer is ${question.correctAnswer.toFixed(2)}${question.type === "percentageChange" || question.type === "dividendPerShare" ? "%" : ""}`}
+              {feedbackState === "correct" ?
+                `Correct! The answer is ${question.correctAnswer.toFixed(2)}${isPercentAnswer ? "%" : ""}` :
+                `Incorrect. The correct answer is ${question.correctAnswer.toFixed(2)}${isPercentAnswer ? "%" : ""}`}
             </p>
           )}
         </div>

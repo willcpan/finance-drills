@@ -149,11 +149,11 @@ const GameContainer: React.FC<GameContainerProps> = ({ initialQuestionCount = 10
                 </SelectContent>
               </Select>
               <p className="mt-2 text-xs text-gray-500">
-                {difficulty === "easy" 
-                  ? "Simple calculations with whole numbers." 
+                {difficulty === "easy"
+                  ? "Whole-number percentages, generous rounding."
                   : difficulty === "medium"
-                  ? "More complex calculations with decimals."
-                  : "Advanced calculations requiring multiple steps."}
+                  ? "Larger percentages, tighter rounding."
+                  : "Fractional percentages, little room for error."}
               </p>
             </div>
             
@@ -231,8 +231,12 @@ const GameContainer: React.FC<GameContainerProps> = ({ initialQuestionCount = 10
                     <span className="text-gray-600 font-medium">
                       Question {currentQuestionIndex + 1} of {questions.length}
                     </span>
-                    <Timer 
-                      duration={questionTimeLimit} 
+                    {/* Keyed on the question so each one gets a fresh timer.
+                        Without this the component keeps its state across
+                        questions and the limit becomes a whole-game budget. */}
+                    <Timer
+                      key={currentQuestionIndex}
+                      duration={questionTimeLimit}
                       isRunning={gameState === "playing"}
                       onTimeUp={handleTimeUp}
                     />

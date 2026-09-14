@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { AlertCircle, TimerIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -9,41 +9,39 @@ interface TimerProps {
   onTimeUp: () => void;
 }
 
+// Warn the player when this many seconds remain.
+const WARNING_THRESHOLD = 5;
+
 const Timer: React.FC<TimerProps> = ({ duration, isRunning, onTimeUp }) => {
   const [timeLeft, setTimeLeft] = useState<number>(duration);
-  const [isWarning, setIsWarning] = useState<boolean>(false);
+  const hasFiredRef = useRef(false);
 
   useEffect(() => {
     // Reset timer when duration changes
     setTimeLeft(duration);
-    setIsWarning(false);
+    hasFiredRef.current = false;
   }, [duration]);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
+    if (!isRunning || timeLeft <= 0) return;
 
-    if (isRunning && timeLeft > 0) {
-      interval = setInterval(() => {
-        setTimeLeft((prev) => {
-          // Set warning state when less than 5 seconds left
-          if (prev <= 6 && !isWarning) {
-            setIsWarning(true);
-          }
-          // Trigger timeUp when 0 is reached
-          if (prev === 1) {
-            onTimeUp();
-          }
-          return prev - 1;
-        });
-      }, 1000);
-    } else if (!isRunning && interval) {
-      clearInterval(interval);
+    const interval = setInterval(() => {
+      setTimeLeft(prev => Math.max(0, prev - 1));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isRunning, timeLeft]);
+
+  // Fire onTimeUp from an effect rather than from inside the setTimeLeft
+  // updater. Updaters have to stay pure, and React invokes them twice in
+  // development, which double-counted the timeout. The ref keeps it to one
+  // call even if onTimeUp changes identity between renders.
+  useEffect(() => {
+    if (timeLeft === 0 && isRunning && !hasFiredRef.current) {
+      hasFiredRef.current = true;
+      onTimeUp();
     }
-
-    return () => {
-      if (interval) clearInterval(interval);
-    };
-  }, [isRunning, timeLeft, onTimeUp, isWarning]);
+  }, [timeLeft, isRunning, onTimeUp]);
 
   // Format time as MM:SS
   const formatTime = (time: number): string => {
@@ -52,8 +50,10 @@ const Timer: React.FC<TimerProps> = ({ duration, isRunning, onTimeUp }) => {
     return `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   };
 
+  const isWarning = timeLeft <= WARNING_THRESHOLD;
+
   // Calculate progress percentage
-  const progressPercent = (timeLeft / duration) * 100;
+  const progressPercent = duration > 0 ? (timeLeft / duration) * 100 : 0;
 
   return (
     <div className="flex flex-col items-center">
@@ -63,7 +63,7 @@ const Timer: React.FC<TimerProps> = ({ duration, isRunning, onTimeUp }) => {
         ) : (
           <TimerIcon className="w-5 h-5 mr-2 text-finance-blue" />
         )}
-        <span 
+        <span
           className={cn(
             "font-mono text-lg font-bold",
             isWarning ? "text-red-500" : "text-finance-blue"
@@ -73,7 +73,7 @@ const Timer: React.FC<TimerProps> = ({ duration, isRunning, onTimeUp }) => {
         </span>
       </div>
       <div className="w-full h-2 bg-gray-200 rounded-full">
-        <div 
+        <div
           className={cn(
             "h-full rounded-full transition-all duration-1000 ease-linear",
             isWarning ? "bg-red-500" : "bg-finance-green"
