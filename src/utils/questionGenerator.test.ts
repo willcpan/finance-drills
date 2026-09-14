@@ -1,140 +1,246 @@
 import { describe, it, expect } from "vitest";
 import {
+  ALL_QUESTION_TYPES,
+  QUESTION_META,
+  availableTypes,
+  checkAnswer,
+  eligibleCount,
   generateQuestion,
   generateQuestions,
-  checkAnswer,
+  type AnswerUnit,
   type DifficultyLevel,
-  type QuestionType
+  type QuestionType,
 } from "./questionGenerator";
+import { SENSIBLE, stocks, within } from "./stockData";
 
 const DIFFICULTIES: DifficultyLevel[] = ["easy", "medium", "hard"];
-const TYPES: QuestionType[] = [
-  "priceIncrease",
-  "percentageChange",
-  "dividendYield",
-  "dividendPerShare"
-];
 
 // The stock data is injected by vite.config.ts from Stockdata.csv, so these run
-// against the real 260-odd companies rather than a fixture.
+// against the real companies rather than a fixture.
+describe("stock data", () => {
+  it("loads rows from the CSV", () => {
+    expect(stocks.length).toBeGreaterThan(200);
+  });
+
+  it("drops rows that did not parse", () => {
+    for (const stock of stocks) {
+      expect(Number.isFinite(stock.currentPrice)).toBe(true);
+      expect(Number.isFinite(stock.eps)).toBe(true);
+      expect(Number.isFinite(stock.revenue)).toBe(true);
+      expect(Number.isFinite(stock.operatingProfit)).toBe(true);
+      expect(Number.isFinite(stock.dividendPerShare)).toBe(true);
+      expect(stock.ticker.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("derives a prior close deterministically", () => {
+    // Same ticker, same build: the prior close must not wander.
+    const withPrior = stocks.filter(s => s.previousClose > 0);
+    expect(withPrior.length).toBe(stocks.length);
+    for (const stock of withPrior) {
+      const drift = Math.abs(stock.previousClose - stock.currentPrice) / stock.currentPrice;
+      expect(drift).toBeLessThanOrEqual(0.021);
+    }
+  });
+});
+
 describe("question generation", () => {
-  it("produces questions for every type and difficulty", () => {
-    for (const type of TYPES) {
+  it("has a usable pool for every question type", () => {
+    for (const type of ALL_QUESTION_TYPES) {
+      expect(eligibleCount(type)).toBeGreaterThan(0);
+    }
+    expect(availableTypes().length).toBe(ALL_QUESTION_TYPES.length);
+  });
+
+  it("produces a well-formed question for every type and difficulty", () => {
+    for (const type of ALL_QUESTION_TYPES) {
       for (const difficulty of DIFFICULTIES) {
-        const question = generateQuestion(type, difficulty);
-        expect(question.type).toBe(type);
-        expect(question.difficulty).toBe(difficulty);
-        expect(Number.isFinite(question.correctAnswer)).toBe(true);
-        expect(question.tolerance).toBeGreaterThan(0);
+        const q = generateQuestion(type, difficulty);
+        expect(q.type).toBe(type);
+        expect(q.difficulty).toBe(difficulty);
+        expect(q.category).toBe(QUESTION_META[type].category);
+        expect(Number.isFinite(q.correctAnswer)).toBe(true);
+        expect(q.tolerance).toBeGreaterThan(0);
+        expect(q.text.length).toBeGreaterThan(10);
+        expect(q.method.length).toBeGreaterThan(0);
       }
     }
   });
 
-  it("labels each question with the unit its answer is in", () => {
-    const units: Record<QuestionType, string> = {
+  it("tags each question with the unit its answer is in", () => {
+    const expected: Record<QuestionType, AnswerUnit> = {
       priceIncrease: "currency",
+      priceDecrease: "currency",
       percentageChange: "percentagePoints",
+      recoveryGain: "percentagePoints",
       dividendYield: "percentagePoints",
-      dividendPerShare: "currency"
+      dividendPerShare: "currency",
+      payoutRatio: "percentagePoints",
+      peRatio: "ratio",
+      earningsYield: "percentagePoints",
+      operatingMargin: "percentagePoints",
+      ruleOf72: "years",
     };
 
-    for (const type of TYPES) {
-      expect(generateQuestion(type, "easy").answerUnit).toBe(units[type]);
+    for (const type of ALL_QUESTION_TYPES) {
+      expect(generateQuestion(type, "easy").answerUnit).toBe(expected[type]);
     }
   });
 
   it("asks for the thing its type is named after", () => {
-    // These two were previously swapped: the type called dividendYield asked for
-    // the per-share amount, and vice versa.
-    const yieldQuestion = generateQuestion("dividendYield", "easy");
-    expect(yieldQuestion.text).toMatch(/what is the approximate dividend yield/);
-
-    const perShareQuestion = generateQuestion("dividendPerShare", "easy");
-    expect(perShareQuestion.text).toMatch(/what is the approximate annual dividend per share/);
+    expect(generateQuestion("dividendYield", "easy").text).toMatch(/dividend yield/i);
+    expect(generateQuestion("dividendPerShare", "easy").text).toMatch(/dividend per share/i);
+    expect(generateQuestion("peRatio", "easy").text).toMatch(/P\/E/);
+    expect(generateQuestion("earningsYield", "easy").text).toMatch(/earnings yield/i);
+    expect(generateQuestion("operatingMargin", "easy").text).toMatch(/operating margin/i);
+    expect(generateQuestion("payoutRatio", "easy").text).toMatch(/payout ratio/i);
   });
 
-  it("only asks dividend questions about stocks that pay one", () => {
+  it("never asks a question whose answer is absurd", () => {
+    // One company in the dataset earns about a cent a share, giving a P/E of
+    // 12,150 and a payout ratio of 30,000%. Arithmetically valid, useless to
+    // drill, and it must never be selected.
+    for (let i = 0; i < 150; i++) {
+      expect(within(generateQuestion("peRatio", "medium").correctAnswer, SENSIBLE.peRatio)).toBe(true);
+      expect(
+        within(generateQuestion("payoutRatio", "medium").correctAnswer, SENSIBLE.payoutRatio)
+      ).toBe(true);
+      expect(
+        within(generateQuestion("dividendYield", "medium").correctAnswer, SENSIBLE.dividendYield)
+      ).toBe(true);
+      expect(
+        within(
+          generateQuestion("operatingMargin", "medium").correctAnswer,
+          SENSIBLE.operatingMargin
+        )
+      ).toBe(true);
+      expect(
+        within(generateQuestion("earningsYield", "medium").correctAnswer, SENSIBLE.earningsYield)
+      ).toBe(true);
+    }
+  });
+
+  it("only asks dividend questions about companies that pay one", () => {
     for (let i = 0; i < 200; i++) {
-      for (const type of ["dividendYield", "dividendPerShare"] as QuestionType[]) {
-        expect(generateQuestion(type, "easy").stockData.dividendPerShare).toBeGreaterThan(0);
+      for (const type of ["dividendYield", "dividendPerShare", "payoutRatio"] as QuestionType[]) {
+        const stock = generateQuestion(type, "easy").stockData;
+        expect(stock?.dividendPerShare).toBeGreaterThan(0);
       }
     }
   });
 
-  it("spreads difficulty across a generated set when none is given", () => {
+  it("only asks valuation questions about companies that earn money", () => {
+    for (let i = 0; i < 200; i++) {
+      for (const type of ["peRatio", "earningsYield"] as QuestionType[]) {
+        expect(generateQuestion(type, "easy").stockData?.eps).toBeGreaterThan(0);
+      }
+    }
+  });
+
+  it("restricts a generated set to the requested types", () => {
+    const wanted: QuestionType[] = ["peRatio", "ruleOf72"];
+    const questions = generateQuestions(12, "medium", wanted);
+    expect(questions).toHaveLength(12);
+    for (const q of questions) {
+      expect(wanted).toContain(q.type);
+    }
+  });
+
+  it("spreads difficulty across a set when none is given", () => {
     const questions = generateQuestions(9);
-    expect(questions).toHaveLength(9);
     expect(new Set(questions.map(q => q.difficulty)).size).toBeGreaterThan(1);
   });
 });
 
 describe("checkAnswer", () => {
   it("accepts the exact answer for every type and difficulty", () => {
-    // The old relative tolerance went negative whenever the answer did, which
-    // made roughly half of all percentage-change questions unsatisfiable even
-    // with a perfect answer.
-    for (let i = 0; i < 500; i++) {
-      for (const type of TYPES) {
+    // The original tolerance scaled by the answer, so it went negative whenever
+    // the answer did and no answer at all could satisfy it.
+    for (let i = 0; i < 80; i++) {
+      for (const type of ALL_QUESTION_TYPES) {
         for (const difficulty of DIFFICULTIES) {
-          const question = generateQuestion(type, difficulty);
-          expect(checkAnswer(question, question.correctAnswer)).toBe(true);
+          const q = generateQuestion(type, difficulty);
+          expect(checkAnswer(q, q.correctAnswer)).toBe(true);
         }
       }
     }
   });
 
   it("accepts exact answers that are negative", () => {
-    let checked = 0;
-    for (let i = 0; i < 2000 && checked < 50; i++) {
-      const question = generateQuestion("percentageChange", "easy");
-      if (question.correctAnswer < 0) {
-        expect(checkAnswer(question, question.correctAnswer)).toBe(true);
-        checked++;
+    let seen = 0;
+    for (let i = 0; i < 3000 && seen < 50; i++) {
+      const q = generateQuestion("percentageChange", "easy");
+      if (q.correctAnswer < 0) {
+        expect(checkAnswer(q, q.correctAnswer)).toBe(true);
+        seen++;
       }
     }
-    // Guard against the test silently passing because no negative answer showed up.
-    expect(checked).toBeGreaterThan(0);
+    // Guard against passing vacuously because no negative answer came up.
+    expect(seen).toBeGreaterThan(0);
   });
 
-  it("rejects an answer just outside the tolerance", () => {
-    for (const type of TYPES) {
+  it("accepts just inside the tolerance and rejects just outside", () => {
+    for (const type of ALL_QUESTION_TYPES) {
       for (const difficulty of DIFFICULTIES) {
-        const question = generateQuestion(type, difficulty);
-        const outside = question.correctAnswer + question.tolerance * 1.01 + 1e-9;
-        expect(checkAnswer(question, outside)).toBe(false);
+        const q = generateQuestion(type, difficulty);
+        expect(checkAnswer(q, q.correctAnswer + q.tolerance * 0.99)).toBe(true);
+        expect(checkAnswer(q, q.correctAnswer - q.tolerance * 0.99)).toBe(true);
+        expect(checkAnswer(q, q.correctAnswer + q.tolerance * 1.01 + 1e-9)).toBe(false);
       }
     }
   });
 
-  it("accepts an answer just inside the tolerance", () => {
-    for (const type of TYPES) {
-      for (const difficulty of DIFFICULTIES) {
-        const question = generateQuestion(type, difficulty);
-        expect(checkAnswer(question, question.correctAnswer + question.tolerance * 0.99)).toBe(true);
-        expect(checkAnswer(question, question.correctAnswer - question.tolerance * 0.99)).toBe(true);
+  it("does not accept the price already shown in a price-move question", () => {
+    // The old margin was 10% of the answer while the move itself was only
+    // 5-10%, so retyping the number on screen scored every time.
+    for (let i = 0; i < 200; i++) {
+      for (const type of ["priceIncrease", "priceDecrease"] as QuestionType[]) {
+        for (const difficulty of DIFFICULTIES) {
+          const q = generateQuestion(type, difficulty);
+          const shown = q.stockData?.currentPrice ?? 0;
+          expect(checkAnswer(q, shown)).toBe(false);
+        }
       }
     }
   });
 
-  it("does not accept the price already shown in a price-increase question", () => {
-    // The tolerance used to be 10% of the answer while the increase itself was
-    // only 5-10%, so retyping the price on screen scored as correct every time.
-    for (let i = 0; i < 1000; i++) {
-      for (const difficulty of DIFFICULTIES) {
-        const question = generateQuestion("priceIncrease", difficulty);
-        expect(checkAnswer(question, question.stockData.currentPrice)).toBe(false);
-      }
+  it("tightens tolerance as difficulty rises", () => {
+    // Compared as medians over many draws, not one question against another:
+    // each difficulty draws its own stock (and for some types its own
+    // percentage), and tolerances have an absolute floor so a small answer
+    // reads as proportionally generous. A single unlucky pair proves nothing.
+    const medianRelativeTolerance = (type: QuestionType, difficulty: DifficultyLevel): number => {
+      const values = Array.from({ length: 60 }, () => {
+        const q = generateQuestion(type, difficulty);
+        return q.tolerance / Math.max(Math.abs(q.correctAnswer), 1);
+      }).sort((a, b) => a - b);
+      return values[Math.floor(values.length / 2)];
+    };
+
+    for (const type of ALL_QUESTION_TYPES) {
+      expect(medianRelativeTolerance(type, "hard")).toBeLessThan(
+        medianRelativeTolerance(type, "easy")
+      );
     }
   });
 
-  it("keeps tolerances tighter as difficulty rises", () => {
-    for (const type of TYPES) {
-      const easy = generateQuestion(type, "easy");
-      const hard = generateQuestion(type, "hard");
-      // Compare in relative terms so differing stock prices don't skew it.
-      const easyRelative = easy.tolerance / Math.max(Math.abs(easy.correctAnswer), 1);
-      const hardRelative = hard.tolerance / Math.max(Math.abs(hard.correctAnswer), 1);
-      expect(hardRelative).toBeLessThan(easyRelative);
+  it("gets the recovery-gain arithmetic right", () => {
+    // A 50% fall always needs a 100% gain to undo. Worth pinning exactly.
+    for (let i = 0; i < 300; i++) {
+      const q = generateQuestion("recoveryGain", "medium");
+      const drop = Number(/falls (\d+(?:\.\d+)?)%/.exec(q.text)?.[1]);
+      expect(Number.isFinite(drop)).toBe(true);
+      expect(q.correctAnswer).toBeCloseTo((drop / (100 - drop)) * 100, 1);
+      // Recovering always costs more than the fall.
+      expect(q.correctAnswer).toBeGreaterThan(drop);
+    }
+  });
+
+  it("gets the rule-of-72 arithmetic right", () => {
+    for (let i = 0; i < 100; i++) {
+      const q = generateQuestion("ruleOf72", "easy");
+      const rate = Number(/at (\d+(?:\.\d+)?)% a year/.exec(q.text)?.[1]);
+      expect(q.correctAnswer).toBeCloseTo(72 / rate, 2);
     }
   });
 });

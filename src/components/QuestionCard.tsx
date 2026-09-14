@@ -1,150 +1,182 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Question } from "@/utils/questionGenerator";
-import { ArrowRight, TrendingUp, Percent, DollarSign, BadgeDollarSign, Brain } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { ArrowRight, Check, Lightbulb, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { QUESTION_META, type Question } from "@/utils/questionGenerator";
+import { formatAnswer, formatDuration, unitSuffix } from "@/utils/format";
 
 interface QuestionCardProps {
   question: Question;
+  revealed: boolean;
+  wasCorrect: boolean;
+  userAnswer: number | null;
+  elapsedMs: number;
   onAnswer: (answer: number) => void;
-  isAnswering: boolean;
-  feedbackState?: "correct" | "incorrect" | null;
+  onNext: () => void;
+  isLast: boolean;
 }
 
-const QuestionCard: React.FC<QuestionCardProps> = ({ 
-  question, 
-  onAnswer, 
-  isAnswering,
-  feedbackState 
+const difficultyBadge = (difficulty: Question["difficulty"]): string => {
+  switch (difficulty) {
+    case "easy":
+      return "bg-green-100 text-green-800";
+    case "medium":
+      return "bg-yellow-100 text-yellow-800";
+    default:
+      return "bg-red-100 text-red-800";
+  }
+};
+
+const QuestionCard: React.FC<QuestionCardProps> = ({
+  question,
+  revealed,
+  wasCorrect,
+  userAnswer,
+  elapsedMs,
+  onAnswer,
+  onNext,
+  isLast,
 }) => {
-  const [userAnswer, setUserAnswer] = useState<string>("");
+  const [value, setValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
 
-  // The question says what unit its answer is in. This used to be inferred from
-  // the question type, which happened to be right only because two of the types
-  // were named the wrong way round.
-  const isPercentAnswer = question.answerUnit === "percentagePoints";
-
-  // Set focus to input when question changes or when answering
+  // Clear and refocus whenever a new question arrives.
   useEffect(() => {
-    setUserAnswer(""); // Clear previous answer when question changes
-    if (isAnswering && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [question, isAnswering]);
+    setValue("");
+    inputRef.current?.focus();
+  }, [question.id]);
 
-  // Function to handle form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!userAnswer || !isAnswering) return;
+  // Once the answer is showing, move focus to Continue so Enter carries the
+  // player straight on. A drill should never need the mouse.
+  useEffect(() => {
+    if (revealed) nextRef.current?.focus();
+  }, [revealed]);
 
-    const numericAnswer = parseFloat(userAnswer);
-    if (!isNaN(numericAnswer)) {
-      onAnswer(numericAnswer);
-    }
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (revealed) return;
+
+    const parsed = parseFloat(value);
+    if (Number.isFinite(parsed)) onAnswer(parsed);
   };
 
-  // Get the appropriate icon for the question type
-  const getQuestionIcon = () => {
-    switch (question.type) {
-      case "priceIncrease":
-        return <TrendingUp className="h-5 w-5 text-finance-green mr-2" />;
-      case "percentageChange":
-        return <Percent className="h-5 w-5 text-finance-blue mr-2" />;
-      case "dividendYield":
-        return <BadgeDollarSign className="h-5 w-5 text-finance-green mr-2" />;
-      case "dividendPerShare":
-        return <DollarSign className="h-5 w-5 text-finance-yellow mr-2" />;
-      default:
-        return <Brain className="h-5 w-5 text-finance-blue mr-2" />;
-    }
-  };
-
-  // Get difficulty badge styling
-  const getDifficultyBadge = () => {
-    const baseClasses = "text-xs font-medium px-2 py-1 rounded-full";
-    
-    switch (question.difficulty) {
-      case "easy":
-        return `${baseClasses} bg-green-100 text-green-800`;
-      case "medium":
-        return `${baseClasses} bg-yellow-100 text-yellow-800`;
-      case "hard":
-        return `${baseClasses} bg-red-100 text-red-800`;
-      default:
-        return `${baseClasses} bg-gray-100 text-gray-800`;
-    }
-  };
+  const meta = QUESTION_META[question.type];
+  const suffix = unitSuffix(question.answerUnit);
 
   return (
-    <div className={cn(
-      "bg-white rounded-lg shadow-md p-6 transition-all duration-300",
-      feedbackState === "correct" ? "border-2 border-finance-green" : 
-      feedbackState === "incorrect" ? "border-2 border-finance-red" : ""
-    )}>
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex items-center">
-          {getQuestionIcon()}
-          <span className="font-medium text-gray-500">
-            {question.type === "priceIncrease" ? "Price Increase" : 
-             question.type === "percentageChange" ? "Percentage Change" : 
-             question.type === "dividendYield" ? "Dividend Yield" : "Dividend Per Share"}
-          </span>
-        </div>
-        <span className={getDifficultyBadge()}>
-          {question.difficulty.charAt(0).toUpperCase() + question.difficulty.slice(1)}
+    <div
+      className={cn(
+        "bg-white rounded-lg shadow-md p-6 transition-colors duration-200 border-2",
+        revealed
+          ? wasCorrect
+            ? "border-finance-green"
+            : "border-finance-red"
+          : "border-transparent"
+      )}
+    >
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+        <span className="font-medium text-finance-gray">{meta.label}</span>
+        <span className={cn("text-xs font-medium px-2 py-1 rounded-full", difficultyBadge(question.difficulty))}>
+          {question.difficulty}
         </span>
       </div>
-      
-      <h2 className="text-lg font-semibold text-finance-blue mb-6">{question.text}</h2>
-      
+
+      <h2 className="text-lg font-semibold text-finance-blue mb-6 leading-relaxed">
+        {question.text}
+      </h2>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="answer" className="block text-sm font-medium text-gray-700 mb-1">
-            Your Answer
+            Your answer
           </label>
           <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              {isPercentAnswer ?
-                <Percent className="h-5 w-5 text-gray-400" /> :
-                <DollarSign className="h-5 w-5 text-gray-400" />
-              }
-            </div>
+            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-sm font-medium pointer-events-none">
+              {suffix}
+            </span>
             <Input
               ref={inputRef}
               id="answer"
               type="number"
-              step="0.01"
-              placeholder={isPercentAnswer ?
-                "Enter percentage..." : "Enter amount..."}
-              value={userAnswer}
-              onChange={(e) => setUserAnswer(e.target.value)}
+              step="any"
+              inputMode="decimal"
+              autoComplete="off"
+              placeholder={revealed ? "" : "Type a number, press Enter"}
+              value={value}
+              onChange={event => setValue(event.target.value)}
               className="pl-10"
-              disabled={!isAnswering || feedbackState !== null}
+              disabled={revealed}
             />
           </div>
-          {feedbackState && (
-            <p className={cn(
-              "mt-2 text-sm font-medium",
-              feedbackState === "correct" ? "text-finance-green" : "text-finance-red"
-            )}>
-              {feedbackState === "correct" ?
-                `Correct! The answer is ${question.correctAnswer.toFixed(2)}${isPercentAnswer ? "%" : ""}` :
-                `Incorrect. The correct answer is ${question.correctAnswer.toFixed(2)}${isPercentAnswer ? "%" : ""}`}
-            </p>
-          )}
         </div>
-        
-        <Button 
-          type="submit" 
-          className="w-full bg-finance-blue hover:bg-blue-800 text-white"
-          disabled={!isAnswering || feedbackState !== null || !userAnswer}
-        >
-          Submit Answer
-          <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+
+        {!revealed && (
+          <Button type="submit" className="w-full bg-finance-blue hover:bg-blue-800 text-white" disabled={value === ""}>
+            Submit
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        )}
       </form>
+
+      {revealed && (
+        <div className="mt-5 space-y-4 animate-fade-in">
+          <div
+            className={cn(
+              "flex items-start gap-3 p-3 rounded-lg",
+              wasCorrect ? "bg-green-50" : "bg-red-50"
+            )}
+          >
+            {wasCorrect ? (
+              <Check className="h-5 w-5 text-finance-green shrink-0 mt-0.5" />
+            ) : (
+              <X className="h-5 w-5 text-finance-red shrink-0 mt-0.5" />
+            )}
+            <div className="text-sm">
+              <p className={cn("font-semibold", wasCorrect ? "text-finance-green" : "text-finance-red")}>
+                {wasCorrect
+                  ? `Correct in ${formatDuration(elapsedMs)}`
+                  : userAnswer === null
+                    ? "Out of time"
+                    : `Not quite - you said ${formatAnswer(userAnswer, question.answerUnit)}`}
+              </p>
+              <p className="text-gray-600 mt-0.5">
+                Answer: {formatAnswer(question.correctAnswer, question.answerUnit)}
+                <span className="text-gray-400">
+                  {" "}
+                  (within {formatAnswer(question.tolerance, question.answerUnit)})
+                </span>
+              </p>
+            </div>
+          </div>
+
+          <div className="p-3 rounded-lg bg-blue-50">
+            <h3 className="flex items-center text-sm font-semibold text-finance-blue mb-2">
+              <Lightbulb className="h-4 w-4 mr-2" />
+              Doing it in your head
+            </h3>
+            <ol className="space-y-1.5">
+              {question.method.map((step, index) => (
+                <li key={index} className="flex gap-2 text-sm text-gray-700">
+                  <span className="text-finance-blue font-semibold shrink-0">{index + 1}.</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <Button
+            ref={nextRef}
+            onClick={onNext}
+            className="w-full bg-finance-green hover:bg-teal-700 text-white"
+          >
+            {isLast ? "See results" : "Next question"}
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+          <p className="text-center text-xs text-gray-400">Press Enter to continue</p>
+        </div>
+      )}
     </div>
   );
 };

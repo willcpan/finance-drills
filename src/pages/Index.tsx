@@ -30,7 +30,8 @@ const Index = () => {
       <footer className="bg-white py-4 border-t">
         <div className="container mx-auto px-4">
           <p className="text-center text-gray-500 text-sm">
-            Finance Drills © {new Date().getFullYear()} | Mock data for educational purposes only
+            Finance Drills © {new Date().getFullYear()} | Real company figures, derived prior
+            closes. For practice, not investment advice.
           </p>
         </div>
       </footer>

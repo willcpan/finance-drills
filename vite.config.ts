@@ -5,14 +5,27 @@ import fs from 'fs';
 import Papa from 'papaparse'; 
 import { componentTagger } from "lovable-tagger";
 
-// Define the structure for the stock data (matching questionGenerator's needs)
+// Define the structure for the stock data (matching questionGenerator's needs).
+// Revenue, EPS and operating profit come straight from the CSV and unlock the
+// valuation and margin questions; previously they were parsed and discarded.
 interface StockData {
   ticker: string;
-  companyName: string;
   currentPrice: number;
   previousClose: number;
-  dividendYield: number;
+  eps: number;
+  revenue: number;          // millions
+  operatingProfit: number;  // millions
   dividendPerShare: number;
+  dividendYield: number;
+}
+
+interface StockRow {
+  Ticker?: string;
+  Revenue?: string | number;
+  'Stock Price'?: string | number;
+  EPS?: string | number;
+  'Operating Profit'?: string | number;
+  'Annual Dividend'?: string | number;
 }
 
 // Helper function to round to 2 decimal places
@@ -20,17 +33,28 @@ const roundToTwoDecimals = (num: number): number => {
   return Math.round(num * 100) / 100;
 };
 
-// Helper function to calculate a plausible previous close price
-const calculatePreviousClose = (currentPrice: number): number => {
-  const variation = (Math.random() * 0.04) - 0.02; // +/- 2% variation
-  const prevClose = currentPrice * (1 + variation);
-  return roundToTwoDecimals(Math.max(0.01, prevClose)); // Ensure it's not zero or negative
+const toNumber = (value: string | number | undefined): number => {
+  const parsed = typeof value === 'number' ? value : parseFloat(String(value ?? ''));
+  return Number.isFinite(parsed) ? parsed : NaN;
 };
 
-// Helper function to calculate dividend yield
-const calculateDividendYield = (dividendPerShare: number, currentPrice: number): number => {
-  if (currentPrice === 0) return 0;
-  return roundToTwoDecimals((dividendPerShare / currentPrice) * 100);
+// Deterministic 0..1 from the ticker. The CSV has no prior close, so one is
+// derived - but deriving it from Math.random() meant the same ticker showed a
+// different prior close on every build. Seeding from the ticker keeps a given
+// company's numbers stable between builds.
+const seededUnitFloat = (seed: string): number => {
+  let hash = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    hash ^= seed.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return ((hash >>> 0) % 100000) / 100000;
+};
+
+// Derive a plausible previous close, within +/-2% of the current price.
+const derivePreviousClose = (ticker: string, currentPrice: number): number => {
+  const variation = seededUnitFloat(ticker) * 0.04 - 0.02;
+  return roundToTwoDecimals(Math.max(0.01, currentPrice * (1 + variation)));
 };
 
 // Function to load and process stock data from CSV
@@ -39,13 +63,9 @@ function loadStockData(): StockData[] {
     const csvFilePath = path.resolve(__dirname, 'Stockdata.csv');
     const csvFileContent = fs.readFileSync(csvFilePath, { encoding: 'utf-8' });
 
-    const parsed = Papa.parse<any>(csvFileContent, {
+    const parsed = Papa.parse<StockRow>(csvFileContent, {
       header: true, // Assumes first row is header
       skipEmptyLines: true,
-      dynamicTyping: (header: string | number) => {
-        // Attempt to auto-type numeric fields, check header names
-        return ['Stock Price', 'EPS', 'Annual Dividend'].includes(header.toString());
-      },
     });
 
     if (parsed.errors.length > 0) {
@@ -53,24 +73,35 @@ function loadStockData(): StockData[] {
       return []; // Return empty array on parse error
     }
 
-    // Process the parsed data
-    return parsed.data.map((row: any): StockData => {
-      const currentPrice = parseFloat(row['Stock Price']) || 0;
-      const dividendPerShare = parseFloat(row['Annual Dividend']) || 0;
-      
-      // Handle potential 'B' or 'M' in Revenue/Operating Profit if needed in future
-      // For now, we focus on the fields used by the question generator
+    return parsed.data
+      .map((row): StockData => {
+        const ticker = (row.Ticker ?? '').trim();
+        const currentPrice = toNumber(row['Stock Price']);
+        const dividendPerShare = toNumber(row['Annual Dividend']);
 
-      return {
-        ticker: row['Ticker'] || 'N/A',
-        companyName: row['Ticker'] || 'N/A', // Placeholder company name
-        currentPrice: roundToTwoDecimals(currentPrice),
-        previousClose: calculatePreviousClose(currentPrice),
-        dividendYield: calculateDividendYield(dividendPerShare, currentPrice),
-        dividendPerShare: roundToTwoDecimals(dividendPerShare),
-      };
-    }).filter(stock => stock.ticker !== 'N/A' && stock.currentPrice > 0); // Filter out invalid entries
-
+        return {
+          ticker,
+          currentPrice: roundToTwoDecimals(currentPrice),
+          previousClose: derivePreviousClose(ticker, currentPrice),
+          eps: toNumber(row.EPS),
+          revenue: toNumber(row.Revenue),
+          operatingProfit: toNumber(row['Operating Profit']),
+          dividendPerShare: roundToTwoDecimals(dividendPerShare),
+          dividendYield:
+            currentPrice > 0 ? roundToTwoDecimals((dividendPerShare / currentPrice) * 100) : 0,
+        };
+      })
+      // A handful of rows have blank cells. Drop anything that did not parse
+      // rather than letting NaN reach the question generator.
+      .filter(
+        stock =>
+          stock.ticker.length > 0 &&
+          stock.currentPrice > 0 &&
+          Number.isFinite(stock.eps) &&
+          Number.isFinite(stock.revenue) &&
+          Number.isFinite(stock.operatingProfit) &&
+          Number.isFinite(stock.dividendPerShare)
+      );
   } catch (error) {
     console.error('Error reading or processing Stockdata.csv:', error);
     return []; // Return empty array on file read error
