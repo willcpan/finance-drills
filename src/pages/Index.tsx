@@ -13,7 +13,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Calculator className="h-6 w-6" />
-              <h1 className="text-xl font-bold">Finance Math Whiz</h1>
+              <h1 className="text-xl font-bold">Finance Drills</h1>
             </div>
             <div className="flex items-center space-x-4">
               <TrendingUp className="h-5 w-5" />
@@ -30,7 +30,7 @@ const Index = () => {
       <footer className="bg-white py-4 border-t">
         <div className="container mx-auto px-4">
           <p className="text-center text-gray-500 text-sm">
-            Financial Math Whiz Game © {new Date().getFullYear()} | Mock data for educational purposes only
+            Finance Drills © {new Date().getFullYear()} | Mock data for educational purposes only
           </p>
         </div>
       </footer>

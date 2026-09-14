@@ -127,7 +127,7 @@ const GameContainer: React.FC<GameContainerProps> = ({ initialQuestionCount = 10
     <div className="max-w-4xl mx-auto p-4">
       {gameState === "ready" ? (
         <div className="bg-white rounded-lg shadow-md p-6 animate-fade-in">
-          <h2 className="text-2xl font-bold text-finance-blue mb-6">Financial Math Whiz</h2>
+          <h2 className="text-2xl font-bold text-finance-blue mb-6">Finance Drills</h2>
           <p className="text-gray-600 mb-8">Test your mental math skills with financial data! Answer the questions correctly to earn points.</p>
           
           <div className="grid md:grid-cols-2 gap-6 mb-8">
