@@ -16,25 +16,52 @@ import { money, shortDate } from "./format";
 
 const DIFFICULTIES: DifficultyLevel[] = ["easy", "medium", "hard"];
 
-// The stock data is injected by the build - Stockdata.csv for fundamentals,
-// data/prices.json for prices - so these run against the real companies and
-// the real market prices rather than a fixture. The merge itself is tested in
-// buildStockData.test.ts.
+// The stock data is injected by the build - data/universe.json for the index
+// and its reported figures, data/prices.json for prices - so these run against
+// the real S&P 500 and real market prices rather than a fixture. The join
+// itself is tested in buildStockData.test.ts.
 describe("stock data", () => {
-  it("loads rows from the CSV", () => {
-    // 186 unique tickers in the CSV, minus those with no live quote.
-    expect(stocks.length).toBeGreaterThan(150);
+  it("loads the index", () => {
+    // Around 500 members, minus any the quote endpoint could not price.
+    expect(stocks.length).toBeGreaterThan(450);
   });
 
-  it("drops rows that did not parse", () => {
+  it("gives every company the things a question always prints", () => {
     for (const stock of stocks) {
-      expect(Number.isFinite(stock.currentPrice)).toBe(true);
-      expect(Number.isFinite(stock.eps)).toBe(true);
-      expect(Number.isFinite(stock.revenue)).toBe(true);
-      expect(Number.isFinite(stock.operatingProfit)).toBe(true);
-      expect(Number.isFinite(stock.dividendPerShare)).toBe(true);
       expect(stock.ticker.length).toBeGreaterThan(0);
+      expect(stock.name.length).toBeGreaterThan(0);
+      expect(Number.isFinite(stock.currentPrice)).toBe(true);
+      expect(stock.currentPrice).toBeGreaterThan(0);
+      expect(Number.isFinite(stock.previousClose)).toBe(true);
+      // Zero for a company that pays none, never NaN.
+      expect(Number.isFinite(stock.dividendPerShare)).toBe(true);
     }
+  });
+
+  it("leaves a figure the company never reported as NaN", () => {
+    // Financials and REITs largely do not report operating income, so this is
+    // an accounting fact rather than a parse failure. Zero would be a claim,
+    // and would put a 0% margin question into the drill.
+    const finite = (pick: (s: (typeof stocks)[number]) => number) =>
+      stocks.filter(s => Number.isFinite(pick(s))).length;
+
+    // Most of the index reports revenue and EPS; operating income is patchier.
+    expect(finite(s => s.eps)).toBeGreaterThan(stocks.length * 0.9);
+    expect(finite(s => s.revenue)).toBeGreaterThan(stocks.length * 0.9);
+    expect(finite(s => s.operatingProfit)).toBeGreaterThan(stocks.length * 0.7);
+
+    // Whatever is missing must be NaN rather than a number standing in for it.
+    for (const stock of stocks) {
+      for (const value of [stock.eps, stock.revenue, stock.operatingProfit]) {
+        expect(Number.isFinite(value) || Number.isNaN(value)).toBe(true);
+      }
+    }
+  });
+
+  it("says which fiscal year the reported figures came from", () => {
+    const dated = stocks.filter(s => Number.isFinite(s.eps) && s.fiscalYear);
+    const withEps = stocks.filter(s => Number.isFinite(s.eps));
+    expect(dated.length).toBe(withEps.length);
   });
 
   it("carries a real prior close for every row", () => {

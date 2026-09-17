@@ -1,6 +1,6 @@
-// Shape of each row after the build merges Stockdata.csv with the refreshed
-// quotes in data/prices.json (see src/utils/buildStockData.ts). Kept in sync by
-// hand; the build injects the array as __GAME_STOCK_DATA__.
+// Shape of each row after the build joins data/universe.json (the index and
+// its reported figures) with data/prices.json (see src/utils/buildStockData.ts).
+// Kept in sync by hand; the build injects the array as __GAME_STOCK_DATA__.
 // A close from further back, with the session it came from. The date is kept
 // so a question can say when "a month ago" actually was.
 export interface PastClose {
@@ -10,35 +10,68 @@ export interface PastClose {
 
 export interface StockData {
   ticker: string;
-  // The company's own name, falling back to the ticker when the quote carried
-  // none - so this is always safe to render.
+  // The company's own name, falling back to the ticker when neither source
+  // carried one - so this is always safe to render.
   name: string;
+  // GICS sector from the index table, or null if it was not published.
+  sector: string | null;
   currentPrice: number;
   previousClose: number;
   // Null when the history was too short, or when a split sits between that
   // session and now so its printed close no longer compares with today's.
   monthAgo: PastClose | null;
   yearAgo: PastClose | null;
+  // NaN where the company never reported the figure - financials and REITs
+  // largely do not report operating income. The eligibility bands reject NaN,
+  // so such a company sits out only the questions that need it.
   eps: number;
   revenue: number; // millions
   operatingProfit: number; // millions
+  // The fiscal year the reported figures came from, e.g. "CY2025" or "FY2026".
+  fiscalYear: string | null;
+  // Trailing twelve months of dividends actually paid; 0 for a company that
+  // pays none.
   dividendPerShare: number;
   dividendYield: number;
 }
 
-declare const __GAME_STOCK_DATA__: StockData[];
+// A figure the company never reported is NaN in the build, but the build
+// injects the array through JSON - which has no NaN and writes null instead.
+type InjectedStock = Omit<StockData, "eps" | "revenue" | "operatingProfit"> & {
+  eps: number | null;
+  revenue: number | null;
+  operatingProfit: number | null;
+};
+
+declare const __GAME_STOCK_DATA__: InjectedStock[];
 declare const __PRICES_AS_OF__: string | null;
+declare const __UNIVERSE_INDEX__: string | null;
+
+// Null back to NaN, so "never reported" stays contagious through arithmetic.
+// As null it would not be: `null / revenue * 100` is 0 in JavaScript, and a
+// company with no operating income would quietly acquire a 0% margin, kept out
+// of the drill only by where the sensible band happens to start.
+const reported = (value: number | null): number => (value === null ? Number.NaN : value);
 
 // The define is missing outside a Vite build (a bare `tsc`, say), so fall back
 // to an empty list rather than throwing at module load.
-export const stocks: StockData[] =
-  typeof __GAME_STOCK_DATA__ !== "undefined" ? __GAME_STOCK_DATA__ : [];
+export const stocks: StockData[] = (
+  typeof __GAME_STOCK_DATA__ !== "undefined" ? __GAME_STOCK_DATA__ : []
+).map(stock => ({
+  ...stock,
+  eps: reported(stock.eps),
+  revenue: reported(stock.revenue),
+  operatingProfit: reported(stock.operatingProfit),
+}));
 
-// ISO timestamp the prices were taken, or null when the build fell back to the
-// prices baked into the CSV. The UI dates the data from this so a player can
-// see how fresh the numbers they are drilling actually are.
+// ISO timestamp the prices were taken. The UI dates the data from this so a
+// player can see how fresh the numbers they are drilling actually are.
 export const pricesAsOf: string | null =
   typeof __PRICES_AS_OF__ !== "undefined" ? __PRICES_AS_OF__ : null;
+
+// The index the companies were drawn from, for the screen that says so.
+export const universeIndex: string | null =
+  typeof __UNIVERSE_INDEX__ !== "undefined" ? __UNIVERSE_INDEX__ : null;
 
 export const randomInt = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1)) + min;

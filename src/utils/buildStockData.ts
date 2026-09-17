@@ -1,22 +1,47 @@
-// Build-time only. Imported by vite.config.ts (and its test) to turn
-// Stockdata.csv plus data/prices.json into the array the build injects as
-// __GAME_STOCK_DATA__. Nothing in the app imports this, so papaparse stays out
-// of the client bundle.
+// Build-time only. Imported by vite.config.ts (and its test) to join
+// data/universe.json with data/prices.json into the array the build injects as
+// __GAME_STOCK_DATA__.
 //
-// Fundamentals come from the CSV, prices from the refreshed quote file. The
-// split matches how the two actually age: revenue and EPS move once a quarter,
-// prices move every day.
-import Papa from "papaparse";
+// The two files split along how fast their contents age, and along who
+// publishes them:
+//
+//   universe.json  who is in the S&P 500, and what they reported - the index
+//                  from Wikipedia, revenue, operating profit and EPS from SEC
+//                  filings. Changes when a company files or the index is
+//                  reconstituted.
+//   prices.json    price, the closes behind it, and the dividends paid.
+//                  Changes every trading day.
 import type { PastClose, StockData } from "./stockData";
+
+export interface Company {
+  ticker: string;
+  name: string;
+  sector: string;
+  cik: number;
+  // Any of these may be null. Financials and REITs mostly do not report
+  // operating income at all, and a company too newly listed to have filed an
+  // annual report has none of them.
+  revenue: number | null; // millions
+  operatingProfit: number | null; // millions
+  eps: number | null;
+  fiscalYear: string | null;
+}
+
+export interface Universe {
+  asOf: string;
+  index: string;
+  companies: Company[];
+}
 
 export interface Quote {
   price: number;
   previousClose: number;
-  // Optional: a quote predating these fields, or one whose history was too
-  // short, still gives a usable day-move question.
   name?: string | null;
   monthAgo?: PastClose | null;
   yearAgo?: PastClose | null;
+  // Trailing twelve months of payments. Zero for a company that pays none,
+  // which is a fact about it rather than a missing value.
+  dividend?: number | null;
 }
 
 export interface PriceFile {
@@ -27,157 +52,80 @@ export interface PriceFile {
 
 export interface BuildResult {
   stocks: StockData[];
-  // When the prices were taken, or null if the build fell back to CSV prices.
+  // When the prices were taken.
   asOf: string | null;
-  // Tickers in the CSV that had no usable quote, so were left out.
+  // Index members with no usable quote, so left out.
   withoutQuote: string[];
 }
 
-interface StockRow {
-  Ticker?: string;
-  Revenue?: string | number;
-  "Stock Price"?: string | number;
-  EPS?: string | number;
-  "Operating Profit"?: string | number;
-  "Annual Dividend"?: string | number;
-}
-
-// Excel and friends write a byte-order mark ahead of the header, which would
-// otherwise land in the first column name and lose every Ticker.
-const stripBom = (text: string): string =>
-  text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;
-
 const round2 = (value: number): number => Math.round(value * 100) / 100;
 
-const toNumber = (value: string | number | undefined): number => {
-  const parsed = typeof value === "number" ? value : parseFloat(String(value ?? ""));
-  return Number.isFinite(parsed) ? parsed : NaN;
-};
-
-// Deterministic 0..1 from the ticker (FNV-1a). Only used by the no-quote
-// fallback below; a Math.random() prior close moved on every build, so the
-// same company drilled a different number each time.
-const seededUnitFloat = (seed: string): number => {
-  let hash = 2166136261;
-  for (let i = 0; i < seed.length; i++) {
-    hash ^= seed.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-  }
-  return ((hash >>> 0) % 100000) / 100000;
-};
-
-// Stand-in prior close within +/-2% of price, for a build with no quote file.
-export const derivePreviousClose = (ticker: string, price: number): number =>
-  round2(Math.max(0.01, price * (1 + (seededUnitFloat(ticker) * 0.04 - 0.02))));
+const isNumber = (value: unknown): value is number =>
+  typeof value === "number" && Number.isFinite(value);
 
 const isUsableQuote = (quote: Quote | undefined): quote is Quote =>
-  !!quote &&
-  Number.isFinite(quote.price) &&
-  quote.price > 0 &&
-  Number.isFinite(quote.previousClose) &&
-  quote.previousClose > 0;
+  !!quote && isNumber(quote.price) && quote.price > 0 && isNumber(quote.previousClose) && quote.previousClose > 0;
 
 // A past close is only usable if both halves survived the fetch. A malformed
 // one costs the company its longer-horizon questions, not its whole row.
 const pastClose = (past: PastClose | null | undefined): PastClose | null =>
-  past && Number.isFinite(past.price) && past.price > 0 && typeof past.date === "string"
+  past && isNumber(past.price) && past.price > 0 && typeof past.date === "string"
     ? { price: round2(past.price), date: past.date }
     : null;
 
-export function buildStockData(csvText: string, prices: PriceFile | null): BuildResult {
-  const parsed = Papa.parse<StockRow>(stripBom(csvText), {
-    header: true,
-    skipEmptyLines: true,
-  });
+// A figure the company never reported becomes NaN rather than 0, because 0 is
+// a claim. The eligibility bands in questionGenerator reject NaN, so the
+// company simply sits out the questions that need it - a bank with no
+// operating income keeps its P/E question and loses its margin question.
+const reported = (value: number | null | undefined): number =>
+  isNumber(value) ? value : Number.NaN;
 
-  if (parsed.errors.length > 0) {
-    throw new Error(`Stockdata.csv did not parse: ${parsed.errors[0].message}`);
-  }
-
-  // A quote file with no quotes is as good as none: fall back rather than
-  // build an empty drill.
-  const quotes = prices?.quotes && Object.keys(prices.quotes).length > 0 ? prices.quotes : null;
+export function buildStockData(universe: Universe | null, prices: PriceFile | null): BuildResult {
+  const companies = universe?.companies ?? [];
+  const quotes = prices?.quotes ?? {};
 
   const stocks: StockData[] = [];
   const withoutQuote: string[] = [];
   const seen = new Set<string>();
 
-  for (const row of parsed.data) {
-    const ticker = (row.Ticker ?? "").trim();
-    const csvPrice = toNumber(row["Stock Price"]);
-    const eps = toNumber(row.EPS);
-    const revenue = toNumber(row.Revenue);
-    const operatingProfit = toNumber(row["Operating Profit"]);
-    const dividendPerShare = toNumber(row["Annual Dividend"]);
+  for (const company of companies) {
+    const ticker = (company.ticker ?? "").trim();
+    if (!ticker || seen.has(ticker)) continue;
+    seen.add(ticker);
 
-    // A few rows have blank cells. Drop anything that did not parse rather
-    // than letting NaN reach the question generator.
-    if (
-      !ticker ||
-      !(csvPrice > 0) ||
-      !Number.isFinite(eps) ||
-      !Number.isFinite(revenue) ||
-      !Number.isFinite(operatingProfit) ||
-      !Number.isFinite(dividendPerShare)
-    ) {
+    const quote = quotes[ticker];
+    if (!isUsableQuote(quote)) {
+      // No price means no question: every type prints one, even the ones that
+      // ask about earnings.
+      withoutQuote.push(ticker);
       continue;
     }
 
-    // The CSV has carried exact duplicate rows before, which does not corrupt
-    // any answer but makes the repeated company that many times more likely to
-    // come up. First row wins.
-    if (seen.has(ticker)) continue;
-    seen.add(ticker);
-
-    let price: number;
-    let previousClose: number;
-    let name = ticker;
-    let monthAgo: PastClose | null = null;
-    let yearAgo: PastClose | null = null;
-
-    if (quotes) {
-      const quote = quotes[ticker];
-      if (!isUsableQuote(quote)) {
-        // Acquired, taken private, renamed, or listed only in another
-        // currency. Its price can never be refreshed again, and pairing a
-        // frozen price with an invented prior close is exactly what the quote
-        // file exists to stop - so it sits the drill out.
-        withoutQuote.push(ticker);
-        continue;
-      }
-      price = round2(quote.price);
-      previousClose = round2(quote.previousClose);
-      // The ticker is the fallback name: every screen that shows a name can
-      // then render it without a null check.
-      name = quote.name?.trim() || ticker;
-      monthAgo = pastClose(quote.monthAgo);
-      yearAgo = pastClose(quote.yearAgo);
-    } else {
-      price = round2(csvPrice);
-      previousClose = derivePreviousClose(ticker, csvPrice);
-      // The CSV holds no names and no history, so a fallback build drills the
-      // day move only.
-    }
+    const price = round2(quote.price);
+    const dividendPerShare = isNumber(quote.dividend) ? round2(quote.dividend) : 0;
 
     stocks.push({
       ticker,
-      name,
+      // The index table's name is the plain one ("Apple Inc." over "Apple Inc.
+      // Common Stock"); the quote's is the fallback.
+      name: company.name?.trim() || quote.name?.trim() || ticker,
+      sector: company.sector?.trim() || null,
       currentPrice: price,
-      previousClose,
-      monthAgo,
-      yearAgo,
-      eps,
-      revenue,
-      operatingProfit,
-      dividendPerShare: round2(dividendPerShare),
-      // Against the live price, not the CSV's.
-      dividendYield: round2((dividendPerShare / price) * 100),
+      previousClose: round2(quote.previousClose),
+      monthAgo: pastClose(quote.monthAgo),
+      yearAgo: pastClose(quote.yearAgo),
+      eps: reported(company.eps),
+      revenue: reported(company.revenue),
+      operatingProfit: reported(company.operatingProfit),
+      fiscalYear: company.fiscalYear ?? null,
+      dividendPerShare,
+      dividendYield: price > 0 ? round2((dividendPerShare / price) * 100) : 0,
     });
   }
 
   return {
     stocks,
-    asOf: quotes ? (prices as PriceFile).asOf : null,
+    asOf: prices?.asOf ?? null,
     withoutQuote,
   };
 }

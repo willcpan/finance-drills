@@ -46,24 +46,38 @@ jobs:
           node-version: 20 # Use a version compatible with your project
           cache: 'npm'
 
-      # Refreshing on a push as well would rewrite the data file on every
-      # commit, so a push deploys the prices it was pushed with.
+      # Refreshing on a push as well would rewrite the data files on every
+      # commit, so a push deploys the data it was pushed with.
+
+      # Index membership and reported figures: about two dozen requests, and
+      # mostly a no-op between filing seasons. It is what stops a company that
+      # has left the index from lingering in the drill.
+      #
+      # SEC_CONTACT is optional - set it to an email to declare the traffic the
+      # way the SEC asks. It must not contain the string "github", which they
+      # reject outright.
+      - name: Refresh universe
+        if: github.event_name != 'push'
+        env:
+          SEC_CONTACT: ${{ secrets.SEC_CONTACT }}
+        run: node scripts/refresh-universe.mjs
+
       - name: Refresh prices
         if: github.event_name != 'push'
         run: node scripts/refresh-prices.mjs
 
-      - name: Commit refreshed prices
+      - name: Commit refreshed data
         if: github.event_name != 'push'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           # Staged first: git diff alone reports no change for a file that is
           # not tracked yet.
-          git add data/prices.json
-          if git diff --cached --quiet -- data/prices.json; then
-            echo "prices unchanged"
+          git add data/universe.json data/prices.json
+          if git diff --cached --quiet -- data/universe.json data/prices.json; then
+            echo "data unchanged"
           else
-            git commit -m "Refresh prices ($(date -u +%Y-%m-%d))"
+            git commit -m "Refresh market data ($(date -u +%Y-%m-%d))"
             git push
           fi
 

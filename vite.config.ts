@@ -3,52 +3,62 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs from "fs";
 import { componentTagger } from "lovable-tagger";
-import { buildStockData, type PriceFile } from "./src/utils/buildStockData";
+import { buildStockData, type PriceFile, type Universe } from "./src/utils/buildStockData";
 
-// Prices are refreshed by scripts/refresh-prices.mjs and committed to
-// data/prices.json; fundamentals live in Stockdata.csv. Both are read here and
-// injected into the bundle, so the page itself never calls out to a data
-// provider - no CORS dance, no third-party script, nothing to fail at runtime.
+// The index and its reported figures come from scripts/refresh-universe.mjs;
+// the prices from scripts/refresh-prices.mjs. Both files are committed, read
+// here, and injected into the bundle - so the page itself never calls out to a
+// data provider: no CORS dance, no third-party script, nothing to fail at
+// runtime.
+const UNIVERSE_PATH = "data/universe.json";
 const PRICES_PATH = "data/prices.json";
 
-const readPriceFile = (root: string): PriceFile | null => {
-  const file = path.resolve(root, PRICES_PATH);
+const readJson = <T,>(root: string, relative: string): T | null => {
+  const file = path.resolve(root, relative);
   if (!fs.existsSync(file)) {
-    // A fresh clone can still run `npm run dev`; buildStockData falls back to
-    // the CSV's own prices.
-    console.warn(`[stock-data] ${PRICES_PATH} missing - falling back to CSV prices`);
+    console.warn(`[stock-data] ${relative} is missing`);
     return null;
   }
   try {
-    return JSON.parse(fs.readFileSync(file, "utf-8")) as PriceFile;
+    return JSON.parse(fs.readFileSync(file, "utf-8")) as T;
   } catch (error) {
-    console.warn(`[stock-data] ${PRICES_PATH} unreadable (${String(error)}) - using CSV prices`);
+    console.warn(`[stock-data] ${relative} is unreadable (${String(error)})`);
     return null;
   }
 };
 
 const loadGameData = (root: string) => {
-  const csvText = fs.readFileSync(path.resolve(root, "Stockdata.csv"), "utf-8");
-  const { stocks, asOf, withoutQuote } = buildStockData(csvText, readPriceFile(root));
+  const universe = readJson<Universe>(root, UNIVERSE_PATH);
+  const prices = readJson<PriceFile>(root, PRICES_PATH);
+  const { stocks, asOf, withoutQuote } = buildStockData(universe, prices);
 
   // An empty drill is worse than a failed build: it would deploy a site where
-  // every question type has an empty pool.
+  // every question type has an empty pool. Both files are committed, so this
+  // only fires if one is deleted or corrupted.
   if (stocks.length === 0) {
-    throw new Error("[stock-data] no usable rows - refusing to build an empty drill");
+    throw new Error(
+      "[stock-data] no usable companies - run `npm run refresh:universe` and " +
+        "`npm run refresh:prices`, rather than building an empty drill"
+    );
   }
 
+  const reported = (pick: (stock: (typeof stocks)[number]) => number) =>
+    stocks.filter(stock => Number.isFinite(pick(stock))).length;
+
   console.log(
-    `[stock-data] ${stocks.length} companies` +
-      (asOf ? `, prices as of ${asOf}` : ", CSV prices (no quote file)") +
-      (withoutQuote.length ? `, ${withoutQuote.length} without a quote: ${withoutQuote.join(", ")}` : "")
+    `[stock-data] ${stocks.length} companies from ${universe?.index ?? "an unnamed index"}, ` +
+      `prices as of ${asOf}\n` +
+      `[stock-data] reported: eps ${reported(s => s.eps)}, revenue ${reported(s => s.revenue)}, ` +
+      `operating profit ${reported(s => s.operatingProfit)}` +
+      (withoutQuote.length ? `\n[stock-data] ${withoutQuote.length} without a quote: ${withoutQuote.join(", ")}` : "")
   );
 
-  return { stocks, asOf };
+  return { stocks, asOf, index: universe?.index ?? null };
 };
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const { stocks, asOf } = loadGameData(__dirname);
+  const { stocks, asOf, index } = loadGameData(__dirname);
 
   return {
     // Conditionally set base path only for production build (GitHub Pages)
@@ -66,6 +76,7 @@ export default defineConfig(({ mode }) => {
     define: {
       __GAME_STOCK_DATA__: JSON.stringify(stocks),
       __PRICES_AS_OF__: JSON.stringify(asOf),
+      __UNIVERSE_INDEX__: JSON.stringify(index),
     },
   };
 });

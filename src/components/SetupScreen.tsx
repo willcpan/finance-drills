@@ -18,7 +18,7 @@ import {
   type QuestionType,
 } from "@/utils/questionGenerator";
 import { weakestType, type Stats } from "@/utils/stats";
-import { pricesAsOf, stocks } from "@/utils/stockData";
+import { pricesAsOf, stocks, universeIndex } from "@/utils/stockData";
 
 interface SetupScreenProps {
   config: GameConfig;
@@ -71,7 +71,8 @@ const SetupScreen: React.FC<SetupScreenProps> = ({ config, stats, onChange, onSt
         figures. Answer fast, then read the shortcut.
       </p>
       <p className="text-xs text-gray-500 mb-6">
-        {stocks.length} companies{priceDate ? ` · prices as of ${priceDate}` : ""}
+        {stocks.length} companies{universeIndex ? ` from the ${universeIndex}` : ""}
+        {priceDate ? ` · prices as of ${priceDate}` : ""}
       </p>
 
       <div className="grid md:grid-cols-3 gap-5 mb-6">

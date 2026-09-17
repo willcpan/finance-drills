@@ -1,13 +1,13 @@
-// Refresh data/prices.json from Yahoo's chart endpoint.
+// Refresh data/prices.json from Yahoo's chart endpoint, for whoever is in
+// data/universe.json.
 //
-// Fundamentals (revenue, EPS, operating profit, dividend) stay in
-// Stockdata.csv: they move once a quarter, and the endpoint that serves them
-// (v10 quoteSummary) answers 401 without a session crumb. Prices are the part
-// that goes stale, so prices are the part we fetch.
+// Revenue, operating profit and EPS come from the SEC in refresh-universe.mjs;
+// they move once a quarter. Prices move every day, which is why they are
+// refreshed separately and why the daily commit touches only this file.
 //
-// One call per ticker returns a year of daily bars, which carries the company
-// name and the closes a month and a year back as well as today's price - so
-// the longer-horizon questions cost no extra requests.
+// One call per ticker returns a year of daily bars, carrying the company name,
+// the closes a month and a year back, and the dividends paid over the year -
+// so the longer-horizon and dividend questions cost no extra requests.
 //
 // The output is committed. The site stays static: no runtime fetch, no CORS
 // negotiation, no third-party script in the page.
@@ -19,13 +19,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const CSV = path.join(ROOT, 'Stockdata.csv');
+const UNIVERSE = path.join(ROOT, 'data', 'universe.json');
 const OUT = path.join(ROOT, 'data', 'prices.json');
 
 const DRY_RUN = process.argv.includes('--dry-run');
 
-// Politeness and patience. The full set is ~180 tickers; at 4 in flight this
-// finishes in well under a minute, which is inside any CI budget.
+// Politeness and patience. The index is ~500 tickers; at 4 in flight this
+// finishes in about 25 seconds, which is well inside any CI budget.
 const CONCURRENCY = 4;
 const PACING_MS = 120;
 const ATTEMPTS = 2;
@@ -54,19 +54,17 @@ const MIN_YEAR_DAYS = 350;
 // quoting its raw close would invent a 90% crash.
 const MAX_ADJUSTMENT_GAP = 0.25;
 
-const readTickers = () =>
-  [
-    ...new Set(
-      fs
-        .readFileSync(CSV, 'utf-8')
-        .replace(/^﻿/, '')
-        .trim()
-        .split(/\r?\n/)
-        .slice(1)
-        .map(line => line.split(',')[0].trim())
-        .filter(Boolean)
-    ),
-  ].sort();
+// The index membership is refresh-universe.mjs's job; this script prices
+// whoever is in it.
+const readTickers = () => {
+  if (!fs.existsSync(UNIVERSE)) {
+    console.error(`${path.relative(ROOT, UNIVERSE)} is missing - run refresh-universe.mjs first`);
+    process.exit(1);
+  }
+
+  const { companies } = JSON.parse(fs.readFileSync(UNIVERSE, 'utf-8'));
+  return [...new Set((companies ?? []).map(c => c.ticker).filter(Boolean))].sort();
+};
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -93,9 +91,13 @@ const closeOnOrBefore = (bars, cutoffDay) => {
 };
 
 async function fetchQuote(ticker) {
+  // events=div brings the dividends paid over the range back in the same
+  // response. The SEC tags dividends inconsistently - barely a quarter of the
+  // index files CommonStockDividendsPerShareDeclared - so the trailing twelve
+  // months are summed from what was actually paid instead.
   const url =
     `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}` +
-    `?interval=1d&range=1y&includeAdjustedClose=true`;
+    `?interval=1d&range=1y&includeAdjustedClose=true&events=div`;
 
   for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
     try {
@@ -169,6 +171,11 @@ async function fetchQuote(ticker) {
 
       const past = bar => (bar ? { price: round2(bar.close), date: bar.day } : null);
 
+      // A year of payments is the trailing dividend. A company that pays none
+      // sums to zero, which is the right answer for it rather than a gap.
+      const payments = Object.values(result?.events?.dividends ?? {});
+      const dividend = payments.reduce((sum, d) => sum + (Number.isFinite(d.amount) ? d.amount : 0), 0);
+
       return {
         ticker,
         ok: true,
@@ -177,6 +184,8 @@ async function fetchQuote(ticker) {
         previousClose: round2(previous.close),
         monthAgo: past(monthAgo),
         yearAgo: past(yearAgo),
+        dividend: Math.round(dividend * 1000) / 1000,
+        payments: payments.length,
         asOf: meta?.regularMarketTime,
       };
     } catch (err) {
@@ -229,11 +238,11 @@ if (bad.length) {
 
 // Names and history are optional per ticker, so report them separately: a
 // question type quietly losing its pool is worth noticing here.
-const report = (label, has) => {
-  const missing = good.filter(r => !has(r)).map(r => r.ticker);
+const report = (label, has, note = 'missing') => {
+  const without = good.filter(r => !has(r)).map(r => r.ticker);
   console.log(
-    `  ${label} ${String(good.length - missing.length).padStart(3)}/${good.length}` +
-      (missing.length ? `   missing: ${missing.join(', ')}` : '')
+    `  ${label} ${String(good.length - without.length).padStart(3)}/${good.length}` +
+      (without.length ? `   ${note}: ${without.length}` : '')
   );
 };
 
@@ -241,6 +250,8 @@ console.log('\nof those:');
 report('name      ', r => r.name);
 report('month-ago ', r => r.monthAgo);
 report('year-ago  ', r => r.yearAgo);
+// Not a gap: a company that pays nothing is correctly recorded as zero.
+report('pays a dividend', r => r.dividend > 0, 'pay none');
 
 if (coverage < MIN_COVERAGE) {
   console.error(
@@ -268,6 +279,7 @@ const payload = {
           previousClose: r.previousClose,
           monthAgo: r.monthAgo,
           yearAgo: r.yearAgo,
+          dividend: r.dividend,
         },
       ])
   ),

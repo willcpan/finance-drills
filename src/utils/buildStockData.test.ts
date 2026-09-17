@@ -1,55 +1,91 @@
 import { describe, it, expect } from "vitest";
-import { buildStockData, derivePreviousClose, type PriceFile } from "./buildStockData";
+import { buildStockData, type Company, type PriceFile, type Universe } from "./buildStockData";
 
-const HEADER = "Ticker,Revenue,Stock Price,EPS,Operating Profit,Annual Dividend";
+const company = (overrides: Partial<Company> = {}): Company => ({
+  ticker: "AAA",
+  name: "Alpha Industries Inc.",
+  sector: "Industrials",
+  cik: 1234567,
+  revenue: 1000,
+  operatingProfit: 200,
+  eps: 5,
+  fiscalYear: "CY2025",
+  ...overrides,
+});
 
-const csv = (...rows: string[]) => [HEADER, ...rows].join("\n");
-
-// price 100, eps 5, revenue 1000, op profit 200, dividend 2
-const AAA = "AAA,1000,100,5,200,2";
-const BBB = "BBB,2000,50,2.5,400,1";
+const universe = (...companies: Company[]): Universe => ({
+  asOf: "2026-09-17T00:00:00.000Z",
+  index: "S&P 500",
+  companies,
+});
 
 const priceFile = (quotes: PriceFile["quotes"]): PriceFile => ({
-  asOf: "2026-09-17T16:19:12.000Z",
+  asOf: "2026-09-17T20:04:57.000Z",
   source: "test",
   quotes,
 });
 
 describe("buildStockData", () => {
-  it("takes prices from the quote file and fundamentals from the CSV", () => {
+  it("joins reported figures to the quote", () => {
     const { stocks, asOf } = buildStockData(
-      csv(AAA),
-      priceFile({ AAA: { price: 123.45, previousClose: 119.9 } })
+      universe(company()),
+      priceFile({ AAA: { price: 123.45, previousClose: 119.9, dividend: 2 } })
     );
 
     expect(stocks).toHaveLength(1);
     expect(stocks[0]).toMatchObject({
       ticker: "AAA",
+      name: "Alpha Industries Inc.",
+      sector: "Industrials",
       currentPrice: 123.45,
       previousClose: 119.9,
       eps: 5,
       revenue: 1000,
       operatingProfit: 200,
+      fiscalYear: "CY2025",
       dividendPerShare: 2,
     });
-    expect(asOf).toBe("2026-09-17T16:19:12.000Z");
+    expect(asOf).toBe("2026-09-17T20:04:57.000Z");
   });
 
-  it("recomputes dividend yield against the live price, not the CSV price", () => {
-    // 2 / 80 = 2.5%, where the CSV price of 100 would have said 2%.
+  it("computes dividend yield against the live price", () => {
     const { stocks } = buildStockData(
-      csv(AAA),
-      priceFile({ AAA: { price: 80, previousClose: 79 } })
+      universe(company()),
+      priceFile({ AAA: { price: 80, previousClose: 79, dividend: 2 } })
     );
     expect(stocks[0].dividendYield).toBe(2.5);
   });
 
+  it("treats a company that pays nothing as paying zero", () => {
+    // Not a missing value: Berkshire pays no dividend, and that is a fact
+    // about Berkshire.
+    const { stocks } = buildStockData(
+      universe(company()),
+      priceFile({ AAA: { price: 100, previousClose: 99, dividend: 0 } })
+    );
+    expect(stocks[0].dividendPerShare).toBe(0);
+    expect(stocks[0].dividendYield).toBe(0);
+  });
+
+  it("carries a figure the company never reported as NaN, not zero", () => {
+    // Financials and REITs largely do not report operating income. Zero would
+    // be a claim - and would put a 0% margin question into the drill.
+    const { stocks } = buildStockData(
+      universe(company({ operatingProfit: null, eps: null })),
+      priceFile({ AAA: { price: 100, previousClose: 99 } })
+    );
+
+    expect(stocks).toHaveLength(1);
+    expect(Number.isNaN(stocks[0].operatingProfit)).toBe(true);
+    expect(Number.isNaN(stocks[0].eps)).toBe(true);
+    expect(stocks[0].revenue).toBe(1000);
+  });
+
   it("carries the company name and both past closes through", () => {
     const { stocks } = buildStockData(
-      csv(AAA),
+      universe(company()),
       priceFile({
         AAA: {
-          name: "Alpha Industries Inc.",
           price: 100,
           previousClose: 99,
           monthAgo: { price: 90, date: "2026-08-18" },
@@ -58,28 +94,56 @@ describe("buildStockData", () => {
       })
     );
 
-    expect(stocks[0].name).toBe("Alpha Industries Inc.");
     expect(stocks[0].monthAgo).toEqual({ price: 90, date: "2026-08-18" });
     expect(stocks[0].yearAgo).toEqual({ price: 50, date: "2025-09-17" });
   });
 
-  it("falls back to the ticker when a quote carries no name", () => {
-    // Every screen showing a name can then render it without a null check.
+  it("prefers the index's plain name over the quote's", () => {
     const { stocks } = buildStockData(
-      csv(AAA, BBB),
+      universe(company({ name: "Apple Inc." })),
+      priceFile({ AAA: { price: 100, previousClose: 99, name: "Apple Inc. Common Stock" } })
+    );
+    expect(stocks[0].name).toBe("Apple Inc.");
+  });
+
+  it("falls back through the quote's name to the ticker", () => {
+    const { stocks } = buildStockData(
+      universe(company({ name: "" }), company({ ticker: "BBB", name: "" })),
       priceFile({
-        AAA: { price: 100, previousClose: 99, name: null },
-        BBB: { price: 50, previousClose: 49, name: "   " },
+        AAA: { price: 100, previousClose: 99, name: "From The Quote" },
+        BBB: { price: 50, previousClose: 49, name: null },
       })
     );
-    expect(stocks.map(s => s.name)).toEqual(["AAA", "BBB"]);
+    expect(stocks.map(s => s.name)).toEqual(["From The Quote", "BBB"]);
+  });
+
+  it("leaves out an index member with no quote and names it", () => {
+    // Every question prints a price, including the ones asking about earnings.
+    const { stocks, withoutQuote } = buildStockData(
+      universe(company(), company({ ticker: "BBB" })),
+      priceFile({ AAA: { price: 100, previousClose: 99 } })
+    );
+
+    expect(stocks.map(s => s.ticker)).toEqual(["AAA"]);
+    expect(withoutQuote).toEqual(["BBB"]);
+  });
+
+  it("treats a malformed quote as no quote", () => {
+    const { stocks, withoutQuote } = buildStockData(
+      universe(company(), company({ ticker: "BBB" })),
+      priceFile({
+        AAA: { price: 100, previousClose: 0 },
+        BBB: { price: Number.NaN, previousClose: 50 },
+      })
+    );
+
+    expect(stocks).toHaveLength(0);
+    expect(withoutQuote).toEqual(["AAA", "BBB"]);
   });
 
   it("keeps a row whose history is missing or malformed, minus the history", () => {
-    // A bad past close costs that company its longer-horizon questions, not
-    // its place in the drill.
     const { stocks } = buildStockData(
-      csv(AAA, BBB),
+      universe(company(), company({ ticker: "BBB" })),
       priceFile({
         AAA: { price: 100, previousClose: 99 },
         BBB: {
@@ -96,98 +160,20 @@ describe("buildStockData", () => {
     expect(stocks.map(s => s.yearAgo)).toEqual([null, null]);
   });
 
-  it("leaves out a ticker with no quote and names it", () => {
-    // A delisted company keeps a frozen price forever. Pairing that with an
-    // invented prior close is the thing the quote file exists to stop.
-    const { stocks, withoutQuote } = buildStockData(
-      csv(AAA, BBB),
-      priceFile({ AAA: { price: 100, previousClose: 99 } })
-    );
-
-    expect(stocks.map(s => s.ticker)).toEqual(["AAA"]);
-    expect(withoutQuote).toEqual(["BBB"]);
-  });
-
-  it("treats a malformed quote as no quote", () => {
-    const { stocks, withoutQuote } = buildStockData(
-      csv(AAA, BBB),
-      priceFile({
-        AAA: { price: 100, previousClose: 0 },
-        BBB: { price: Number.NaN, previousClose: 50 },
-      })
-    );
-
-    expect(stocks).toHaveLength(0);
-    expect(withoutQuote).toEqual(["AAA", "BBB"]);
-  });
-
-  it("keeps the first of duplicate rows so one company cannot be drawn twice as often", () => {
-    // The CSV carried 80 exact duplicate rows at one point, which left those
-    // companies several times more likely to come up.
+  it("keeps the first of duplicate tickers", () => {
+    // Two share classes of the same company can both sit in the index.
     const { stocks } = buildStockData(
-      csv(AAA, AAA, AAA),
+      universe(company(), company(), company()),
       priceFile({ AAA: { price: 100, previousClose: 99 } })
     );
     expect(stocks).toHaveLength(1);
   });
 
-  it("drops rows with cells that do not parse", () => {
-    const { stocks } = buildStockData(
-      csv(AAA, "CCC,,,,,", "DDD,1000,notaprice,5,200,2"),
-      priceFile({
-        AAA: { price: 100, previousClose: 99 },
-        CCC: { price: 10, previousClose: 10 },
-        DDD: { price: 10, previousClose: 10 },
-      })
-    );
-    expect(stocks.map(s => s.ticker)).toEqual(["AAA"]);
-  });
-
-  describe("without a quote file", () => {
-    it("falls back to CSV prices so a fresh clone still runs", () => {
-      const { stocks, asOf } = buildStockData(csv(AAA, BBB), null);
-
-      expect(stocks.map(s => s.ticker)).toEqual(["AAA", "BBB"]);
-      expect(stocks[0].currentPrice).toBe(100);
-      expect(asOf).toBeNull();
-    });
-
-    it("has no names or history to offer, so the drill is the day move only", () => {
-      // The CSV carries neither, and the month and year question pools are
-      // empty rather than invented.
-      const { stocks } = buildStockData(csv(AAA), null);
-
-      expect(stocks[0].name).toBe("AAA");
-      expect(stocks[0].monthAgo).toBeNull();
-      expect(stocks[0].yearAgo).toBeNull();
-    });
-
-    it("derives a prior close that is stable across builds and within 2%", () => {
-      const first = buildStockData(csv(AAA), null).stocks[0];
-      const second = buildStockData(csv(AAA), null).stocks[0];
-
-      expect(first.previousClose).toBe(second.previousClose);
-      expect(first.previousClose).toBe(derivePreviousClose("AAA", 100));
-      const drift = Math.abs(first.previousClose - 100) / 100;
-      expect(drift).toBeLessThanOrEqual(0.021);
-    });
-
-    it("treats an empty quote set as no quote file rather than an empty drill", () => {
-      const { stocks, asOf } = buildStockData(csv(AAA), priceFile({}));
-      expect(stocks).toHaveLength(1);
-      expect(asOf).toBeNull();
-    });
-  });
-
-  it("throws rather than returning nothing when the CSV is unparseable", () => {
-    expect(() => buildStockData('Ticker,Revenue\n"unterminated', null)).toThrow();
-  });
-
-  it("strips a byte-order mark from the header", () => {
-    const { stocks } = buildStockData(
-      String.fromCharCode(0xfeff) + csv(AAA),
-      priceFile({ AAA: { price: 100, previousClose: 99 } })
-    );
-    expect(stocks.map(s => s.ticker)).toEqual(["AAA"]);
+  it("builds nothing rather than guessing when a file is missing", () => {
+    // vite.config.ts turns this into a failed build, which is louder than a
+    // drill quietly running on invented numbers.
+    expect(buildStockData(null, priceFile({ AAA: { price: 1, previousClose: 1 } })).stocks).toHaveLength(0);
+    expect(buildStockData(universe(company()), null).stocks).toHaveLength(0);
+    expect(buildStockData(null, null).asOf).toBeNull();
   });
 });

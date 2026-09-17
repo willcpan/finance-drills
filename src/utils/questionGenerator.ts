@@ -578,7 +578,7 @@ const noDataQuestion = (difficulty: DifficultyLevel): Question => ({
   correctAnswer: 0,
   answerUnit: "currency",
   tolerance: 1,
-  method: ["Check that Stockdata.csv is present and parsed by vite.config.ts."],
+  method: ["Run `npm run refresh:universe` and `npm run refresh:prices`, then rebuild."],
 });
 
 export const generateQuestion = (

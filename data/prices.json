@@ -1,11 +1,25 @@
 {
-  "asOf": "2026-09-21T20:04:38.000Z",
+  "asOf": "2026-09-22T14:00:43.000Z",
   "source": "Yahoo Finance (v8 chart)",
   "quotes": {
+    "A": {
+      "name": "Agilent Technologies, Inc.",
+      "price": 163.19,
+      "previousClose": 161.94,
+      "monthAgo": {
+        "price": 159,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 126.33,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.013
+    },
     "AAPL": {
       "name": "Apple Inc.",
-      "price": 338.98,
-      "previousClose": 336.13,
+      "price": 340.84,
+      "previousClose": 338.98,
       "monthAgo": {
         "price": 309.35,
         "date": "2026-08-21"
@@ -13,12 +27,27 @@
       "yearAgo": {
         "price": 256.08,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.06
+    },
+    "ABBV": {
+      "name": "AbbVie Inc.",
+      "price": 263.62,
+      "previousClose": 264.48,
+      "monthAgo": {
+        "price": 264.96,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 222.59,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.83
     },
     "ABNB": {
       "name": "Airbnb, Inc.",
-      "price": 166.84,
-      "previousClose": 166.22,
+      "price": 166.25,
+      "previousClose": 166.84,
       "monthAgo": {
         "price": 187.3,
         "date": "2026-08-21"
@@ -26,12 +55,13 @@
       "yearAgo": {
         "price": 125.44,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "ABT": {
       "name": "Abbott Laboratories",
-      "price": 102.98,
-      "previousClose": 102.61,
+      "price": 103.88,
+      "previousClose": 102.98,
       "monthAgo": {
         "price": 116.64,
         "date": "2026-08-21"
@@ -39,12 +69,41 @@
       "yearAgo": {
         "price": 136.62,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.48
+    },
+    "ACGL": {
+      "name": "Arch Capital Group Ltd.",
+      "price": 95.54,
+      "previousClose": 95.78,
+      "monthAgo": {
+        "price": 99.39,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 88.03,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "ACN": {
+      "name": "Accenture plc",
+      "price": 184.2,
+      "previousClose": 186.11,
+      "monthAgo": {
+        "price": 185.28,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 239.99,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.26
     },
     "ADBE": {
       "name": "Adobe Inc.",
-      "price": 249.52,
-      "previousClose": 248.92,
+      "price": 246,
+      "previousClose": 249.52,
       "monthAgo": {
         "price": 275.3,
         "date": "2026-08-21"
@@ -52,12 +111,13 @@
       "yearAgo": {
         "price": 364.08,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "ADI": {
       "name": "Analog Devices, Inc.",
-      "price": 383,
-      "previousClose": 375.72,
+      "price": 384.69,
+      "previousClose": 383,
       "monthAgo": {
         "price": 373.09,
         "date": "2026-08-21"
@@ -65,12 +125,27 @@
       "yearAgo": {
         "price": 247.34,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.29
+    },
+    "ADM": {
+      "name": "Archer-Daniels-Midland Company",
+      "price": 83.42,
+      "previousClose": 83.38,
+      "monthAgo": {
+        "price": 80.3,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 59.86,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.07
     },
     "ADP": {
       "name": "Automatic Data Processing, Inc.",
-      "price": 269.94,
-      "previousClose": 271.22,
+      "price": 268.15,
+      "previousClose": 269.94,
       "monthAgo": {
         "price": 280.81,
         "date": "2026-08-21"
@@ -78,12 +153,13 @@
       "yearAgo": {
         "price": 293.66,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.8
     },
     "ADSK": {
       "name": "Autodesk, Inc.",
-      "price": 218.85,
-      "previousClose": 216.95,
+      "price": 216.9,
+      "previousClose": 218.85,
       "monthAgo": {
         "price": 253.83,
         "date": "2026-08-21"
@@ -91,12 +167,55 @@
       "yearAgo": {
         "price": 324.39,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "AEE": {
+      "name": "Ameren Corporation",
+      "price": 101.59,
+      "previousClose": 101.83,
+      "monthAgo": {
+        "price": 106.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 99.09,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.96
+    },
+    "AEP": {
+      "name": "American Electric Power Company, Inc.",
+      "price": 119.58,
+      "previousClose": 120.03,
+      "monthAgo": {
+        "price": 120.94,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 107.05,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.8
+    },
+    "AES": {
+      "name": "The AES Corporation",
+      "price": 14.85,
+      "previousClose": 14.83,
+      "monthAgo": {
+        "price": 14.77,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 13.13,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.704
     },
     "AFL": {
       "name": "Aflac Incorporated",
-      "price": 115.18,
-      "previousClose": 116.33,
+      "price": 114.73,
+      "previousClose": 115.18,
       "monthAgo": {
         "price": 116.07,
         "date": "2026-08-21"
@@ -104,12 +223,97 @@
       "yearAgo": {
         "price": 107.4,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.41
+    },
+    "AIG": {
+      "name": "American International Group, Inc.",
+      "price": 74.05,
+      "previousClose": 74.54,
+      "monthAgo": {
+        "price": 76.12,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 76.53,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.9
+    },
+    "AIZ": {
+      "name": "Assurant, Inc.",
+      "price": 277.56,
+      "previousClose": 277.38,
+      "monthAgo": {
+        "price": 284.04,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 211.19,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.52
+    },
+    "AJG": {
+      "name": "Arthur J. Gallagher & Co.",
+      "price": 233.03,
+      "previousClose": 236.61,
+      "monthAgo": {
+        "price": 263.81,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 300.06,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.75
+    },
+    "AKAM": {
+      "name": "Akamai Technologies, Inc.",
+      "price": 117.66,
+      "previousClose": 117.41,
+      "monthAgo": {
+        "price": 110.42,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 76.68,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "ALB": {
+      "name": "Albemarle Corporation",
+      "price": 114.49,
+      "previousClose": 112.92,
+      "monthAgo": {
+        "price": 143.25,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 80.38,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.625
+    },
+    "ALGN": {
+      "name": "Align Technology, Inc.",
+      "price": 148.99,
+      "previousClose": 146.88,
+      "monthAgo": {
+        "price": 162.55,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 131.18,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "ALL": {
       "name": "The Allstate Corporation",
-      "price": 242.86,
-      "previousClose": 249.83,
+      "price": 235.55,
+      "previousClose": 242.86,
       "monthAgo": {
         "price": 253.83,
         "date": "2026-08-21"
@@ -117,12 +321,27 @@
       "yearAgo": {
         "price": 206.46,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.24
+    },
+    "ALLE": {
+      "name": "Allegion plc",
+      "price": 153.74,
+      "previousClose": 151.36,
+      "monthAgo": {
+        "price": 162.31,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 177.81,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.65
     },
     "AMAT": {
       "name": "Applied Materials, Inc.",
-      "price": 464.24,
-      "previousClose": 444.57,
+      "price": 467.82,
+      "previousClose": 464.24,
       "monthAgo": {
         "price": 492.32,
         "date": "2026-08-21"
@@ -130,12 +349,27 @@
       "yearAgo": {
         "price": 200.52,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.98
+    },
+    "AMCR": {
+      "name": "Amcor plc",
+      "price": 42.73,
+      "previousClose": 42.15,
+      "monthAgo": {
+        "price": 48.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 41.25,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.6
     },
     "AMD": {
       "name": "Advanced Micro Devices, Inc.",
-      "price": 615.52,
-      "previousClose": 559.82,
+      "price": 617.92,
+      "previousClose": 615.52,
       "monthAgo": {
         "price": 473.25,
         "date": "2026-08-21"
@@ -143,12 +377,27 @@
       "yearAgo": {
         "price": 159.79,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "AME": {
+      "name": "AMETEK, Inc.",
+      "price": 243.22,
+      "previousClose": 241.23,
+      "monthAgo": {
+        "price": 239.55,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 188.45,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.33
     },
     "AMGN": {
       "name": "Amgen Inc.",
-      "price": 393.16,
-      "previousClose": 385.65,
+      "price": 402.47,
+      "previousClose": 393.16,
       "monthAgo": {
         "price": 439.33,
         "date": "2026-08-21"
@@ -156,12 +405,27 @@
       "yearAgo": {
         "price": 286,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 9.94
+    },
+    "AMP": {
+      "name": "Ameriprise Financial, Inc.",
+      "price": 524.71,
+      "previousClose": 535.72,
+      "monthAgo": {
+        "price": 555.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 494.36,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.6
     },
     "AMT": {
       "name": "American Tower Corporation",
-      "price": 174.6,
-      "previousClose": 173.98,
+      "price": 174.74,
+      "previousClose": 174.6,
       "monthAgo": {
         "price": 175.8,
         "date": "2026-08-21"
@@ -169,12 +433,13 @@
       "yearAgo": {
         "price": 193.21,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.98
     },
     "AMZN": {
       "name": "Amazon.com, Inc.",
-      "price": 258.45,
-      "previousClose": 253.71,
+      "price": 257.37,
+      "previousClose": 258.45,
       "monthAgo": {
         "price": 258.63,
         "date": "2026-08-21"
@@ -182,12 +447,27 @@
       "yearAgo": {
         "price": 227.63,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "ANET": {
+      "name": "Arista Networks, Inc.",
+      "price": 208,
+      "previousClose": 205.42,
+      "monthAgo": {
+        "price": 188.65,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 145.4,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "AON": {
       "name": "Aon plc",
-      "price": 290.82,
-      "previousClose": 295.64,
+      "price": 285.68,
+      "previousClose": 290.82,
       "monthAgo": {
         "price": 355.11,
         "date": "2026-08-21"
@@ -195,12 +475,27 @@
       "yearAgo": {
         "price": 353.46,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.64
+    },
+    "AOS": {
+      "name": "A. O. Smith Corporation",
+      "price": 57.53,
+      "previousClose": 56.96,
+      "monthAgo": {
+        "price": 63.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 72.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.44
     },
     "APA": {
       "name": "APA Corporation",
-      "price": 43.81,
-      "previousClose": 44.87,
+      "price": 43.17,
+      "previousClose": 43.81,
       "monthAgo": {
         "price": 43.39,
         "date": "2026-08-21"
@@ -208,25 +503,111 @@
       "yearAgo": {
         "price": 23.61,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1
     },
-    "ASML": {
-      "name": "ASML Holding N.V.",
-      "price": 1711.32,
-      "previousClose": 1679.92,
+    "APD": {
+      "name": "Air Products and Chemicals, Inc.",
+      "price": 282.34,
+      "previousClose": 279.46,
       "monthAgo": {
-        "price": 1763.76,
+        "price": 305.1,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 957.8,
+        "price": 287.49,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 7.2
+    },
+    "APH": {
+      "name": "Amphenol Corporation",
+      "price": 81.25,
+      "previousClose": 80.72,
+      "monthAgo": {
+        "price": 78.5,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 61.85,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.375
+    },
+    "APO": {
+      "name": "Apollo Global Management, Inc.",
+      "price": 127.2,
+      "previousClose": 127.91,
+      "monthAgo": {
+        "price": 132.69,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 143.96,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.146
+    },
+    "APP": {
+      "name": "AppLovin Corporation",
+      "price": 324.62,
+      "previousClose": 330.17,
+      "monthAgo": {
+        "price": 305.77,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 643.5,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "APTV": {
+      "name": "Aptiv PLC",
+      "price": 44.36,
+      "previousClose": 43.57,
+      "monthAgo": {
+        "price": 48.28,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 85.39,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "ARE": {
+      "name": "Alexandria Real Estate Equities, Inc.",
+      "price": 53.78,
+      "previousClose": 53.34,
+      "monthAgo": {
+        "price": 53.49,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 85.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.48
+    },
+    "ARES": {
+      "name": "Ares Management Corporation",
+      "price": 125.22,
+      "previousClose": 126.67,
+      "monthAgo": {
+        "price": 141.25,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 181.99,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.17
     },
     "ATO": {
       "name": "Atmos Energy Corporation",
-      "price": 158.27,
-      "previousClose": 160.3,
+      "price": 157.78,
+      "previousClose": 158.27,
       "monthAgo": {
         "price": 166.85,
         "date": "2026-08-21"
@@ -234,12 +615,13 @@
       "yearAgo": {
         "price": 162.96,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4
     },
     "AVGO": {
       "name": "Broadcom Inc.",
-      "price": 362.66,
-      "previousClose": 357.61,
+      "price": 360.96,
+      "previousClose": 362.66,
       "monthAgo": {
         "price": 368.45,
         "date": "2026-08-21"
@@ -247,12 +629,27 @@
       "yearAgo": {
         "price": 338.79,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.19
+    },
+    "AVY": {
+      "name": "Avery Dennison Corporation",
+      "price": 171.66,
+      "previousClose": 169.33,
+      "monthAgo": {
+        "price": 183.71,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 163.2,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.88
     },
     "AWK": {
       "name": "American Water Works Company, Inc.",
-      "price": 133.97,
-      "previousClose": 135.9,
+      "price": 133.79,
+      "previousClose": 133.97,
       "monthAgo": {
         "price": 135.39,
         "date": "2026-08-21"
@@ -260,12 +657,27 @@
       "yearAgo": {
         "price": 135.05,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.446
+    },
+    "AXON": {
+      "name": "Axon Enterprise, Inc.",
+      "price": 448.69,
+      "previousClose": 452.06,
+      "monthAgo": {
+        "price": 627.75,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 775.92,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "AXP": {
       "name": "American Express Company",
-      "price": 313.59,
-      "previousClose": 311.56,
+      "price": 313.54,
+      "previousClose": 313.59,
       "monthAgo": {
         "price": 336,
         "date": "2026-08-21"
@@ -273,25 +685,27 @@
       "yearAgo": {
         "price": 340.98,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.54
     },
-    "AZN": {
-      "name": "AstraZeneca PLC",
-      "price": 168.1,
-      "previousClose": 166.08,
+    "AZO": {
+      "name": "AutoZone, Inc.",
+      "price": 2939.54,
+      "previousClose": 2803.25,
       "monthAgo": {
-        "price": 165.98,
+        "price": 2957.95,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 155,
+        "price": 4121,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "BA": {
       "name": "The Boeing Company",
-      "price": 201.15,
-      "previousClose": 198.2,
+      "price": 200.33,
+      "previousClose": 201.15,
       "monthAgo": {
         "price": 214.2,
         "date": "2026-08-21"
@@ -299,25 +713,55 @@
       "yearAgo": {
         "price": 212.09,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "BABA": {
-      "name": "Alibaba Group Holding Limited",
-      "price": 115.75,
-      "previousClose": 113.24,
+    "BAC": {
+      "name": "Bank of America Corporation",
+      "price": 57.47,
+      "previousClose": 57.96,
       "monthAgo": {
-        "price": 119.34,
+        "price": 61.69,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 164.25,
+        "price": 51.92,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.16
+    },
+    "BALL": {
+      "name": "Ball Corporation",
+      "price": 60.16,
+      "previousClose": 59.71,
+      "monthAgo": {
+        "price": 63.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 48.69,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.8
+    },
+    "BAX": {
+      "name": "Baxter International Inc.",
+      "price": 23.52,
+      "previousClose": 22.93,
+      "monthAgo": {
+        "price": 26.34,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 22.81,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.04
     },
     "BBY": {
       "name": "Best Buy Co., Inc.",
-      "price": 93.22,
-      "previousClose": 92.85,
+      "price": 94.63,
+      "previousClose": 93.22,
       "monthAgo": {
         "price": 85.89,
         "date": "2026-08-21"
@@ -325,12 +769,13 @@
       "yearAgo": {
         "price": 72.33,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.83
     },
     "BDX": {
       "name": "Becton, Dickinson and Company",
-      "price": 180.7,
-      "previousClose": 180.94,
+      "price": 181.57,
+      "previousClose": 180.7,
       "monthAgo": {
         "price": 192,
         "date": "2026-08-21"
@@ -338,12 +783,69 @@
       "yearAgo": {
         "price": 146.66,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.975
+    },
+    "BE": {
+      "name": "Bloom Energy Corporation",
+      "price": 277.42,
+      "previousClose": 272.89,
+      "monthAgo": {
+        "price": 201.45,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 86.27,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "BEN": {
+      "name": "Franklin Templeton Inc.",
+      "price": 33.15,
+      "previousClose": 33.64,
+      "monthAgo": {
+        "price": 34.31,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 24.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.31
+    },
+    "BF-B": {
+      "name": "Brown-Forman Corporation",
+      "price": 26.63,
+      "previousClose": 26.15,
+      "monthAgo": {
+        "price": 28.44,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 26.87,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.924
+    },
+    "BG": {
+      "name": "Bunge Global SA",
+      "price": 112.93,
+      "previousClose": 112.61,
+      "monthAgo": {
+        "price": 113.11,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 77.14,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.84
     },
     "BIIB": {
       "name": "Biogen Inc.",
-      "price": 219.07,
-      "previousClose": 215.5,
+      "price": 222.29,
+      "previousClose": 219.07,
       "monthAgo": {
         "price": 216.78,
         "date": "2026-08-21"
@@ -351,12 +853,13 @@
       "yearAgo": {
         "price": 140.66,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "BKNG": {
       "name": "Booking Holdings Inc.",
-      "price": 168.52,
-      "previousClose": 167.9,
+      "price": 168.5,
+      "previousClose": 168.52,
       "monthAgo": {
         "price": 209.62,
         "date": "2026-08-21"
@@ -364,12 +867,13 @@
       "yearAgo": {
         "price": 218.29,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.644
     },
     "BKR": {
       "name": "Baker Hughes Company",
-      "price": 57.83,
-      "previousClose": 57.25,
+      "price": 57.18,
+      "previousClose": 57.83,
       "monthAgo": {
         "price": 62.34,
         "date": "2026-08-21"
@@ -377,12 +881,13 @@
       "yearAgo": {
         "price": 47.67,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.92
     },
     "BLK": {
       "name": "BlackRock, Inc.",
-      "price": 1090.27,
-      "previousClose": 1069.78,
+      "price": 1087.07,
+      "previousClose": 1090.27,
       "monthAgo": {
         "price": 1156.55,
         "date": "2026-08-21"
@@ -390,12 +895,13 @@
       "yearAgo": {
         "price": 1136.21,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 22.4
     },
     "BMY": {
       "name": "Bristol-Myers Squibb Company",
-      "price": 62.62,
-      "previousClose": 63.06,
+      "price": 62.57,
+      "previousClose": 62.62,
       "monthAgo": {
         "price": 67.01,
         "date": "2026-08-21"
@@ -403,12 +909,69 @@
       "yearAgo": {
         "price": 44.98,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.51
+    },
+    "BNY": {
+      "name": "The Bank of New York Mellon Corporation",
+      "price": 152.45,
+      "previousClose": 153.89,
+      "monthAgo": {
+        "price": 158.49,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 109.46,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.322
+    },
+    "BR": {
+      "name": "Broadridge Financial Solutions, Inc.",
+      "price": 165.1,
+      "previousClose": 164.62,
+      "monthAgo": {
+        "price": 182.18,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 241.6,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.015
+    },
+    "BRK-B": {
+      "name": "Berkshire Hathaway Inc.",
+      "price": 503.4,
+      "previousClose": 502.01,
+      "monthAgo": {
+        "price": 495.82,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 493.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "BRO": {
+      "name": "Brown & Brown, Inc.",
+      "price": 62.26,
+      "previousClose": 64.3,
+      "monthAgo": {
+        "price": 72.92,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 92.6,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.66
     },
     "BSX": {
       "name": "Boston Scientific Corporation",
-      "price": 43.72,
-      "previousClose": 43.34,
+      "price": 44.35,
+      "previousClose": 43.72,
       "monthAgo": {
         "price": 50.37,
         "date": "2026-08-21"
@@ -416,25 +979,97 @@
       "yearAgo": {
         "price": 97.03,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "BYND": {
-      "name": "Beyond Meat, Inc.",
-      "price": 11.92,
-      "previousClose": 11.51,
+    "BX": {
+      "name": "Blackstone Inc.",
+      "price": 125.24,
+      "previousClose": 126.41,
       "monthAgo": {
-        "price": 14.77,
+        "price": 143.38,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 85.2,
+        "price": 185.64,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.23
+    },
+    "BXP": {
+      "name": "BXP, Inc.",
+      "price": 63.93,
+      "previousClose": 64.13,
+      "monthAgo": {
+        "price": 67.67,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 75.64,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.8
+    },
+    "C": {
+      "name": "Citigroup Inc.",
+      "price": 133.1,
+      "previousClose": 135.05,
+      "monthAgo": {
+        "price": 131.65,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 103.49,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.47
+    },
+    "CAH": {
+      "name": "Cardinal Health, Inc.",
+      "price": 227.2,
+      "previousClose": 225.75,
+      "monthAgo": {
+        "price": 229.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 147.47,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.049
+    },
+    "CARR": {
+      "name": "Carrier Global Corporation",
+      "price": 55.33,
+      "previousClose": 54.62,
+      "monthAgo": {
+        "price": 60.37,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 60.31,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.945
+    },
+    "CASY": {
+      "name": "Casey's General Stores, Inc.",
+      "price": 581.42,
+      "previousClose": 585.34,
+      "monthAgo": {
+        "price": 835.74,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 547.45,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.36
     },
     "CAT": {
       "name": "Caterpillar Inc.",
-      "price": 816.5,
-      "previousClose": 808.99,
+      "price": 810.73,
+      "previousClose": 816.5,
       "monthAgo": {
         "price": 827.9,
         "date": "2026-08-21"
@@ -442,12 +1077,13 @@
       "yearAgo": {
         "price": 472.1,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.16
     },
     "CB": {
       "name": "Chubb Limited",
-      "price": 337.26,
-      "previousClose": 340.64,
+      "price": 335.48,
+      "previousClose": 337.26,
       "monthAgo": {
         "price": 340.99,
         "date": "2026-08-21"
@@ -455,12 +1091,27 @@
       "yearAgo": {
         "price": 273,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.01
+    },
+    "CBRE": {
+      "name": "CBRE Group, Inc.",
+      "price": 142.15,
+      "previousClose": 143.21,
+      "monthAgo": {
+        "price": 152.1,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 162.61,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "CCI": {
       "name": "Crown Castle Inc.",
-      "price": 73.22,
-      "previousClose": 73.06,
+      "price": 72.9,
+      "previousClose": 73.22,
       "monthAgo": {
         "price": 75.51,
         "date": "2026-08-21"
@@ -468,12 +1119,181 @@
       "yearAgo": {
         "price": 94.28,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.252
+    },
+    "CCL": {
+      "name": "Carnival Corporation Ltd.",
+      "price": 22.91,
+      "previousClose": 22.31,
+      "monthAgo": {
+        "price": 25.73,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 30.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.45
+    },
+    "CDNS": {
+      "name": "Cadence Design Systems, Inc.",
+      "price": 296.08,
+      "previousClose": 294.9,
+      "monthAgo": {
+        "price": 319.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 373.37,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CDW": {
+      "name": "CDW Corporation",
+      "price": 147.59,
+      "previousClose": 146.41,
+      "monthAgo": {
+        "price": 137.25,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 164.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.52
+    },
+    "CEG": {
+      "name": "Constellation Energy Corporation",
+      "price": 260.79,
+      "previousClose": 262.11,
+      "monthAgo": {
+        "price": 272.88,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 347.12,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.669
+    },
+    "CF": {
+      "name": "CF Industries Holdings, Inc.",
+      "price": 119.87,
+      "previousClose": 123.27,
+      "monthAgo": {
+        "price": 129.6,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 85.64,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.1
+    },
+    "CFG": {
+      "name": "Citizens Financial Group, Inc.",
+      "price": 66.99,
+      "previousClose": 67.36,
+      "monthAgo": {
+        "price": 69.86,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 52.55,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.84
+    },
+    "CHD": {
+      "name": "Church & Dwight Co., Inc.",
+      "price": 96.35,
+      "previousClose": 95.49,
+      "monthAgo": {
+        "price": 98.8,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 86.68,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.219
+    },
+    "CHRW": {
+      "name": "C.H. Robinson Worldwide, Inc.",
+      "price": 153.5,
+      "previousClose": 152.84,
+      "monthAgo": {
+        "price": 141.63,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 133.98,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.52
+    },
+    "CHTR": {
+      "name": "Charter Communications, Inc.",
+      "price": 123.26,
+      "previousClose": 123.35,
+      "monthAgo": {
+        "price": 150.17,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 266.13,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CI": {
+      "name": "The Cigna Group",
+      "price": 275.35,
+      "previousClose": 274.47,
+      "monthAgo": {
+        "price": 277.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 288.62,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.19
+    },
+    "CIEN": {
+      "name": "Ciena Corporation",
+      "price": 373.21,
+      "previousClose": 365.96,
+      "monthAgo": {
+        "price": 395.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 139.31,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CINF": {
+      "name": "Cincinnati Financial Corporation",
+      "price": 165.28,
+      "previousClose": 166.85,
+      "monthAgo": {
+        "price": 168.29,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 154.69,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.62
     },
     "CL": {
       "name": "Colgate-Palmolive Company",
-      "price": 86.26,
-      "previousClose": 87.47,
+      "price": 86.97,
+      "previousClose": 86.26,
       "monthAgo": {
         "price": 91.08,
         "date": "2026-08-21"
@@ -481,12 +1301,27 @@
       "yearAgo": {
         "price": 79.36,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.1
+    },
+    "CLX": {
+      "name": "The Clorox Company",
+      "price": 86.87,
+      "previousClose": 84.88,
+      "monthAgo": {
+        "price": 106.69,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 119.93,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.97
     },
     "CMCSA": {
       "name": "Comcast Corporation",
-      "price": 22.93,
-      "previousClose": 22.74,
+      "price": 22.87,
+      "previousClose": 22.93,
       "monthAgo": {
         "price": 26.85,
         "date": "2026-08-21"
@@ -494,12 +1329,97 @@
       "yearAgo": {
         "price": 29.51,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.299
+    },
+    "CME": {
+      "name": "CME Group Inc.",
+      "price": 273.4,
+      "previousClose": 275.53,
+      "monthAgo": {
+        "price": 274.98,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 261.08,
+        "date": "2025-09-22"
+      },
+      "dividend": 11.3
+    },
+    "CMG": {
+      "name": "Chipotle Mexican Grill, Inc.",
+      "price": 33.33,
+      "previousClose": 33.14,
+      "monthAgo": {
+        "price": 36.9,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 40.13,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CMI": {
+      "name": "Cummins Inc.",
+      "price": 530.07,
+      "previousClose": 534.78,
+      "monthAgo": {
+        "price": 587.68,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 424.85,
+        "date": "2025-09-22"
+      },
+      "dividend": 8.2
+    },
+    "CMS": {
+      "name": "CMS Energy Corporation",
+      "price": 64.55,
+      "previousClose": 64.7,
+      "monthAgo": {
+        "price": 68.27,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 70.44,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.253
+    },
+    "CNC": {
+      "name": "Centene Corporation",
+      "price": 64.51,
+      "previousClose": 64.99,
+      "monthAgo": {
+        "price": 65.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 32.7,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CNP": {
+      "name": "CenterPoint Energy, Inc.",
+      "price": 37.85,
+      "previousClose": 37.99,
+      "monthAgo": {
+        "price": 38.77,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 38.17,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.92
     },
     "COF": {
       "name": "Capital One Financial Corporation",
-      "price": 204.92,
-      "previousClose": 202.43,
+      "price": 204.49,
+      "previousClose": 204.92,
       "monthAgo": {
         "price": 217.91,
         "date": "2026-08-21"
@@ -507,12 +1427,55 @@
       "yearAgo": {
         "price": 225.41,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.2
+    },
+    "COHR": {
+      "name": "Coherent Corp.",
+      "price": 321.76,
+      "previousClose": 321.52,
+      "monthAgo": {
+        "price": 289.52,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 114.6,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "COIN": {
+      "name": "Coinbase Global, Inc.",
+      "price": 200.43,
+      "previousClose": 201.05,
+      "monthAgo": {
+        "price": 186.49,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 331.95,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "COO": {
+      "name": "The Cooper Companies, Inc.",
+      "price": 54.57,
+      "previousClose": 54.12,
+      "monthAgo": {
+        "price": 76.22,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 68,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "COP": {
       "name": "ConocoPhillips",
-      "price": 127.53,
-      "previousClose": 131.83,
+      "price": 125.71,
+      "previousClose": 127.53,
       "monthAgo": {
         "price": 134.87,
         "date": "2026-08-21"
@@ -520,12 +1483,111 @@
       "yearAgo": {
         "price": 92.01,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.36
+    },
+    "COR": {
+      "name": "Cencora, Inc.",
+      "price": 316.67,
+      "previousClose": 316.49,
+      "monthAgo": {
+        "price": 318.04,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 288.79,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.4
+    },
+    "COST": {
+      "name": "Costco Wholesale Corporation",
+      "price": 896.32,
+      "previousClose": 898.48,
+      "monthAgo": {
+        "price": 947.74,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 943.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.54
+    },
+    "CPAY": {
+      "name": "Corpay, Inc.",
+      "price": 399.89,
+      "previousClose": 397.22,
+      "monthAgo": {
+        "price": 417.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 299.92,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CPRT": {
+      "name": "Copart, Inc.",
+      "price": 28.87,
+      "previousClose": 28.91,
+      "monthAgo": {
+        "price": 33.8,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 45.38,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "CPT": {
+      "name": "Camden Property Trust",
+      "price": 99.03,
+      "previousClose": 98.82,
+      "monthAgo": {
+        "price": 107.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 108.18,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.22
+    },
+    "CRH": {
+      "name": "CRH plc",
+      "price": 87.39,
+      "previousClose": 87.14,
+      "monthAgo": {
+        "price": 95.07,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 114.72,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.17
+    },
+    "CRL": {
+      "name": "Charles River Laboratories International, Inc.",
+      "price": 278.79,
+      "previousClose": 279.01,
+      "monthAgo": {
+        "price": 295.19,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 153.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "CRM": {
       "name": "Salesforce, Inc.",
-      "price": 236.42,
-      "previousClose": 237.92,
+      "price": 234.96,
+      "previousClose": 236.42,
       "monthAgo": {
         "price": 209.17,
         "date": "2026-08-21"
@@ -533,12 +1595,27 @@
       "yearAgo": {
         "price": 249.69,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.736
+    },
+    "CRWD": {
+      "name": "CrowdStrike Holdings, Inc.",
+      "price": 247.38,
+      "previousClose": 249.35,
+      "monthAgo": {
+        "price": 191.95,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 123.29,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "CSCO": {
       "name": "Cisco Systems, Inc.",
-      "price": 111.46,
-      "previousClose": 109.51,
+      "price": 108.3,
+      "previousClose": 111.46,
       "monthAgo": {
         "price": 111.04,
         "date": "2026-08-21"
@@ -546,12 +1623,27 @@
       "yearAgo": {
         "price": 67.75,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.66
+    },
+    "CSGP": {
+      "name": "CoStar Group, Inc.",
+      "price": 28.76,
+      "previousClose": 29.04,
+      "monthAgo": {
+        "price": 32.26,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 86.31,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "CSX": {
       "name": "CSX Corporation",
-      "price": 45.99,
-      "previousClose": 47.1,
+      "price": 46.22,
+      "previousClose": 45.99,
       "monthAgo": {
         "price": 51.59,
         "date": "2026-08-21"
@@ -559,12 +1651,69 @@
       "yearAgo": {
         "price": 33.2,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.55
+    },
+    "CTAS": {
+      "name": "Cintas Corporation",
+      "price": 196.68,
+      "previousClose": 196.88,
+      "monthAgo": {
+        "price": 203.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 202.59,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.87
+    },
+    "CTSH": {
+      "name": "Cognizant Technology Solutions Corporation",
+      "price": 58.91,
+      "previousClose": 59.38,
+      "monthAgo": {
+        "price": 61.87,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 68.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.3
+    },
+    "CTVA": {
+      "name": "Corteva, Inc.",
+      "price": 79.47,
+      "previousClose": 79.11,
+      "monthAgo": {
+        "price": 81.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 69.75,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.72
+    },
+    "CVNA": {
+      "name": "Carvana Co.",
+      "price": 67.64,
+      "previousClose": 67.18,
+      "monthAgo": {
+        "price": 69.91,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 78.17,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "CVS": {
       "name": "CVS Health Corporation",
-      "price": 87.6,
-      "previousClose": 88.84,
+      "price": 87.67,
+      "previousClose": 87.6,
       "monthAgo": {
         "price": 93.02,
         "date": "2026-08-21"
@@ -572,12 +1721,97 @@
       "yearAgo": {
         "price": 75.13,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.66
+    },
+    "CVX": {
+      "name": "Chevron Corporation",
+      "price": 202.87,
+      "previousClose": 203.67,
+      "monthAgo": {
+        "price": 205.27,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 156.05,
+        "date": "2025-09-22"
+      },
+      "dividend": 7.05
+    },
+    "D": {
+      "name": "Dominion Energy, Inc.",
+      "price": 62.6,
+      "previousClose": 62.82,
+      "monthAgo": {
+        "price": 66.6,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 59.82,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.672
+    },
+    "DAL": {
+      "name": "Delta Air Lines, Inc.",
+      "price": 83.88,
+      "previousClose": 82.5,
+      "monthAgo": {
+        "price": 82.41,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 58.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.779
+    },
+    "DASH": {
+      "name": "DoorDash, Inc.",
+      "price": 198.74,
+      "previousClose": 193.83,
+      "monthAgo": {
+        "price": 223.49,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 262.75,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "DD": {
+      "name": "DuPont de Nemours, Inc.",
+      "price": 130.91,
+      "previousClose": 129.79,
+      "monthAgo": {
+        "price": 138.33,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 98.23,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.4
+    },
+    "DDOG": {
+      "name": "Datadog, Inc.",
+      "price": 246.61,
+      "previousClose": 245.05,
+      "monthAgo": {
+        "price": 235.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 138.35,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "DE": {
       "name": "Deere & Company",
-      "price": 684.73,
-      "previousClose": 683.99,
+      "price": 691.99,
+      "previousClose": 684.73,
       "monthAgo": {
         "price": 647.47,
         "date": "2026-08-21"
@@ -585,12 +1819,41 @@
       "yearAgo": {
         "price": 469.03,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.48
+    },
+    "DECK": {
+      "name": "Deckers Outdoor Corporation",
+      "price": 81.09,
+      "previousClose": 80.23,
+      "monthAgo": {
+        "price": 91.68,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 113.22,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "DELL": {
+      "name": "Dell Technologies Inc.",
+      "price": 572.58,
+      "previousClose": 575.31,
+      "monthAgo": {
+        "price": 442.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 135.69,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.31
     },
     "DG": {
       "name": "Dollar General Corporation",
-      "price": 121.91,
-      "previousClose": 122.41,
+      "price": 123.65,
+      "previousClose": 121.91,
       "monthAgo": {
         "price": 123.41,
         "date": "2026-08-21"
@@ -598,25 +1861,181 @@
       "yearAgo": {
         "price": 101.86,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.36
     },
-    "DOCU": {
-      "name": "DocuSign, Inc.",
-      "price": 68.57,
-      "previousClose": 69.07,
+    "DGX": {
+      "name": "Quest Diagnostics Incorporated",
+      "price": 235.19,
+      "previousClose": 244.88,
       "monthAgo": {
-        "price": 62,
+        "price": 244.39,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 84.86,
+        "price": 184.69,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.32
+    },
+    "DHI": {
+      "name": "D.R. Horton, Inc.",
+      "price": 142.95,
+      "previousClose": 139.25,
+      "monthAgo": {
+        "price": 148.35,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 164.23,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.8
+    },
+    "DHR": {
+      "name": "Danaher Corporation",
+      "price": 214.99,
+      "previousClose": 215.84,
+      "monthAgo": {
+        "price": 218.85,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 190.46,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.44
+    },
+    "DIS": {
+      "name": "The Walt Disney Company",
+      "price": 104,
+      "previousClose": 104.23,
+      "monthAgo": {
+        "price": 107.78,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 112.56,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.5
+    },
+    "DLR": {
+      "name": "Digital Realty Trust, Inc.",
+      "price": 186.17,
+      "previousClose": 186.33,
+      "monthAgo": {
+        "price": 190.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 174.69,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.88
+    },
+    "DLTR": {
+      "name": "Dollar Tree, Inc.",
+      "price": 114.07,
+      "previousClose": 112.33,
+      "monthAgo": {
+        "price": 131.48,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 94.48,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "DOC": {
+      "name": "Healthpeak Properties, Inc.",
+      "price": 20.78,
+      "previousClose": 20.72,
+      "monthAgo": {
+        "price": 21.4,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 18.5,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.224
+    },
+    "DOV": {
+      "name": "Dover Corporation",
+      "price": 186.81,
+      "previousClose": 186.09,
+      "monthAgo": {
+        "price": 201.92,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 170.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.085
+    },
+    "DOW": {
+      "name": "Dow Inc.",
+      "price": 28.34,
+      "previousClose": 28.27,
+      "monthAgo": {
+        "price": 32.35,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 23.17,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.4
+    },
+    "DPZ": {
+      "name": "Domino's Pizza, Inc.",
+      "price": 302.06,
+      "previousClose": 295.94,
+      "monthAgo": {
+        "price": 341.85,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 424.96,
+        "date": "2025-09-22"
+      },
+      "dividend": 7.71
+    },
+    "DRI": {
+      "name": "Darden Restaurants, Inc.",
+      "price": 214.46,
+      "previousClose": 211.31,
+      "monthAgo": {
+        "price": 221.6,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 185.21,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.12
+    },
+    "DTE": {
+      "name": "DTE Energy Company",
+      "price": 125.75,
+      "previousClose": 126.13,
+      "monthAgo": {
+        "price": 135.22,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 136.14,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.66
     },
     "DUK": {
       "name": "Duke Energy Corporation",
-      "price": 116.74,
-      "previousClose": 117.53,
+      "price": 116.35,
+      "previousClose": 116.74,
       "monthAgo": {
         "price": 119.85,
         "date": "2026-08-21"
@@ -624,12 +2043,27 @@
       "yearAgo": {
         "price": 121.58,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.28
+    },
+    "DVA": {
+      "name": "DaVita Inc.",
+      "price": 184.04,
+      "previousClose": 182.34,
+      "monthAgo": {
+        "price": 173.82,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 131.15,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "DVN": {
       "name": "Devon Energy Corporation",
-      "price": 47.59,
-      "previousClose": 48.61,
+      "price": 47.24,
+      "previousClose": 47.59,
       "monthAgo": {
         "price": 49.1,
         "date": "2026-08-21"
@@ -637,12 +2071,167 @@
       "yearAgo": {
         "price": 33.72,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.12
+    },
+    "DXCM": {
+      "name": "DexCom, Inc.",
+      "price": 88.95,
+      "previousClose": 89.17,
+      "monthAgo": {
+        "price": 92.34,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 69.51,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "EBAY": {
+      "name": "eBay Inc.",
+      "price": 107.74,
+      "previousClose": 108.3,
+      "monthAgo": {
+        "price": 104.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 90.59,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.22
+    },
+    "ECHO": {
+      "name": "EchoStar Corporation",
+      "price": 95.95,
+      "previousClose": 95.36,
+      "monthAgo": {
+        "price": 86.81,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 73.14,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "ECL": {
+      "name": "Ecolab Inc.",
+      "price": 272.21,
+      "previousClose": 269.98,
+      "monthAgo": {
+        "price": 281.63,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 267.09,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.92
+    },
+    "ED": {
+      "name": "Consolidated Edison, Inc.",
+      "price": 103.51,
+      "previousClose": 103.86,
+      "monthAgo": {
+        "price": 106.35,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 96.62,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.514
+    },
+    "EFX": {
+      "name": "Equifax Inc.",
+      "price": 159.8,
+      "previousClose": 158.62,
+      "monthAgo": {
+        "price": 192.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 256.97,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.18
+    },
+    "EG": {
+      "name": "Everest Group, Ltd.",
+      "price": 368.87,
+      "previousClose": 369.42,
+      "monthAgo": {
+        "price": 370.06,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 334.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 6
+    },
+    "EIX": {
+      "name": "Edison International",
+      "price": 55,
+      "previousClose": 54.95,
+      "monthAgo": {
+        "price": 71.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 54.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.462
+    },
+    "EL": {
+      "name": "The Estée Lauder Companies Inc.",
+      "price": 98.68,
+      "previousClose": 96.34,
+      "monthAgo": {
+        "price": 101.94,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 87.27,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.4
+    },
+    "ELV": {
+      "name": "Elevance Health, Inc.",
+      "price": 408.42,
+      "previousClose": 409.31,
+      "monthAgo": {
+        "price": 400.54,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 317.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.87
+    },
+    "EME": {
+      "name": "EMCOR Group, Inc.",
+      "price": 759.87,
+      "previousClose": 757.71,
+      "monthAgo": {
+        "price": 776.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 655.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.45
     },
     "EMR": {
       "name": "Emerson Electric Co.",
-      "price": 151.72,
-      "previousClose": 149.92,
+      "price": 153.32,
+      "previousClose": 151.72,
       "monthAgo": {
         "price": 157.26,
         "date": "2026-08-21"
@@ -650,25 +2239,13 @@
       "yearAgo": {
         "price": 132.84,
         "date": "2025-09-22"
-      }
-    },
-    "ENB": {
-      "name": "Enbridge Inc.",
-      "price": 48.2,
-      "previousClose": 48.73,
-      "monthAgo": {
-        "price": 50.46,
-        "date": "2026-08-21"
       },
-      "yearAgo": {
-        "price": 49.19,
-        "date": "2025-09-22"
-      }
+      "dividend": 2.22
     },
     "EOG": {
       "name": "EOG Resources, Inc.",
-      "price": 141.38,
-      "previousClose": 144.23,
+      "price": 139.97,
+      "previousClose": 141.38,
       "monthAgo": {
         "price": 153.05,
         "date": "2026-08-21"
@@ -676,38 +2253,125 @@
       "yearAgo": {
         "price": 115.41,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.08
     },
-    "EPD": {
-      "name": "Enterprise Products Partners L.P.",
-      "price": 38.47,
-      "previousClose": 38.89,
+    "EQIX": {
+      "name": "Equinix, Inc.",
+      "price": 1056.78,
+      "previousClose": 1057.26,
       "monthAgo": {
-        "price": 38.01,
+        "price": 1065.39,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 31.37,
+        "price": 798.07,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 20.17
     },
-    "ERIC": {
-      "name": "Telefonaktiebolaget LM Ericsson (publ)",
-      "price": 10.25,
-      "previousClose": 10.17,
+    "EQT": {
+      "name": "EQT Corporation",
+      "price": 50.2,
+      "previousClose": 50.13,
       "monthAgo": {
-        "price": 10.22,
+        "price": 53.72,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 8.09,
+        "price": 49.97,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.66
+    },
+    "ERIE": {
+      "name": "Erie Indemnity Company",
+      "price": 232.77,
+      "previousClose": 235.95,
+      "monthAgo": {
+        "price": 264.85,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 321.03,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.754
+    },
+    "ES": {
+      "name": "Eversource Energy",
+      "price": 66.81,
+      "previousClose": 66.89,
+      "monthAgo": {
+        "price": 70.21,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 67.66,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.87
+    },
+    "ESS": {
+      "name": "Essex Property Trust, Inc.",
+      "price": 272.42,
+      "previousClose": 271.39,
+      "monthAgo": {
+        "price": 289,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 266.39,
+        "date": "2025-09-22"
+      },
+      "dividend": 10.32
+    },
+    "ETN": {
+      "name": "Eaton Corporation plc",
+      "price": 439.32,
+      "previousClose": 435.43,
+      "monthAgo": {
+        "price": 419.2,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 378.31,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.34
+    },
+    "ETR": {
+      "name": "Entergy Corporation",
+      "price": 101.31,
+      "previousClose": 101.58,
+      "monthAgo": {
+        "price": 104.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 89.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.56
+    },
+    "EVRG": {
+      "name": "Evergy, Inc.",
+      "price": 79.24,
+      "previousClose": 79.26,
+      "monthAgo": {
+        "price": 80.92,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 72.22,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.78
     },
     "EW": {
       "name": "Edwards Lifesciences Corporation",
-      "price": 88.34,
-      "previousClose": 88.26,
+      "price": 89.16,
+      "previousClose": 88.34,
       "monthAgo": {
         "price": 89.79,
         "date": "2026-08-21"
@@ -715,12 +2379,55 @@
       "yearAgo": {
         "price": 73.75,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "EXC": {
+      "name": "Exelon Corporation",
+      "price": 41.78,
+      "previousClose": 41.98,
+      "monthAgo": {
+        "price": 43.78,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 43.4,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.66
+    },
+    "EXE": {
+      "name": "Expand Energy Corporation",
+      "price": 87.88,
+      "previousClose": 87.65,
+      "monthAgo": {
+        "price": 96.09,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 98.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.3
+    },
+    "EXPD": {
+      "name": "Expeditors International of Washington, Inc.",
+      "price": 191.42,
+      "previousClose": 192.15,
+      "monthAgo": {
+        "price": 187.81,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 119.48,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.58
     },
     "EXPE": {
       "name": "Expedia Group, Inc.",
-      "price": 281.02,
-      "previousClose": 279.35,
+      "price": 282.33,
+      "previousClose": 281.02,
       "monthAgo": {
         "price": 321.63,
         "date": "2026-08-21"
@@ -728,12 +2435,27 @@
       "yearAgo": {
         "price": 223.51,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.84
+    },
+    "EXR": {
+      "name": "Extra Space Storage Inc.",
+      "price": 138.1,
+      "previousClose": 137.46,
+      "monthAgo": {
+        "price": 146.81,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 138.6,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.48
     },
     "F": {
       "name": "Ford Motor Company",
-      "price": 13.17,
-      "previousClose": 13.21,
+      "price": 13.12,
+      "previousClose": 13.17,
       "monthAgo": {
         "price": 14.41,
         "date": "2026-08-21"
@@ -741,12 +2463,69 @@
       "yearAgo": {
         "price": 11.66,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.6
+    },
+    "FANG": {
+      "name": "Diamondback Energy, Inc.",
+      "price": 185.37,
+      "previousClose": 189.27,
+      "monthAgo": {
+        "price": 210.72,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 138.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.25
+    },
+    "FAST": {
+      "name": "Fastenal Company",
+      "price": 49.69,
+      "previousClose": 49.65,
+      "monthAgo": {
+        "price": 51.26,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 47.12,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.96
+    },
+    "FCX": {
+      "name": "Freeport-McMoRan Inc.",
+      "price": 73.56,
+      "previousClose": 72.16,
+      "monthAgo": {
+        "price": 76.66,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 45.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.6
+    },
+    "FDS": {
+      "name": "FactSet Research Systems Inc.",
+      "price": 288.7,
+      "previousClose": 284.1,
+      "monthAgo": {
+        "price": 299.91,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 295.63,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.52
     },
     "FDX": {
       "name": "FedEx Corporation",
-      "price": 295.79,
-      "previousClose": 303.65,
+      "price": 297.45,
+      "previousClose": 295.79,
       "monthAgo": {
         "price": 325.08,
         "date": "2026-08-21"
@@ -754,12 +2533,94 @@
       "yearAgo": {
         "price": 185.43,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.777
+    },
+    "FDXF": {
+      "name": "FedEx Freight Holding Company, Inc.",
+      "price": 120.26,
+      "previousClose": 117.6,
+      "monthAgo": {
+        "price": 137.32,
+        "date": "2026-08-21"
+      },
+      "yearAgo": null,
+      "dividend": 0
+    },
+    "FE": {
+      "name": "FirstEnergy Corp.",
+      "price": 44.84,
+      "previousClose": 44.97,
+      "monthAgo": {
+        "price": 45.96,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 43.33,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.82
+    },
+    "FERG": {
+      "name": "Ferguson Enterprises Inc.",
+      "price": 219.71,
+      "previousClose": 216.14,
+      "monthAgo": {
+        "price": 242.24,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 233.03,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.39
+    },
+    "FFIV": {
+      "name": "F5, Inc.",
+      "price": 449.38,
+      "previousClose": 450.1,
+      "monthAgo": {
+        "price": 384.63,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 330.19,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "FICO": {
+      "name": "Fair Isaac Corporation",
+      "price": 926.71,
+      "previousClose": 924.52,
+      "monthAgo": {
+        "price": 1172.67,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 1538.95,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "FIS": {
+      "name": "Fidelity National Information Services, Inc.",
+      "price": 35.28,
+      "previousClose": 35.19,
+      "monthAgo": {
+        "price": 41.34,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 64.65,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.72
     },
     "FISV": {
       "name": "Fiserv, Inc.",
-      "price": 46.47,
-      "previousClose": 47.19,
+      "price": 46.46,
+      "previousClose": 46.47,
       "monthAgo": {
         "price": 52.58,
         "date": "2026-08-21"
@@ -767,25 +2628,139 @@
       "yearAgo": {
         "price": 130.48,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "FTI": {
-      "name": "TechnipFMC plc",
-      "price": 71.31,
-      "previousClose": 72.02,
+    "FITB": {
+      "name": "Fifth Third Bancorp",
+      "price": 53.31,
+      "previousClose": 53.31,
       "monthAgo": {
-        "price": 77.45,
+        "price": 54.82,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 38.78,
+        "price": 44.95,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.6
+    },
+    "FIX": {
+      "name": "Comfort Systems USA, Inc.",
+      "price": 1623.01,
+      "previousClose": 1632.59,
+      "monthAgo": {
+        "price": 1655.61,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 821.62,
+        "date": "2025-09-22"
+      },
+      "dividend": 3
+    },
+    "FLEX": {
+      "name": "Flex Ltd.",
+      "price": 113.09,
+      "previousClose": 111.61,
+      "monthAgo": {
+        "price": 110.45,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 59.01,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "FOX": {
+      "name": "Fox Corporation",
+      "price": 57.55,
+      "previousClose": 57.9,
+      "monthAgo": {
+        "price": 61.05,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 56.02,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.57
+    },
+    "FOXA": {
+      "name": "Fox Corporation",
+      "price": 64.53,
+      "previousClose": 64.79,
+      "monthAgo": {
+        "price": 68.54,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 62.42,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.57
+    },
+    "FRT": {
+      "name": "Federal Realty Investment Trust",
+      "price": 111.02,
+      "previousClose": 110.63,
+      "monthAgo": {
+        "price": 116.74,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 99.61,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.52
+    },
+    "FSLR": {
+      "name": "First Solar, Inc.",
+      "price": 200.21,
+      "previousClose": 199.84,
+      "monthAgo": {
+        "price": 214.28,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 219.2,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "FTNT": {
+      "name": "Fortinet, Inc.",
+      "price": 171.76,
+      "previousClose": 175.23,
+      "monthAgo": {
+        "price": 153.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 85.01,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "FTV": {
+      "name": "Fortive Corporation",
+      "price": 55.45,
+      "previousClose": 55.09,
+      "monthAgo": {
+        "price": 60.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 48.32,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.25
     },
     "GD": {
       "name": "General Dynamics Corporation",
-      "price": 353.9,
-      "previousClose": 353.05,
+      "price": 348.33,
+      "previousClose": 353.9,
       "monthAgo": {
         "price": 384.29,
         "date": "2026-08-21"
@@ -793,12 +2768,83 @@
       "yearAgo": {
         "price": 322.66,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.18
+    },
+    "GDDY": {
+      "name": "GoDaddy Inc.",
+      "price": 104.18,
+      "previousClose": 104.77,
+      "monthAgo": {
+        "price": 97.07,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 147.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "GE": {
+      "name": "GE Aerospace",
+      "price": 319.36,
+      "previousClose": 319.01,
+      "monthAgo": {
+        "price": 348.37,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 301.02,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.66
+    },
+    "GEHC": {
+      "name": "GE HealthCare Technologies Inc.",
+      "price": 66.5,
+      "previousClose": 64.81,
+      "monthAgo": {
+        "price": 74.82,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 74.77,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.14
+    },
+    "GEN": {
+      "name": "Gen Digital Inc.",
+      "price": 28.54,
+      "previousClose": 29.15,
+      "monthAgo": {
+        "price": 28.93,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 28.84,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.5
+    },
+    "GEV": {
+      "name": "GE Vernova Inc.",
+      "price": 940.58,
+      "previousClose": 946.22,
+      "monthAgo": {
+        "price": 956.85,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 644.37,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.75
     },
     "GILD": {
       "name": "Gilead Sciences, Inc.",
-      "price": 150.56,
-      "previousClose": 150.11,
+      "price": 149.74,
+      "previousClose": 150.56,
       "monthAgo": {
         "price": 146.12,
         "date": "2026-08-21"
@@ -806,12 +2852,13 @@
       "yearAgo": {
         "price": 112.49,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.25
     },
     "GIS": {
       "name": "General Mills, Inc.",
-      "price": 35.41,
-      "previousClose": 36.32,
+      "price": 35.83,
+      "previousClose": 35.41,
       "monthAgo": {
         "price": 39.97,
         "date": "2026-08-21"
@@ -819,12 +2866,41 @@
       "yearAgo": {
         "price": 50.07,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.44
+    },
+    "GL": {
+      "name": "Globe Life Inc.",
+      "price": 171.46,
+      "previousClose": 172.16,
+      "monthAgo": {
+        "price": 171.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 145.25,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.2
+    },
+    "GLW": {
+      "name": "Corning Incorporated",
+      "price": 159.63,
+      "previousClose": 158.98,
+      "monthAgo": {
+        "price": 149.84,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 79.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.12
     },
     "GM": {
       "name": "General Motors Company",
-      "price": 83.95,
-      "previousClose": 82.2,
+      "price": 84.26,
+      "previousClose": 83.95,
       "monthAgo": {
         "price": 87.93,
         "date": "2026-08-21"
@@ -832,12 +2908,27 @@
       "yearAgo": {
         "price": 58.88,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.69
+    },
+    "GNRC": {
+      "name": "Generac Holdings Inc.",
+      "price": 203.13,
+      "previousClose": 204.96,
+      "monthAgo": {
+        "price": 205.98,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 185.86,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "GOOG": {
       "name": "Alphabet Inc.",
-      "price": 350.87,
-      "previousClose": 344.41,
+      "price": 355.93,
+      "previousClose": 350.87,
       "monthAgo": {
         "price": 341.75,
         "date": "2026-08-21"
@@ -845,12 +2936,13 @@
       "yearAgo": {
         "price": 252.88,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.86
     },
     "GOOGL": {
       "name": "Alphabet Inc.",
-      "price": 354.97,
-      "previousClose": 349.54,
+      "price": 360.34,
+      "previousClose": 354.97,
       "monthAgo": {
         "price": 344.82,
         "date": "2026-08-21"
@@ -858,12 +2950,27 @@
       "yearAgo": {
         "price": 252.53,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.86
+    },
+    "GPC": {
+      "name": "Genuine Parts Company",
+      "price": 128.27,
+      "previousClose": 126.45,
+      "monthAgo": {
+        "price": 133.96,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 137.96,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.219
     },
     "GPN": {
       "name": "Global Payments Inc.",
-      "price": 85.29,
-      "previousClose": 85.06,
+      "price": 85.88,
+      "previousClose": 85.29,
       "monthAgo": {
         "price": 93.49,
         "date": "2026-08-21"
@@ -871,12 +2978,27 @@
       "yearAgo": {
         "price": 86.95,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1
+    },
+    "GRMN": {
+      "name": "Garmin Ltd.",
+      "price": 282.46,
+      "previousClose": 280.31,
+      "monthAgo": {
+        "price": 294.85,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 236.38,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.9
     },
     "GS": {
       "name": "The Goldman Sachs Group, Inc.",
-      "price": 959.39,
-      "previousClose": 942,
+      "price": 951.21,
+      "previousClose": 959.39,
       "monthAgo": {
         "price": 1039.28,
         "date": "2026-08-21"
@@ -884,12 +3006,27 @@
       "yearAgo": {
         "price": 805.56,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 18
+    },
+    "GWW": {
+      "name": "W.W. Grainger, Inc.",
+      "price": 1283.25,
+      "previousClose": 1277.79,
+      "monthAgo": {
+        "price": 1312.24,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 979.17,
+        "date": "2025-09-22"
+      },
+      "dividend": 9.5
     },
     "HAL": {
       "name": "Halliburton Company",
-      "price": 33.39,
-      "previousClose": 33.64,
+      "price": 32.96,
+      "previousClose": 33.39,
       "monthAgo": {
         "price": 35.34,
         "date": "2026-08-21"
@@ -897,12 +3034,97 @@
       "yearAgo": {
         "price": 22.61,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.68
+    },
+    "HAS": {
+      "name": "Hasbro, Inc.",
+      "price": 88.47,
+      "previousClose": 87.72,
+      "monthAgo": {
+        "price": 93.54,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 74.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.8
+    },
+    "HBAN": {
+      "name": "Huntington Bancshares Incorporated",
+      "price": 15.99,
+      "previousClose": 16.04,
+      "monthAgo": {
+        "price": 17.03,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 17.33,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.62
+    },
+    "HCA": {
+      "name": "HCA Healthcare, Inc.",
+      "price": 433.02,
+      "previousClose": 425.97,
+      "monthAgo": {
+        "price": 429.19,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 407.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.06
+    },
+    "HD": {
+      "name": "The Home Depot, Inc.",
+      "price": 300.41,
+      "previousClose": 297.2,
+      "monthAgo": {
+        "price": 335.61,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 412,
+        "date": "2025-09-22"
+      },
+      "dividend": 9.29
+    },
+    "HIG": {
+      "name": "The Hartford Insurance Group, Inc.",
+      "price": 129.54,
+      "previousClose": 130.73,
+      "monthAgo": {
+        "price": 136.1,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 130.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.4
+    },
+    "HII": {
+      "name": "Huntington Ingalls Industries, Inc.",
+      "price": 274.24,
+      "previousClose": 276.1,
+      "monthAgo": {
+        "price": 298.2,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 276.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.52
     },
     "HLT": {
       "name": "Hilton Worldwide Holdings Inc.",
-      "price": 307.08,
-      "previousClose": 305.73,
+      "price": 310.35,
+      "previousClose": 307.08,
       "monthAgo": {
         "price": 326.63,
         "date": "2026-08-21"
@@ -910,25 +3132,13 @@
       "yearAgo": {
         "price": 266.58,
         "date": "2025-09-22"
-      }
-    },
-    "HMC": {
-      "name": "Honda Motor Co., Ltd.",
-      "price": 32.53,
-      "previousClose": 32.2,
-      "monthAgo": {
-        "price": 33.37,
-        "date": "2026-08-21"
       },
-      "yearAgo": {
-        "price": 33.78,
-        "date": "2025-09-22"
-      }
+      "dividend": 0.6
     },
     "HON": {
       "name": "Honeywell International Inc.",
-      "price": 206.48,
-      "previousClose": 206.46,
+      "price": 207.18,
+      "previousClose": 206.48,
       "monthAgo": {
         "price": 215.9,
         "date": "2026-08-21"
@@ -936,12 +3146,178 @@
       "yearAgo": {
         "price": 206.59,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.444
+    },
+    "HONA": {
+      "name": "Honeywell Aerospace Inc.",
+      "price": 168.75,
+      "previousClose": 169.03,
+      "monthAgo": {
+        "price": 164.73,
+        "date": "2026-08-21"
+      },
+      "yearAgo": null,
+      "dividend": 0
+    },
+    "HOOD": {
+      "name": "Robinhood Markets, Inc.",
+      "price": 125.05,
+      "previousClose": 123.3,
+      "monthAgo": {
+        "price": 108.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 124.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "HPE": {
+      "name": "Hewlett Packard Enterprise Company",
+      "price": 62.12,
+      "previousClose": 61.75,
+      "monthAgo": {
+        "price": 53.45,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 25.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.572
+    },
+    "HPQ": {
+      "name": "HP Inc.",
+      "price": 32.9,
+      "previousClose": 32.95,
+      "monthAgo": {
+        "price": 29.71,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 28.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.2
+    },
+    "HRL": {
+      "name": "Hormel Foods Corporation",
+      "price": 20.51,
+      "previousClose": 20.46,
+      "monthAgo": {
+        "price": 23.88,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 24.31,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.169
+    },
+    "HSIC": {
+      "name": "Henry Schein, Inc.",
+      "price": 85.6,
+      "previousClose": 85.2,
+      "monthAgo": {
+        "price": 88.5,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 67.92,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "HST": {
+      "name": "Host Hotels & Resorts, Inc.",
+      "price": 22.59,
+      "previousClose": 22.31,
+      "monthAgo": {
+        "price": 23.21,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 17.17,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.67
+    },
+    "HSY": {
+      "name": "The Hershey Company",
+      "price": 168.99,
+      "previousClose": 167.9,
+      "monthAgo": {
+        "price": 186.46,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 192.34,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.726
+    },
+    "HUBB": {
+      "name": "Hubbell Incorporated",
+      "price": 457.88,
+      "previousClose": 457.49,
+      "monthAgo": {
+        "price": 470.03,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 438.49,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.68
+    },
+    "HUM": {
+      "name": "Humana Inc.",
+      "price": 374.18,
+      "previousClose": 378.58,
+      "monthAgo": {
+        "price": 378.88,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 257.87,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.54
+    },
+    "HWM": {
+      "name": "Howmet Aerospace Inc.",
+      "price": 225.64,
+      "previousClose": 227.37,
+      "monthAgo": {
+        "price": 271.68,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 192.15,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.5
+    },
+    "IBKR": {
+      "name": "Interactive Brokers Group, Inc.",
+      "price": 91.87,
+      "previousClose": 93.21,
+      "monthAgo": {
+        "price": 93.87,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 64.22,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.336
     },
     "IBM": {
       "name": "International Business Machines Corporation",
-      "price": 231.93,
-      "previousClose": 229.55,
+      "price": 233.34,
+      "previousClose": 231.93,
       "monthAgo": {
         "price": 235.68,
         "date": "2026-08-21"
@@ -949,12 +3325,13 @@
       "yearAgo": {
         "price": 271.37,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.74
     },
     "ICE": {
       "name": "Intercontinental Exchange, Inc.",
-      "price": 155.37,
-      "previousClose": 155.47,
+      "price": 154.73,
+      "previousClose": 155.37,
       "monthAgo": {
         "price": 161.25,
         "date": "2026-08-21"
@@ -962,12 +3339,55 @@
       "yearAgo": {
         "price": 170.12,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.04
+    },
+    "IDXX": {
+      "name": "IDEXX Laboratories, Inc.",
+      "price": 513.61,
+      "previousClose": 515.3,
+      "monthAgo": {
+        "price": 556.93,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 644.1,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "IEX": {
+      "name": "IDEX Corporation",
+      "price": 225.04,
+      "previousClose": 222.53,
+      "monthAgo": {
+        "price": 234.39,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 160.6,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.88
+    },
+    "IFF": {
+      "name": "International Flavors & Fragrances Inc.",
+      "price": 85.63,
+      "previousClose": 83.6,
+      "monthAgo": {
+        "price": 84.28,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 62.2,
+        "date": "2025-09-22"
+      },
+      "dividend": 2
     },
     "ILMN": {
       "name": "Illumina, Inc.",
-      "price": 238.82,
-      "previousClose": 239.62,
+      "price": 239.77,
+      "previousClose": 238.82,
       "monthAgo": {
         "price": 219.4,
         "date": "2026-08-21"
@@ -975,25 +3395,27 @@
       "yearAgo": {
         "price": 101.49,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "INTC": {
-      "name": "Intel Corporation",
-      "price": 121.78,
-      "previousClose": 108.6,
+    "INCY": {
+      "name": "Incyte Corporation",
+      "price": 124.92,
+      "previousClose": 124.65,
       "monthAgo": {
-        "price": 90.07,
+        "price": 127.81,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 28.76,
+        "price": 84.73,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "INTU": {
       "name": "Intuit Inc.",
-      "price": 304.12,
-      "previousClose": 303.19,
+      "price": 297.09,
+      "previousClose": 304.12,
       "monthAgo": {
         "price": 367,
         "date": "2026-08-21"
@@ -1001,12 +3423,83 @@
       "yearAgo": {
         "price": 702.09,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.8
+    },
+    "INVH": {
+      "name": "Invitation Homes Inc.",
+      "price": 27.09,
+      "previousClose": 27.08,
+      "monthAgo": {
+        "price": 30.11,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 29.69,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.19
+    },
+    "IP": {
+      "name": "International Paper Company",
+      "price": 35.62,
+      "previousClose": 35.33,
+      "monthAgo": {
+        "price": 41.49,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 46.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.852
+    },
+    "IQV": {
+      "name": "IQVIA Holdings Inc.",
+      "price": 268.69,
+      "previousClose": 269.88,
+      "monthAgo": {
+        "price": 259.82,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 187.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "IR": {
+      "name": "Ingersoll Rand Inc.",
+      "price": 73.6,
+      "previousClose": 72.31,
+      "monthAgo": {
+        "price": 80.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 81.8,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.08
+    },
+    "IRM": {
+      "name": "Iron Mountain Incorporated",
+      "price": 117.15,
+      "previousClose": 116.89,
+      "monthAgo": {
+        "price": 122.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 104.46,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.456
     },
     "ISRG": {
       "name": "Intuitive Surgical, Inc.",
-      "price": 401.65,
-      "previousClose": 393.33,
+      "price": 398.52,
+      "previousClose": 401.65,
       "monthAgo": {
         "price": 378.81,
         "date": "2026-08-21"
@@ -1014,12 +3507,97 @@
       "yearAgo": {
         "price": 444.55,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "IT": {
+      "name": "Gartner, Inc.",
+      "price": 184.27,
+      "previousClose": 183.32,
+      "monthAgo": {
+        "price": 195.9,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 260.13,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "ITW": {
+      "name": "Illinois Tool Works Inc.",
+      "price": 268.91,
+      "previousClose": 267.52,
+      "monthAgo": {
+        "price": 282.29,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 260.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.44
+    },
+    "IVZ": {
+      "name": "Invesco Ltd.",
+      "price": 30.91,
+      "previousClose": 31.38,
+      "monthAgo": {
+        "price": 32.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 22.57,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.85
+    },
+    "J": {
+      "name": "Jacobs Solutions Inc.",
+      "price": 143.38,
+      "previousClose": 143.76,
+      "monthAgo": {
+        "price": 150.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 150.61,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.4
+    },
+    "JBHT": {
+      "name": "J.B. Hunt Transport Services, Inc.",
+      "price": 238.78,
+      "previousClose": 236.17,
+      "monthAgo": {
+        "price": 275.45,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 130.65,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.79
+    },
+    "JBL": {
+      "name": "Jabil Inc.",
+      "price": 308.11,
+      "previousClose": 303.67,
+      "monthAgo": {
+        "price": 313.21,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 233.23,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.32
     },
     "JCI": {
       "name": "Johnson Controls International plc",
-      "price": 145.18,
-      "previousClose": 143.28,
+      "price": 145.56,
+      "previousClose": 145.18,
       "monthAgo": {
         "price": 143.05,
         "date": "2026-08-21"
@@ -1027,25 +3605,41 @@
       "yearAgo": {
         "price": 109.29,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.2
     },
-    "JD": {
-      "name": "JD.com, Inc.",
-      "price": 27.28,
-      "previousClose": 26.92,
+    "JKHY": {
+      "name": "Jack Henry & Associates, Inc.",
+      "price": 150.82,
+      "previousClose": 151.56,
       "monthAgo": {
-        "price": 29.37,
+        "price": 166.2,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 33.93,
+        "price": 151.45,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.41
+    },
+    "JNJ": {
+      "name": "Johnson & Johnson",
+      "price": 265.83,
+      "previousClose": 269.47,
+      "monthAgo": {
+        "price": 270.24,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 174.21,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.28
     },
     "JPM": {
       "name": "JPMorgan Chase & Co.",
-      "price": 352.04,
-      "previousClose": 349.67,
+      "price": 343.68,
+      "previousClose": 352.04,
       "monthAgo": {
         "price": 351.58,
         "date": "2026-08-21"
@@ -1053,12 +3647,55 @@
       "yearAgo": {
         "price": 312.44,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6
+    },
+    "KDP": {
+      "name": "Keurig Dr Pepper Inc.",
+      "price": 31.44,
+      "previousClose": 30.62,
+      "monthAgo": {
+        "price": 32.04,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 25.95,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.92
+    },
+    "KEY": {
+      "name": "KeyCorp",
+      "price": 20.87,
+      "previousClose": 20.87,
+      "monthAgo": {
+        "price": 21.87,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 18.72,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.82
+    },
+    "KEYS": {
+      "name": "Keysight Technologies, Inc.",
+      "price": 342.49,
+      "previousClose": 342.03,
+      "monthAgo": {
+        "price": 316.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 177.82,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "KHC": {
       "name": "The Kraft Heinz Company",
-      "price": 24.37,
-      "previousClose": 24.43,
+      "price": 24.34,
+      "previousClose": 24.37,
       "monthAgo": {
         "price": 25.58,
         "date": "2026-08-21"
@@ -1066,12 +3703,41 @@
       "yearAgo": {
         "price": 26.38,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.6
+    },
+    "KIM": {
+      "name": "Kimco Realty Corporation",
+      "price": 22.58,
+      "previousClose": 22.54,
+      "monthAgo": {
+        "price": 24.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 21.77,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.06
+    },
+    "KKR": {
+      "name": "KKR & Co. Inc.",
+      "price": 100.27,
+      "previousClose": 100.83,
+      "monthAgo": {
+        "price": 108.48,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 146.95,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.76
     },
     "KLAC": {
       "name": "KLA Corporation",
-      "price": 183.97,
-      "previousClose": 176.99,
+      "price": 184.03,
+      "previousClose": 183.97,
       "monthAgo": {
         "price": 183.99,
         "date": "2026-08-21"
@@ -1079,12 +3745,27 @@
       "yearAgo": {
         "price": 107.13,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.84
+    },
+    "KMB": {
+      "name": "Kimberly-Clark Corporation",
+      "price": 99.5,
+      "previousClose": 97.74,
+      "monthAgo": {
+        "price": 109.31,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 124.07,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.1
     },
     "KMI": {
       "name": "Kinder Morgan, Inc.",
-      "price": 31.72,
-      "previousClose": 31.84,
+      "price": 31.64,
+      "previousClose": 31.72,
       "monthAgo": {
         "price": 30.98,
         "date": "2026-08-21"
@@ -1092,12 +3773,13 @@
       "yearAgo": {
         "price": 27.18,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.182
     },
     "KO": {
       "name": "The Coca-Cola Company",
-      "price": 87.12,
-      "previousClose": 88.25,
+      "price": 87.65,
+      "previousClose": 87.12,
       "monthAgo": {
         "price": 91.1,
         "date": "2026-08-21"
@@ -1105,12 +3787,13 @@
       "yearAgo": {
         "price": 66.21,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.1
     },
     "KR": {
       "name": "The Kroger Co.",
-      "price": 59.69,
-      "previousClose": 60,
+      "price": 59.49,
+      "previousClose": 59.69,
       "monthAgo": {
         "price": 57.9,
         "date": "2026-08-21"
@@ -1118,25 +3801,153 @@
       "yearAgo": {
         "price": 64.52,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.44
     },
-    "LCID": {
-      "name": "Lucid Group, Inc.",
-      "price": 4.3,
-      "previousClose": 4.09,
+    "KVUE": {
+      "name": "Kenvue Inc.",
+      "price": 17.95,
+      "previousClose": 17.67,
       "monthAgo": {
-        "price": 5.51,
+        "price": 19.06,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 22.44,
+        "price": 16.97,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.044
+    },
+    "L": {
+      "name": "Loews Corporation",
+      "price": 105.81,
+      "previousClose": 106.75,
+      "monthAgo": {
+        "price": 109.83,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 97.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.252
+    },
+    "LDOS": {
+      "name": "Leidos Holdings, Inc.",
+      "price": 126.25,
+      "previousClose": 128.23,
+      "monthAgo": {
+        "price": 141.39,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 187.87,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.72
+    },
+    "LEN": {
+      "name": "Lennar Corporation",
+      "price": 82.35,
+      "previousClose": 78.08,
+      "monthAgo": {
+        "price": 87.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 121.91,
+        "date": "2025-09-22"
+      },
+      "dividend": 2
+    },
+    "LH": {
+      "name": "Labcorp Holdings Inc.",
+      "price": 314.08,
+      "previousClose": 320.99,
+      "monthAgo": {
+        "price": 336.34,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 278.9,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.88
+    },
+    "LHX": {
+      "name": "L3Harris Technologies, Inc.",
+      "price": 243.08,
+      "previousClose": 246.93,
+      "monthAgo": {
+        "price": 266.73,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 284.32,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.95
+    },
+    "LII": {
+      "name": "Lennox International Inc.",
+      "price": 367.58,
+      "previousClose": 363.64,
+      "monthAgo": {
+        "price": 402.87,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 533.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.26
+    },
+    "LIN": {
+      "name": "Linde plc",
+      "price": 459.47,
+      "previousClose": 457.5,
+      "monthAgo": {
+        "price": 487.57,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 477.76,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.3
+    },
+    "LITE": {
+      "name": "Lumentum Holdings Inc.",
+      "price": 998.52,
+      "previousClose": 954.49,
+      "monthAgo": {
+        "price": 866.71,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 164.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "LLY": {
+      "name": "Eli Lilly and Company",
+      "price": 1153.7,
+      "previousClose": 1164.89,
+      "monthAgo": {
+        "price": 1255.4,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 754.95,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.69
     },
     "LMT": {
       "name": "Lockheed Martin Corporation",
-      "price": 535.4,
-      "previousClose": 533.38,
+      "price": 525.44,
+      "previousClose": 535.4,
       "monthAgo": {
         "price": 563.57,
         "date": "2026-08-21"
@@ -1144,12 +3955,27 @@
       "yearAgo": {
         "price": 480.39,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 13.8
+    },
+    "LNT": {
+      "name": "Alliant Energy Corporation",
+      "price": 64.8,
+      "previousClose": 64.97,
+      "monthAgo": {
+        "price": 67.86,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 64.22,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.112
     },
     "LOW": {
       "name": "Lowe's Companies, Inc.",
-      "price": 190.98,
-      "previousClose": 192.49,
+      "price": 193.42,
+      "previousClose": 190.98,
       "monthAgo": {
         "price": 216.09,
         "date": "2026-08-21"
@@ -1157,12 +3983,13 @@
       "yearAgo": {
         "price": 260.39,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.85
     },
     "LRCX": {
       "name": "Lam Research Corporation",
-      "price": 302.28,
-      "previousClose": 288.11,
+      "price": 305.31,
+      "previousClose": 302.28,
       "monthAgo": {
         "price": 314,
         "date": "2026-08-21"
@@ -1170,12 +3997,83 @@
       "yearAgo": {
         "price": 132.2,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.04
+    },
+    "LULU": {
+      "name": "lululemon athletica inc.",
+      "price": 102.82,
+      "previousClose": 101.3,
+      "monthAgo": {
+        "price": 121.07,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 173.41,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "LUV": {
+      "name": "Southwest Airlines Co.",
+      "price": 42.46,
+      "previousClose": 41.77,
+      "monthAgo": {
+        "price": 40.38,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 32.3,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.72
+    },
+    "LVS": {
+      "name": "Las Vegas Sands Corp.",
+      "price": 40.66,
+      "previousClose": 40.26,
+      "monthAgo": {
+        "price": 47.03,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 52.86,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.15
+    },
+    "LYB": {
+      "name": "LyondellBasell Industries N.V.",
+      "price": 59.85,
+      "previousClose": 60.24,
+      "monthAgo": {
+        "price": 67.53,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 51.1,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.44
+    },
+    "LYV": {
+      "name": "Live Nation Entertainment, Inc.",
+      "price": 167.81,
+      "previousClose": 169.18,
+      "monthAgo": {
+        "price": 181.82,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 165.15,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "MA": {
       "name": "Mastercard Incorporated",
-      "price": 567.65,
-      "previousClose": 565.24,
+      "price": 565.51,
+      "previousClose": 567.65,
       "monthAgo": {
         "price": 580.63,
         "date": "2026-08-21"
@@ -1183,12 +4081,27 @@
       "yearAgo": {
         "price": 584.49,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.37
+    },
+    "MAA": {
+      "name": "Mid-America Apartment Communities, Inc.",
+      "price": 118.89,
+      "previousClose": 118.86,
+      "monthAgo": {
+        "price": 131.31,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 141.25,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.105
     },
     "MAR": {
       "name": "Marriott International, Inc.",
-      "price": 342.66,
-      "previousClose": 338.92,
+      "price": 345.35,
+      "previousClose": 342.66,
       "monthAgo": {
         "price": 356.39,
         "date": "2026-08-21"
@@ -1196,12 +4109,69 @@
       "yearAgo": {
         "price": 264.1,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.8
+    },
+    "MAS": {
+      "name": "Masco Corporation",
+      "price": 69.02,
+      "previousClose": 67.74,
+      "monthAgo": {
+        "price": 73.29,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 71.03,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.27
+    },
+    "MCD": {
+      "name": "McDonald's Corporation",
+      "price": 250.05,
+      "previousClose": 247.88,
+      "monthAgo": {
+        "price": 270.95,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 302.99,
+        "date": "2025-09-22"
+      },
+      "dividend": 7.44
+    },
+    "MCHP": {
+      "name": "Microchip Technology Incorporated",
+      "price": 75.19,
+      "previousClose": 74.78,
+      "monthAgo": {
+        "price": 76.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 65.4,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.82
+    },
+    "MCK": {
+      "name": "McKesson Corporation",
+      "price": 890.62,
+      "previousClose": 886.47,
+      "monthAgo": {
+        "price": 858.9,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 697,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.4
     },
     "MCO": {
       "name": "Moody's Corporation",
-      "price": 467.22,
-      "previousClose": 468.59,
+      "price": 473.15,
+      "previousClose": 467.22,
       "monthAgo": {
         "price": 503.32,
         "date": "2026-08-21"
@@ -1209,12 +4179,13 @@
       "yearAgo": {
         "price": 488.29,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.03
     },
     "MDLZ": {
       "name": "Mondelez International, Inc.",
-      "price": 60.17,
-      "previousClose": 60.85,
+      "price": 60.77,
+      "previousClose": 60.17,
       "monthAgo": {
         "price": 64.45,
         "date": "2026-08-21"
@@ -1222,12 +4193,13 @@
       "yearAgo": {
         "price": 63.5,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2
     },
     "MDT": {
       "name": "Medtronic plc",
-      "price": 91.75,
-      "previousClose": 92.13,
+      "price": 91.54,
+      "previousClose": 91.75,
       "monthAgo": {
         "price": 93.35,
         "date": "2026-08-21"
@@ -1235,25 +4207,13 @@
       "yearAgo": {
         "price": 94.62,
         "date": "2025-09-22"
-      }
-    },
-    "MELI": {
-      "name": "MercadoLibre, Inc.",
-      "price": 1820.47,
-      "previousClose": 1787.39,
-      "monthAgo": {
-        "price": 1922.73,
-        "date": "2026-08-21"
       },
-      "yearAgo": {
-        "price": 2460.66,
-        "date": "2025-09-22"
-      }
+      "dividend": 2.85
     },
     "MET": {
       "name": "MetLife, Inc.",
-      "price": 96.64,
-      "previousClose": 97.04,
+      "price": 96.72,
+      "previousClose": 96.64,
       "monthAgo": {
         "price": 94.34,
         "date": "2026-08-21"
@@ -1261,12 +4221,13 @@
       "yearAgo": {
         "price": 80.98,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.322
     },
     "META": {
       "name": "Meta Platforms, Inc.",
-      "price": 741.25,
-      "previousClose": 665.75,
+      "price": 745.25,
+      "previousClose": 741.25,
       "monthAgo": {
         "price": 549.9,
         "date": "2026-08-21"
@@ -1274,12 +4235,55 @@
       "yearAgo": {
         "price": 765.16,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.625
+    },
+    "MGM": {
+      "name": "MGM Resorts International",
+      "price": 39.39,
+      "previousClose": 38.73,
+      "monthAgo": {
+        "price": 43.74,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 34.49,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "MKC": {
+      "name": "McCormick & Company, Incorporated",
+      "price": 49.3,
+      "previousClose": 48.89,
+      "monthAgo": {
+        "price": 55.41,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 64.63,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.89
+    },
+    "MLM": {
+      "name": "Martin Marietta Materials, Inc.",
+      "price": 500.09,
+      "previousClose": 499.67,
+      "monthAgo": {
+        "price": 534.92,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 619.83,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.33
     },
     "MMM": {
       "name": "3M Company",
-      "price": 164.97,
-      "previousClose": 165.89,
+      "price": 166.79,
+      "previousClose": 164.97,
       "monthAgo": {
         "price": 178.96,
         "date": "2026-08-21"
@@ -1287,12 +4291,27 @@
       "yearAgo": {
         "price": 153.86,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.07
+    },
+    "MNST": {
+      "name": "Monster Beverage Corporation",
+      "price": 44.33,
+      "previousClose": 44,
+      "monthAgo": {
+        "price": 47.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 31.99,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "MO": {
       "name": "Altria Group, Inc.",
-      "price": 68.53,
-      "previousClose": 69.52,
+      "price": 68.35,
+      "previousClose": 68.53,
       "monthAgo": {
         "price": 66.09,
         "date": "2026-08-21"
@@ -1300,12 +4319,27 @@
       "yearAgo": {
         "price": 63.79,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.29
+    },
+    "MOS": {
+      "name": "The Mosaic Company",
+      "price": 24.13,
+      "previousClose": 24.07,
+      "monthAgo": {
+        "price": 24.41,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 33.43,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.88
     },
     "MPC": {
       "name": "Marathon Petroleum Corporation",
-      "price": 402.38,
-      "previousClose": 424.89,
+      "price": 389.13,
+      "previousClose": 402.38,
       "monthAgo": {
         "price": 360.72,
         "date": "2026-08-21"
@@ -1313,25 +4347,27 @@
       "yearAgo": {
         "price": 187.25,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4
     },
-    "MPLX": {
-      "name": "MPLX LP",
-      "price": 59.09,
-      "previousClose": 59.44,
+    "MPWR": {
+      "name": "Monolithic Power Systems, Inc.",
+      "price": 1336.63,
+      "previousClose": 1277.68,
       "monthAgo": {
-        "price": 58.41,
+        "price": 1316.28,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 50.04,
+        "price": 922.81,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 7.12
     },
     "MRK": {
       "name": "Merck & Co., Inc.",
-      "price": 149.5,
-      "previousClose": 146.87,
+      "price": 149.19,
+      "previousClose": 149.5,
       "monthAgo": {
         "price": 152.55,
         "date": "2026-08-21"
@@ -1339,12 +4375,55 @@
       "yearAgo": {
         "price": 80.4,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.4
+    },
+    "MRNA": {
+      "name": "Moderna, Inc.",
+      "price": 176.85,
+      "previousClose": 172.94,
+      "monthAgo": {
+        "price": 145.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 26.56,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "MRSH": {
+      "name": "Marsh & McLennan Companies, Inc.",
+      "price": 170.29,
+      "previousClose": 172.72,
+      "monthAgo": {
+        "price": 192.01,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 197.04,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.69
+    },
+    "MRVL": {
+      "name": "Marvell Technology, Inc.",
+      "price": 264.25,
+      "previousClose": 257.38,
+      "monthAgo": {
+        "price": 237.04,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 75.53,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.24
     },
     "MS": {
       "name": "Morgan Stanley",
-      "price": 206.12,
-      "previousClose": 202.58,
+      "price": 202.74,
+      "previousClose": 206.12,
       "monthAgo": {
         "price": 214.2,
         "date": "2026-08-21"
@@ -1352,12 +4431,13 @@
       "yearAgo": {
         "price": 160.71,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.15
     },
     "MSCI": {
       "name": "MSCI Inc.",
-      "price": 558.97,
-      "previousClose": 552.87,
+      "price": 554.18,
+      "previousClose": 558.97,
       "monthAgo": {
         "price": 563.49,
         "date": "2026-08-21"
@@ -1365,12 +4445,13 @@
       "yearAgo": {
         "price": 568.06,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 7.95
     },
     "MSFT": {
       "name": "Microsoft Corporation",
-      "price": 501.61,
-      "previousClose": 493.78,
+      "price": 496.53,
+      "previousClose": 501.61,
       "monthAgo": {
         "price": 483.24,
         "date": "2026-08-21"
@@ -1378,12 +4459,55 @@
       "yearAgo": {
         "price": 514.45,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.64
+    },
+    "MSI": {
+      "name": "Motorola Solutions, Inc.",
+      "price": 457.18,
+      "previousClose": 461.36,
+      "monthAgo": {
+        "price": 480.47,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 471.47,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.84
+    },
+    "MTB": {
+      "name": "M&T Bank Corporation",
+      "price": 225.84,
+      "previousClose": 226.96,
+      "monthAgo": {
+        "price": 240.34,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 198.9,
+        "date": "2025-09-22"
+      },
+      "dividend": 6
+    },
+    "MTD": {
+      "name": "Mettler-Toledo International Inc.",
+      "price": 1433.29,
+      "previousClose": 1430.44,
+      "monthAgo": {
+        "price": 1395.25,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 1258.05,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "MU": {
       "name": "Micron Technology, Inc.",
-      "price": 1043.96,
-      "previousClose": 1015.8,
+      "price": 1071.32,
+      "previousClose": 1043.96,
       "monthAgo": {
         "price": 966.78,
         "date": "2026-08-21"
@@ -1391,12 +4515,55 @@
       "yearAgo": {
         "price": 164.62,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.53
+    },
+    "NCLH": {
+      "name": "Norwegian Cruise Line Holdings Ltd.",
+      "price": 14.68,
+      "previousClose": 14.24,
+      "monthAgo": {
+        "price": 17.24,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 25.39,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "NDAQ": {
+      "name": "Nasdaq, Inc.",
+      "price": 94.59,
+      "previousClose": 94.69,
+      "monthAgo": {
+        "price": 98.22,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 89.93,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.16
+    },
+    "NDSN": {
+      "name": "Nordson Corporation",
+      "price": 316.57,
+      "previousClose": 314.35,
+      "monthAgo": {
+        "price": 332.24,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 225.34,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.4
     },
     "NEE": {
       "name": "NextEra Energy, Inc.",
-      "price": 79.63,
-      "previousClose": 80.47,
+      "price": 79.27,
+      "previousClose": 79.63,
       "monthAgo": {
         "price": 83.65,
         "date": "2026-08-21"
@@ -1404,38 +4571,69 @@
       "yearAgo": {
         "price": 72.35,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.436
     },
-    "NGG": {
-      "name": "National Grid plc",
-      "price": 76.68,
-      "previousClose": 76.8,
+    "NEM": {
+      "name": "Newmont Corporation",
+      "price": 124.42,
+      "previousClose": 123.05,
       "monthAgo": {
-        "price": 79.76,
+        "price": 131.58,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 70.96,
+        "price": 83.72,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.03
     },
-    "NIO": {
-      "name": "NIO Inc.",
-      "price": 3.67,
-      "previousClose": 3.66,
+    "NFLX": {
+      "name": "Netflix, Inc.",
+      "price": 72.07,
+      "previousClose": 73.36,
       "monthAgo": {
-        "price": 4.63,
+        "price": 79.59,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 6.91,
+        "price": 122.74,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "NI": {
+      "name": "NiSource Inc.",
+      "price": 40.34,
+      "previousClose": 40.52,
+      "monthAgo": {
+        "price": 40.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 41.3,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.18
+    },
+    "NKE": {
+      "name": "NIKE, Inc.",
+      "price": 36.6,
+      "previousClose": 36.1,
+      "monthAgo": {
+        "price": 40.76,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 71.28,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.64
     },
     "NOC": {
       "name": "Northrop Grumman Corporation",
-      "price": 526.66,
-      "previousClose": 527.39,
+      "price": 516.52,
+      "previousClose": 526.66,
       "monthAgo": {
         "price": 551.03,
         "date": "2026-08-21"
@@ -1443,25 +4641,13 @@
       "yearAgo": {
         "price": 576.15,
         "date": "2025-09-22"
-      }
-    },
-    "NOK": {
-      "name": "Nokia Oyj",
-      "price": 10.94,
-      "previousClose": 10.68,
-      "monthAgo": {
-        "price": 10.21,
-        "date": "2026-08-21"
       },
-      "yearAgo": {
-        "price": 4.77,
-        "date": "2025-09-22"
-      }
+      "dividend": 9.56
     },
     "NOW": {
       "name": "ServiceNow, Inc.",
-      "price": 137.68,
-      "previousClose": 135.47,
+      "price": 136.03,
+      "previousClose": 137.68,
       "monthAgo": {
         "price": 128.48,
         "date": "2026-08-21"
@@ -1469,12 +4655,27 @@
       "yearAgo": {
         "price": 189.56,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "NRG": {
+      "name": "NRG Energy, Inc.",
+      "price": 103.19,
+      "previousClose": 103.28,
+      "monthAgo": {
+        "price": 113.11,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 170.97,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.865
     },
     "NSC": {
       "name": "Norfolk Southern Corporation",
-      "price": 309.07,
-      "previousClose": 314.16,
+      "price": 311.64,
+      "previousClose": 309.07,
       "monthAgo": {
         "price": 350.72,
         "date": "2026-08-21"
@@ -1482,25 +4683,55 @@
       "yearAgo": {
         "price": 290.55,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.4
     },
-    "NTES": {
-      "name": "NetEase, Inc.",
-      "price": 117.47,
-      "previousClose": 116.19,
+    "NTAP": {
+      "name": "NetApp, Inc.",
+      "price": 197.01,
+      "previousClose": 198.15,
       "monthAgo": {
-        "price": 128.17,
+        "price": 192.27,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 152.35,
+        "price": 124.61,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.08
+    },
+    "NTRS": {
+      "name": "Northern Trust Corporation",
+      "price": 175.91,
+      "previousClose": 178.95,
+      "monthAgo": {
+        "price": 183.9,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 131.78,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.28
+    },
+    "NUE": {
+      "name": "Nucor Corporation",
+      "price": 244.35,
+      "previousClose": 242.4,
+      "monthAgo": {
+        "price": 243.63,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 134.68,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.23
     },
     "NVDA": {
       "name": "NVIDIA Corporation",
-      "price": 227.38,
-      "previousClose": 222.27,
+      "price": 227.36,
+      "previousClose": 227.38,
       "monthAgo": {
         "price": 214.72,
         "date": "2026-08-21"
@@ -1508,25 +4739,69 @@
       "yearAgo": {
         "price": 183.61,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.52
     },
-    "NVO": {
-      "name": "Novo Nordisk A/S",
-      "price": 39.8,
-      "previousClose": 43.24,
+    "NVR": {
+      "name": "NVR, Inc.",
+      "price": 6286.94,
+      "previousClose": 6188.95,
       "monthAgo": {
-        "price": 46.74,
+        "price": 6358.51,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 60.71,
+        "price": 7925.23,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "NWS": {
+      "name": "News Corporation",
+      "price": 32.67,
+      "previousClose": 32.86,
+      "monthAgo": {
+        "price": 34.55,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 34.15,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.2
+    },
+    "NWSA": {
+      "name": "News Corporation",
+      "price": 29.64,
+      "previousClose": 29.7,
+      "monthAgo": {
+        "price": 30.38,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 30.81,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.2
+    },
+    "NXPI": {
+      "name": "NXP Semiconductors N.V.",
+      "price": 233.34,
+      "previousClose": 232.41,
+      "monthAgo": {
+        "price": 225.56,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 225.73,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.056
     },
     "O": {
       "name": "Realty Income Corporation",
-      "price": 56.65,
-      "previousClose": 56.66,
+      "price": 56.66,
+      "previousClose": 56.65,
       "monthAgo": {
         "price": 62.6,
         "date": "2026-08-21"
@@ -1534,12 +4809,69 @@
       "yearAgo": {
         "price": 59.06,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.246
+    },
+    "ODFL": {
+      "name": "Old Dominion Freight Line, Inc.",
+      "price": 176.27,
+      "previousClose": 175.36,
+      "monthAgo": {
+        "price": 206.47,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 138.93,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.15
+    },
+    "OKE": {
+      "name": "ONEOK, Inc.",
+      "price": 91.56,
+      "previousClose": 91.8,
+      "monthAgo": {
+        "price": 93.33,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 71.62,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.24
+    },
+    "OMC": {
+      "name": "Omnicom Group Inc.",
+      "price": 75.25,
+      "previousClose": 75.59,
+      "monthAgo": {
+        "price": 87.54,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 74.53,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.2
+    },
+    "ON": {
+      "name": "ON Semiconductor Corporation",
+      "price": 71.61,
+      "previousClose": 71.72,
+      "monthAgo": {
+        "price": 74.21,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 51.5,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "ORCL": {
       "name": "Oracle Corporation",
-      "price": 148.56,
-      "previousClose": 147.61,
+      "price": 151.23,
+      "previousClose": 148.56,
       "monthAgo": {
         "price": 146.47,
         "date": "2026-08-21"
@@ -1547,12 +4879,41 @@
       "yearAgo": {
         "price": 328.15,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2
+    },
+    "ORLY": {
+      "name": "O'Reilly Automotive, Inc.",
+      "price": 86.14,
+      "previousClose": 82.88,
+      "monthAgo": {
+        "price": 89.11,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 103.45,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "OTIS": {
+      "name": "Otis Worldwide Corporation",
+      "price": 67.62,
+      "previousClose": 66.64,
+      "monthAgo": {
+        "price": 71.49,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 89.33,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.72
     },
     "OXY": {
       "name": "Occidental Petroleum Corporation",
-      "price": 57.25,
-      "previousClose": 58.84,
+      "price": 56.73,
+      "previousClose": 57.25,
       "monthAgo": {
         "price": 61.3,
         "date": "2026-08-21"
@@ -1560,12 +4921,27 @@
       "yearAgo": {
         "price": 45.76,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.04
+    },
+    "P": {
+      "name": "Everpure, Inc.",
+      "price": 108.8,
+      "previousClose": 113.66,
+      "monthAgo": {
+        "price": 108.55,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 87.85,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "PANW": {
       "name": "Palo Alto Networks, Inc.",
-      "price": 371.76,
-      "previousClose": 363.58,
+      "price": 368.99,
+      "previousClose": 371.76,
       "monthAgo": {
         "price": 357.87,
         "date": "2026-08-21"
@@ -1573,12 +4949,13 @@
       "yearAgo": {
         "price": 208.18,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "PAYX": {
       "name": "Paychex, Inc.",
-      "price": 115.01,
-      "previousClose": 116.14,
+      "price": 114.56,
+      "previousClose": 115.01,
       "monthAgo": {
         "price": 124.48,
         "date": "2026-08-21"
@@ -1586,25 +4963,97 @@
       "yearAgo": {
         "price": 130.4,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.54
     },
-    "PDD": {
-      "name": "PDD Holdings Inc.",
-      "price": 79.3,
-      "previousClose": 78.9,
+    "PCAR": {
+      "name": "PACCAR Inc",
+      "price": 113.69,
+      "previousClose": 114.73,
       "monthAgo": {
-        "price": 88.38,
+        "price": 131.03,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 128.57,
+        "price": 97.07,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.76
+    },
+    "PCG": {
+      "name": "PG&E Corporation",
+      "price": 12.89,
+      "previousClose": 12.94,
+      "monthAgo": {
+        "price": 17.6,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 14.67,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.175
+    },
+    "PEG": {
+      "name": "Public Service Enterprise Group Incorporated",
+      "price": 69.05,
+      "previousClose": 69.31,
+      "monthAgo": {
+        "price": 72.61,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 81.73,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.64
+    },
+    "PEP": {
+      "name": "PepsiCo, Inc.",
+      "price": 130.24,
+      "previousClose": 129.59,
+      "monthAgo": {
+        "price": 143.48,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 141.03,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.806
+    },
+    "PFE": {
+      "name": "Pfizer Inc.",
+      "price": 27.64,
+      "previousClose": 27.74,
+      "monthAgo": {
+        "price": 28.07,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 24.04,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.72
+    },
+    "PFG": {
+      "name": "Principal Financial Group, Inc.",
+      "price": 115.44,
+      "previousClose": 116.47,
+      "monthAgo": {
+        "price": 110.75,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 82.21,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.25
     },
     "PG": {
       "name": "The Procter & Gamble Company",
-      "price": 146.08,
-      "previousClose": 146.39,
+      "price": 147.14,
+      "previousClose": 146.08,
       "monthAgo": {
         "price": 144.68,
         "date": "2026-08-21"
@@ -1612,12 +5061,13 @@
       "yearAgo": {
         "price": 153.07,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.292
     },
     "PGR": {
       "name": "The Progressive Corporation",
-      "price": 212.24,
-      "previousClose": 213.48,
+      "price": 207.9,
+      "previousClose": 212.24,
       "monthAgo": {
         "price": 219.28,
         "date": "2026-08-21"
@@ -1625,25 +5075,55 @@
       "yearAgo": {
         "price": 241.15,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 13.9
     },
-    "PINS": {
-      "name": "Pinterest, Inc.",
-      "price": 19.36,
-      "previousClose": 18.6,
+    "PH": {
+      "name": "Parker-Hannifin Corporation",
+      "price": 957.63,
+      "previousClose": 958.17,
       "monthAgo": {
-        "price": 23.4,
+        "price": 1001.74,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 35.31,
+        "price": 759.95,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 7.6
+    },
+    "PHM": {
+      "name": "PulteGroup, Inc.",
+      "price": 121.61,
+      "previousClose": 118.97,
+      "monthAgo": {
+        "price": 129,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 129.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.04
+    },
+    "PKG": {
+      "name": "Packaging Corporation of America",
+      "price": 239.64,
+      "previousClose": 238.31,
+      "monthAgo": {
+        "price": 252.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 212.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.5
     },
     "PLD": {
       "name": "Prologis, Inc.",
-      "price": 135.82,
-      "previousClose": 134.84,
+      "price": 135.14,
+      "previousClose": 135.82,
       "monthAgo": {
         "price": 141.8,
         "date": "2026-08-21"
@@ -1651,12 +5131,27 @@
       "yearAgo": {
         "price": 113.93,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.22
+    },
+    "PLTR": {
+      "name": "Palantir Technologies Inc.",
+      "price": 183.45,
+      "previousClose": 183.09,
+      "monthAgo": {
+        "price": 179.94,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 179.33,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "PM": {
       "name": "Philip Morris International Inc.",
-      "price": 187.48,
-      "previousClose": 188.62,
+      "price": 187.17,
+      "previousClose": 187.48,
       "monthAgo": {
         "price": 188.23,
         "date": "2026-08-21"
@@ -1664,12 +5159,97 @@
       "yearAgo": {
         "price": 161.98,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.88
+    },
+    "PNC": {
+      "name": "The PNC Financial Services Group, Inc.",
+      "price": 231.73,
+      "previousClose": 233.25,
+      "monthAgo": {
+        "price": 243.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 203.12,
+        "date": "2025-09-22"
+      },
+      "dividend": 7.1
+    },
+    "PNR": {
+      "name": "Pentair plc",
+      "price": 55.94,
+      "previousClose": 55.78,
+      "monthAgo": {
+        "price": 64.4,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 110.09,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.06
+    },
+    "PNW": {
+      "name": "Pinnacle West Capital Corporation",
+      "price": 93.14,
+      "previousClose": 93.31,
+      "monthAgo": {
+        "price": 97.36,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 86.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.64
+    },
+    "PODD": {
+      "name": "Insulet Corporation",
+      "price": 139.9,
+      "previousClose": 140.53,
+      "monthAgo": {
+        "price": 148.16,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 335.12,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "PPG": {
+      "name": "PPG Industries, Inc.",
+      "price": 107.38,
+      "previousClose": 104.93,
+      "monthAgo": {
+        "price": 113.63,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 109.49,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.87
+    },
+    "PPL": {
+      "name": "PPL Corporation",
+      "price": 32.93,
+      "previousClose": 33.05,
+      "monthAgo": {
+        "price": 34.38,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 35.69,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.128
     },
     "PRU": {
       "name": "Prudential Financial, Inc.",
-      "price": 118.53,
-      "previousClose": 118.4,
+      "price": 118.25,
+      "previousClose": 118.53,
       "monthAgo": {
         "price": 121.15,
         "date": "2026-08-21"
@@ -1677,12 +5257,13 @@
       "yearAgo": {
         "price": 102.85,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.55
     },
     "PSA": {
       "name": "Public Storage",
-      "price": 296.67,
-      "previousClose": 296.31,
+      "price": 297.55,
+      "previousClose": 296.67,
       "monthAgo": {
         "price": 322.49,
         "date": "2026-08-21"
@@ -1690,12 +5271,27 @@
       "yearAgo": {
         "price": 279.67,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 12
+    },
+    "PSKY": {
+      "name": "Paramount Skydance Corporation",
+      "price": 10.54,
+      "previousClose": 9.91,
+      "monthAgo": {
+        "price": 10.35,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 18.61,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.2
     },
     "PSX": {
       "name": "Phillips 66",
-      "price": 261.75,
-      "previousClose": 273.13,
+      "price": 256.92,
+      "previousClose": 261.75,
       "monthAgo": {
         "price": 242.87,
         "date": "2026-08-21"
@@ -1703,12 +5299,41 @@
       "yearAgo": {
         "price": 129.57,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.01
+    },
+    "PTC": {
+      "name": "PTC Inc.",
+      "price": 134.47,
+      "previousClose": 135.28,
+      "monthAgo": {
+        "price": 154.68,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 205.93,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "PWR": {
+      "name": "Quanta Services, Inc.",
+      "price": 643.03,
+      "previousClose": 642.61,
+      "monthAgo": {
+        "price": 639.34,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 396.02,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.43
     },
     "PYPL": {
       "name": "PayPal Holdings, Inc.",
-      "price": 52.62,
-      "previousClose": 52.41,
+      "price": 52.77,
+      "previousClose": 52.62,
       "monthAgo": {
         "price": 61.55,
         "date": "2026-08-21"
@@ -1716,12 +5341,24 @@
       "yearAgo": {
         "price": 67.68,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.56
+    },
+    "Q": {
+      "name": "Qnity Electronics, Inc.",
+      "price": 123.27,
+      "previousClose": 121.82,
+      "monthAgo": {
+        "price": 128.88,
+        "date": "2026-08-21"
+      },
+      "yearAgo": null,
+      "dividend": 0.3
     },
     "QCOM": {
       "name": "QUALCOMM Incorporated",
-      "price": 194.23,
-      "previousClose": 177.72,
+      "price": 193.5,
+      "previousClose": 194.23,
       "monthAgo": {
         "price": 160.75,
         "date": "2026-08-21"
@@ -1729,12 +5366,55 @@
       "yearAgo": {
         "price": 169.72,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.62
+    },
+    "RCL": {
+      "name": "Royal Caribbean Cruises Ltd.",
+      "price": 255.33,
+      "previousClose": 250.25,
+      "monthAgo": {
+        "price": 292,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 329.24,
+        "date": "2025-09-22"
+      },
+      "dividend": 6.5
+    },
+    "RDDT": {
+      "name": "Reddit, Inc.",
+      "price": 159.4,
+      "previousClose": 158.73,
+      "monthAgo": {
+        "price": 153.29,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 257.56,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "REG": {
+      "name": "Regency Centers Corporation",
+      "price": 73.18,
+      "previousClose": 72.92,
+      "monthAgo": {
+        "price": 76.06,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 70.73,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.02
     },
     "REGN": {
       "name": "Regeneron Pharmaceuticals, Inc.",
-      "price": 798.17,
-      "previousClose": 784.85,
+      "price": 797.21,
+      "previousClose": 798.17,
       "monthAgo": {
         "price": 834.04,
         "date": "2026-08-21"
@@ -1742,25 +5422,69 @@
       "yearAgo": {
         "price": 595.68,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.7
     },
-    "RIVN": {
-      "name": "Rivian Automotive, Inc.",
-      "price": 15.36,
-      "previousClose": 14.99,
+    "RF": {
+      "name": "Regions Financial Corporation",
+      "price": 28.5,
+      "previousClose": 28.55,
       "monthAgo": {
-        "price": 16.97,
+        "price": 30.41,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 15.24,
+        "price": 26.56,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.095
+    },
+    "RJF": {
+      "name": "Raymond James Financial, Inc.",
+      "price": 160.51,
+      "previousClose": 165.19,
+      "monthAgo": {
+        "price": 175.2,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 175.32,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.12
+    },
+    "RL": {
+      "name": "Ralph Lauren Corporation",
+      "price": 344.86,
+      "previousClose": 339.82,
+      "monthAgo": {
+        "price": 372.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 307.65,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.739
+    },
+    "RMD": {
+      "name": "ResMed Inc.",
+      "price": 224.12,
+      "previousClose": 223.61,
+      "monthAgo": {
+        "price": 231.52,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 274.41,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.46
     },
     "ROK": {
       "name": "Rockwell Automation, Inc.",
-      "price": 424.89,
-      "previousClose": 415.62,
+      "price": 425.59,
+      "previousClose": 424.89,
       "monthAgo": {
         "price": 437.08,
         "date": "2026-08-21"
@@ -1768,12 +5492,55 @@
       "yearAgo": {
         "price": 345.36,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.52
+    },
+    "ROL": {
+      "name": "Rollins, Inc.",
+      "price": 32.83,
+      "previousClose": 32.35,
+      "monthAgo": {
+        "price": 36.91,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 55.56,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.732
+    },
+    "ROP": {
+      "name": "Roper Technologies, Inc.",
+      "price": 363.97,
+      "previousClose": 365.4,
+      "monthAgo": {
+        "price": 411.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 509.63,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.555
+    },
+    "ROST": {
+      "name": "Ross Stores, Inc.",
+      "price": 233.03,
+      "previousClose": 231.25,
+      "monthAgo": {
+        "price": 239.04,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 144.67,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.74
     },
     "RSG": {
       "name": "Republic Services, Inc.",
-      "price": 213.93,
-      "previousClose": 218.07,
+      "price": 213.58,
+      "previousClose": 213.93,
       "monthAgo": {
         "price": 220.67,
         "date": "2026-08-21"
@@ -1781,12 +5548,13 @@
       "yearAgo": {
         "price": 226.26,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.5
     },
     "RTX": {
       "name": "RTX Corporation",
-      "price": 194.34,
-      "previousClose": 194,
+      "price": 190.96,
+      "previousClose": 194.34,
       "monthAgo": {
         "price": 209.91,
         "date": "2026-08-21"
@@ -1794,25 +5562,55 @@
       "yearAgo": {
         "price": 159.43,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.82
     },
-    "SAP": {
-      "name": "SAP SE",
-      "price": 209.22,
-      "previousClose": 209.45,
+    "RVTY": {
+      "name": "Revvity, Inc.",
+      "price": 142.34,
+      "previousClose": 143.59,
       "monthAgo": {
-        "price": 218.68,
+        "price": 124.75,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 265.38,
+        "price": 86.27,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.28
+    },
+    "SBAC": {
+      "name": "SBA Communications Corporation",
+      "price": 175.24,
+      "previousClose": 176.28,
+      "monthAgo": {
+        "price": 182.59,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 198,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.86
+    },
+    "SBUX": {
+      "name": "Starbucks Corporation",
+      "price": 95.15,
+      "previousClose": 94.9,
+      "monthAgo": {
+        "price": 107.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 85.29,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.48
     },
     "SCHW": {
       "name": "The Charles Schwab Corporation",
-      "price": 106.88,
-      "previousClose": 105.25,
+      "price": 102.97,
+      "previousClose": 106.88,
       "monthAgo": {
         "price": 112.3,
         "date": "2026-08-21"
@@ -1820,51 +5618,41 @@
       "yearAgo": {
         "price": 94.43,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.23
     },
-    "SE": {
-      "name": "Sea Limited",
-      "price": 102.65,
-      "previousClose": 101.79,
+    "SHW": {
+      "name": "The Sherwin-Williams Company",
+      "price": 327.31,
+      "previousClose": 321.31,
       "monthAgo": {
-        "price": 117.53,
+        "price": 346.59,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 192.96,
+        "price": 346.41,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.19
     },
-    "SHOP": {
-      "name": "Shopify Inc.",
-      "price": 137.92,
-      "previousClose": 128.5,
+    "SJM": {
+      "name": "The J. M. Smucker Company",
+      "price": 121.46,
+      "previousClose": 119.88,
       "monthAgo": {
-        "price": 149.25,
+        "price": 124.32,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 157.12,
+        "price": 108.08,
         "date": "2025-09-22"
-      }
-    },
-    "SIEGY": {
-      "name": "Siemens Aktiengesellschaft",
-      "price": 157.15,
-      "previousClose": 152.06,
-      "monthAgo": {
-        "price": 163.65,
-        "date": "2026-08-21"
       },
-      "yearAgo": {
-        "price": 134.81,
-        "date": "2025-09-22"
-      }
+      "dividend": 4.42
     },
     "SLB": {
       "name": "SLB N.V.",
-      "price": 51.76,
-      "previousClose": 51.12,
+      "price": 51.93,
+      "previousClose": 51.76,
       "monthAgo": {
         "price": 53.87,
         "date": "2026-08-21"
@@ -1872,12 +5660,13 @@
       "yearAgo": {
         "price": 33.92,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.17
     },
     "SMCI": {
       "name": "Super Micro Computer, Inc.",
-      "price": 41.2,
-      "previousClose": 39.09,
+      "price": 41.04,
+      "previousClose": 41.2,
       "monthAgo": {
         "price": 37.24,
         "date": "2026-08-21"
@@ -1885,51 +5674,55 @@
       "yearAgo": {
         "price": 46.87,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "SNAP": {
-      "name": "Snap Inc.",
-      "price": 5.7,
-      "previousClose": 5.53,
+    "SNA": {
+      "name": "Snap-on Incorporated",
+      "price": 371.45,
+      "previousClose": 369.75,
       "monthAgo": {
-        "price": 5.24,
+        "price": 393.39,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 8.53,
+        "price": 337.52,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 9.76
     },
-    "SNOW": {
-      "name": "Snowflake Inc.",
-      "price": 339.39,
-      "previousClose": 332.43,
+    "SNDK": {
+      "name": "Sandisk Corporation",
+      "price": 1899,
+      "previousClose": 1766.64,
       "monthAgo": {
-        "price": 332.78,
+        "price": 1596.08,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 229.54,
+        "price": 102.92,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "SNY": {
-      "name": "Sanofi",
-      "price": 42.5,
-      "previousClose": 42.48,
+    "SNPS": {
+      "name": "Synopsys, Inc.",
+      "price": 404.93,
+      "previousClose": 401.85,
       "monthAgo": {
-        "price": 45.85,
+        "price": 397.87,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 47.01,
+        "price": 514.79,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "SO": {
       "name": "The Southern Company",
-      "price": 85.46,
-      "previousClose": 85.52,
+      "price": 85.06,
+      "previousClose": 85.46,
       "monthAgo": {
         "price": 88.94,
         "date": "2026-08-21"
@@ -1937,25 +5730,27 @@
       "yearAgo": {
         "price": 92.33,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3
     },
-    "SONY": {
-      "name": "Sony Group Corporation",
-      "price": 23.59,
-      "previousClose": 23.46,
+    "SOLV": {
+      "name": "Solventum Corporation",
+      "price": 88.77,
+      "previousClose": 88.84,
       "monthAgo": {
-        "price": 23.92,
+        "price": 89.57,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 29.73,
+        "price": 73.76,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
     "SPG": {
       "name": "Simon Property Group, Inc.",
-      "price": 204.98,
-      "previousClose": 205.32,
+      "price": 205.33,
+      "previousClose": 204.98,
       "monthAgo": {
         "price": 218.29,
         "date": "2026-08-21"
@@ -1963,25 +5758,167 @@
       "yearAgo": {
         "price": 181.14,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 8.9
     },
-    "SPOT": {
-      "name": "Spotify Technology S.A.",
-      "price": 516.77,
-      "previousClose": 509.45,
+    "SPGI": {
+      "name": "S&P Global Inc.",
+      "price": 405.81,
+      "previousClose": 404.47,
       "monthAgo": {
-        "price": 533.72,
+        "price": 431.29,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 738.53,
+        "price": 478.31,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.714
+    },
+    "SRE": {
+      "name": "Sempra",
+      "price": 80.69,
+      "previousClose": 81.2,
+      "monthAgo": {
+        "price": 82.89,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 82.37,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.606
+    },
+    "STE": {
+      "name": "STERIS plc",
+      "price": 207.56,
+      "previousClose": 206.97,
+      "monthAgo": {
+        "price": 237.93,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 249.71,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.95
+    },
+    "STLD": {
+      "name": "Steel Dynamics, Inc.",
+      "price": 233.12,
+      "previousClose": 229.99,
+      "monthAgo": {
+        "price": 228.68,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 139.07,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.06
+    },
+    "STT": {
+      "name": "State Street Corporation",
+      "price": 181.14,
+      "previousClose": 184.4,
+      "monthAgo": {
+        "price": 187.13,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 113.32,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.36
+    },
+    "STX": {
+      "name": "Seagate Technology Holdings plc",
+      "price": 933.16,
+      "previousClose": 877.33,
+      "monthAgo": {
+        "price": 850,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 229.33,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.94
+    },
+    "STZ": {
+      "name": "Constellation Brands, Inc.",
+      "price": 119.68,
+      "previousClose": 118.39,
+      "monthAgo": {
+        "price": 135.66,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 133.48,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.1
+    },
+    "SW": {
+      "name": "Smurfit Westrock Plc",
+      "price": 46.16,
+      "previousClose": 45.41,
+      "monthAgo": {
+        "price": 49.39,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 43.48,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.356
+    },
+    "SWK": {
+      "name": "Stanley Black & Decker, Inc.",
+      "price": 91.08,
+      "previousClose": 88.68,
+      "monthAgo": {
+        "price": 100.02,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 75.02,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.33
+    },
+    "SWKS": {
+      "name": "Skyworks Solutions, Inc.",
+      "price": 88.96,
+      "previousClose": 88.74,
+      "monthAgo": {
+        "price": 67.14,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 82.97,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.13
+    },
+    "SYF": {
+      "name": "Synchrony Financial",
+      "price": 75.19,
+      "previousClose": 75,
+      "monthAgo": {
+        "price": 79.47,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 75.58,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.24
     },
     "SYK": {
       "name": "Stryker Corporation",
-      "price": 274.19,
-      "previousClose": 275.12,
+      "price": 275.83,
+      "previousClose": 274.19,
       "monthAgo": {
         "price": 329.45,
         "date": "2026-08-21"
@@ -1989,12 +5926,27 @@
       "yearAgo": {
         "price": 378.22,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.48
+    },
+    "SYY": {
+      "name": "Sysco Corporation",
+      "price": 78.71,
+      "previousClose": 78.43,
+      "monthAgo": {
+        "price": 84.1,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 81.37,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.17
     },
     "T": {
       "name": "AT&T Inc.",
-      "price": 25.45,
-      "previousClose": 25.4,
+      "price": 25.53,
+      "previousClose": 25.45,
       "monthAgo": {
         "price": 25.29,
         "date": "2026-08-21"
@@ -2002,25 +5954,13 @@
       "yearAgo": {
         "price": 28.92,
         "date": "2025-09-22"
-      }
-    },
-    "TCEHY": {
-      "name": "Tencent Holdings Limited",
-      "price": 55.85,
-      "previousClose": 53.9,
-      "monthAgo": {
-        "price": 58.07,
-        "date": "2026-08-21"
       },
-      "yearAgo": {
-        "price": 82.75,
-        "date": "2025-09-22"
-      }
+      "dividend": 1.112
     },
     "TDG": {
       "name": "TransDigm Group Incorporated",
-      "price": 1109.65,
-      "previousClose": 1086.05,
+      "price": 1102.3,
+      "previousClose": 1109.65,
       "monthAgo": {
         "price": 1200.35,
         "date": "2026-08-21"
@@ -2028,12 +5968,97 @@
       "yearAgo": {
         "price": 1295.29,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "TDY": {
+      "name": "Teledyne Technologies Incorporated",
+      "price": 610.61,
+      "previousClose": 609.08,
+      "monthAgo": {
+        "price": 636.15,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 567.92,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "TECH": {
+      "name": "Bio-Techne Corporation",
+      "price": 72.51,
+      "previousClose": 72.47,
+      "monthAgo": {
+        "price": 72.32,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 53.04,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.32
+    },
+    "TEL": {
+      "name": "TE Connectivity plc",
+      "price": 209.44,
+      "previousClose": 210.01,
+      "monthAgo": {
+        "price": 203.52,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 218.59,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.27
+    },
+    "TER": {
+      "name": "Teradyne, Inc.",
+      "price": 384.79,
+      "previousClose": 381.54,
+      "monthAgo": {
+        "price": 375.74,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 135.18,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.51
+    },
+    "TFC": {
+      "name": "Truist Financial Corporation",
+      "price": 48.76,
+      "previousClose": 49,
+      "monthAgo": {
+        "price": 50.42,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 45.39,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.08
+    },
+    "TGT": {
+      "name": "Target Corporation",
+      "price": 159.05,
+      "previousClose": 157.71,
+      "monthAgo": {
+        "price": 165.44,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 86.56,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.58
     },
     "TJX": {
       "name": "The TJX Companies, Inc.",
-      "price": 130.96,
-      "previousClose": 127.24,
+      "price": 131.23,
+      "previousClose": 130.96,
       "monthAgo": {
         "price": 140.53,
         "date": "2026-08-21"
@@ -2041,25 +6066,27 @@
       "yearAgo": {
         "price": 139.41,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.81
     },
-    "TM": {
-      "name": "Toyota Motor Corporation",
-      "price": 192.5,
-      "previousClose": 191.53,
+    "TKO": {
+      "name": "TKO Group Holdings, Inc.",
+      "price": 189.18,
+      "previousClose": 191.12,
       "monthAgo": {
-        "price": 197.35,
+        "price": 193.14,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 200.68,
+        "price": 199.67,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.14
     },
     "TMO": {
       "name": "Thermo Fisher Scientific Inc.",
-      "price": 658.76,
-      "previousClose": 651.45,
+      "price": 654.99,
+      "previousClose": 658.76,
       "monthAgo": {
         "price": 629.27,
         "date": "2026-08-21"
@@ -2067,12 +6094,13 @@
       "yearAgo": {
         "price": 474.99,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 1.84
     },
     "TMUS": {
       "name": "T-Mobile US, Inc.",
-      "price": 165.27,
-      "previousClose": 168.18,
+      "price": 163.9,
+      "previousClose": 165.27,
       "monthAgo": {
         "price": 183.04,
         "date": "2026-08-21"
@@ -2080,25 +6108,83 @@
       "yearAgo": {
         "price": 237.44,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.08
     },
-    "TRP": {
-      "name": "TC Energy Corporation",
-      "price": 60.48,
-      "previousClose": 61.54,
+    "TPL": {
+      "name": "Texas Pacific Land Corporation",
+      "price": 359.36,
+      "previousClose": 366.8,
       "monthAgo": {
-        "price": 62.02,
+        "price": 383.64,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 52.88,
+        "price": 292.32,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.333
+    },
+    "TPR": {
+      "name": "Tapestry, Inc.",
+      "price": 113.01,
+      "previousClose": 113.07,
+      "monthAgo": {
+        "price": 130.17,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 113.88,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.663
+    },
+    "TRGP": {
+      "name": "Targa Resources Corp.",
+      "price": 286.26,
+      "previousClose": 289.36,
+      "monthAgo": {
+        "price": 299.1,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 165.22,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.5
+    },
+    "TRMB": {
+      "name": "Trimble Inc.",
+      "price": 58.22,
+      "previousClose": 57.75,
+      "monthAgo": {
+        "price": 60.25,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 82.15,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "TROW": {
+      "name": "T. Rowe Price Group, Inc.",
+      "price": 103.73,
+      "previousClose": 104.63,
+      "monthAgo": {
+        "price": 111.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 105.29,
+        "date": "2025-09-22"
+      },
+      "dividend": 5.17
     },
     "TRV": {
       "name": "The Travelers Companies, Inc.",
-      "price": 371.13,
-      "previousClose": 374.62,
+      "price": 367.76,
+      "previousClose": 371.13,
       "monthAgo": {
         "price": 363.58,
         "date": "2026-08-21"
@@ -2106,12 +6192,27 @@
       "yearAgo": {
         "price": 276.11,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.7
+    },
+    "TSCO": {
+      "name": "Tractor Supply Company",
+      "price": 32.91,
+      "previousClose": 32.33,
+      "monthAgo": {
+        "price": 34.98,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 58.14,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.95
     },
     "TSLA": {
       "name": "Tesla, Inc.",
-      "price": 375.3,
-      "previousClose": 364.27,
+      "price": 375.6,
+      "previousClose": 375.3,
       "monthAgo": {
         "price": 362.86,
         "date": "2026-08-21"
@@ -2119,25 +6220,55 @@
       "yearAgo": {
         "price": 434.21,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
     },
-    "TSM": {
-      "name": "Taiwan Semiconductor Manufacturing Company Limited",
-      "price": 445.14,
-      "previousClose": 434.67,
+    "TSN": {
+      "name": "Tyson Foods, Inc.",
+      "price": 52.31,
+      "previousClose": 52.02,
       "monthAgo": {
-        "price": 418.95,
+        "price": 58.48,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 272.63,
+        "price": 53.66,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.04
+    },
+    "TT": {
+      "name": "Trane Technologies plc",
+      "price": 435.38,
+      "previousClose": 433.32,
+      "monthAgo": {
+        "price": 453.43,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 407.63,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.15
+    },
+    "TTWO": {
+      "name": "Take-Two Interactive Software, Inc.",
+      "price": 206.22,
+      "previousClose": 209.92,
+      "monthAgo": {
+        "price": 239.62,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 251.64,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "TXN": {
       "name": "Texas Instruments Incorporated",
-      "price": 270.87,
-      "previousClose": 266.64,
+      "price": 268.75,
+      "previousClose": 270.87,
       "monthAgo": {
         "price": 264.36,
         "date": "2026-08-21"
@@ -2145,25 +6276,111 @@
       "yearAgo": {
         "price": 179.62,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.68
     },
-    "UL": {
-      "name": "Unilever PLC",
-      "price": 62.17,
-      "previousClose": 61.82,
+    "TXT": {
+      "name": "Textron Inc.",
+      "price": 79.14,
+      "previousClose": 79.41,
       "monthAgo": {
-        "price": 64.14,
+        "price": 82.95,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 68.12,
+        "price": 83.49,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.08
+    },
+    "TYL": {
+      "name": "Tyler Technologies, Inc.",
+      "price": 329.29,
+      "previousClose": 332.46,
+      "monthAgo": {
+        "price": 350.73,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 536.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "UAL": {
+      "name": "United Airlines Holdings, Inc.",
+      "price": 117.11,
+      "previousClose": 114.39,
+      "monthAgo": {
+        "price": 113.17,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 104.18,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "UBER": {
+      "name": "Uber Technologies, Inc.",
+      "price": 70.78,
+      "previousClose": 70.84,
+      "monthAgo": {
+        "price": 78.8,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 99.39,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "UDR": {
+      "name": "UDR, Inc.",
+      "price": 33.98,
+      "previousClose": 33.89,
+      "monthAgo": {
+        "price": 37.77,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 37.39,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.73
+    },
+    "UHS": {
+      "name": "Universal Health Services, Inc.",
+      "price": 177.99,
+      "previousClose": 174.74,
+      "monthAgo": {
+        "price": 177.26,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 194.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.8
+    },
+    "ULTA": {
+      "name": "Ulta Beauty, Inc.",
+      "price": 561.25,
+      "previousClose": 557.86,
+      "monthAgo": {
+        "price": 521.46,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 518.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
     },
     "UNH": {
       "name": "UnitedHealth Group Incorporated",
-      "price": 377.56,
-      "previousClose": 376.9,
+      "price": 376.29,
+      "previousClose": 377.56,
       "monthAgo": {
         "price": 390.11,
         "date": "2026-08-21"
@@ -2171,12 +6388,13 @@
       "yearAgo": {
         "price": 341.3,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 9.06
     },
     "UNP": {
       "name": "Union Pacific Corporation",
-      "price": 269.63,
-      "previousClose": 279.37,
+      "price": 271.79,
+      "previousClose": 269.63,
       "monthAgo": {
         "price": 308.05,
         "date": "2026-08-21"
@@ -2184,12 +6402,13 @@
       "yearAgo": {
         "price": 225.85,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 5.56
     },
     "UPS": {
       "name": "United Parcel Service, Inc.",
-      "price": 94.75,
-      "previousClose": 99.06,
+      "price": 95.38,
+      "previousClose": 94.75,
       "monthAgo": {
         "price": 102.01,
         "date": "2026-08-21"
@@ -2197,12 +6416,41 @@
       "yearAgo": {
         "price": 84.23,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 6.56
+    },
+    "URI": {
+      "name": "United Rentals, Inc.",
+      "price": 1040.25,
+      "previousClose": 1029.92,
+      "monthAgo": {
+        "price": 1098.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 943.42,
+        "date": "2025-09-22"
+      },
+      "dividend": 7.7
+    },
+    "USB": {
+      "name": "U.S. Bancorp",
+      "price": 60.16,
+      "previousClose": 60.44,
+      "monthAgo": {
+        "price": 62.05,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 49.49,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.08
     },
     "V": {
       "name": "Visa Inc.",
-      "price": 369.95,
-      "previousClose": 368.29,
+      "price": 368.09,
+      "previousClose": 369.95,
       "monthAgo": {
         "price": 371.04,
         "date": "2026-08-21"
@@ -2210,12 +6458,41 @@
       "yearAgo": {
         "price": 344.36,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.68
+    },
+    "VEEV": {
+      "name": "Veeva Systems Inc.",
+      "price": 259.46,
+      "previousClose": 261.31,
+      "monthAgo": {
+        "price": 247.9,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 281.12,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "VICI": {
+      "name": "VICI Properties Inc.",
+      "price": 24.04,
+      "previousClose": 24.05,
+      "monthAgo": {
+        "price": 26.51,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 31.43,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.81
     },
     "VLO": {
       "name": "Valero Energy Corporation",
-      "price": 393.27,
-      "previousClose": 413.28,
+      "price": 376.13,
+      "previousClose": 393.27,
       "monthAgo": {
         "price": 348.86,
         "date": "2026-08-21"
@@ -2223,12 +6500,97 @@
       "yearAgo": {
         "price": 166.44,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 4.73
+    },
+    "VLTO": {
+      "name": "Veralto Corporation",
+      "price": 95.55,
+      "previousClose": 95.18,
+      "monthAgo": {
+        "price": 98.77,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 105.82,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.5
+    },
+    "VMC": {
+      "name": "Vulcan Materials Company",
+      "price": 246.57,
+      "previousClose": 246.2,
+      "monthAgo": {
+        "price": 276.04,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 298.89,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.05
+    },
+    "VMRK": {
+      "name": "AvalonBay Communities, Inc.",
+      "price": 61.44,
+      "previousClose": 61.36,
+      "monthAgo": {
+        "price": 66.79,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 65.29,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.792
+    },
+    "VRSK": {
+      "name": "Verisk Analytics, Inc.",
+      "price": 171.96,
+      "previousClose": 172.02,
+      "monthAgo": {
+        "price": 187.5,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 244.18,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.95
+    },
+    "VRSN": {
+      "name": "VeriSign, Inc.",
+      "price": 305.6,
+      "previousClose": 308.18,
+      "monthAgo": {
+        "price": 281.8,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 282.74,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.2
+    },
+    "VRT": {
+      "name": "Vertiv Holdings Co",
+      "price": 254.05,
+      "previousClose": 250.86,
+      "monthAgo": {
+        "price": 261.95,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 151.96,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.252
     },
     "VRTX": {
       "name": "Vertex Pharmaceuticals Incorporated",
-      "price": 510.72,
-      "previousClose": 508.34,
+      "price": 511.85,
+      "previousClose": 510.72,
       "monthAgo": {
         "price": 548.05,
         "date": "2026-08-21"
@@ -2236,12 +6598,55 @@
       "yearAgo": {
         "price": 383.13,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "VST": {
+      "name": "Vistra Corp.",
+      "price": 140.31,
+      "previousClose": 140.78,
+      "monthAgo": {
+        "price": 136.21,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 217.92,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.914
+    },
+    "VTR": {
+      "name": "Ventas, Inc.",
+      "price": 86.77,
+      "previousClose": 87.03,
+      "monthAgo": {
+        "price": 93.06,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 67.13,
+        "date": "2025-09-22"
+      },
+      "dividend": 2
+    },
+    "VTRS": {
+      "name": "Viatris Inc.",
+      "price": 17.13,
+      "previousClose": 17.1,
+      "monthAgo": {
+        "price": 16.32,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 9.79,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.48
     },
     "VZ": {
       "name": "Verizon Communications Inc.",
-      "price": 47.68,
-      "previousClose": 48.09,
+      "price": 47.48,
+      "previousClose": 47.68,
       "monthAgo": {
         "price": 49.45,
         "date": "2026-08-21"
@@ -2249,12 +6654,125 @@
       "yearAgo": {
         "price": 43.16,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.796
+    },
+    "WAB": {
+      "name": "Westinghouse Air Brake Technologies Corporation",
+      "price": 285.18,
+      "previousClose": 283.38,
+      "monthAgo": {
+        "price": 297.57,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 197.96,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.18
+    },
+    "WAT": {
+      "name": "Waters Corporation",
+      "price": 426.18,
+      "previousClose": 423.92,
+      "monthAgo": {
+        "price": 410.7,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 302.48,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "WBD": {
+      "name": "Warner Bros. Discovery, Inc.",
+      "price": 30.81,
+      "previousClose": 30.8,
+      "monthAgo": {
+        "price": 28.55,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 19.61,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "WDAY": {
+      "name": "Workday, Inc.",
+      "price": 189.61,
+      "previousClose": 191.92,
+      "monthAgo": {
+        "price": 200.01,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 242.66,
+        "date": "2025-09-22"
+      },
+      "dividend": 0
+    },
+    "WDC": {
+      "name": "Western Digital Corporation",
+      "price": 473.02,
+      "previousClose": 448.17,
+      "monthAgo": {
+        "price": 459.44,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 112.41,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.55
+    },
+    "WEC": {
+      "name": "WEC Energy Group, Inc.",
+      "price": 103.07,
+      "previousClose": 103.48,
+      "monthAgo": {
+        "price": 106.01,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 109.86,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.752
+    },
+    "WELL": {
+      "name": "Welltower Inc.",
+      "price": 230.88,
+      "previousClose": 232.76,
+      "monthAgo": {
+        "price": 239.22,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 167.42,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.07
+    },
+    "WFC": {
+      "name": "Wells Fargo & Company",
+      "price": 85.18,
+      "previousClose": 86.54,
+      "monthAgo": {
+        "price": 83.84,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 85.16,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.85
     },
     "WM": {
       "name": "Waste Management, Inc.",
       "price": 207.04,
-      "previousClose": 211.1,
+      "previousClose": 207.04,
       "monthAgo": {
         "price": 224.06,
         "date": "2026-08-21"
@@ -2262,38 +6780,167 @@
       "yearAgo": {
         "price": 216.99,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 3.66
     },
-    "WTRG": {
-      "name": "Essential Utilities, Inc.",
-      "price": 40.48,
-      "previousClose": 41.04,
+    "WMB": {
+      "name": "The Williams Companies, Inc.",
+      "price": 71.89,
+      "previousClose": 71.65,
       "monthAgo": {
-        "price": 40.18,
+        "price": 70.49,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 37.04,
+        "price": 60.16,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 2.075
     },
-    "XPEV": {
-      "name": "XPeng Inc.",
-      "price": 10.47,
-      "previousClose": 10.62,
+    "WMT": {
+      "name": "Walmart Inc.",
+      "price": 107.84,
+      "previousClose": 107.44,
       "monthAgo": {
-        "price": 12.19,
+        "price": 103.7,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 21.36,
+        "price": 102.82,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.979
+    },
+    "WRB": {
+      "name": "W. R. Berkley Corporation",
+      "price": 68.19,
+      "previousClose": 68.79,
+      "monthAgo": {
+        "price": 68.6,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 73.41,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.97
+    },
+    "WSM": {
+      "name": "Williams-Sonoma, Inc.",
+      "price": 232.72,
+      "previousClose": 227.16,
+      "monthAgo": {
+        "price": 237.58,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 196.66,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.84
+    },
+    "WST": {
+      "name": "West Pharmaceutical Services, Inc.",
+      "price": 365.92,
+      "previousClose": 361.78,
+      "monthAgo": {
+        "price": 353.08,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 252.22,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.88
+    },
+    "WTW": {
+      "name": "Willis Towers Watson Public Limited Company",
+      "price": 301.03,
+      "previousClose": 306.82,
+      "monthAgo": {
+        "price": 341.99,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 338.85,
+        "date": "2025-09-22"
+      },
+      "dividend": 3.76
+    },
+    "WY": {
+      "name": "Weyerhaeuser Company",
+      "price": 21.2,
+      "previousClose": 21.01,
+      "monthAgo": {
+        "price": 24.43,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 24.26,
+        "date": "2025-09-22"
+      },
+      "dividend": 0.84
+    },
+    "WYNN": {
+      "name": "Wynn Resorts, Limited",
+      "price": 84.62,
+      "previousClose": 83.32,
+      "monthAgo": {
+        "price": 100.28,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 126.05,
+        "date": "2025-09-22"
+      },
+      "dividend": 1
+    },
+    "XEL": {
+      "name": "Xcel Energy Inc.",
+      "price": 71.76,
+      "previousClose": 71.85,
+      "monthAgo": {
+        "price": 76.3,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 72.35,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.349
+    },
+    "XOM": {
+      "name": "ExxonMobil Holdings Corporation",
+      "price": 157.81,
+      "previousClose": 158.3,
+      "monthAgo": {
+        "price": 165.11,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 112.02,
+        "date": "2025-09-22"
+      },
+      "dividend": 4.12
+    },
+    "XYL": {
+      "name": "Xylem Inc.",
+      "price": 107.64,
+      "previousClose": 107.24,
+      "monthAgo": {
+        "price": 113.42,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 143.54,
+        "date": "2025-09-22"
+      },
+      "dividend": 1.69
     },
     "XYZ": {
       "name": "Block, Inc.",
-      "price": 77.91,
-      "previousClose": 76.28,
+      "price": 78.87,
+      "previousClose": 77.91,
       "monthAgo": {
         "price": 82.16,
         "date": "2026-08-21"
@@ -2301,12 +6948,27 @@
       "yearAgo": {
         "price": 77.41,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "YUM": {
+      "name": "Yum! Brands, Inc.",
+      "price": 139.9,
+      "previousClose": 139.33,
+      "monthAgo": {
+        "price": 152.99,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 149.27,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.96
     },
     "ZBH": {
       "name": "Zimmer Biomet Holdings, Inc.",
-      "price": 94.32,
-      "previousClose": 95.36,
+      "price": 94.64,
+      "previousClose": 94.32,
       "monthAgo": {
         "price": 100.98,
         "date": "2026-08-21"
@@ -2314,20 +6976,36 @@
       "yearAgo": {
         "price": 101.74,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0.96
     },
-    "ZM": {
-      "name": "Zoom Communications, Inc.",
-      "price": 90.9,
-      "previousClose": 88.77,
+    "ZBRA": {
+      "name": "Zebra Technologies Corporation",
+      "price": 352.21,
+      "previousClose": 350.84,
       "monthAgo": {
-        "price": 107.43,
+        "price": 368.51,
         "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 83.53,
+        "price": 315.41,
         "date": "2025-09-22"
-      }
+      },
+      "dividend": 0
+    },
+    "ZTS": {
+      "name": "Zoetis Inc.",
+      "price": 71.41,
+      "previousClose": 71.33,
+      "monthAgo": {
+        "price": 77.73,
+        "date": "2026-08-21"
+      },
+      "yearAgo": {
+        "price": 144.65,
+        "date": "2025-09-22"
+      },
+      "dividend": 2.09
     }
   }
 }

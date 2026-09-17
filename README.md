@@ -5,9 +5,10 @@ equity research or trading interview expects you to do without a calculator.
 
 Live: https://willcpan.github.io/finance-drills/
 
-Every question is generated from real figures for 179 companies. Answer, and the
-app shows you the shortcut worked through with that question's numbers — the
-point is to get faster, not just to be graded.
+Every question is generated from the **S&P 500** — today's prices, and the
+revenue, operating profit and earnings each company last reported to the SEC.
+Answer, and the app shows you the shortcut worked through with that question's
+numbers: the point is to get faster, not just to be graded.
 
 ## Running it
 
@@ -17,30 +18,67 @@ npm run dev            # dev server
 npm test               # vitest
 npm run lint           # eslint
 npm run build          # production build into dist/
-npm run refresh:prices # pull fresh quotes into data/prices.json
+npm run refresh:universe # index members + SEC figures -> data/universe.json
+npm run refresh:prices   # quotes and dividends      -> data/prices.json
 ```
 
 Deploys to GitHub Pages automatically on every push to `main`.
 
 ## Where the data comes from
 
-Two files, split along how fast each half ages:
+Two files, split by how fast their contents age and who publishes them:
 
-| File | Holds | Refreshed |
-| --- | --- | --- |
-| `Stockdata.csv` | revenue, EPS, operating profit, annual dividend | by hand; these move once a quarter |
-| `data/prices.json` | company name, price, and the closes yesterday, a month back and a year back | by `scripts/refresh-prices.mjs` |
+| File | Holds | Source | Refreshed |
+| --- | --- | --- | --- |
+| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
+| `data/prices.json` | price, the closes yesterday / a month / a year back, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
 
-`src/utils/buildStockData.ts` merges the two at build time and the build injects
+`src/utils/buildStockData.ts` joins the two at build time and the build injects
 the result as `__GAME_STOCK_DATA__`, so **the page never calls a data provider at
 runtime** — there is no CORS negotiation to lose, nothing to fail while someone is
 mid-drill, and the CSP stays as tight as it was.
 
+### The universe
+
+The constituent list comes from Wikipedia's S&P 500 table, which carries each
+company's **CIK** — the key that opens the SEC. Fundamentals then come from the
+SEC's XBRL `frames` API, which returns one concept for every filer in a single
+request, so the whole index costs about two dozen calls rather than 500
+multi-megabyte company files.
+
+Three things about the SEC worth knowing before touching that script:
+
+- **A User-Agent containing the string "github" is rejected outright**, with a
+  403 and "Your Request Originates from an Undeclared Automated Tool".
+  Advertising the repository URL — the obvious, polite thing to do — is what
+  trips it. Set `SEC_CONTACT` to an email to declare the traffic properly.
+- **`frames` is organised by calendar year**, so a company whose fiscal year
+  ends in February or September can be missing from every frame. Visa, Hershey
+  and Constellation Brands all are. The stragglers are then fetched one at a
+  time from `companyconcept`, which is why coverage lands near 96% rather than
+  near 80%.
+- **Operating income is not universal.** Banks, insurers and REITs largely do
+  not report `OperatingIncomeLoss` at all — about 90 companies. That is an
+  accounting fact, not a gap to paper over, so those companies keep every other
+  question and lose the operating margin one.
+
+A figure a company never reported is carried as `NaN`, never 0, because 0 is a
+claim. JSON has no `NaN` and writes `null`, so `stockData.ts` converts it back on
+load: as `null` it would not stay contagious through arithmetic —
+`null / revenue * 100` is 0 in JavaScript, and a bank would quietly acquire a 0%
+operating margin.
+
+### The prices
+
 Prices come from Yahoo's `v8/finance/chart` endpoint, which needs no key. One
-call per ticker returns a year of daily bars, so the company name and the
-longer-horizon closes cost no extra requests. Fundamentals are not fetched: the
-endpoint that serves them (`v10/finance/quoteSummary`) answers 401 without a
-session crumb.
+call per ticker returns a year of daily bars, so the company name, the
+longer-horizon closes and the dividends paid all cost no extra requests. The
+whole index takes about 25 seconds.
+
+Dividends are the trailing twelve months of payments actually made, rather than
+an SEC figure: barely a quarter of the index files
+`CommonStockDividendsPerShareDeclared`. A company that pays none sums to zero,
+which is a fact about it rather than a missing value.
 
 Two things about that endpoint are worth knowing before changing the script:
 
@@ -59,21 +97,25 @@ and not a total return: it excludes dividends. That is what the question asks �
 the percentage between two prices it puts on the screen — and it keeps the
 arithmetic consistent with the current price, which is also unadjusted.
 
-The refresh runs inside the deploy workflow on a weekday cron at 21:30 UTC, after
-the US close. It commits `data/prices.json` and then builds from the tree it just
-refreshed — a commit pushed with `GITHUB_TOKEN` starts no further workflow run, so
-a separate deploy workflow would never see the new prices. Two guards keep a bad
-fetch off the site: the script exits non-zero if it resolves under 90% of tickers
-(leaving the committed file untouched), and the workflow runs the test suite,
-which asserts against the data the build just loaded, before deploying.
+### Refreshing
 
-A ticker with no usable quote sits the drill out rather than pairing a frozen
-price with an invented previous close. Seven do today — acquired, taken private,
-or listed only in another currency (ABB, DFS, MMC, MRO, ORAN, PXD, WBA). A
-company whose history is missing or split-affected keeps its place and simply
-loses its month and year questions. If a build finds no quote file at all, it
-falls back to the CSV's own prices so a fresh clone still runs `npm run dev`;
-that build has no names and no history, so it drills the day move only.
+Both refreshes run inside the deploy workflow on a weekday cron at 21:30 UTC,
+after the US close. The workflow commits the data and then builds from the tree
+it just refreshed — a commit pushed with `GITHUB_TOKEN` starts no further
+workflow run, so a separate deploy workflow would never see the new data. Three
+guards keep a bad fetch off the site: the universe script refuses to write if it
+parses under 450 constituents or if under 80% of them have EPS, the price script
+refuses under 90% coverage, and the workflow runs the test suite — which asserts
+against the data the build just loaded — before deploying.
+
+Because membership refreshes itself, a company that leaves the index leaves the
+drill. The previous hand-typed list had no such mechanism, and seven of its
+names had been acquired or taken private before anyone noticed.
+
+An index member with no usable quote sits the drill out, since every question
+prints a price — including the ones asking about earnings. None do today. A
+company whose history is missing or split-affected keeps its place and loses
+only its month and year questions.
 
 Questions name the company as well as the ticker — "Union Pacific Corporation
 (UNP) trades at…" — because a ticker alone is how a desk talks but not always
@@ -128,29 +170,34 @@ Continue, so the same key carries you to the next question.
 ## Question quality
 
 Real market data contains values that are arithmetically valid but useless to
-drill. One company here earns about a cent a share, giving a P/E of 12,150 and a
-payout ratio of 30,000%. `SENSIBLE` in `src/utils/stockData.ts` declares the band
-each derived figure has to land in, and question types only draw from rows that
-qualify — which today leaves every type a pool of at least 130 companies. Rows
-with unparseable cells are dropped at build time, and six companies sit outside
-the price band because a $3 or $1,800 share price makes a poor mental-arithmetic
-drill.
+drill: a company earning about a cent a share gives a P/E of 12,150 and a payout
+ratio of 30,000%. `SENSIBLE` in `src/utils/stockData.ts` declares the band each
+derived figure has to land in, and question types only draw from companies that
+qualify — which today leaves every type a pool of at least 330. A handful sit
+outside the price band at either end, because a $3 or a $1,800 share price makes
+a poor mental-arithmetic drill.
 
-Two data bugs are pinned by `src/utils/buildStockData.test.ts`. The previous
-close used to be invented — a hash of the ticker, within a fixed ±2% of the price
-— so Percentage Change drilled a move that never happened; it is now the close
-the exchange reported. And the CSV carried 80 exact duplicate rows, which
-corrupted no answer but left those companies up to four times more likely to come
-up; the loader keeps the first row for each ticker.
+Two bugs from the hand-maintained era are pinned by
+`src/utils/buildStockData.test.ts`. The previous close used to be invented — a
+hash of the ticker, within a fixed ±2% of the price — so Percentage Change
+drilled a move that never happened; it is now the close the exchange reported.
+And the old CSV carried 80 exact duplicate rows, which corrupted no answer but
+left those companies up to four times more likely to come up; the join still
+keeps only the first row per ticker, since two share classes of one company can
+both sit in the index.
 
 ## Layout
 
 ```
+data/
+  universe.json          index members + what they reported (generated)
+  prices.json            quotes, past closes, dividends (generated)
 scripts/
-  refresh-prices.mjs     pulls quotes into data/prices.json
+  refresh-universe.mjs   Wikipedia constituents + SEC XBRL figures
+  refresh-prices.mjs     Yahoo quotes, past closes and dividends
 src/
   utils/
-    buildStockData.ts    build-time merge of CSV fundamentals + live prices
+    buildStockData.ts    build-time join of the two data files
     stockData.ts         injected data, price date, eligibility bands
     questionGenerator.ts question types, tolerances, methods
     gameEngine.ts        pure reducer: scoring, streaks, adaptive difficulty
