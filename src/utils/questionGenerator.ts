@@ -6,17 +6,22 @@ import {
   roundTo2,
   SENSIBLE,
   within,
+  priceMoveOf,
+  usablePast,
+  type PastClose,
   peRatioOf,
   earningsYieldOf,
   operatingMarginOf,
   payoutRatioOf,
 } from "./stockData";
-import { money, percent, ratio, years as formatYears, bigMoney } from "./format";
+import { money, percent, ratio, shortDate, years as formatYears, bigMoney } from "./format";
 
 export type QuestionType =
   | "priceIncrease"
   | "priceDecrease"
   | "percentageChange"
+  | "monthChange"
+  | "yearChange"
   | "recoveryGain"
   | "dividendYield"
   | "dividendPerShare"
@@ -72,7 +77,17 @@ export const QUESTION_META: Record<
   percentageChange: {
     label: "Percentage Change",
     category: "priceMoves",
-    blurb: "Turn two prices into a percentage move",
+    blurb: "Turn yesterday's close and today's price into a move",
+  },
+  monthChange: {
+    label: "1-Month Change",
+    category: "priceMoves",
+    blurb: "A month of price movement as a percentage",
+  },
+  yearChange: {
+    label: "1-Year Change",
+    category: "priceMoves",
+    blurb: "A year of price movement as a percentage",
   },
   recoveryGain: {
     label: "Recovery Gain",
@@ -198,6 +213,12 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
   priceIncrease: stocks.filter(hasUsablePrice),
   priceDecrease: stocks.filter(hasUsablePrice),
   percentageChange: stocks.filter(s => hasUsablePrice(s) && s.previousClose > 0),
+  // Both prices a longer-horizon question prints have to be workable numbers,
+  // so the past close passes the same band as the current price. The move
+  // itself is left alone: a stock that tripled in a year is the interesting
+  // case, not a broken one.
+  monthChange: stocks.filter(s => hasUsablePrice(s) && usablePast(s.monthAgo)),
+  yearChange: stocks.filter(s => hasUsablePrice(s) && usablePast(s.yearAgo)),
   recoveryGain: stocks.filter(hasUsablePrice),
   dividendYield: stocks.filter(
     s =>
@@ -255,6 +276,12 @@ const base = (
 // Generators
 // ---------------------------------------------------------------------------
 
+// How a question names the company: the name a player might recognise, with
+// the ticker they will see on a screen. Falls back to the bare ticker when the
+// two are the same, which is what a build with no quote file has.
+const subject = (stock: StockData): string =>
+  stock.name === stock.ticker ? stock.ticker : `${stock.name} (${stock.ticker})`;
+
 const movePercent = (difficulty: DifficultyLevel): number => {
   switch (difficulty) {
     case "easy":
@@ -276,7 +303,7 @@ const priceIncrease = (stock: StockData, difficulty: DifficultyLevel): Question 
 
   return {
     ...base("priceIncrease", difficulty, stock),
-    text: `${stock.ticker} trades at ${money(stock.currentPrice)}. If it rises ${pct}%, what is the new price?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)}. If it rises ${pct}%, what is the new price?`,
     correctAnswer: answer,
     answerUnit: "currency",
     tolerance: scaled(stock.currentPrice, PRICE_TOLERANCE_FRACTION, difficulty, 0.02),
@@ -296,7 +323,7 @@ const priceDecrease = (stock: StockData, difficulty: DifficultyLevel): Question 
 
   return {
     ...base("priceDecrease", difficulty, stock),
-    text: `${stock.ticker} trades at ${money(stock.currentPrice)}. If it falls ${pct}%, what is the new price?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)}. If it falls ${pct}%, what is the new price?`,
     correctAnswer: answer,
     answerUnit: "currency",
     tolerance: scaled(stock.currentPrice, PRICE_TOLERANCE_FRACTION, difficulty, 0.02),
@@ -308,23 +335,72 @@ const priceDecrease = (stock: StockData, difficulty: DifficultyLevel): Question 
   };
 };
 
+// The three percentage-move questions differ only in where they start from, so
+// they share the arithmetic and the worked method.
+const moveMethod = (from: number, to: number, answer: number): string[] => {
+  const diff = to - from;
+  const onePercent = from / 100;
+
+  return [
+    `The move is ${money(to)} - ${money(from)} = ${money(diff)}.`,
+    `1% of the ${money(from)} starting point is ${money(onePercent)}.`,
+    `${money(Math.abs(diff))} / ${money(onePercent)} = ${percent(answer)}.`,
+  ];
+};
+
 const percentageChange = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const diff = stock.currentPrice - stock.previousClose;
-  const answer = roundTo2((diff / stock.previousClose) * 100);
-  const onePercent = stock.previousClose / 100;
+  const answer = roundTo2(priceMoveOf(stock.previousClose, stock.currentPrice));
 
   return {
     ...base("percentageChange", difficulty, stock),
-    text: `${stock.ticker} closed at ${money(stock.previousClose)} and now trades at ${money(stock.currentPrice)}. What is the percentage change?`,
+    text: `${subject(stock)} closed at ${money(stock.previousClose)} and now trades at ${money(stock.currentPrice)}. What is the percentage change?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: POINT_TOLERANCE[difficulty],
-    method: [
-      `The move is ${money(stock.currentPrice)} - ${money(stock.previousClose)} = ${money(diff)}.`,
-      `1% of the ${money(stock.previousClose)} starting point is ${money(onePercent)}.`,
-      `${money(Math.abs(diff))} / ${money(onePercent)} = ${percent(answer)}.`,
-    ],
+    method: moveMethod(stock.previousClose, stock.currentPrice, answer),
   };
+};
+
+// A month or a year of movement runs to tens of points and sometimes past a
+// hundred, where the flat day-move tolerance would be punishing - a hard
+// 0.05pp on a 509% answer asks for four significant figures. These scale with
+// the answer instead, and never tighten past the flat one.
+const horizonTolerance = (answer: number, difficulty: DifficultyLevel): number =>
+  scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, POINT_TOLERANCE[difficulty]);
+
+const horizonChange = (
+  type: "monthChange" | "yearChange",
+  horizon: string,
+  past: PastClose,
+  stock: StockData,
+  difficulty: DifficultyLevel
+): Question => {
+  const answer = roundTo2(priceMoveOf(past.price, stock.currentPrice));
+
+  return {
+    ...base(type, difficulty, stock),
+    text:
+      `${subject(stock)} closed at ${money(past.price)} ${horizon} (${shortDate(past.date)}). ` +
+      `It now trades at ${money(stock.currentPrice)}. What is the percentage change?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: horizonTolerance(answer, difficulty),
+    method: moveMethod(past.price, stock.currentPrice, answer),
+  };
+};
+
+const monthChange = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const past = stock.monthAgo;
+  // ELIGIBLE.monthChange only holds rows carrying a usable month-ago close, so
+  // this cannot fire by way of generateQuestion.
+  if (!usablePast(past)) throw new Error(`${stock.ticker} has no month-ago close`);
+  return horizonChange("monthChange", "a month ago", past, stock, difficulty);
+};
+
+const yearChange = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const past = stock.yearAgo;
+  if (!usablePast(past)) throw new Error(`${stock.ticker} has no year-ago close`);
+  return horizonChange("yearChange", "a year ago", past, stock, difficulty);
 };
 
 const recoveryGain = (stock: StockData, difficulty: DifficultyLevel): Question => {
@@ -334,7 +410,7 @@ const recoveryGain = (stock: StockData, difficulty: DifficultyLevel): Question =
 
   return {
     ...base("recoveryGain", difficulty, stock),
-    text: `${stock.ticker} falls ${drop}%. What percentage gain would take it back to where it started?`,
+    text: `${subject(stock)} falls ${drop}%. What percentage gain would take it back to where it started?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, 0.3),
@@ -352,7 +428,7 @@ const dividendYield = (stock: StockData, difficulty: DifficultyLevel): Question 
 
   return {
     ...base("dividendYield", difficulty, stock),
-    text: `${stock.ticker} trades at ${money(stock.currentPrice)} and pays ${money(stock.dividendPerShare)} a year in dividends. What is the dividend yield?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and pays ${money(stock.dividendPerShare)} a year in dividends. What is the dividend yield?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: POINT_TOLERANCE[difficulty],
@@ -371,7 +447,7 @@ const dividendPerShare = (stock: StockData, difficulty: DifficultyLevel): Questi
 
   return {
     ...base("dividendPerShare", difficulty, stock),
-    text: `${stock.ticker} trades at ${money(stock.currentPrice)} and yields ${percent(yieldPct)}. What is the annual dividend per share?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and yields ${percent(yieldPct)}. What is the annual dividend per share?`,
     correctAnswer: answer,
     answerUnit: "currency",
     tolerance: scaled(answer, DIVIDEND_TOLERANCE_FRACTION, difficulty, 0.01),
@@ -388,7 +464,7 @@ const payoutRatio = (stock: StockData, difficulty: DifficultyLevel): Question =>
 
   return {
     ...base("payoutRatio", difficulty, stock),
-    text: `${stock.ticker} earns ${money(stock.eps)} a share and pays ${money(stock.dividendPerShare)} of it out. What is the payout ratio?`,
+    text: `${subject(stock)} earns ${money(stock.eps)} a share and pays ${money(stock.dividendPerShare)} of it out. What is the payout ratio?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, 0.5),
@@ -405,7 +481,7 @@ const peRatio = (stock: StockData, difficulty: DifficultyLevel): Question => {
 
   return {
     ...base("peRatio", difficulty, stock),
-    text: `${stock.ticker} trades at ${money(stock.currentPrice)} and earns ${money(stock.eps)} a share. What is its P/E ratio?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and earns ${money(stock.eps)} a share. What is its P/E ratio?`,
     correctAnswer: answer,
     answerUnit: "ratio",
     tolerance: scaled(answer, RATIO_TOLERANCE_FRACTION, difficulty, 0.2),
@@ -423,7 +499,7 @@ const earningsYield = (stock: StockData, difficulty: DifficultyLevel): Question 
 
   return {
     ...base("earningsYield", difficulty, stock),
-    text: `${stock.ticker} trades at ${money(stock.currentPrice)} and earns ${money(stock.eps)} a share. What is its earnings yield?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and earns ${money(stock.eps)} a share. What is its earnings yield?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: POINT_TOLERANCE[difficulty],
@@ -441,7 +517,7 @@ const operatingMargin = (stock: StockData, difficulty: DifficultyLevel): Questio
 
   return {
     ...base("operatingMargin", difficulty, stock),
-    text: `${stock.ticker} made ${bigMoney(stock.operatingProfit)} of operating profit on ${bigMoney(stock.revenue)} of revenue. What is the operating margin?`,
+    text: `${subject(stock)} made ${bigMoney(stock.operatingProfit)} of operating profit on ${bigMoney(stock.revenue)} of revenue. What is the operating margin?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, 0.3),
@@ -484,6 +560,8 @@ const GENERATORS: Record<
   priceIncrease,
   priceDecrease,
   percentageChange,
+  monthChange,
+  yearChange,
   recoveryGain,
   dividendYield,
   dividendPerShare,

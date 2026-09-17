@@ -18,6 +18,7 @@ import {
   type QuestionType,
 } from "@/utils/questionGenerator";
 import { weakestType, type Stats } from "@/utils/stats";
+import { pricesAsOf, stocks } from "@/utils/stockData";
 
 interface SetupScreenProps {
   config: GameConfig;
@@ -50,6 +51,14 @@ const SetupScreen: React.FC<SetupScreenProps> = ({ config, stats, onChange, onSt
     onChange({ types: [...next] });
   };
 
+  const priceDate = React.useMemo(() => {
+    if (!pricesAsOf) return null;
+    const parsed = new Date(pricesAsOf);
+    return Number.isNaN(parsed.getTime())
+      ? null
+      : parsed.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+  }, []);
+
   const focusOnWeakest = () => {
     if (weakest) onChange({ types: [weakest] });
   };
@@ -57,9 +66,12 @@ const SetupScreen: React.FC<SetupScreenProps> = ({ config, stats, onChange, onSt
   return (
     <div className="bg-white rounded-lg shadow-md p-6 animate-fade-in">
       <h2 className="text-2xl font-bold text-finance-blue mb-1">Finance Drills</h2>
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600 mb-2">
         Mental arithmetic on {ALL_QUESTION_TYPES.length} kinds of question, drawn from real company
         figures. Answer fast, then read the shortcut.
+      </p>
+      <p className="text-xs text-gray-500 mb-6">
+        {stocks.length} companies{priceDate ? ` · prices as of ${priceDate}` : ""}
       </p>
 
       <div className="grid md:grid-cols-3 gap-5 mb-6">
@@ -206,7 +218,7 @@ const SetupScreen: React.FC<SetupScreenProps> = ({ config, stats, onChange, onSt
           How it works
         </h3>
         <ul className="list-disc list-inside text-sm text-gray-600 space-y-1">
-          <li>Work each answer out in your head, type it, press Enter.</li>
+          <li>Work each answer out in your head, type it, press Enter or Space.</li>
           <li>Close is good enough - each question shows the margin it allows.</li>
           <li>After every answer you get the shortcut, worked through.</li>
           <li>Speed and streaks both add points, so keep moving.</li>

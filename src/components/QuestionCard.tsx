@@ -54,12 +54,26 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     if (revealed) nextRef.current?.focus();
   }, [revealed]);
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+  const submit = () => {
     if (revealed) return;
 
     const parsed = parseFloat(value);
     if (Number.isFinite(parsed)) onAnswer(parsed);
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    submit();
+  };
+
+  // Space submits as well as Enter. Every answer is a number, so a space can
+  // never be part of one, and on a drill scored by speed the nearer key wins.
+  // preventDefault stops the keystroke reaching the input, and stops a space
+  // held down from scrolling the page.
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key !== " ") return;
+    event.preventDefault();
+    submit();
   };
 
   const meta = QUESTION_META[question.type];
@@ -103,9 +117,10 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               step="any"
               inputMode="decimal"
               autoComplete="off"
-              placeholder={revealed ? "" : "Type a number, press Enter"}
+              placeholder={revealed ? "" : "Type a number, press Enter or Space"}
               value={value}
               onChange={event => setValue(event.target.value)}
+              onKeyDown={handleKeyDown}
               className="pl-10"
               disabled={revealed}
             />

@@ -64,8 +64,11 @@ describe("GameContainer", () => {
     render(<GameContainer />);
     await user.click(screen.getByRole("button", { name: /start/i }));
 
-    // Answer wrongly once to reveal the expected value, then restart and use it.
-    await user.type(screen.getByLabelText(/your answer/i), "0.00001");
+    // Answer wrongly once to reveal the expected value, then restart and use
+    // it. The wrong answer has to be wrong for every question type: a near-zero
+    // one was inside tolerance whenever a percentage move happened to land
+    // near zero, which the month and year moves do regularly.
+    await user.type(screen.getByLabelText(/your answer/i), "999999");
     await user.click(screen.getByRole("button", { name: /^submit$/i }));
 
     const answer = revealedAnswer();

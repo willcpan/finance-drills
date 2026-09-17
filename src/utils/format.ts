@@ -1,7 +1,14 @@
 import type { AnswerUnit } from "./questionGenerator";
 
-export const money = (value: number): string =>
-  `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+// The sign goes outside the currency symbol: a falling move reads as -$1.90,
+// not $-1.90.
+export const money = (value: number): string => {
+  const magnitude = Math.abs(value).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+  return `${value < 0 ? "-" : ""}$${magnitude}`;
+};
 
 export const percent = (value: number, decimals = 2): string => `${value.toFixed(decimals)}%`;
 
@@ -22,6 +29,34 @@ export const bigMoney = (millions: number): string => {
     })}bn`;
   }
   return `$${millions.toLocaleString("en-US", { maximumFractionDigits: 0 })}m`;
+};
+
+const MONTHS = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+// A YYYY-MM-DD from the quote file, for printing inside a question. Formatted
+// by hand rather than through a Date: parsing the string shifts the day west
+// of Greenwich, and Intl's "short" month is four letters for September in
+// newer ICU ("17 Sept 2025").
+export const shortDate = (iso: string): string => {
+  const parts = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!parts) return iso;
+
+  const [, year, month, day] = parts;
+  const name = MONTHS[Number(month) - 1];
+  return name ? `${Number(day)} ${name} ${year}` : iso;
 };
 
 // Render an answer in whatever unit its question uses.
