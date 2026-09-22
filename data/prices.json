@@ -1,2332 +1,2332 @@
 {
-  "asOf": "2026-09-18T20:04:48.000Z",
+  "asOf": "2026-09-21T20:04:38.000Z",
   "source": "Yahoo Finance (v8 chart)",
   "quotes": {
     "AAPL": {
       "name": "Apple Inc.",
-      "price": 336.13,
-      "previousClose": 337,
+      "price": 338.98,
+      "previousClose": 336.13,
       "monthAgo": {
-        "price": 316.83,
-        "date": "2026-08-19"
+        "price": 309.35,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 245.5,
-        "date": "2025-09-19"
+        "price": 256.08,
+        "date": "2025-09-22"
       }
     },
     "ABNB": {
       "name": "Airbnb, Inc.",
-      "price": 166.22,
-      "previousClose": 165.93,
+      "price": 166.84,
+      "previousClose": 166.22,
       "monthAgo": {
-        "price": 186.39,
-        "date": "2026-08-19"
+        "price": 187.3,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 127.04,
-        "date": "2025-09-19"
+        "price": 125.44,
+        "date": "2025-09-22"
       }
     },
     "ABT": {
       "name": "Abbott Laboratories",
-      "price": 102.61,
-      "previousClose": 102.23,
+      "price": 102.98,
+      "previousClose": 102.61,
       "monthAgo": {
-        "price": 114.43,
-        "date": "2026-08-19"
+        "price": 116.64,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 136.04,
-        "date": "2025-09-19"
+        "price": 136.62,
+        "date": "2025-09-22"
       }
     },
     "ADBE": {
       "name": "Adobe Inc.",
-      "price": 248.92,
-      "previousClose": 252.67,
+      "price": 249.52,
+      "previousClose": 248.92,
       "monthAgo": {
-        "price": 272.47,
-        "date": "2026-08-19"
+        "price": 275.3,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 365.9,
-        "date": "2025-09-19"
+        "price": 364.08,
+        "date": "2025-09-22"
       }
     },
     "ADI": {
       "name": "Analog Devices, Inc.",
-      "price": 375.72,
-      "previousClose": 362.65,
+      "price": 383,
+      "previousClose": 375.72,
       "monthAgo": {
-        "price": 373.26,
-        "date": "2026-08-19"
+        "price": 373.09,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 245.33,
-        "date": "2025-09-19"
+        "price": 247.34,
+        "date": "2025-09-22"
       }
     },
     "ADP": {
       "name": "Automatic Data Processing, Inc.",
-      "price": 271.22,
-      "previousClose": 272.24,
+      "price": 269.94,
+      "previousClose": 271.22,
       "monthAgo": {
-        "price": 277.22,
-        "date": "2026-08-19"
+        "price": 280.81,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 292,
-        "date": "2025-09-19"
+        "price": 293.66,
+        "date": "2025-09-22"
       }
     },
     "ADSK": {
       "name": "Autodesk, Inc.",
-      "price": 216.95,
-      "previousClose": 218.64,
+      "price": 218.85,
+      "previousClose": 216.95,
       "monthAgo": {
-        "price": 251.29,
-        "date": "2026-08-19"
+        "price": 253.83,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 322.67,
-        "date": "2025-09-19"
+        "price": 324.39,
+        "date": "2025-09-22"
       }
     },
     "AFL": {
       "name": "Aflac Incorporated",
-      "price": 116.33,
-      "previousClose": 116.6,
+      "price": 115.18,
+      "previousClose": 116.33,
       "monthAgo": {
-        "price": 116.51,
-        "date": "2026-08-19"
+        "price": 116.07,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 108.04,
-        "date": "2025-09-19"
+        "price": 107.4,
+        "date": "2025-09-22"
       }
     },
     "ALL": {
       "name": "The Allstate Corporation",
-      "price": 249.83,
-      "previousClose": 252.21,
+      "price": 242.86,
+      "previousClose": 249.83,
       "monthAgo": {
-        "price": 259.74,
-        "date": "2026-08-19"
+        "price": 253.83,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 206.04,
-        "date": "2025-09-19"
+        "price": 206.46,
+        "date": "2025-09-22"
       }
     },
     "AMAT": {
       "name": "Applied Materials, Inc.",
-      "price": 444.57,
-      "previousClose": 417.4,
+      "price": 464.24,
+      "previousClose": 444.57,
       "monthAgo": {
-        "price": 496.17,
-        "date": "2026-08-19"
+        "price": 492.32,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 190.1,
-        "date": "2025-09-19"
+        "price": 200.52,
+        "date": "2025-09-22"
       }
     },
     "AMD": {
       "name": "Advanced Micro Devices, Inc.",
-      "price": 559.82,
-      "previousClose": 545.09,
+      "price": 615.52,
+      "previousClose": 559.82,
       "monthAgo": {
-        "price": 466.42,
-        "date": "2026-08-19"
+        "price": 473.25,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 157.39,
-        "date": "2025-09-19"
+        "price": 159.79,
+        "date": "2025-09-22"
       }
     },
     "AMGN": {
       "name": "Amgen Inc.",
-      "price": 385.65,
-      "previousClose": 379.78,
+      "price": 393.16,
+      "previousClose": 385.65,
       "monthAgo": {
-        "price": 442.36,
-        "date": "2026-08-19"
+        "price": 439.33,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 285.41,
-        "date": "2025-09-19"
+        "price": 286,
+        "date": "2025-09-22"
       }
     },
     "AMT": {
       "name": "American Tower Corporation",
-      "price": 173.98,
-      "previousClose": 175.58,
+      "price": 174.6,
+      "previousClose": 173.98,
       "monthAgo": {
-        "price": 174.49,
-        "date": "2026-08-19"
+        "price": 175.8,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 193.31,
-        "date": "2025-09-19"
+        "price": 193.21,
+        "date": "2025-09-22"
       }
     },
     "AMZN": {
       "name": "Amazon.com, Inc.",
-      "price": 253.71,
-      "previousClose": 251.19,
+      "price": 258.45,
+      "previousClose": 253.71,
       "monthAgo": {
-        "price": 265.84,
-        "date": "2026-08-19"
+        "price": 258.63,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 231.48,
-        "date": "2025-09-19"
+        "price": 227.63,
+        "date": "2025-09-22"
       }
     },
     "AON": {
       "name": "Aon plc",
-      "price": 295.64,
-      "previousClose": 296.05,
+      "price": 290.82,
+      "previousClose": 295.64,
       "monthAgo": {
-        "price": 348.43,
-        "date": "2026-08-19"
+        "price": 355.11,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 351.32,
-        "date": "2025-09-19"
+        "price": 353.46,
+        "date": "2025-09-22"
       }
     },
     "APA": {
       "name": "APA Corporation",
-      "price": 44.87,
-      "previousClose": 45.46,
+      "price": 43.81,
+      "previousClose": 44.87,
       "monthAgo": {
-        "price": 43.45,
-        "date": "2026-08-19"
+        "price": 43.39,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 23.48,
-        "date": "2025-09-19"
+        "price": 23.61,
+        "date": "2025-09-22"
       }
     },
     "ASML": {
       "name": "ASML Holding N.V.",
-      "price": 1679.92,
-      "previousClose": 1629.67,
+      "price": 1711.32,
+      "previousClose": 1679.92,
       "monthAgo": {
-        "price": 1751.73,
-        "date": "2026-08-19"
+        "price": 1763.76,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 932.15,
-        "date": "2025-09-19"
+        "price": 957.8,
+        "date": "2025-09-22"
       }
     },
     "ATO": {
       "name": "Atmos Energy Corporation",
-      "price": 160.3,
-      "previousClose": 162.03,
+      "price": 158.27,
+      "previousClose": 160.3,
       "monthAgo": {
-        "price": 171.31,
-        "date": "2026-08-19"
+        "price": 166.85,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 162.93,
-        "date": "2025-09-19"
+        "price": 162.96,
+        "date": "2025-09-22"
       }
     },
     "AVGO": {
       "name": "Broadcom Inc.",
-      "price": 357.61,
-      "previousClose": 347.3,
+      "price": 362.66,
+      "previousClose": 357.61,
       "monthAgo": {
-        "price": 362.48,
-        "date": "2026-08-19"
+        "price": 368.45,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 344.94,
-        "date": "2025-09-19"
+        "price": 338.79,
+        "date": "2025-09-22"
       }
     },
     "AWK": {
       "name": "American Water Works Company, Inc.",
-      "price": 135.9,
-      "previousClose": 138.24,
+      "price": 133.97,
+      "previousClose": 135.9,
       "monthAgo": {
-        "price": 138.71,
-        "date": "2026-08-19"
+        "price": 135.39,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 135.06,
-        "date": "2025-09-19"
+        "price": 135.05,
+        "date": "2025-09-22"
       }
     },
     "AXP": {
       "name": "American Express Company",
-      "price": 311.56,
-      "previousClose": 311.17,
+      "price": 313.59,
+      "previousClose": 311.56,
       "monthAgo": {
-        "price": 339.9,
-        "date": "2026-08-19"
+        "price": 336,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 341.12,
-        "date": "2025-09-19"
+        "price": 340.98,
+        "date": "2025-09-22"
       }
     },
     "AZN": {
       "name": "AstraZeneca PLC",
-      "price": 166.08,
-      "previousClose": 166.14,
+      "price": 168.1,
+      "previousClose": 166.08,
       "monthAgo": {
-        "price": 164.95,
-        "date": "2026-08-19"
+        "price": 165.98,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 152.56,
-        "date": "2025-09-19"
+        "price": 155,
+        "date": "2025-09-22"
       }
     },
     "BA": {
       "name": "The Boeing Company",
-      "price": 198.2,
-      "previousClose": 197,
+      "price": 201.15,
+      "previousClose": 198.2,
       "monthAgo": {
-        "price": 222.2,
-        "date": "2026-08-19"
+        "price": 214.2,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 215.65,
-        "date": "2025-09-19"
+        "price": 212.09,
+        "date": "2025-09-22"
       }
     },
     "BABA": {
       "name": "Alibaba Group Holding Limited",
-      "price": 113.24,
-      "previousClose": 108.54,
+      "price": 115.75,
+      "previousClose": 113.24,
       "monthAgo": {
-        "price": 128.9,
-        "date": "2026-08-19"
+        "price": 119.34,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 162.81,
-        "date": "2025-09-19"
+        "price": 164.25,
+        "date": "2025-09-22"
       }
     },
     "BBY": {
       "name": "Best Buy Co., Inc.",
-      "price": 92.85,
-      "previousClose": 94.56,
+      "price": 93.22,
+      "previousClose": 92.85,
       "monthAgo": {
-        "price": 89.21,
-        "date": "2026-08-19"
+        "price": 85.89,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 72.23,
-        "date": "2025-09-19"
+        "price": 72.33,
+        "date": "2025-09-22"
       }
     },
     "BDX": {
       "name": "Becton, Dickinson and Company",
-      "price": 180.94,
-      "previousClose": 181.38,
+      "price": 180.7,
+      "previousClose": 180.94,
       "monthAgo": {
-        "price": 187.6,
-        "date": "2026-08-19"
+        "price": 192,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 147.04,
-        "date": "2025-09-19"
+        "price": 146.66,
+        "date": "2025-09-22"
       }
     },
     "BIIB": {
       "name": "Biogen Inc.",
-      "price": 215.5,
-      "previousClose": 219.05,
+      "price": 219.07,
+      "previousClose": 215.5,
       "monthAgo": {
-        "price": 221.56,
-        "date": "2026-08-19"
+        "price": 216.78,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 142.5,
-        "date": "2025-09-19"
+        "price": 140.66,
+        "date": "2025-09-22"
       }
     },
     "BKNG": {
       "name": "Booking Holdings Inc.",
-      "price": 167.9,
-      "previousClose": 170.52,
+      "price": 168.52,
+      "previousClose": 167.9,
       "monthAgo": {
-        "price": 213,
-        "date": "2026-08-19"
+        "price": 209.62,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 217.78,
-        "date": "2025-09-19"
+        "price": 218.29,
+        "date": "2025-09-22"
       }
     },
     "BKR": {
       "name": "Baker Hughes Company",
-      "price": 57.25,
-      "previousClose": 56.57,
+      "price": 57.83,
+      "previousClose": 57.25,
       "monthAgo": {
-        "price": 64.48,
-        "date": "2026-08-19"
+        "price": 62.34,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 47.34,
-        "date": "2025-09-19"
+        "price": 47.67,
+        "date": "2025-09-22"
       }
     },
     "BLK": {
       "name": "BlackRock, Inc.",
-      "price": 1069.78,
-      "previousClose": 1053.96,
+      "price": 1090.27,
+      "previousClose": 1069.78,
       "monthAgo": {
-        "price": 1158.92,
-        "date": "2026-08-19"
+        "price": 1156.55,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 1142.85,
-        "date": "2025-09-19"
+        "price": 1136.21,
+        "date": "2025-09-22"
       }
     },
     "BMY": {
       "name": "Bristol-Myers Squibb Company",
-      "price": 63.06,
-      "previousClose": 62.84,
+      "price": 62.62,
+      "previousClose": 63.06,
       "monthAgo": {
-        "price": 67.61,
-        "date": "2026-08-19"
+        "price": 67.01,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 45.02,
-        "date": "2025-09-19"
+        "price": 44.98,
+        "date": "2025-09-22"
       }
     },
     "BSX": {
       "name": "Boston Scientific Corporation",
-      "price": 43.34,
-      "previousClose": 43.55,
+      "price": 43.72,
+      "previousClose": 43.34,
       "monthAgo": {
-        "price": 52.01,
-        "date": "2026-08-19"
+        "price": 50.37,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 97.83,
-        "date": "2025-09-19"
+        "price": 97.03,
+        "date": "2025-09-22"
       }
     },
     "BYND": {
       "name": "Beyond Meat, Inc.",
-      "price": 11.51,
-      "previousClose": 11.7,
+      "price": 11.92,
+      "previousClose": 11.51,
       "monthAgo": {
-        "price": 14.08,
-        "date": "2026-08-19"
+        "price": 14.77,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 84.9,
-        "date": "2025-09-19"
+        "price": 85.2,
+        "date": "2025-09-22"
       }
     },
     "CAT": {
       "name": "Caterpillar Inc.",
-      "price": 808.99,
-      "previousClose": 798.57,
+      "price": 816.5,
+      "previousClose": 808.99,
       "monthAgo": {
-        "price": 816.15,
-        "date": "2026-08-19"
+        "price": 827.9,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 466.54,
-        "date": "2025-09-19"
+        "price": 472.1,
+        "date": "2025-09-22"
       }
     },
     "CB": {
       "name": "Chubb Limited",
-      "price": 340.64,
-      "previousClose": 341.9,
+      "price": 337.26,
+      "previousClose": 340.64,
       "monthAgo": {
-        "price": 340.92,
-        "date": "2026-08-19"
+        "price": 340.99,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 273.89,
-        "date": "2025-09-19"
+        "price": 273,
+        "date": "2025-09-22"
       }
     },
     "CCI": {
       "name": "Crown Castle Inc.",
-      "price": 73.06,
-      "previousClose": 73.74,
+      "price": 73.22,
+      "previousClose": 73.06,
       "monthAgo": {
-        "price": 74.65,
-        "date": "2026-08-19"
+        "price": 75.51,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 93.6,
-        "date": "2025-09-19"
+        "price": 94.28,
+        "date": "2025-09-22"
       }
     },
     "CL": {
       "name": "Colgate-Palmolive Company",
-      "price": 87.47,
-      "previousClose": 87.73,
+      "price": 86.26,
+      "previousClose": 87.47,
       "monthAgo": {
-        "price": 90.87,
-        "date": "2026-08-19"
+        "price": 91.08,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 81.17,
-        "date": "2025-09-19"
+        "price": 79.36,
+        "date": "2025-09-22"
       }
     },
     "CMCSA": {
       "name": "Comcast Corporation",
-      "price": 22.74,
-      "previousClose": 22.91,
+      "price": 22.93,
+      "previousClose": 22.74,
       "monthAgo": {
-        "price": 26.59,
-        "date": "2026-08-19"
+        "price": 26.85,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 29.61,
-        "date": "2025-09-19"
+        "price": 29.51,
+        "date": "2025-09-22"
       }
     },
     "COF": {
       "name": "Capital One Financial Corporation",
-      "price": 202.43,
-      "previousClose": 202.04,
+      "price": 204.92,
+      "previousClose": 202.43,
       "monthAgo": {
-        "price": 220.73,
-        "date": "2026-08-19"
+        "price": 217.91,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 228.32,
-        "date": "2025-09-19"
+        "price": 225.41,
+        "date": "2025-09-22"
       }
     },
     "COP": {
       "name": "ConocoPhillips",
-      "price": 131.83,
-      "previousClose": 133.19,
+      "price": 127.53,
+      "previousClose": 131.83,
       "monthAgo": {
-        "price": 130.58,
-        "date": "2026-08-19"
+        "price": 134.87,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 91.92,
-        "date": "2025-09-19"
+        "price": 92.01,
+        "date": "2025-09-22"
       }
     },
     "CRM": {
       "name": "Salesforce, Inc.",
-      "price": 237.92,
-      "previousClose": 242.85,
+      "price": 236.42,
+      "previousClose": 237.92,
       "monthAgo": {
-        "price": 206.09,
-        "date": "2026-08-19"
+        "price": 209.17,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 247.09,
-        "date": "2025-09-19"
+        "price": 249.69,
+        "date": "2025-09-22"
       }
     },
     "CSCO": {
       "name": "Cisco Systems, Inc.",
-      "price": 109.51,
-      "previousClose": 110.24,
+      "price": 111.46,
+      "previousClose": 109.51,
       "monthAgo": {
-        "price": 110.55,
-        "date": "2026-08-19"
+        "price": 111.04,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 68.21,
-        "date": "2025-09-19"
+        "price": 67.75,
+        "date": "2025-09-22"
       }
     },
     "CSX": {
       "name": "CSX Corporation",
-      "price": 47.1,
-      "previousClose": 47.9,
+      "price": 45.99,
+      "previousClose": 47.1,
       "monthAgo": {
-        "price": 50.68,
-        "date": "2026-08-19"
+        "price": 51.59,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 32.98,
-        "date": "2025-09-19"
+        "price": 33.2,
+        "date": "2025-09-22"
       }
     },
     "CVS": {
       "name": "CVS Health Corporation",
-      "price": 88.84,
-      "previousClose": 90.27,
+      "price": 87.6,
+      "previousClose": 88.84,
       "monthAgo": {
-        "price": 93.65,
-        "date": "2026-08-19"
+        "price": 93.02,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 74.92,
-        "date": "2025-09-19"
+        "price": 75.13,
+        "date": "2025-09-22"
       }
     },
     "DE": {
       "name": "Deere & Company",
-      "price": 683.99,
-      "previousClose": 685.63,
+      "price": 684.73,
+      "previousClose": 683.99,
       "monthAgo": {
-        "price": 580.63,
-        "date": "2026-08-19"
+        "price": 647.47,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 469.63,
-        "date": "2025-09-19"
+        "price": 469.03,
+        "date": "2025-09-22"
       }
     },
     "DG": {
       "name": "Dollar General Corporation",
-      "price": 122.41,
-      "previousClose": 124.95,
+      "price": 121.91,
+      "previousClose": 122.41,
       "monthAgo": {
-        "price": 122.31,
-        "date": "2026-08-19"
+        "price": 123.41,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 102.11,
-        "date": "2025-09-19"
+        "price": 101.86,
+        "date": "2025-09-22"
       }
     },
     "DOCU": {
       "name": "DocuSign, Inc.",
-      "price": 69.07,
-      "previousClose": 70.64,
+      "price": 68.57,
+      "previousClose": 69.07,
       "monthAgo": {
-        "price": 62.11,
-        "date": "2026-08-19"
+        "price": 62,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 84.59,
-        "date": "2025-09-19"
+        "price": 84.86,
+        "date": "2025-09-22"
       }
     },
     "DUK": {
       "name": "Duke Energy Corporation",
-      "price": 117.53,
-      "previousClose": 118.54,
+      "price": 116.74,
+      "previousClose": 117.53,
       "monthAgo": {
-        "price": 123.6,
-        "date": "2026-08-19"
+        "price": 119.85,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 121.08,
-        "date": "2025-09-19"
+        "price": 121.58,
+        "date": "2025-09-22"
       }
     },
     "DVN": {
       "name": "Devon Energy Corporation",
-      "price": 48.61,
-      "previousClose": 48.72,
+      "price": 47.59,
+      "previousClose": 48.61,
       "monthAgo": {
-        "price": 48.19,
-        "date": "2026-08-19"
+        "price": 49.1,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 33.96,
-        "date": "2025-09-19"
+        "price": 33.72,
+        "date": "2025-09-22"
       }
     },
     "EMR": {
       "name": "Emerson Electric Co.",
-      "price": 149.92,
-      "previousClose": 147.4,
+      "price": 151.72,
+      "previousClose": 149.92,
       "monthAgo": {
-        "price": 157.6,
-        "date": "2026-08-19"
+        "price": 157.26,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 132.34,
-        "date": "2025-09-19"
+        "price": 132.84,
+        "date": "2025-09-22"
       }
     },
     "ENB": {
       "name": "Enbridge Inc.",
-      "price": 48.73,
-      "previousClose": 48.75,
+      "price": 48.2,
+      "previousClose": 48.73,
       "monthAgo": {
-        "price": 50.25,
-        "date": "2026-08-19"
+        "price": 50.46,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 49.46,
-        "date": "2025-09-19"
+        "price": 49.19,
+        "date": "2025-09-22"
       }
     },
     "EOG": {
       "name": "EOG Resources, Inc.",
-      "price": 144.23,
-      "previousClose": 145.47,
+      "price": 141.38,
+      "previousClose": 144.23,
       "monthAgo": {
-        "price": 149.48,
-        "date": "2026-08-19"
+        "price": 153.05,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 116,
-        "date": "2025-09-19"
+        "price": 115.41,
+        "date": "2025-09-22"
       }
     },
     "EPD": {
       "name": "Enterprise Products Partners L.P.",
-      "price": 38.89,
-      "previousClose": 38.45,
+      "price": 38.47,
+      "previousClose": 38.89,
       "monthAgo": {
-        "price": 38.12,
-        "date": "2026-08-19"
+        "price": 38.01,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 31.69,
-        "date": "2025-09-19"
+        "price": 31.37,
+        "date": "2025-09-22"
       }
     },
     "ERIC": {
       "name": "Telefonaktiebolaget LM Ericsson (publ)",
-      "price": 10.17,
-      "previousClose": 10.29,
+      "price": 10.25,
+      "previousClose": 10.17,
       "monthAgo": {
-        "price": 10.15,
-        "date": "2026-08-19"
+        "price": 10.22,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 8.07,
-        "date": "2025-09-19"
+        "price": 8.09,
+        "date": "2025-09-22"
       }
     },
     "EW": {
       "name": "Edwards Lifesciences Corporation",
-      "price": 88.26,
-      "previousClose": 88.25,
+      "price": 88.34,
+      "previousClose": 88.26,
       "monthAgo": {
-        "price": 92.28,
-        "date": "2026-08-19"
+        "price": 89.79,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 74.41,
-        "date": "2025-09-19"
+        "price": 73.75,
+        "date": "2025-09-22"
       }
     },
     "EXPE": {
       "name": "Expedia Group, Inc.",
-      "price": 279.35,
-      "previousClose": 284.55,
+      "price": 281.02,
+      "previousClose": 279.35,
       "monthAgo": {
-        "price": 326.27,
-        "date": "2026-08-19"
+        "price": 321.63,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 222.43,
-        "date": "2025-09-19"
+        "price": 223.51,
+        "date": "2025-09-22"
       }
     },
     "F": {
       "name": "Ford Motor Company",
-      "price": 13.21,
-      "previousClose": 13.61,
+      "price": 13.17,
+      "previousClose": 13.21,
       "monthAgo": {
-        "price": 14.5,
-        "date": "2026-08-19"
+        "price": 14.41,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 11.62,
-        "date": "2025-09-19"
+        "price": 11.66,
+        "date": "2025-09-22"
       }
     },
     "FDX": {
       "name": "FedEx Corporation",
-      "price": 303.65,
-      "previousClose": 305.88,
+      "price": 295.79,
+      "previousClose": 303.65,
       "monthAgo": {
-        "price": 328.38,
-        "date": "2026-08-19"
+        "price": 325.08,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 186.74,
-        "date": "2025-09-19"
+        "price": 185.43,
+        "date": "2025-09-22"
       }
     },
     "FISV": {
       "name": "Fiserv, Inc.",
-      "price": 47.19,
-      "previousClose": 49.3,
+      "price": 46.47,
+      "previousClose": 47.19,
       "monthAgo": {
-        "price": 52.08,
-        "date": "2026-08-19"
+        "price": 52.58,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 131.8,
-        "date": "2025-09-19"
+        "price": 130.48,
+        "date": "2025-09-22"
       }
     },
     "FTI": {
       "name": "TechnipFMC plc",
-      "price": 72.02,
-      "previousClose": 72.74,
+      "price": 71.31,
+      "previousClose": 72.02,
       "monthAgo": {
-        "price": 77.02,
-        "date": "2026-08-19"
+        "price": 77.45,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 39.41,
-        "date": "2025-09-19"
+        "price": 38.78,
+        "date": "2025-09-22"
       }
     },
     "GD": {
       "name": "General Dynamics Corporation",
-      "price": 353.05,
-      "previousClose": 355.95,
+      "price": 353.9,
+      "previousClose": 353.05,
       "monthAgo": {
-        "price": 392.34,
-        "date": "2026-08-19"
+        "price": 384.29,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 324.08,
-        "date": "2025-09-19"
+        "price": 322.66,
+        "date": "2025-09-22"
       }
     },
     "GILD": {
       "name": "Gilead Sciences, Inc.",
-      "price": 150.11,
-      "previousClose": 150.89,
+      "price": 150.56,
+      "previousClose": 150.11,
       "monthAgo": {
-        "price": 147.6,
-        "date": "2026-08-19"
+        "price": 146.12,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 114.09,
-        "date": "2025-09-19"
+        "price": 112.49,
+        "date": "2025-09-22"
       }
     },
     "GIS": {
       "name": "General Mills, Inc.",
-      "price": 36.32,
-      "previousClose": 36.66,
+      "price": 35.41,
+      "previousClose": 36.32,
       "monthAgo": {
-        "price": 39.99,
-        "date": "2026-08-19"
+        "price": 39.97,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 50.35,
-        "date": "2025-09-19"
+        "price": 50.07,
+        "date": "2025-09-22"
       }
     },
     "GM": {
       "name": "General Motors Company",
-      "price": 82.2,
-      "previousClose": 86.62,
+      "price": 83.95,
+      "previousClose": 82.2,
       "monthAgo": {
-        "price": 84.96,
-        "date": "2026-08-19"
+        "price": 87.93,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 58.98,
-        "date": "2025-09-19"
+        "price": 58.88,
+        "date": "2025-09-22"
       }
     },
     "GOOG": {
       "name": "Alphabet Inc.",
-      "price": 344.41,
-      "previousClose": 343.68,
+      "price": 350.87,
+      "previousClose": 344.41,
       "monthAgo": {
-        "price": 341.7,
-        "date": "2026-08-19"
+        "price": 341.75,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 255.24,
-        "date": "2025-09-19"
+        "price": 252.88,
+        "date": "2025-09-22"
       }
     },
     "GOOGL": {
       "name": "Alphabet Inc.",
-      "price": 349.54,
-      "previousClose": 347.33,
+      "price": 354.97,
+      "previousClose": 349.54,
       "monthAgo": {
-        "price": 344.72,
-        "date": "2026-08-19"
+        "price": 344.82,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 254.72,
-        "date": "2025-09-19"
+        "price": 252.53,
+        "date": "2025-09-22"
       }
     },
     "GPN": {
       "name": "Global Payments Inc.",
-      "price": 85.06,
-      "previousClose": 85.4,
+      "price": 85.29,
+      "previousClose": 85.06,
       "monthAgo": {
-        "price": 91.74,
-        "date": "2026-08-19"
+        "price": 93.49,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 86.55,
-        "date": "2025-09-19"
+        "price": 86.95,
+        "date": "2025-09-22"
       }
     },
     "GS": {
       "name": "The Goldman Sachs Group, Inc.",
-      "price": 942,
-      "previousClose": 951.47,
+      "price": 959.39,
+      "previousClose": 942,
       "monthAgo": {
-        "price": 1021.65,
-        "date": "2026-08-19"
+        "price": 1039.28,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 805,
-        "date": "2025-09-19"
+        "price": 805.56,
+        "date": "2025-09-22"
       }
     },
     "HAL": {
       "name": "Halliburton Company",
-      "price": 33.64,
-      "previousClose": 34.03,
+      "price": 33.39,
+      "previousClose": 33.64,
       "monthAgo": {
-        "price": 35.02,
-        "date": "2026-08-19"
+        "price": 35.34,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 22.51,
-        "date": "2025-09-19"
+        "price": 22.61,
+        "date": "2025-09-22"
       }
     },
     "HLT": {
       "name": "Hilton Worldwide Holdings Inc.",
-      "price": 305.73,
-      "previousClose": 302.54,
+      "price": 307.08,
+      "previousClose": 305.73,
       "monthAgo": {
-        "price": 334.73,
-        "date": "2026-08-19"
+        "price": 326.63,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 268.61,
-        "date": "2025-09-19"
+        "price": 266.58,
+        "date": "2025-09-22"
       }
     },
     "HMC": {
       "name": "Honda Motor Co., Ltd.",
-      "price": 32.2,
-      "previousClose": 32.53,
+      "price": 32.53,
+      "previousClose": 32.2,
       "monthAgo": {
-        "price": 31.91,
-        "date": "2026-08-19"
+        "price": 33.37,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 33.35,
-        "date": "2025-09-19"
+        "price": 33.78,
+        "date": "2025-09-22"
       }
     },
     "HON": {
       "name": "Honeywell International Inc.",
-      "price": 206.46,
-      "previousClose": 206.49,
+      "price": 206.48,
+      "previousClose": 206.46,
       "monthAgo": {
-        "price": 221.73,
-        "date": "2026-08-19"
+        "price": 215.9,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 206.96,
-        "date": "2025-09-19"
+        "price": 206.59,
+        "date": "2025-09-22"
       }
     },
     "IBM": {
       "name": "International Business Machines Corporation",
-      "price": 229.55,
-      "previousClose": 237.75,
+      "price": 231.93,
+      "previousClose": 229.55,
       "monthAgo": {
-        "price": 237.16,
-        "date": "2026-08-19"
+        "price": 235.68,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 266.4,
-        "date": "2025-09-19"
+        "price": 271.37,
+        "date": "2025-09-22"
       }
     },
     "ICE": {
       "name": "Intercontinental Exchange, Inc.",
-      "price": 155.47,
-      "previousClose": 153.3,
+      "price": 155.37,
+      "previousClose": 155.47,
       "monthAgo": {
-        "price": 157.24,
-        "date": "2026-08-19"
+        "price": 161.25,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 169.77,
-        "date": "2025-09-19"
+        "price": 170.12,
+        "date": "2025-09-22"
       }
     },
     "ILMN": {
       "name": "Illumina, Inc.",
-      "price": 239.62,
-      "previousClose": 245.18,
+      "price": 238.82,
+      "previousClose": 239.62,
       "monthAgo": {
-        "price": 205,
-        "date": "2026-08-19"
+        "price": 219.4,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 102.75,
-        "date": "2025-09-19"
+        "price": 101.49,
+        "date": "2025-09-22"
       }
     },
     "INTC": {
       "name": "Intel Corporation",
-      "price": 108.6,
-      "previousClose": 108.8,
+      "price": 121.78,
+      "previousClose": 108.6,
       "monthAgo": {
-        "price": 92.8,
-        "date": "2026-08-19"
+        "price": 90.07,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 29.58,
-        "date": "2025-09-19"
+        "price": 28.76,
+        "date": "2025-09-22"
       }
     },
     "INTU": {
       "name": "Intuit Inc.",
-      "price": 303.19,
-      "previousClose": 313.13,
+      "price": 304.12,
+      "previousClose": 303.19,
       "monthAgo": {
-        "price": 362.47,
-        "date": "2026-08-19"
+        "price": 367,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 687.92,
-        "date": "2025-09-19"
+        "price": 702.09,
+        "date": "2025-09-22"
       }
     },
     "ISRG": {
       "name": "Intuitive Surgical, Inc.",
-      "price": 393.33,
-      "previousClose": 383.54,
+      "price": 401.65,
+      "previousClose": 393.33,
       "monthAgo": {
-        "price": 397.72,
-        "date": "2026-08-19"
+        "price": 378.81,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 438.72,
-        "date": "2025-09-19"
+        "price": 444.55,
+        "date": "2025-09-22"
       }
     },
     "JCI": {
       "name": "Johnson Controls International plc",
-      "price": 143.28,
-      "previousClose": 141.06,
+      "price": 145.18,
+      "previousClose": 143.28,
       "monthAgo": {
-        "price": 144.94,
-        "date": "2026-08-19"
+        "price": 143.05,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 108.69,
-        "date": "2025-09-19"
+        "price": 109.29,
+        "date": "2025-09-22"
       }
     },
     "JD": {
       "name": "JD.com, Inc.",
-      "price": 26.92,
-      "previousClose": 26.64,
+      "price": 27.28,
+      "previousClose": 26.92,
       "monthAgo": {
-        "price": 29.35,
-        "date": "2026-08-19"
+        "price": 29.37,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 35.1,
-        "date": "2025-09-19"
+        "price": 33.93,
+        "date": "2025-09-22"
       }
     },
     "JPM": {
       "name": "JPMorgan Chase & Co.",
-      "price": 349.67,
-      "previousClose": 349.31,
+      "price": 352.04,
+      "previousClose": 349.67,
       "monthAgo": {
-        "price": 357.26,
-        "date": "2026-08-19"
+        "price": 351.58,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 314.78,
-        "date": "2025-09-19"
+        "price": 312.44,
+        "date": "2025-09-22"
       }
     },
     "KHC": {
       "name": "The Kraft Heinz Company",
-      "price": 24.43,
-      "previousClose": 24.73,
+      "price": 24.37,
+      "previousClose": 24.43,
       "monthAgo": {
-        "price": 25.68,
-        "date": "2026-08-19"
+        "price": 25.58,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 26.42,
-        "date": "2025-09-19"
+        "price": 26.38,
+        "date": "2025-09-22"
       }
     },
     "KLAC": {
       "name": "KLA Corporation",
-      "price": 176.99,
-      "previousClose": 168.98,
+      "price": 183.97,
+      "previousClose": 176.99,
       "monthAgo": {
-        "price": 187.27,
-        "date": "2026-08-19"
+        "price": 183.99,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 104.48,
-        "date": "2025-09-19"
+        "price": 107.13,
+        "date": "2025-09-22"
       }
     },
     "KMI": {
       "name": "Kinder Morgan, Inc.",
-      "price": 31.84,
-      "previousClose": 31.31,
+      "price": 31.72,
+      "previousClose": 31.84,
       "monthAgo": {
-        "price": 32.08,
-        "date": "2026-08-19"
+        "price": 30.98,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 27.42,
-        "date": "2025-09-19"
+        "price": 27.18,
+        "date": "2025-09-22"
       }
     },
     "KO": {
       "name": "The Coca-Cola Company",
-      "price": 88.25,
-      "previousClose": 88.06,
+      "price": 87.12,
+      "previousClose": 88.25,
       "monthAgo": {
-        "price": 90.35,
-        "date": "2026-08-19"
+        "price": 91.1,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 66.43,
-        "date": "2025-09-19"
+        "price": 66.21,
+        "date": "2025-09-22"
       }
     },
     "KR": {
       "name": "The Kroger Co.",
-      "price": 60,
-      "previousClose": 60.75,
+      "price": 59.69,
+      "previousClose": 60,
       "monthAgo": {
-        "price": 56.27,
-        "date": "2026-08-19"
+        "price": 57.9,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 65.58,
-        "date": "2025-09-19"
+        "price": 64.52,
+        "date": "2025-09-22"
       }
     },
     "LCID": {
       "name": "Lucid Group, Inc.",
-      "price": 4.09,
-      "previousClose": 4.28,
+      "price": 4.3,
+      "previousClose": 4.09,
       "monthAgo": {
-        "price": 5.92,
-        "date": "2026-08-19"
+        "price": 5.51,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 21.1,
-        "date": "2025-09-19"
+        "price": 22.44,
+        "date": "2025-09-22"
       }
     },
     "LMT": {
       "name": "Lockheed Martin Corporation",
-      "price": 533.38,
-      "previousClose": 538.09,
+      "price": 535.4,
+      "previousClose": 533.38,
       "monthAgo": {
-        "price": 589.15,
-        "date": "2026-08-19"
+        "price": 563.57,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 472.94,
-        "date": "2025-09-19"
+        "price": 480.39,
+        "date": "2025-09-22"
       }
     },
     "LOW": {
       "name": "Lowe's Companies, Inc.",
-      "price": 192.49,
-      "previousClose": 194.19,
+      "price": 190.98,
+      "previousClose": 192.49,
       "monthAgo": {
-        "price": 220,
-        "date": "2026-08-19"
+        "price": 216.09,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 265.2,
-        "date": "2025-09-19"
+        "price": 260.39,
+        "date": "2025-09-22"
       }
     },
     "LRCX": {
       "name": "Lam Research Corporation",
-      "price": 288.11,
-      "previousClose": 269.31,
+      "price": 302.28,
+      "previousClose": 288.11,
       "monthAgo": {
-        "price": 307.17,
-        "date": "2026-08-19"
+        "price": 314,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 126.92,
-        "date": "2025-09-19"
+        "price": 132.2,
+        "date": "2025-09-22"
       }
     },
     "MA": {
       "name": "Mastercard Incorporated",
-      "price": 565.24,
-      "previousClose": 565.73,
+      "price": 567.65,
+      "previousClose": 565.24,
       "monthAgo": {
-        "price": 573.72,
-        "date": "2026-08-19"
+        "price": 580.63,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 584.16,
-        "date": "2025-09-19"
+        "price": 584.49,
+        "date": "2025-09-22"
       }
     },
     "MAR": {
       "name": "Marriott International, Inc.",
-      "price": 338.92,
-      "previousClose": 334,
+      "price": 342.66,
+      "previousClose": 338.92,
       "monthAgo": {
-        "price": 359.95,
-        "date": "2026-08-19"
+        "price": 356.39,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 268.52,
-        "date": "2025-09-19"
+        "price": 264.1,
+        "date": "2025-09-22"
       }
     },
     "MCO": {
       "name": "Moody's Corporation",
-      "price": 468.59,
-      "previousClose": 461.88,
+      "price": 467.22,
+      "previousClose": 468.59,
       "monthAgo": {
-        "price": 497.03,
-        "date": "2026-08-19"
+        "price": 503.32,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 480.74,
-        "date": "2025-09-19"
+        "price": 488.29,
+        "date": "2025-09-22"
       }
     },
     "MDLZ": {
       "name": "Mondelez International, Inc.",
-      "price": 60.85,
-      "previousClose": 62.04,
+      "price": 60.17,
+      "previousClose": 60.85,
       "monthAgo": {
-        "price": 64.16,
-        "date": "2026-08-19"
+        "price": 64.45,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 63.71,
-        "date": "2025-09-19"
+        "price": 63.5,
+        "date": "2025-09-22"
       }
     },
     "MDT": {
       "name": "Medtronic plc",
-      "price": 92.13,
-      "previousClose": 92.77,
+      "price": 91.75,
+      "previousClose": 92.13,
       "monthAgo": {
-        "price": 94.13,
-        "date": "2026-08-19"
+        "price": 93.35,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 95.08,
-        "date": "2025-09-19"
+        "price": 94.62,
+        "date": "2025-09-22"
       }
     },
     "MELI": {
       "name": "MercadoLibre, Inc.",
-      "price": 1787.39,
-      "previousClose": 1825.21,
+      "price": 1820.47,
+      "previousClose": 1787.39,
       "monthAgo": {
-        "price": 1908.65,
-        "date": "2026-08-19"
+        "price": 1922.73,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 2452.34,
-        "date": "2025-09-19"
+        "price": 2460.66,
+        "date": "2025-09-22"
       }
     },
     "MET": {
       "name": "MetLife, Inc.",
-      "price": 97.04,
-      "previousClose": 97.35,
+      "price": 96.64,
+      "previousClose": 97.04,
       "monthAgo": {
-        "price": 95.11,
-        "date": "2026-08-19"
+        "price": 94.34,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 79.16,
-        "date": "2025-09-19"
+        "price": 80.98,
+        "date": "2025-09-22"
       }
     },
     "META": {
       "name": "Meta Platforms, Inc.",
-      "price": 665.75,
-      "previousClose": 682.31,
+      "price": 741.25,
+      "previousClose": 665.75,
       "monthAgo": {
-        "price": 546.03,
-        "date": "2026-08-19"
+        "price": 549.9,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 778.38,
-        "date": "2025-09-19"
+        "price": 765.16,
+        "date": "2025-09-22"
       }
     },
     "MMM": {
       "name": "3M Company",
-      "price": 165.89,
-      "previousClose": 164.71,
+      "price": 164.97,
+      "previousClose": 165.89,
       "monthAgo": {
-        "price": 180.66,
-        "date": "2026-08-19"
+        "price": 178.96,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 156.6,
-        "date": "2025-09-19"
+        "price": 153.86,
+        "date": "2025-09-22"
       }
     },
     "MO": {
       "name": "Altria Group, Inc.",
-      "price": 69.52,
-      "previousClose": 69.7,
+      "price": 68.53,
+      "previousClose": 69.52,
       "monthAgo": {
-        "price": 66.03,
-        "date": "2026-08-19"
+        "price": 66.09,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 64.89,
-        "date": "2025-09-19"
+        "price": 63.79,
+        "date": "2025-09-22"
       }
     },
     "MPC": {
       "name": "Marathon Petroleum Corporation",
-      "price": 424.89,
-      "previousClose": 421.96,
+      "price": 402.38,
+      "previousClose": 424.89,
       "monthAgo": {
-        "price": 360.75,
-        "date": "2026-08-19"
+        "price": 360.72,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 185.46,
-        "date": "2025-09-19"
+        "price": 187.25,
+        "date": "2025-09-22"
       }
     },
     "MPLX": {
       "name": "MPLX LP",
-      "price": 59.44,
-      "previousClose": 58.62,
+      "price": 59.09,
+      "previousClose": 59.44,
       "monthAgo": {
-        "price": 58.69,
-        "date": "2026-08-19"
+        "price": 58.41,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 50.33,
-        "date": "2025-09-19"
+        "price": 50.04,
+        "date": "2025-09-22"
       }
     },
     "MRK": {
       "name": "Merck & Co., Inc.",
-      "price": 146.87,
-      "previousClose": 147.15,
+      "price": 149.5,
+      "previousClose": 146.87,
       "monthAgo": {
-        "price": 152.2,
-        "date": "2026-08-19"
+        "price": 152.55,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 81.51,
-        "date": "2025-09-19"
+        "price": 80.4,
+        "date": "2025-09-22"
       }
     },
     "MS": {
       "name": "Morgan Stanley",
-      "price": 202.58,
-      "previousClose": 203.52,
+      "price": 206.12,
+      "previousClose": 202.58,
       "monthAgo": {
-        "price": 214.23,
-        "date": "2026-08-19"
+        "price": 214.2,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 159.91,
-        "date": "2025-09-19"
+        "price": 160.71,
+        "date": "2025-09-22"
       }
     },
     "MSCI": {
       "name": "MSCI Inc.",
-      "price": 552.87,
-      "previousClose": 549.47,
+      "price": 558.97,
+      "previousClose": 552.87,
       "monthAgo": {
-        "price": 565.27,
-        "date": "2026-08-19"
+        "price": 563.49,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 559.75,
-        "date": "2025-09-19"
+        "price": 568.06,
+        "date": "2025-09-22"
       }
     },
     "MSFT": {
       "name": "Microsoft Corporation",
-      "price": 493.78,
-      "previousClose": 497.75,
+      "price": 501.61,
+      "previousClose": 493.78,
       "monthAgo": {
-        "price": 484.31,
-        "date": "2026-08-19"
+        "price": 483.24,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 517.93,
-        "date": "2025-09-19"
+        "price": 514.45,
+        "date": "2025-09-22"
       }
     },
     "MU": {
       "name": "Micron Technology, Inc.",
-      "price": 1015.8,
-      "previousClose": 977.5,
+      "price": 1043.96,
+      "previousClose": 1015.8,
       "monthAgo": {
-        "price": 937.11,
-        "date": "2026-08-19"
+        "price": 966.78,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 162.73,
-        "date": "2025-09-19"
+        "price": 164.62,
+        "date": "2025-09-22"
       }
     },
     "NEE": {
       "name": "NextEra Energy, Inc.",
-      "price": 80.47,
-      "previousClose": 81.28,
+      "price": 79.63,
+      "previousClose": 80.47,
       "monthAgo": {
-        "price": 85.91,
-        "date": "2026-08-19"
+        "price": 83.65,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 71.08,
-        "date": "2025-09-19"
+        "price": 72.35,
+        "date": "2025-09-22"
       }
     },
     "NGG": {
       "name": "National Grid plc",
-      "price": 76.8,
-      "previousClose": 77.6,
+      "price": 76.68,
+      "previousClose": 76.8,
       "monthAgo": {
-        "price": 80.66,
-        "date": "2026-08-19"
+        "price": 79.76,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 70.09,
-        "date": "2025-09-19"
+        "price": 70.96,
+        "date": "2025-09-22"
       }
     },
     "NIO": {
       "name": "NIO Inc.",
-      "price": 3.66,
-      "previousClose": 3.62,
+      "price": 3.67,
+      "previousClose": 3.66,
       "monthAgo": {
-        "price": 4.58,
-        "date": "2026-08-19"
+        "price": 4.63,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 7.37,
-        "date": "2025-09-19"
+        "price": 6.91,
+        "date": "2025-09-22"
       }
     },
     "NOC": {
       "name": "Northrop Grumman Corporation",
-      "price": 527.39,
-      "previousClose": 524,
+      "price": 526.66,
+      "previousClose": 527.39,
       "monthAgo": {
-        "price": 582.84,
-        "date": "2026-08-19"
+        "price": 551.03,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 573.03,
-        "date": "2025-09-19"
+        "price": 576.15,
+        "date": "2025-09-22"
       }
     },
     "NOK": {
       "name": "Nokia Oyj",
-      "price": 10.68,
-      "previousClose": 10.6,
+      "price": 10.94,
+      "previousClose": 10.68,
       "monthAgo": {
-        "price": 10.13,
-        "date": "2026-08-19"
+        "price": 10.21,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 4.74,
-        "date": "2025-09-19"
+        "price": 4.77,
+        "date": "2025-09-22"
       }
     },
     "NOW": {
       "name": "ServiceNow, Inc.",
-      "price": 135.47,
-      "previousClose": 138.47,
+      "price": 137.68,
+      "previousClose": 135.47,
       "monthAgo": {
-        "price": 127.2,
-        "date": "2026-08-19"
+        "price": 128.48,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 192.23,
-        "date": "2025-09-19"
+        "price": 189.56,
+        "date": "2025-09-22"
       }
     },
     "NSC": {
       "name": "Norfolk Southern Corporation",
-      "price": 314.16,
-      "previousClose": 318.97,
+      "price": 309.07,
+      "previousClose": 314.16,
       "monthAgo": {
-        "price": 345.71,
-        "date": "2026-08-19"
+        "price": 350.72,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 283.71,
-        "date": "2025-09-19"
+        "price": 290.55,
+        "date": "2025-09-22"
       }
     },
     "NTES": {
       "name": "NetEase, Inc.",
-      "price": 116.19,
-      "previousClose": 116.62,
+      "price": 117.47,
+      "previousClose": 116.19,
       "monthAgo": {
-        "price": 127.25,
-        "date": "2026-08-19"
+        "price": 128.17,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 152.05,
-        "date": "2025-09-19"
+        "price": 152.35,
+        "date": "2025-09-22"
       }
     },
     "NVDA": {
       "name": "NVIDIA Corporation",
-      "price": 222.27,
-      "previousClose": 219.34,
+      "price": 227.38,
+      "previousClose": 222.27,
       "monthAgo": {
-        "price": 217.56,
-        "date": "2026-08-19"
+        "price": 214.72,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 176.67,
-        "date": "2025-09-19"
+        "price": 183.61,
+        "date": "2025-09-22"
       }
     },
     "NVO": {
       "name": "Novo Nordisk A/S",
-      "price": 43.24,
-      "previousClose": 43.19,
+      "price": 39.8,
+      "previousClose": 43.24,
       "monthAgo": {
-        "price": 46.48,
-        "date": "2026-08-19"
+        "price": 46.74,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 61.4,
-        "date": "2025-09-19"
+        "price": 60.71,
+        "date": "2025-09-22"
       }
     },
     "O": {
       "name": "Realty Income Corporation",
-      "price": 56.66,
-      "previousClose": 57.32,
+      "price": 56.65,
+      "previousClose": 56.66,
       "monthAgo": {
-        "price": 62.95,
-        "date": "2026-08-19"
+        "price": 62.6,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 59.16,
-        "date": "2025-09-19"
+        "price": 59.06,
+        "date": "2025-09-22"
       }
     },
     "ORCL": {
       "name": "Oracle Corporation",
-      "price": 147.61,
-      "previousClose": 150.59,
+      "price": 148.56,
+      "previousClose": 147.61,
       "monthAgo": {
-        "price": 143.81,
-        "date": "2026-08-19"
+        "price": 146.47,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 308.66,
-        "date": "2025-09-19"
+        "price": 328.15,
+        "date": "2025-09-22"
       }
     },
     "OXY": {
       "name": "Occidental Petroleum Corporation",
-      "price": 58.84,
-      "previousClose": 59.29,
+      "price": 57.25,
+      "previousClose": 58.84,
       "monthAgo": {
-        "price": 60.09,
-        "date": "2026-08-19"
+        "price": 61.3,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 46.1,
-        "date": "2025-09-19"
+        "price": 45.76,
+        "date": "2025-09-22"
       }
     },
     "PANW": {
       "name": "Palo Alto Networks, Inc.",
-      "price": 363.58,
-      "previousClose": 375.06,
+      "price": 371.76,
+      "previousClose": 363.58,
       "monthAgo": {
-        "price": 359.76,
-        "date": "2026-08-19"
+        "price": 357.87,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 208.19,
-        "date": "2025-09-19"
+        "price": 208.18,
+        "date": "2025-09-22"
       }
     },
     "PAYX": {
       "name": "Paychex, Inc.",
-      "price": 116.14,
-      "previousClose": 116.51,
+      "price": 115.01,
+      "previousClose": 116.14,
       "monthAgo": {
-        "price": 122.5,
-        "date": "2026-08-19"
+        "price": 124.48,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 130,
-        "date": "2025-09-19"
+        "price": 130.4,
+        "date": "2025-09-22"
       }
     },
     "PDD": {
       "name": "PDD Holdings Inc.",
-      "price": 78.9,
-      "previousClose": 77.73,
+      "price": 79.3,
+      "previousClose": 78.9,
       "monthAgo": {
-        "price": 90.2,
-        "date": "2026-08-19"
+        "price": 88.38,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 129.47,
-        "date": "2025-09-19"
+        "price": 128.57,
+        "date": "2025-09-22"
       }
     },
     "PG": {
       "name": "The Procter & Gamble Company",
-      "price": 146.39,
-      "previousClose": 147.55,
+      "price": 146.08,
+      "previousClose": 146.39,
       "monthAgo": {
-        "price": 144.38,
-        "date": "2026-08-19"
+        "price": 144.68,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 156.04,
-        "date": "2025-09-19"
+        "price": 153.07,
+        "date": "2025-09-22"
       }
     },
     "PGR": {
       "name": "The Progressive Corporation",
-      "price": 213.48,
-      "previousClose": 216.29,
+      "price": 212.24,
+      "previousClose": 213.48,
       "monthAgo": {
-        "price": 217.27,
-        "date": "2026-08-19"
+        "price": 219.28,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 242.34,
-        "date": "2025-09-19"
+        "price": 241.15,
+        "date": "2025-09-22"
       }
     },
     "PINS": {
       "name": "Pinterest, Inc.",
-      "price": 18.6,
-      "previousClose": 18.31,
+      "price": 19.36,
+      "previousClose": 18.6,
       "monthAgo": {
-        "price": 23.39,
-        "date": "2026-08-19"
+        "price": 23.4,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 35.81,
-        "date": "2025-09-19"
+        "price": 35.31,
+        "date": "2025-09-22"
       }
     },
     "PLD": {
       "name": "Prologis, Inc.",
-      "price": 134.84,
-      "previousClose": 135.18,
+      "price": 135.82,
+      "previousClose": 134.84,
       "monthAgo": {
-        "price": 141.3,
-        "date": "2026-08-19"
+        "price": 141.8,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 113.51,
-        "date": "2025-09-19"
+        "price": 113.93,
+        "date": "2025-09-22"
       }
     },
     "PM": {
       "name": "Philip Morris International Inc.",
-      "price": 188.62,
-      "previousClose": 190.48,
+      "price": 187.48,
+      "previousClose": 188.62,
       "monthAgo": {
-        "price": 189.93,
-        "date": "2026-08-19"
+        "price": 188.23,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 162.95,
-        "date": "2025-09-19"
+        "price": 161.98,
+        "date": "2025-09-22"
       }
     },
     "PRU": {
       "name": "Prudential Financial, Inc.",
-      "price": 118.4,
-      "previousClose": 117.93,
+      "price": 118.53,
+      "previousClose": 118.4,
       "monthAgo": {
-        "price": 122.22,
-        "date": "2026-08-19"
+        "price": 121.15,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 103.59,
-        "date": "2025-09-19"
+        "price": 102.85,
+        "date": "2025-09-22"
       }
     },
     "PSA": {
       "name": "Public Storage",
-      "price": 296.31,
-      "previousClose": 300.76,
+      "price": 296.67,
+      "previousClose": 296.31,
       "monthAgo": {
-        "price": 325.13,
-        "date": "2026-08-19"
+        "price": 322.49,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 279,
-        "date": "2025-09-19"
+        "price": 279.67,
+        "date": "2025-09-22"
       }
     },
     "PSX": {
       "name": "Phillips 66",
-      "price": 273.13,
-      "previousClose": 274.21,
+      "price": 261.75,
+      "previousClose": 273.13,
       "monthAgo": {
-        "price": 242.29,
-        "date": "2026-08-19"
+        "price": 242.87,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 129.72,
-        "date": "2025-09-19"
+        "price": 129.57,
+        "date": "2025-09-22"
       }
     },
     "PYPL": {
       "name": "PayPal Holdings, Inc.",
-      "price": 52.41,
-      "previousClose": 52.94,
+      "price": 52.62,
+      "previousClose": 52.41,
       "monthAgo": {
-        "price": 61.25,
-        "date": "2026-08-19"
+        "price": 61.55,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 68.22,
-        "date": "2025-09-19"
+        "price": 67.68,
+        "date": "2025-09-22"
       }
     },
     "QCOM": {
       "name": "QUALCOMM Incorporated",
-      "price": 177.72,
-      "previousClose": 188.71,
+      "price": 194.23,
+      "previousClose": 177.72,
       "monthAgo": {
-        "price": 161.91,
-        "date": "2026-08-19"
+        "price": 160.75,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 166.85,
-        "date": "2025-09-19"
+        "price": 169.72,
+        "date": "2025-09-22"
       }
     },
     "REGN": {
       "name": "Regeneron Pharmaceuticals, Inc.",
-      "price": 784.85,
-      "previousClose": 789.45,
+      "price": 798.17,
+      "previousClose": 784.85,
       "monthAgo": {
-        "price": 840.84,
-        "date": "2026-08-19"
+        "price": 834.04,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 591.99,
-        "date": "2025-09-19"
+        "price": 595.68,
+        "date": "2025-09-22"
       }
     },
     "RIVN": {
       "name": "Rivian Automotive, Inc.",
-      "price": 14.99,
-      "previousClose": 15.4,
+      "price": 15.36,
+      "previousClose": 14.99,
       "monthAgo": {
-        "price": 15.73,
-        "date": "2026-08-19"
+        "price": 16.97,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 14.38,
-        "date": "2025-09-19"
+        "price": 15.24,
+        "date": "2025-09-22"
       }
     },
     "ROK": {
       "name": "Rockwell Automation, Inc.",
-      "price": 415.62,
-      "previousClose": 410.05,
+      "price": 424.89,
+      "previousClose": 415.62,
       "monthAgo": {
-        "price": 433.27,
-        "date": "2026-08-19"
+        "price": 437.08,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 347.82,
-        "date": "2025-09-19"
+        "price": 345.36,
+        "date": "2025-09-22"
       }
     },
     "RSG": {
       "name": "Republic Services, Inc.",
-      "price": 218.07,
-      "previousClose": 218.93,
+      "price": 213.93,
+      "previousClose": 218.07,
       "monthAgo": {
-        "price": 221.04,
-        "date": "2026-08-19"
+        "price": 220.67,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 226.94,
-        "date": "2025-09-19"
+        "price": 226.26,
+        "date": "2025-09-22"
       }
     },
     "RTX": {
       "name": "RTX Corporation",
-      "price": 194,
-      "previousClose": 193.54,
+      "price": 194.34,
+      "previousClose": 194,
       "monthAgo": {
-        "price": 220.35,
-        "date": "2026-08-19"
+        "price": 209.91,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 158.24,
-        "date": "2025-09-19"
+        "price": 159.43,
+        "date": "2025-09-22"
       }
     },
     "SAP": {
       "name": "SAP SE",
-      "price": 209.45,
-      "previousClose": 213.66,
+      "price": 209.22,
+      "previousClose": 209.45,
       "monthAgo": {
-        "price": 215.6,
-        "date": "2026-08-19"
+        "price": 218.68,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 266.91,
-        "date": "2025-09-19"
+        "price": 265.38,
+        "date": "2025-09-22"
       }
     },
     "SCHW": {
       "name": "The Charles Schwab Corporation",
-      "price": 105.25,
-      "previousClose": 104.63,
+      "price": 106.88,
+      "previousClose": 105.25,
       "monthAgo": {
-        "price": 110.88,
-        "date": "2026-08-19"
+        "price": 112.3,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 94.33,
-        "date": "2025-09-19"
+        "price": 94.43,
+        "date": "2025-09-22"
       }
     },
     "SE": {
       "name": "Sea Limited",
-      "price": 101.79,
-      "previousClose": 101.27,
+      "price": 102.65,
+      "previousClose": 101.79,
       "monthAgo": {
-        "price": 119.1,
-        "date": "2026-08-19"
+        "price": 117.53,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 192.76,
-        "date": "2025-09-19"
+        "price": 192.96,
+        "date": "2025-09-22"
       }
     },
     "SHOP": {
       "name": "Shopify Inc.",
-      "price": 128.5,
-      "previousClose": 128.6,
+      "price": 137.92,
+      "previousClose": 128.5,
       "monthAgo": {
-        "price": 146.58,
-        "date": "2026-08-19"
+        "price": 149.25,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 153.3,
-        "date": "2025-09-19"
+        "price": 157.12,
+        "date": "2025-09-22"
       }
     },
     "SIEGY": {
       "name": "Siemens Aktiengesellschaft",
-      "price": 151.92,
-      "previousClose": 152.91,
+      "price": 157.15,
+      "previousClose": 152.06,
       "monthAgo": {
-        "price": 161.18,
-        "date": "2026-08-19"
+        "price": 163.65,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 134.37,
-        "date": "2025-09-19"
+        "price": 134.81,
+        "date": "2025-09-22"
       }
     },
     "SLB": {
       "name": "SLB N.V.",
-      "price": 51.12,
-      "previousClose": 52.08,
+      "price": 51.76,
+      "previousClose": 51.12,
       "monthAgo": {
-        "price": 53.55,
-        "date": "2026-08-19"
+        "price": 53.87,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 34.43,
-        "date": "2025-09-19"
+        "price": 33.92,
+        "date": "2025-09-22"
       }
     },
     "SMCI": {
       "name": "Super Micro Computer, Inc.",
-      "price": 39.09,
-      "previousClose": 40.35,
+      "price": 41.2,
+      "previousClose": 39.09,
       "monthAgo": {
-        "price": 36.58,
-        "date": "2026-08-19"
+        "price": 37.24,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 45.81,
-        "date": "2025-09-19"
+        "price": 46.87,
+        "date": "2025-09-22"
       }
     },
     "SNAP": {
       "name": "Snap Inc.",
-      "price": 5.53,
-      "previousClose": 5.65,
+      "price": 5.7,
+      "previousClose": 5.53,
       "monthAgo": {
         "price": 5.24,
-        "date": "2026-08-19"
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 8.16,
-        "date": "2025-09-19"
+        "price": 8.53,
+        "date": "2025-09-22"
       }
     },
     "SNOW": {
       "name": "Snowflake Inc.",
-      "price": 332.43,
-      "previousClose": 338.39,
+      "price": 339.39,
+      "previousClose": 332.43,
       "monthAgo": {
-        "price": 325.01,
-        "date": "2026-08-19"
+        "price": 332.78,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 230.48,
-        "date": "2025-09-19"
+        "price": 229.54,
+        "date": "2025-09-22"
       }
     },
     "SNY": {
       "name": "Sanofi",
-      "price": 42.48,
-      "previousClose": 43.14,
+      "price": 42.5,
+      "previousClose": 42.48,
       "monthAgo": {
-        "price": 45.83,
-        "date": "2026-08-19"
+        "price": 45.85,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 47.64,
-        "date": "2025-09-19"
+        "price": 47.01,
+        "date": "2025-09-22"
       }
     },
     "SO": {
       "name": "The Southern Company",
-      "price": 85.52,
-      "previousClose": 86.76,
+      "price": 85.46,
+      "previousClose": 85.52,
       "monthAgo": {
-        "price": 92.19,
-        "date": "2026-08-19"
+        "price": 88.94,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 91.8,
-        "date": "2025-09-19"
+        "price": 92.33,
+        "date": "2025-09-22"
       }
     },
     "SONY": {
       "name": "Sony Group Corporation",
-      "price": 23.46,
-      "previousClose": 23.83,
+      "price": 23.59,
+      "previousClose": 23.46,
       "monthAgo": {
-        "price": 23.49,
-        "date": "2026-08-19"
+        "price": 23.92,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 29.36,
-        "date": "2025-09-19"
+        "price": 29.73,
+        "date": "2025-09-22"
       }
     },
     "SPG": {
       "name": "Simon Property Group, Inc.",
-      "price": 205.32,
-      "previousClose": 204.47,
+      "price": 204.98,
+      "previousClose": 205.32,
       "monthAgo": {
-        "price": 223.18,
-        "date": "2026-08-19"
+        "price": 218.29,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 180.72,
-        "date": "2025-09-19"
+        "price": 181.14,
+        "date": "2025-09-22"
       }
     },
     "SPOT": {
       "name": "Spotify Technology S.A.",
-      "price": 509.45,
-      "previousClose": 528.84,
+      "price": 516.77,
+      "previousClose": 509.45,
       "monthAgo": {
-        "price": 533.37,
-        "date": "2026-08-19"
+        "price": 533.72,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 734.92,
-        "date": "2025-09-19"
+        "price": 738.53,
+        "date": "2025-09-22"
       }
     },
     "SYK": {
       "name": "Stryker Corporation",
-      "price": 275.12,
-      "previousClose": 280.13,
+      "price": 274.19,
+      "previousClose": 275.12,
       "monthAgo": {
-        "price": 339.98,
-        "date": "2026-08-19"
+        "price": 329.45,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 376.83,
-        "date": "2025-09-19"
+        "price": 378.22,
+        "date": "2025-09-22"
       }
     },
     "T": {
       "name": "AT&T Inc.",
-      "price": 25.4,
-      "previousClose": 25.39,
+      "price": 25.45,
+      "previousClose": 25.4,
       "monthAgo": {
-        "price": 25.12,
-        "date": "2026-08-19"
+        "price": 25.29,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 29.01,
-        "date": "2025-09-19"
+        "price": 28.92,
+        "date": "2025-09-22"
       }
     },
     "TCEHY": {
       "name": "Tencent Holdings Limited",
-      "price": 53.85,
-      "previousClose": 54.5,
+      "price": 55.85,
+      "previousClose": 53.9,
       "monthAgo": {
-        "price": 57.72,
-        "date": "2026-08-19"
+        "price": 58.07,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 82.36,
-        "date": "2025-09-19"
+        "price": 82.75,
+        "date": "2025-09-22"
       }
     },
     "TDG": {
       "name": "TransDigm Group Incorporated",
-      "price": 1086.05,
-      "previousClose": 1076.01,
+      "price": 1109.65,
+      "previousClose": 1086.05,
       "monthAgo": {
-        "price": 1222.91,
-        "date": "2026-08-19"
+        "price": 1200.35,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 1282.46,
-        "date": "2025-09-19"
+        "price": 1295.29,
+        "date": "2025-09-22"
       }
     },
     "TJX": {
       "name": "The TJX Companies, Inc.",
-      "price": 127.24,
-      "previousClose": 126.55,
+      "price": 130.96,
+      "previousClose": 127.24,
       "monthAgo": {
-        "price": 144.5,
-        "date": "2026-08-19"
+        "price": 140.53,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 139.78,
-        "date": "2025-09-19"
+        "price": 139.41,
+        "date": "2025-09-22"
       }
     },
     "TM": {
       "name": "Toyota Motor Corporation",
-      "price": 191.53,
-      "previousClose": 193.91,
+      "price": 192.5,
+      "previousClose": 191.53,
       "monthAgo": {
-        "price": 188.78,
-        "date": "2026-08-19"
+        "price": 197.35,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 198.95,
-        "date": "2025-09-19"
+        "price": 200.68,
+        "date": "2025-09-22"
       }
     },
     "TMO": {
       "name": "Thermo Fisher Scientific Inc.",
-      "price": 651.45,
-      "previousClose": 658.32,
+      "price": 658.76,
+      "previousClose": 651.45,
       "monthAgo": {
-        "price": 613.54,
-        "date": "2026-08-19"
+        "price": 629.27,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 479.58,
-        "date": "2025-09-19"
+        "price": 474.99,
+        "date": "2025-09-22"
       }
     },
     "TMUS": {
       "name": "T-Mobile US, Inc.",
-      "price": 168.18,
-      "previousClose": 166.45,
+      "price": 165.27,
+      "previousClose": 168.18,
       "monthAgo": {
-        "price": 182.36,
-        "date": "2026-08-19"
+        "price": 183.04,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 238.17,
-        "date": "2025-09-19"
+        "price": 237.44,
+        "date": "2025-09-22"
       }
     },
     "TRP": {
       "name": "TC Energy Corporation",
-      "price": 61.54,
-      "previousClose": 61.65,
+      "price": 60.48,
+      "previousClose": 61.54,
       "monthAgo": {
-        "price": 62.37,
-        "date": "2026-08-19"
+        "price": 62.02,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 52.54,
-        "date": "2025-09-19"
+        "price": 52.88,
+        "date": "2025-09-22"
       }
     },
     "TRV": {
       "name": "The Travelers Companies, Inc.",
-      "price": 374.62,
-      "previousClose": 379.49,
+      "price": 371.13,
+      "previousClose": 374.62,
       "monthAgo": {
-        "price": 362.22,
-        "date": "2026-08-19"
+        "price": 363.58,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 277,
-        "date": "2025-09-19"
+        "price": 276.11,
+        "date": "2025-09-22"
       }
     },
     "TSLA": {
       "name": "Tesla, Inc.",
-      "price": 364.27,
-      "previousClose": 366.2,
+      "price": 375.3,
+      "previousClose": 364.27,
       "monthAgo": {
-        "price": 351.12,
-        "date": "2026-08-19"
+        "price": 362.86,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 426.07,
-        "date": "2025-09-19"
+        "price": 434.21,
+        "date": "2025-09-22"
       }
     },
     "TSM": {
       "name": "Taiwan Semiconductor Manufacturing Company Limited",
-      "price": 434.67,
-      "previousClose": 430.26,
+      "price": 445.14,
+      "previousClose": 434.67,
       "monthAgo": {
-        "price": 412.09,
-        "date": "2026-08-19"
+        "price": 418.95,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 264.87,
-        "date": "2025-09-19"
+        "price": 272.63,
+        "date": "2025-09-22"
       }
     },
     "TXN": {
       "name": "Texas Instruments Incorporated",
-      "price": 266.64,
-      "previousClose": 258.14,
+      "price": 270.87,
+      "previousClose": 266.64,
       "monthAgo": {
-        "price": 267.45,
-        "date": "2026-08-19"
+        "price": 264.36,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 179.37,
-        "date": "2025-09-19"
+        "price": 179.62,
+        "date": "2025-09-22"
       }
     },
     "UL": {
       "name": "Unilever PLC",
-      "price": 61.82,
-      "previousClose": 62.22,
+      "price": 62.17,
+      "previousClose": 61.82,
       "monthAgo": {
-        "price": 63.18,
-        "date": "2026-08-19"
+        "price": 64.14,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 68.92,
-        "date": "2025-09-19"
+        "price": 68.12,
+        "date": "2025-09-22"
       }
     },
     "UNH": {
       "name": "UnitedHealth Group Incorporated",
-      "price": 376.9,
-      "previousClose": 375.21,
+      "price": 377.56,
+      "previousClose": 376.9,
       "monthAgo": {
-        "price": 388.61,
-        "date": "2026-08-19"
+        "price": 390.11,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 336.69,
-        "date": "2025-09-19"
+        "price": 341.3,
+        "date": "2025-09-22"
       }
     },
     "UNP": {
       "name": "Union Pacific Corporation",
-      "price": 279.37,
-      "previousClose": 282.48,
+      "price": 269.63,
+      "previousClose": 279.37,
       "monthAgo": {
-        "price": 301.8,
-        "date": "2026-08-19"
+        "price": 308.05,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 220.61,
-        "date": "2025-09-19"
+        "price": 225.85,
+        "date": "2025-09-22"
       }
     },
     "UPS": {
       "name": "United Parcel Service, Inc.",
-      "price": 99.06,
-      "previousClose": 100.17,
+      "price": 94.75,
+      "previousClose": 99.06,
       "monthAgo": {
-        "price": 102.86,
-        "date": "2026-08-19"
+        "price": 102.01,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 84.06,
-        "date": "2025-09-19"
+        "price": 84.23,
+        "date": "2025-09-22"
       }
     },
     "V": {
       "name": "Visa Inc.",
-      "price": 368.29,
-      "previousClose": 369.93,
+      "price": 369.95,
+      "previousClose": 368.29,
       "monthAgo": {
-        "price": 365.54,
-        "date": "2026-08-19"
+        "price": 371.04,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 341.61,
-        "date": "2025-09-19"
+        "price": 344.36,
+        "date": "2025-09-22"
       }
     },
     "VLO": {
       "name": "Valero Energy Corporation",
-      "price": 413.28,
-      "previousClose": 412.53,
+      "price": 393.27,
+      "previousClose": 413.28,
       "monthAgo": {
-        "price": 346.26,
-        "date": "2026-08-19"
+        "price": 348.86,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 162.62,
-        "date": "2025-09-19"
+        "price": 166.44,
+        "date": "2025-09-22"
       }
     },
     "VRTX": {
       "name": "Vertex Pharmaceuticals Incorporated",
-      "price": 508.34,
-      "previousClose": 516.34,
+      "price": 510.72,
+      "previousClose": 508.34,
       "monthAgo": {
-        "price": 552.06,
-        "date": "2026-08-19"
+        "price": 548.05,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 383.12,
-        "date": "2025-09-19"
+        "price": 383.13,
+        "date": "2025-09-22"
       }
     },
     "VZ": {
       "name": "Verizon Communications Inc.",
-      "price": 48.09,
-      "previousClose": 48.33,
+      "price": 47.68,
+      "previousClose": 48.09,
       "monthAgo": {
-        "price": 49.36,
-        "date": "2026-08-19"
+        "price": 49.45,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 43.48,
-        "date": "2025-09-19"
+        "price": 43.16,
+        "date": "2025-09-22"
       }
     },
     "WM": {
       "name": "Waste Management, Inc.",
-      "price": 211.1,
-      "previousClose": 213.33,
+      "price": 207.04,
+      "previousClose": 211.1,
       "monthAgo": {
-        "price": 225.08,
-        "date": "2026-08-19"
+        "price": 224.06,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 216.4,
-        "date": "2025-09-19"
+        "price": 216.99,
+        "date": "2025-09-22"
       }
     },
     "WTRG": {
       "name": "Essential Utilities, Inc.",
-      "price": 41.04,
-      "previousClose": 41.62,
+      "price": 40.48,
+      "previousClose": 41.04,
       "monthAgo": {
-        "price": 41.05,
-        "date": "2026-08-19"
+        "price": 40.18,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 37.02,
-        "date": "2025-09-19"
+        "price": 37.04,
+        "date": "2025-09-22"
       }
     },
     "XPEV": {
       "name": "XPeng Inc.",
-      "price": 10.62,
-      "previousClose": 10.6,
+      "price": 10.47,
+      "previousClose": 10.62,
       "monthAgo": {
-        "price": 11.99,
-        "date": "2026-08-19"
+        "price": 12.19,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 21.66,
-        "date": "2025-09-19"
+        "price": 21.36,
+        "date": "2025-09-22"
       }
     },
     "XYZ": {
       "name": "Block, Inc.",
-      "price": 76.28,
-      "previousClose": 76.47,
+      "price": 77.91,
+      "previousClose": 76.28,
       "monthAgo": {
-        "price": 80.93,
-        "date": "2026-08-19"
+        "price": 82.16,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 77.03,
-        "date": "2025-09-19"
+        "price": 77.41,
+        "date": "2025-09-22"
       }
     },
     "ZBH": {
       "name": "Zimmer Biomet Holdings, Inc.",
-      "price": 95.36,
-      "previousClose": 94.25,
+      "price": 94.32,
+      "previousClose": 95.36,
       "monthAgo": {
-        "price": 100.74,
-        "date": "2026-08-19"
+        "price": 100.98,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 100.09,
-        "date": "2025-09-19"
+        "price": 101.74,
+        "date": "2025-09-22"
       }
     },
     "ZM": {
       "name": "Zoom Communications, Inc.",
-      "price": 88.77,
-      "previousClose": 92.16,
+      "price": 90.9,
+      "previousClose": 88.77,
       "monthAgo": {
-        "price": 107.47,
-        "date": "2026-08-19"
+        "price": 107.43,
+        "date": "2026-08-21"
       },
       "yearAgo": {
-        "price": 84.16,
-        "date": "2025-09-19"
+        "price": 83.53,
+        "date": "2025-09-22"
       }
     }
   }
