@@ -25,6 +25,14 @@ export interface Company {
   operatingProfit: number | null; // millions
   eps: number | null;
   fiscalYear: string | null;
+  // The year before, measured under the same XBRL concept, so growth is
+  // growth rather than a change of accounting tag.
+  prior?: {
+    revenue: number | null; // millions
+    eps: number | null;
+    revenueFiscalYear: string | null;
+    epsFiscalYear: string | null;
+  };
 }
 
 export interface Universe {
@@ -118,6 +126,10 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       revenue: reported(company.revenue),
       operatingProfit: reported(company.operatingProfit),
       fiscalYear: company.fiscalYear ?? null,
+      priorRevenue: reported(company.prior?.revenue),
+      priorEps: reported(company.prior?.eps),
+      priorRevenueFiscalYear: company.prior?.revenueFiscalYear ?? null,
+      priorEpsFiscalYear: company.prior?.epsFiscalYear ?? null,
       dividendPerShare,
       dividendYield: price > 0 ? round2((dividendPerShare / price) * 100) : 0,
     });

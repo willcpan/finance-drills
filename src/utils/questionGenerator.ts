@@ -8,13 +8,15 @@ import {
   within,
   priceMoveOf,
   usablePast,
+  revenueGrowthOf,
+  epsGrowthOf,
   type PastClose,
   peRatioOf,
   earningsYieldOf,
   operatingMarginOf,
   payoutRatioOf,
 } from "./stockData";
-import { money, percent, ratio, shortDate, years as formatYears, bigMoney } from "./format";
+import { money, percent, ratio, shortDate, fiscalLabel, years as formatYears, bigMoney } from "./format";
 
 export type QuestionType =
   | "priceIncrease"
@@ -29,7 +31,9 @@ export type QuestionType =
   | "peRatio"
   | "earningsYield"
   | "operatingMargin"
-  | "ruleOf72";
+  | "revenueGrowth"
+  | "epsGrowth"
+  | "doublingTime";
 
 export type QuestionCategory =
   | "priceMoves"
@@ -124,10 +128,20 @@ export const QUESTION_META: Record<
     category: "profitability",
     blurb: "Operating profit as a share of revenue",
   },
-  ruleOf72: {
-    label: "Rule of 72",
+  revenueGrowth: {
+    label: "Revenue Growth",
     category: "growth",
-    blurb: "How long a compounding figure takes to double",
+    blurb: "Two years of revenue into a growth rate",
+  },
+  epsGrowth: {
+    label: "EPS Growth",
+    category: "growth",
+    blurb: "Two years of earnings per share into a growth rate",
+  },
+  doublingTime: {
+    label: "Doubling Time",
+    category: "growth",
+    blurb: "Rule of 72, on the rate a company actually grew at",
   },
 };
 
@@ -242,8 +256,20 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
   operatingMargin: stocks.filter(
     s => s.revenue > 0 && within(operatingMarginOf(s), SENSIBLE.operatingMargin)
   ),
-  // Purely arithmetic - no company needed.
-  ruleOf72: stocks,
+  // Growth needs both ends, measured the same way. EPS growth additionally
+  // needs both ends positive: a swing out of a loss is a percentage of a
+  // negative number, which means nothing.
+  revenueGrowth: stocks.filter(
+    s => s.priorRevenue > 0 && s.revenue > 0 && within(revenueGrowthOf(s), SENSIBLE.revenueGrowth)
+  ),
+  epsGrowth: stocks.filter(
+    s => s.priorEps > 0 && s.eps > 0 && within(epsGrowthOf(s), SENSIBLE.epsGrowth)
+  ),
+  // Rule of 72 needs a rate worth compounding, so this draws from companies
+  // whose revenue actually grew at one.
+  doublingTime: stocks.filter(
+    s => s.priorRevenue > 0 && s.revenue > 0 && within(revenueGrowthOf(s), SENSIBLE.growthRate)
+  ),
 };
 
 // On easy, prefer prices that are kinder to work with.
@@ -529,19 +555,64 @@ const operatingMargin = (stock: StockData, difficulty: DifficultyLevel): Questio
   };
 };
 
-const RULE_OF_72_RATES: Record<DifficultyLevel, number[]> = {
-  easy: [6, 8, 9, 12],
-  medium: [4, 5, 10, 15, 18],
-  hard: [7, 11, 13, 14, 16],
+const revenueGrowth = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const answer = roundTo2(revenueGrowthOf(stock));
+  const growth = stock.revenue - stock.priorRevenue;
+  const onePercent = stock.priorRevenue / 100;
+
+  return {
+    ...base("revenueGrowth", difficulty, stock),
+    text:
+      `${subject(stock)} grew revenue from ${bigMoney(stock.priorRevenue)} in ` +
+      `${fiscalLabel(stock.priorRevenueFiscalYear)} to ${bigMoney(stock.revenue)} in ` +
+      `${fiscalLabel(stock.fiscalYear)}. What was the growth rate?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: horizonTolerance(answer, difficulty),
+    method: [
+      `Revenue moved by ${bigMoney(stock.revenue)} - ${bigMoney(stock.priorRevenue)} = ${bigMoney(growth)}.`,
+      `1% of the ${bigMoney(stock.priorRevenue)} base is ${bigMoney(onePercent)}.`,
+      `${bigMoney(Math.abs(growth))} / ${bigMoney(onePercent)} = ${percent(answer)}.`,
+    ],
+  };
 };
 
-const ruleOf72 = (stock: StockData | null, difficulty: DifficultyLevel): Question => {
-  const rate = pickFrom(RULE_OF_72_RATES[difficulty]);
+const epsGrowth = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const answer = roundTo2(epsGrowthOf(stock));
+  const growth = stock.eps - stock.priorEps;
+  const onePercent = stock.priorEps / 100;
+
+  return {
+    ...base("epsGrowth", difficulty, stock),
+    text:
+      `${subject(stock)} earned ${money(stock.priorEps)} a share in ` +
+      `${fiscalLabel(stock.priorEpsFiscalYear)} and ${money(stock.eps)} in ` +
+      `${fiscalLabel(stock.fiscalYear)}. How much did earnings per share grow?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: horizonTolerance(answer, difficulty),
+    method: [
+      `EPS moved by ${money(stock.eps)} - ${money(stock.priorEps)} = ${money(growth)}.`,
+      `1% of the ${money(stock.priorEps)} base is ${money(onePercent)}.`,
+      `${money(Math.abs(growth))} / ${money(onePercent)} = ${percent(answer)}.`,
+    ],
+  };
+};
+
+// The Rule of 72, asked about a rate a company actually grew at rather than
+// one invented for the question.
+const doublingTime = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  // The rate is rounded once, and the answer follows from the rounded figure -
+  // the one printed in the question. Answering 72 / 3.46 while the question
+  // says 3.5% would mark the player's correct arithmetic wrong.
+  const rate = Number(revenueGrowthOf(stock).toFixed(1));
   const answer = roundTo2(72 / rate);
 
   return {
-    ...base("ruleOf72", difficulty, stock),
-    text: `A holding compounds at ${rate}% a year. Roughly how long until it doubles?`,
+    ...base("doublingTime", difficulty, stock),
+    text:
+      `${subject(stock)} grew revenue ${percent(rate, 1)} in ${fiscalLabel(stock.fiscalYear)}. ` +
+      `At that pace, roughly how long until revenue doubles?`,
     correctAnswer: answer,
     answerUnit: "years",
     tolerance: YEARS_TOLERANCE[difficulty],
@@ -569,7 +640,9 @@ const GENERATORS: Record<
   peRatio,
   earningsYield,
   operatingMargin,
-  ruleOf72: (stock, difficulty) => ruleOf72(stock, difficulty),
+  revenueGrowth,
+  epsGrowth,
+  doublingTime,
 };
 
 const noDataQuestion = (difficulty: DifficultyLevel): Question => ({

@@ -1,12 +1,16 @@
-import { describe, it, expect } from "vitest";
+// @vitest-environment jsdom
+import { describe, it, expect, beforeEach } from "vitest";
 import {
   accuracyOf,
   averageMsOf,
   emptyStats,
+  loadStats,
   median,
   mergeSession,
+  saveStats,
   weakestType,
   type SessionResult,
+  type Stats,
 } from "./stats";
 
 const session = (overrides: Partial<SessionResult> = {}): SessionResult => ({
@@ -16,9 +20,48 @@ const session = (overrides: Partial<SessionResult> = {}): SessionResult => ({
   answers: [
     { type: "peRatio", correct: true, ms: 4000 },
     { type: "peRatio", correct: false, ms: 6000 },
-    { type: "ruleOf72", correct: true, ms: 2000 },
+    { type: "doublingTime", correct: true, ms: 2000 },
   ],
   ...overrides,
+});
+
+describe("loadStats", () => {
+  beforeEach(() => window.localStorage.clear());
+
+  it("drops a question type that no longer exists", () => {
+    // Rule of 72 was replaced by Doubling Time, which asks the same arithmetic
+    // about a rate a company actually grew at. Anyone who drilled the old one
+    // still has it saved, and handing it back would point them at a question
+    // with no pool and no label.
+    const saved = {
+      ...emptyStats(),
+      byType: {
+        peRatio: { attempts: 5, correct: 2, totalMs: 10000 },
+        ruleOf72: { attempts: 9, correct: 1, totalMs: 9000 },
+      },
+    } as unknown as Stats;
+    saveStats(saved);
+
+    const loaded = loadStats();
+    expect(Object.keys(loaded.byType)).toEqual(["peRatio"]);
+    // Worst accuracy was the retired type; the answer has to be a live one.
+    expect(weakestType(loaded)).toBe("peRatio");
+  });
+
+  it("keeps the run history whole", () => {
+    // A summary records no type, and those runs did happen.
+    const saved: Stats = {
+      ...emptyStats(),
+      runs: 2,
+      recent: [
+        { at: 1, score: 10, answered: 5, correct: 3, bestStreak: 2, medianMs: 900, difficulty: "easy" },
+        { at: 2, score: 20, answered: 5, correct: 4, bestStreak: 3, medianMs: 800, difficulty: "hard" },
+      ],
+    };
+    saveStats(saved);
+
+    expect(loadStats().recent).toHaveLength(2);
+  });
 });
 
 describe("median", () => {
@@ -54,7 +97,7 @@ describe("mergeSession", () => {
   it("tracks per-type attempts, correctness and time", () => {
     const stats = mergeSession(emptyStats(), session());
     expect(stats.byType.peRatio).toEqual({ attempts: 2, correct: 1, totalMs: 10000 });
-    expect(stats.byType.ruleOf72).toEqual({ attempts: 1, correct: 1, totalMs: 2000 });
+    expect(stats.byType.doublingTime).toEqual({ attempts: 1, correct: 1, totalMs: 2000 });
   });
 
   it("keeps the high-water marks", () => {
@@ -103,7 +146,7 @@ describe("weakestType", () => {
     let stats = emptyStats();
     for (let i = 0; i < 3; i++) stats = mergeSession(stats, session());
 
-    // peRatio: 3 of 6 correct. ruleOf72: 3 of 3.
+    // peRatio: 3 of 6 correct. doublingTime: 3 of 3.
     expect(weakestType(stats, 3)).toBe("peRatio");
   });
 });

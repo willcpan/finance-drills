@@ -145,18 +145,27 @@ async function fetchFrame(concept, unit, period) {
   return json?.data ?? [];
 }
 
-// Walk the periods newest first and keep the first value found per company, so
-// each figure is that company's most recent reported year.
+// Walk the periods newest first, keeping every year a company reported rather
+// than only its latest. Growth questions need two ends to compare, and the
+// pair has to be measured the same way: a company that switched revenue tags
+// between years would otherwise show growth that is an accounting change.
 async function fetchFundamentals(wanted) {
   const found = { revenue: new Map(), operatingProfit: new Map(), eps: new Map() };
+
+  const record = (field, cik, entry) => {
+    const series = found[field].get(cik) ?? [];
+    // Periods arrive newest first, so a period already held is the fresher one.
+    if (series.some(e => e.period === entry.period && e.frame === entry.frame)) return;
+    series.push(entry);
+    found[field].set(cik, series);
+  };
 
   for (const period of PERIODS) {
     for (const [field, concepts] of Object.entries(CONCEPTS)) {
       for (const [concept, unit] of concepts) {
         for (const row of await fetchFrame(concept, unit, period)) {
-          if (!wanted.has(row.cik) || found[field].has(row.cik)) continue;
-          if (!Number.isFinite(row.val)) continue;
-          found[field].set(row.cik, { value: row.val, period, frame: concept });
+          if (!wanted.has(row.cik) || !Number.isFinite(row.val)) continue;
+          record(field, row.cik, { value: row.val, period, frame: concept });
         }
       }
     }
@@ -164,6 +173,17 @@ async function fetchFundamentals(wanted) {
 
   return found;
 }
+
+// The company's latest reported figure, and the year before it measured under
+// the same concept.
+const latestPair = series => {
+  if (!series || series.length === 0) return { current: null, prior: null };
+
+  // PERIODS is newest first and the series was built in that order.
+  const current = series[0];
+  const prior = series.find(e => e.frame === current.frame && e.period !== current.period) ?? null;
+  return { current, prior };
+};
 
 // The frames API is organised by calendar year, so a company whose fiscal year
 // ends in February or September can be absent from every frame - Visa, Hershey
@@ -192,8 +212,16 @@ async function fetchConcept(cik, concept, unit) {
 
   if (annual.length === 0) return null;
 
-  const latest = annual.reduce((best, f) => (f.end > best.end ? f : best));
-  return { value: latest.val, period: `FY${latest.fy ?? latest.end.slice(0, 4)}`, frame: concept };
+  // Newest first, one entry per fiscal year: a figure is often restated in a
+  // later filing, and the most recent statement of a year is the one to keep.
+  // Two years is all a growth question needs.
+  const byPeriod = new Map();
+  for (const fact of [...annual].sort((a, b) => (a.end > b.end ? -1 : 1))) {
+    const period = `FY${fact.fy ?? fact.end.slice(0, 4)}`;
+    if (!byPeriod.has(period)) byPeriod.set(period, { value: fact.val, period, frame: concept });
+  }
+
+  return [...byPeriod.values()].slice(0, 2);
 }
 
 // Fill whatever the frames missed, company by company.
@@ -205,9 +233,9 @@ async function fillGaps(constituents, facts) {
       if (facts[field].has(company.cik)) continue;
 
       for (const [concept, unit] of concepts) {
-        const found = await fetchConcept(company.cik, concept, unit);
-        if (found) {
-          facts[field].set(company.cik, found);
+        const series = await fetchConcept(company.cik, concept, unit);
+        if (series?.length) {
+          facts[field].set(company.cik, series);
           filled++;
           break;
         }
@@ -247,9 +275,9 @@ const toMillions = value => Math.round((value / 1e6) * 10) / 10;
 
 const companies = constituents
   .map(c => {
-    const revenue = facts.revenue.get(c.cik);
-    const operatingProfit = facts.operatingProfit.get(c.cik);
-    const eps = facts.eps.get(c.cik);
+    const revenue = latestPair(facts.revenue.get(c.cik));
+    const operatingProfit = latestPair(facts.operatingProfit.get(c.cik));
+    const eps = latestPair(facts.eps.get(c.cik));
 
     return {
       ticker: c.ticker,
@@ -259,12 +287,21 @@ const companies = constituents
       // Any of these may be null. A company missing one keeps its place and
       // simply loses the question types that need it - the eligibility bands
       // in the app already work that way.
-      revenue: revenue ? toMillions(revenue.value) : null,
-      operatingProfit: operatingProfit ? toMillions(operatingProfit.value) : null,
-      eps: eps ? eps.value : null,
+      revenue: revenue.current ? toMillions(revenue.current.value) : null,
+      operatingProfit: operatingProfit.current ? toMillions(operatingProfit.current.value) : null,
+      eps: eps.current ? eps.current.value : null,
+      // The year before, measured under the same concept, so that a growth
+      // question compares like with like rather than reporting an accounting
+      // change as growth.
+      prior: {
+        revenue: revenue.prior ? toMillions(revenue.prior.value) : null,
+        eps: eps.prior ? eps.prior.value : null,
+        revenueFiscalYear: revenue.prior?.period ?? null,
+        epsFiscalYear: eps.prior?.period ?? null,
+      },
       // The fiscal year each figure came from, so the drill can say how old
       // its fundamentals are instead of implying they are current.
-      fiscalYear: eps?.period ?? revenue?.period ?? null,
+      fiscalYear: eps.current?.period ?? revenue.current?.period ?? null,
     };
   })
   .sort((a, b) => a.ticker.localeCompare(b.ticker));
@@ -276,6 +313,11 @@ console.log(
 console.log(
   `complete (all three): ${companies.filter(c => c.revenue !== null && c.operatingProfit !== null && c.eps !== null).length}`
 );
+
+// Growth questions need both ends, so these are the pools they draw from.
+const pairs = field =>
+  companies.filter(c => c[field] !== null && c.prior[field] !== null).length;
+console.log(`year-on-year pairs: revenue ${pairs("revenue")}  eps ${pairs("eps")}`);
 
 // Prices alone make a drill of six question types; the valuation, margin and
 // dividend questions need these. If the join collapses, the file that is

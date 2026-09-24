@@ -22,13 +22,18 @@ export const years = (value: number, decimals = 1): string => {
 // Revenue and operating profit arrive in millions. Billions read better in a
 // question a person has to hold in their head.
 export const bigMoney = (millions: number): string => {
-  if (Math.abs(millions) >= 1000) {
-    return `$${(millions / 1000).toLocaleString("en-US", {
+  // The sign goes outside the currency symbol, as in money() above: revenue
+  // that fell reads as -$2.4bn, not $-2.4bn.
+  const sign = millions < 0 ? "-" : "";
+  const magnitude = Math.abs(millions);
+
+  if (magnitude >= 1000) {
+    return `${sign}$${(magnitude / 1000).toLocaleString("en-US", {
       minimumFractionDigits: 1,
       maximumFractionDigits: 1,
     })}bn`;
   }
-  return `$${millions.toLocaleString("en-US", { maximumFractionDigits: 0 })}m`;
+  return `${sign}$${magnitude.toLocaleString("en-US", { maximumFractionDigits: 0 })}m`;
 };
 
 const MONTHS = [
@@ -58,6 +63,11 @@ export const shortDate = (iso: string): string => {
   const name = MONTHS[Number(month) - 1];
   return name ? `${Number(day)} ${name} ${year}` : iso;
 };
+
+// "CY2025" is how the SEC frames a calendar year; a question just says 2025.
+// A non-calendar filer keeps its "FY2026", which is what its own report says.
+export const fiscalLabel = (period: string | null): string =>
+  !period ? "its last reported year" : period.startsWith("CY") ? period.slice(2) : period;
 
 // Render an answer in whatever unit its question uses.
 export const formatAnswer = (value: number, unit: AnswerUnit): string => {

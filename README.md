@@ -30,7 +30,7 @@ Two files, split by how fast their contents age and who publishes them:
 
 | File | Holds | Source | Refreshed |
 | --- | --- | --- | --- |
-| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
+| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, and the year before | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
 | `data/prices.json` | price, the closes yesterday / a month / a year back, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
 
 `src/utils/buildStockData.ts` joins the two at build time and the build injects
@@ -120,7 +120,7 @@ only its month and year questions.
 Questions name the company as well as the ticker — "Union Pacific Corporation
 (UNP) trades at…" — because a ticker alone is how a desk talks but not always
 enough to know who you are looking at. One `subject()` helper renders that, so
-the name reaches all twelve company-backed templates from one place.
+the name reaches every question template from one place.
 
 ## Question types
 
@@ -137,7 +137,20 @@ the name reaches all twelve company-backed templates from one place.
 | P/E Ratio | price, EPS | multiple |
 | Earnings Yield | price, EPS | EPS as % of price |
 | Operating Margin | revenue, operating profit | margin |
-| Rule of 72 | a growth rate | years to double |
+| Revenue Growth | two filed years of revenue | growth rate |
+| EPS Growth | two filed years of EPS | growth rate |
+| Doubling Time | the rate that company grew at | years to double |
+
+Every question is about a named company. Rule of 72 used to be asked about an
+anonymous "holding compounding at 12% a year" — invented rate, invented holding,
+nothing to do with the market. Doubling Time asks the same arithmetic about the
+rate a company's revenue actually grew at last year, which is why the universe
+now carries the prior year as well as the latest one, measured under the same
+XBRL concept so that growth is growth rather than a change of accounting tag.
+
+The rate in a Doubling Time question is rounded once, and the answer follows
+from the rounded figure — the one on screen. Answering `72 / 3.46` while the
+question says 3.5% would mark correct arithmetic wrong.
 
 ## How answers are judged
 

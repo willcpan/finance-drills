@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-23T23:50:55.033Z",
+  "asOf": "2026-09-24T18:45:09.063Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -14,6 +14,12 @@
       "revenue": 6948,
       "operatingProfit": 1479,
       "eps": 4.57,
+      "prior": {
+        "revenue": 6510,
+        "eps": 4.43,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -24,6 +30,12 @@
       "revenue": 416161,
       "operatingProfit": 133050,
       "eps": 7.46,
+      "prior": {
+        "revenue": 391035,
+        "eps": 6.08,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -34,6 +46,12 @@
       "revenue": 61160,
       "operatingProfit": 15075,
       "eps": 2.36,
+      "prior": {
+        "revenue": 56334,
+        "eps": 2.39,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -44,6 +62,12 @@
       "revenue": 12241,
       "operatingProfit": 2544,
       "eps": null,
+      "prior": {
+        "revenue": 11102,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -54,6 +78,12 @@
       "revenue": 44328,
       "operatingProfit": 8053,
       "eps": 3.72,
+      "prior": {
+        "revenue": 41950,
+        "eps": 7.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -64,6 +94,12 @@
       "revenue": 19929,
       "operatingProfit": null,
       "eps": 11.6,
+      "prior": {
+        "revenue": 17440,
+        "eps": 11.19,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -74,6 +110,12 @@
       "revenue": 69673,
       "operatingProfit": 10225.7,
       "eps": 12.15,
+      "prior": {
+        "revenue": 64896.5,
+        "eps": 11.44,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -84,6 +126,12 @@
       "revenue": 23769,
       "operatingProfit": 8706,
       "eps": 16.7,
+      "prior": {
+        "revenue": 21505,
+        "eps": 12.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -94,6 +142,12 @@
       "revenue": 11019.7,
       "operatingProfit": 2932.5,
       "eps": 4.56,
+      "prior": {
+        "revenue": 9427.2,
+        "eps": 3.28,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -104,6 +158,12 @@
       "revenue": 80269,
       "operatingProfit": null,
       "eps": 2.23,
+      "prior": {
+        "revenue": 85530,
+        "eps": 3.65,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -114,6 +174,12 @@
       "revenue": 20560.9,
       "operatingProfit": null,
       "eps": 9.98,
+      "prior": {
+        "revenue": 19202.6,
+        "eps": 9.1,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -124,6 +190,12 @@
       "revenue": 7206,
       "operatingProfit": 1578,
       "eps": 5.23,
+      "prior": {
+        "revenue": 6131,
+        "eps": 5.12,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -134,6 +206,12 @@
       "revenue": 8799,
       "operatingProfit": 2026,
       "eps": 5.35,
+      "prior": {
+        "revenue": 7623,
+        "eps": 4.42,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -144,6 +222,12 @@
       "revenue": 21876,
       "operatingProfit": 5319,
       "eps": 6.66,
+      "prior": {
+        "revenue": 19721,
+        "eps": 5.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -154,6 +238,12 @@
       "revenue": 12233,
       "operatingProfit": null,
       "eps": 1.26,
+      "prior": {
+        "revenue": 12278,
+        "eps": 2.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -164,6 +254,12 @@
       "revenue": 17164,
       "operatingProfit": 4157,
       "eps": 6.82,
+      "prior": {
+        "revenue": 18927,
+        "eps": 9.63,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -174,6 +270,12 @@
       "revenue": 26775,
       "operatingProfit": null,
       "eps": 5.43,
+      "prior": {
+        "revenue": 27251,
+        "eps": -2.17,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -184,6 +286,12 @@
       "revenue": 12814.3,
       "operatingProfit": null,
       "eps": 16.93,
+      "prior": {
+        "revenue": 11877.5,
+        "eps": 14.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -194,6 +302,12 @@
       "revenue": 13942,
       "operatingProfit": null,
       "eps": 5.74,
+      "prior": {
+        "revenue": 11555,
+        "eps": 6.5,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -204,6 +318,12 @@
       "revenue": 4208.2,
       "operatingProfit": 566.9,
       "eps": 3.07,
+      "prior": {
+        "revenue": 3991.2,
+        "eps": 3.27,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -214,6 +334,12 @@
       "revenue": 5142.7,
       "operatingProfit": -367.1,
       "eps": -5.76,
+      "prior": {
+        "revenue": 5377.5,
+        "eps": -11.2,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -224,6 +350,12 @@
       "revenue": 4035,
       "operatingProfit": 545.8,
       "eps": 5.65,
+      "prior": {
+        "revenue": 3999,
+        "eps": 5.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -234,6 +366,12 @@
       "revenue": 67685,
       "operatingProfit": null,
       "eps": 38.06,
+      "prior": {
+        "revenue": 64106,
+        "eps": 16.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -244,6 +382,12 @@
       "revenue": 4067.3,
       "operatingProfit": 859.5,
       "eps": 7.44,
+      "prior": {
+        "revenue": 3772.2,
+        "eps": 6.82,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -254,6 +398,12 @@
       "revenue": 28368,
       "operatingProfit": 8289,
       "eps": 8.66,
+      "prior": {
+        "revenue": 27176,
+        "eps": 8.61,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -264,6 +414,12 @@
       "revenue": 15009,
       "operatingProfit": 1009,
       "eps": 1.6,
+      "prior": {
+        "revenue": 10071,
+        "eps": 4.38,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -274,6 +430,12 @@
       "revenue": 34639,
       "operatingProfit": 3694,
       "eps": 2.65,
+      "prior": {
+        "revenue": 25785,
+        "eps": 1,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -284,6 +446,12 @@
       "revenue": 7401.1,
       "operatingProfit": 1910.3,
       "eps": 6.4,
+      "prior": {
+        "revenue": 6941.2,
+        "eps": 5.93,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -294,6 +462,12 @@
       "revenue": 36751,
       "operatingProfit": 9080,
       "eps": 14.23,
+      "prior": {
+        "revenue": 33424,
+        "eps": 7.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -304,6 +478,12 @@
       "revenue": 18911,
       "operatingProfit": null,
       "eps": 36.28,
+      "prior": {
+        "revenue": 17926,
+        "eps": 33.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -314,6 +494,12 @@
       "revenue": 10644.6,
       "operatingProfit": 4845.8,
       "eps": 5.4,
+      "prior": {
+        "revenue": 10127.2,
+        "eps": 4.82,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -324,6 +510,12 @@
       "revenue": 716924,
       "operatingProfit": 79975,
       "eps": 7.17,
+      "prior": {
+        "revenue": 637959,
+        "eps": 5.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -334,6 +526,12 @@
       "revenue": 9005.7,
       "operatingProfit": 3856.1,
       "eps": 2.75,
+      "prior": {
+        "revenue": 7003.1,
+        "eps": 2.23,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -344,6 +542,12 @@
       "revenue": 17181,
       "operatingProfit": 4344,
       "eps": 17.02,
+      "prior": {
+        "revenue": 15698,
+        "eps": 12.49,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -354,6 +558,12 @@
       "revenue": 3830.2,
       "operatingProfit": 728.6,
       "eps": 3.85,
+      "prior": {
+        "revenue": 3818.1,
+        "eps": 3.63,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -364,6 +574,12 @@
       "revenue": null,
       "operatingProfit": 3087,
       "eps": 3.99,
+      "prior": {
+        "revenue": null,
+        "eps": 2.27,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -374,6 +590,12 @@
       "revenue": 12037.3,
       "operatingProfit": -877,
       "eps": -1.77,
+      "prior": {
+        "revenue": 12100.6,
+        "eps": 17.18,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -384,6 +606,12 @@
       "revenue": 23095,
       "operatingProfit": 5868.6,
       "eps": 3.34,
+      "prior": {
+        "revenue": 15223,
+        "eps": 1.92,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -394,6 +622,12 @@
       "revenue": 32049,
       "operatingProfit": null,
       "eps": 5.54,
+      "prior": {
+        "revenue": 26114,
+        "eps": 7.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -404,6 +638,12 @@
       "revenue": 5480.7,
       "operatingProfit": 4151.9,
       "eps": 9.75,
+      "prior": {
+        "revenue": 3224.1,
+        "eps": 4.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -414,6 +654,12 @@
       "revenue": 20398,
       "operatingProfit": 1184,
       "eps": 0.75,
+      "prior": {
+        "revenue": 19713,
+        "eps": 6.96,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -424,6 +670,12 @@
       "revenue": 3026.6,
       "operatingProfit": null,
       "eps": -8.44,
+      "prior": {
+        "revenue": 3116.4,
+        "eps": 1.8,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -434,6 +686,12 @@
       "revenue": 4755.6,
       "operatingProfit": null,
       "eps": null,
+      "prior": {
+        "revenue": 3690.7,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -444,6 +702,12 @@
       "revenue": 4702.8,
       "operatingProfit": 1560,
       "eps": 7.46,
+      "prior": {
+        "revenue": 4165.2,
+        "eps": 6.83,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -454,6 +718,12 @@
       "revenue": 63887,
       "operatingProfit": 25484,
       "eps": 4.77,
+      "prior": {
+        "revenue": 51574,
+        "eps": 1.23,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -464,6 +734,12 @@
       "revenue": 8855.5,
       "operatingProfit": null,
       "eps": 8.79,
+      "prior": {
+        "revenue": 8755.7,
+        "eps": 8.73,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -474,6 +750,12 @@
       "revenue": 5121,
       "operatingProfit": 1879,
       "eps": 5.69,
+      "prior": {
+        "revenue": 4653,
+        "eps": 5.39,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -484,6 +766,12 @@
       "revenue": 2779.5,
       "operatingProfit": -62.1,
       "eps": 1.51,
+      "prior": {
+        "revenue": 2082.5,
+        "eps": 4.8,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -494,6 +782,12 @@
       "revenue": 41304,
       "operatingProfit": 2841,
       "eps": 15.38,
+      "prior": {
+        "revenue": 38825,
+        "eps": 14.01,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -504,6 +798,12 @@
       "revenue": 18938.7,
       "operatingProfit": 3610.2,
       "eps": 144.87,
+      "prior": {
+        "revenue": 18490.3,
+        "eps": 149.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -514,6 +814,12 @@
       "revenue": 89463,
       "operatingProfit": 4281,
       "eps": 2.48,
+      "prior": {
+        "revenue": 66517,
+        "eps": -18.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -524,6 +830,12 @@
       "revenue": 113097,
       "operatingProfit": null,
       "eps": 3.81,
+      "prior": {
+        "revenue": 105856,
+        "eps": 3.19,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -534,6 +846,12 @@
       "revenue": 13161,
       "operatingProfit": 1273,
       "eps": 3.3,
+      "prior": {
+        "revenue": 11795,
+        "eps": 13,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -544,6 +862,12 @@
       "revenue": 11244,
       "operatingProfit": -308,
       "eps": -1.87,
+      "prior": {
+        "revenue": 10636,
+        "eps": -1.27,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -554,6 +878,12 @@
       "revenue": 41691,
       "operatingProfit": 1389,
       "eps": 5.04,
+      "prior": {
+        "revenue": 41528,
+        "eps": 4.28,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -564,6 +894,12 @@
       "revenue": 21840,
       "operatingProfit": 2579,
       "eps": 5.82,
+      "prior": {
+        "revenue": 20178,
+        "eps": 5.86,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -574,6 +910,12 @@
       "revenue": 2024,
       "operatingProfit": 72.8,
       "eps": -0.37,
+      "prior": {
+        "revenue": 1473.9,
+        "eps": -0.13,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -584,6 +926,12 @@
       "revenue": 8770.7,
       "operatingProfit": 604.1,
       "eps": 0.91,
+      "prior": {
+        "revenue": 8478,
+        "eps": 0.85,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -594,6 +942,12 @@
       "revenue": 3928,
       "operatingProfit": 1001,
       "eps": 1.53,
+      "prior": {
+        "revenue": 3975,
+        "eps": 1.84,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -604,6 +958,12 @@
       "revenue": 70329,
       "operatingProfit": null,
       "eps": 4.91,
+      "prior": {
+        "revenue": 53108,
+        "eps": 7.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -614,6 +974,12 @@
       "revenue": 9890.6,
       "operatingProfit": 2840.7,
       "eps": 8.79,
+      "prior": {
+        "revenue": 9675.9,
+        "eps": 11.18,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -624,6 +990,12 @@
       "revenue": 26917,
       "operatingProfit": 8825,
       "eps": 165.57,
+      "prior": {
+        "revenue": 23739,
+        "eps": 172.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -634,6 +1006,12 @@
       "revenue": 27733,
       "operatingProfit": 3081,
       "eps": 2.98,
+      "prior": {
+        "revenue": 27829,
+        "eps": 1.91,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2023"
+      },
       "fiscalYear": "CY2024"
     },
     {
@@ -644,6 +1022,12 @@
       "revenue": 24216,
       "operatingProfit": 7045,
       "eps": 35.31,
+      "prior": {
+        "revenue": 20407,
+        "eps": 42.01,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -654,6 +1038,12 @@
       "revenue": 48194,
       "operatingProfit": null,
       "eps": 3.46,
+      "prior": {
+        "revenue": 48300,
+        "eps": -4.41,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -664,6 +1054,12 @@
       "revenue": 20080,
       "operatingProfit": null,
       "eps": 7.4,
+      "prior": {
+        "revenue": 18619,
+        "eps": 5.8,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -674,6 +1070,12 @@
       "revenue": 6889.1,
       "operatingProfit": 1188.6,
       "eps": 7.1,
+      "prior": {
+        "revenue": 6506.8,
+        "eps": 5.86,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -684,6 +1086,12 @@
       "revenue": 371444,
       "operatingProfit": 20079,
       "eps": null,
+      "prior": {
+        "revenue": 371433,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -694,6 +1102,12 @@
       "revenue": 5902,
       "operatingProfit": null,
       "eps": 3.16,
+      "prior": {
+        "revenue": 4805,
+        "eps": 3.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -704,6 +1118,12 @@
       "revenue": 20074,
       "operatingProfit": 3613,
       "eps": 1.94,
+      "prior": {
+        "revenue": 16747,
+        "eps": 1.25,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -714,6 +1134,12 @@
       "revenue": 14450.3,
       "operatingProfit": null,
       "eps": 3.87,
+      "prior": {
+        "revenue": 13230,
+        "eps": 3.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -724,6 +1150,12 @@
       "revenue": 3482.3,
       "operatingProfit": 908.1,
       "eps": 1.74,
+      "prior": {
+        "revenue": 3407.7,
+        "eps": 0.09,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -734,6 +1166,12 @@
       "revenue": 85225,
       "operatingProfit": null,
       "eps": 6.99,
+      "prior": {
+        "revenue": 80722,
+        "eps": 5.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -744,6 +1182,12 @@
       "revenue": 222578,
       "operatingProfit": 2275,
       "eps": 6.45,
+      "prior": {
+        "revenue": 226827,
+        "eps": 3.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -754,6 +1198,12 @@
       "revenue": 21747,
       "operatingProfit": 2172,
       "eps": 1.72,
+      "prior": {
+        "revenue": 22486,
+        "eps": 6.15,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -764,6 +1214,12 @@
       "revenue": 17561.1,
       "operatingProfit": null,
       "eps": 19.16,
+      "prior": {
+        "revenue": 15940.9,
+        "eps": 14.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -774,6 +1230,12 @@
       "revenue": 67589,
       "operatingProfit": 11151,
       "eps": 18.81,
+      "prior": {
+        "revenue": 64809,
+        "eps": 22.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -784,6 +1246,12 @@
       "revenue": 59402,
       "operatingProfit": null,
       "eps": 25.68,
+      "prior": {
+        "revenue": 55753,
+        "eps": 22.7,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -794,6 +1262,12 @@
       "revenue": 40550,
       "operatingProfit": 1753,
       "eps": 3.85,
+      "prior": {
+        "revenue": 35767,
+        "eps": 3.14,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -804,6 +1278,12 @@
       "revenue": 4264,
       "operatingProfit": 2075,
       "eps": 1.01,
+      "prior": {
+        "revenue": 4460,
+        "eps": -8.98,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -814,6 +1294,12 @@
       "revenue": 26622,
       "operatingProfit": 4483,
       "eps": 2.02,
+      "prior": {
+        "revenue": 25021,
+        "eps": 1.44,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -824,6 +1310,12 @@
       "revenue": 5296.8,
       "operatingProfit": 1492,
       "eps": 4.06,
+      "prior": {
+        "revenue": 4641.3,
+        "eps": 3.85,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -834,6 +1326,12 @@
       "revenue": 22424.1,
       "operatingProfit": 1655.6,
       "eps": 8.08,
+      "prior": {
+        "revenue": 20998.7,
+        "eps": 7.97,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -844,6 +1342,12 @@
       "revenue": 25533,
       "operatingProfit": 3086,
       "eps": 7.4,
+      "prior": {
+        "revenue": 23568,
+        "eps": 11.89,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -854,6 +1358,12 @@
       "revenue": 7084,
       "operatingProfit": 2300,
       "eps": 8.97,
+      "prior": {
+        "revenue": 5936,
+        "eps": 6.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -864,6 +1374,12 @@
       "revenue": 8247,
       "operatingProfit": null,
       "eps": 3.86,
+      "prior": {
+        "revenue": 7809,
+        "eps": 3.03,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -874,6 +1390,12 @@
       "revenue": 6203.2,
       "operatingProfit": 1077.6,
       "eps": 3.02,
+      "prior": {
+        "revenue": 6107.1,
+        "eps": 2.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -884,6 +1406,12 @@
       "revenue": 16232.8,
       "operatingProfit": 795,
       "eps": 4.83,
+      "prior": {
+        "revenue": 17725,
+        "eps": 3.86,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -894,6 +1422,12 @@
       "revenue": 54774,
       "operatingProfit": 12908,
       "eps": 36.21,
+      "prior": {
+        "revenue": 55085,
+        "eps": 34.97,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -904,6 +1438,12 @@
       "revenue": 274900,
       "operatingProfit": 9200,
       "eps": 22.18,
+      "prior": {
+        "revenue": 247121,
+        "eps": 12.12,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -914,6 +1454,12 @@
       "revenue": 4769.5,
       "operatingProfit": 197.5,
       "eps": 0.85,
+      "prior": {
+        "revenue": 4015,
+        "eps": 0.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -924,6 +1470,12 @@
       "revenue": 12631,
       "operatingProfit": null,
       "eps": 15.17,
+      "prior": {
+        "revenue": 11337,
+        "eps": 14.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -934,6 +1486,12 @@
       "revenue": 20382,
       "operatingProfit": 3306,
       "eps": 2.63,
+      "prior": {
+        "revenue": 20101,
+        "eps": 3.51,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -944,6 +1502,12 @@
       "revenue": 7104,
       "operatingProfit": null,
       "eps": 6.52,
+      "prior": {
+        "revenue": 7093,
+        "eps": 2.25,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -954,6 +1518,12 @@
       "revenue": 123707,
       "operatingProfit": 20672,
       "eps": 5.39,
+      "prior": {
+        "revenue": 123731,
+        "eps": 4.14,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -964,6 +1534,12 @@
       "revenue": 6520.6,
       "operatingProfit": 4229.5,
       "eps": 11.16,
+      "prior": {
+        "revenue": 6130.1,
+        "eps": 9.67,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -974,6 +1550,12 @@
       "revenue": 11925.6,
       "operatingProfit": 1935.8,
       "eps": 1.14,
+      "prior": {
+        "revenue": 11313.9,
+        "eps": 1.11,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -984,6 +1566,12 @@
       "revenue": 33670,
       "operatingProfit": 4025,
       "eps": 20.5,
+      "prior": {
+        "revenue": 34102,
+        "eps": 28.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -994,6 +1582,12 @@
       "revenue": 8539,
       "operatingProfit": 1727,
       "eps": 3.53,
+      "prior": {
+        "revenue": 7515,
+        "eps": 3.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1004,6 +1598,12 @@
       "revenue": 194777,
       "operatingProfit": -7623,
       "eps": -13.53,
+      "prior": {
+        "revenue": 163071,
+        "eps": 6.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1014,6 +1614,12 @@
       "revenue": 9357,
       "operatingProfit": 2110,
       "eps": 1.6,
+      "prior": {
+        "revenue": 8643,
+        "eps": 1.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1024,6 +1630,12 @@
       "revenue": 53434,
       "operatingProfit": null,
       "eps": 4.03,
+      "prior": {
+        "revenue": 39112,
+        "eps": 11.59,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1034,6 +1646,12 @@
       "revenue": 5810.1,
       "operatingProfit": 96.1,
       "eps": -0.52,
+      "prior": {
+        "revenue": 4707.7,
+        "eps": -1.84,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1044,6 +1662,12 @@
       "revenue": 7181.3,
       "operatingProfit": 1435.4,
       "eps": 4.45,
+      "prior": {
+        "revenue": 6564,
+        "eps": 9.48,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1054,6 +1678,12 @@
       "revenue": 4092.4,
       "operatingProfit": 682.9,
       "eps": 1.87,
+      "prior": {
+        "revenue": 3895.4,
+        "eps": 1.96,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1064,6 +1694,12 @@
       "revenue": 58944,
       "operatingProfit": null,
       "eps": 6.35,
+      "prior": {
+        "revenue": 54745,
+        "eps": 7.81,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1074,6 +1710,12 @@
       "revenue": 321332.8,
       "operatingProfit": 2628.6,
       "eps": 7.96,
+      "prior": {
+        "revenue": 293958.6,
+        "eps": 7.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1084,6 +1726,12 @@
       "revenue": 275235,
       "operatingProfit": 10383,
       "eps": 18.21,
+      "prior": {
+        "revenue": 254453,
+        "eps": 16.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1094,6 +1742,12 @@
       "revenue": 4528.4,
       "operatingProfit": 1994.1,
       "eps": 15.03,
+      "prior": {
+        "revenue": 3974.6,
+        "eps": 13.97,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1104,6 +1758,12 @@
       "revenue": 4647,
       "operatingProfit": 1696.7,
       "eps": 1.59,
+      "prior": {
+        "revenue": 4236.8,
+        "eps": 1.4,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1114,6 +1774,12 @@
       "revenue": 13,
       "operatingProfit": null,
       "eps": 3.54,
+      "prior": {
+        "revenue": 7.1,
+        "eps": 1.5,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1124,6 +1790,12 @@
       "revenue": 37447,
       "operatingProfit": 5440,
       "eps": 5.51,
+      "prior": {
+        "revenue": 35572,
+        "eps": 5.02,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1134,6 +1806,12 @@
       "revenue": 4015.4,
       "operatingProfit": 25.2,
       "eps": -2.91,
+      "prior": {
+        "revenue": 4050,
+        "eps": 0.2,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1144,6 +1822,12 @@
       "revenue": 41525,
       "operatingProfit": 8331,
       "eps": 7.8,
+      "prior": {
+        "revenue": 37895,
+        "eps": 6.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1154,6 +1838,12 @@
       "revenue": 4812,
       "operatingProfit": -293.3,
       "eps": -0.65,
+      "prior": {
+        "revenue": 3953.6,
+        "eps": -0.06,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1164,6 +1854,12 @@
       "revenue": 56654,
       "operatingProfit": 11760,
       "eps": 2.55,
+      "prior": {
+        "revenue": 53803,
+        "eps": 2.54,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1174,6 +1870,12 @@
       "revenue": 3247,
       "operatingProfit": -72,
       "eps": 0.02,
+      "prior": {
+        "revenue": 2736,
+        "eps": 0.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1184,6 +1886,12 @@
       "revenue": 14092,
       "operatingProfit": 4521,
       "eps": 1.54,
+      "prior": {
+        "revenue": 14540,
+        "eps": 1.79,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1194,6 +1902,12 @@
       "revenue": 11264.8,
       "operatingProfit": 2606.5,
       "eps": 4.91,
+      "prior": {
+        "revenue": 10340.2,
+        "eps": 4.4,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1204,6 +1918,12 @@
       "revenue": 21108,
       "operatingProfit": 3389,
       "eps": 4.56,
+      "prior": {
+        "revenue": 19736,
+        "eps": 4.51,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1214,6 +1934,12 @@
       "revenue": 17401,
       "operatingProfit": null,
       "eps": 1.6,
+      "prior": {
+        "revenue": 16908,
+        "eps": 1.3,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1224,6 +1950,12 @@
       "revenue": 20322,
       "operatingProfit": 1881,
       "eps": 8.45,
+      "prior": {
+        "revenue": 13673,
+        "eps": 1.59,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1234,6 +1966,12 @@
       "revenue": 402067,
       "operatingProfit": 4660,
       "eps": 1.39,
+      "prior": {
+        "revenue": 372809,
+        "eps": 3.66,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1244,6 +1982,12 @@
       "revenue": 189031,
       "operatingProfit": null,
       "eps": 6.63,
+      "prior": {
+        "revenue": 202792,
+        "eps": 9.72,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1254,6 +1998,12 @@
       "revenue": 16506,
       "operatingProfit": 4414,
       "eps": 3.45,
+      "prior": {
+        "revenue": 14459,
+        "eps": 2.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1264,6 +2014,12 @@
       "revenue": 63364,
       "operatingProfit": 5822,
       "eps": 7.66,
+      "prior": {
+        "revenue": 61643,
+        "eps": 5.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1274,6 +2030,12 @@
       "revenue": 13717,
       "operatingProfit": 723,
       "eps": 2.13,
+      "prior": {
+        "revenue": 10722,
+        "eps": 0.29,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1284,6 +2046,12 @@
       "revenue": 6849,
       "operatingProfit": null,
       "eps": -1.86,
+      "prior": {
+        "revenue": 6719,
+        "eps": 1.68,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1294,6 +2062,12 @@
       "revenue": 3427.2,
       "operatingProfit": -44.4,
       "eps": 0.31,
+      "prior": {
+        "revenue": 2684.3,
+        "eps": 0.52,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1304,6 +2078,12 @@
       "revenue": 45684,
       "operatingProfit": 9039,
       "eps": 18.5,
+      "prior": {
+        "revenue": 51716,
+        "eps": 25.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1314,6 +2094,12 @@
       "revenue": 5472.3,
       "operatingProfit": 1262.9,
       "eps": 7.02,
+      "prior": {
+        "revenue": 4985.6,
+        "eps": 6.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1324,6 +2110,12 @@
       "revenue": 113538,
       "operatingProfit": 8149,
       "eps": 8.68,
+      "prior": {
+        "revenue": 95567,
+        "eps": 6.38,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1334,6 +2126,12 @@
       "revenue": 42724.4,
       "operatingProfit": 2203.7,
       "eps": 6.85,
+      "prior": {
+        "revenue": 40612.3,
+        "eps": 5.11,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1344,6 +2142,12 @@
       "revenue": 11035,
       "operatingProfit": 1556,
       "eps": 8.75,
+      "prior": {
+        "revenue": 9872,
+        "eps": 7.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1354,6 +2158,12 @@
       "revenue": 34250.4,
       "operatingProfit": null,
       "eps": 11.57,
+      "prior": {
+        "revenue": 36801.4,
+        "eps": 14.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1364,6 +2174,12 @@
       "revenue": 24568,
       "operatingProfit": 4690,
       "eps": 5.05,
+      "prior": {
+        "revenue": 23875,
+        "eps": 5.29,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1374,6 +2190,12 @@
       "revenue": 94425,
       "operatingProfit": 17551,
       "eps": 6.85,
+      "prior": {
+        "revenue": 91361,
+        "eps": 2.72,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1384,6 +2206,12 @@
       "revenue": 6112.7,
       "operatingProfit": 658.5,
       "eps": 3.58,
+      "prior": {
+        "revenue": 5555,
+        "eps": 1.61,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1394,6 +2222,12 @@
       "revenue": 19411.8,
       "operatingProfit": 1653.1,
       "eps": 6.22,
+      "prior": {
+        "revenue": 17578.5,
+        "eps": -14.03,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1404,6 +2238,12 @@
       "revenue": 2822.5,
       "operatingProfit": null,
       "eps": 0.1,
+      "prior": {
+        "revenue": 2700.4,
+        "eps": 0.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1414,6 +2254,12 @@
       "revenue": 8092.6,
       "operatingProfit": 1373.4,
       "eps": 7.94,
+      "prior": {
+        "revenue": 7745.9,
+        "eps": 19.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1424,6 +2270,12 @@
       "revenue": 39968,
       "operatingProfit": null,
       "eps": -3.7,
+      "prior": {
+        "revenue": 42964,
+        "eps": 1.57,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1434,6 +2286,12 @@
       "revenue": 4940,
       "operatingProfit": 954,
       "eps": 17.57,
+      "prior": {
+        "revenue": 4706.4,
+        "eps": 16.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1444,6 +2302,12 @@
       "revenue": 13210.9,
       "operatingProfit": 1582.8,
       "eps": 10.38,
+      "prior": {
+        "revenue": 12076.7,
+        "eps": 8.86,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1454,6 +2318,12 @@
       "revenue": 12607,
       "operatingProfit": 2374,
       "eps": 7.03,
+      "prior": {
+        "revenue": 10630,
+        "eps": 6.77,
+        "revenueFiscalYear": "FY2016",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1464,6 +2334,12 @@
       "revenue": 31741,
       "operatingProfit": 8626,
       "eps": 6.31,
+      "prior": {
+        "revenue": 30050,
+        "eps": 5.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1474,6 +2350,12 @@
       "revenue": 13643.1,
       "operatingProfit": 2043.6,
       "eps": 9.84,
+      "prior": {
+        "revenue": 12815.6,
+        "eps": 10.73,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1484,6 +2366,12 @@
       "revenue": 17188,
       "operatingProfit": -2895,
       "eps": 4.17,
+      "prior": {
+        "revenue": 15940,
+        "eps": 4.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1494,6 +2382,12 @@
       "revenue": 4662,
       "operatingProfit": 911.8,
       "eps": 2.09,
+      "prior": {
+        "revenue": 4033,
+        "eps": 1.42,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1504,6 +2398,12 @@
       "revenue": 11100,
       "operatingProfit": 2277,
       "eps": 4.34,
+      "prior": {
+        "revenue": 10283,
+        "eps": 3.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1514,6 +2414,12 @@
       "revenue": 15005,
       "operatingProfit": -17723.1,
       "eps": -50.41,
+      "prior": {
+        "revenue": 15825.5,
+        "eps": -0.44,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1524,6 +2430,12 @@
       "revenue": 16081.2,
       "operatingProfit": 2737.6,
       "eps": 7.28,
+      "prior": {
+        "revenue": 15741.4,
+        "eps": 7.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1534,6 +2446,12 @@
       "revenue": 16918,
       "operatingProfit": 2935,
       "eps": 5.64,
+      "prior": {
+        "revenue": 15256,
+        "eps": 5.24,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1544,6 +2462,12 @@
       "revenue": 6074.5,
       "operatingProfit": 1095.2,
       "eps": 5.32,
+      "prior": {
+        "revenue": 5681.1,
+        "eps": 4.84,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1554,6 +2478,12 @@
       "revenue": 17496,
       "operatingProfit": null,
       "eps": 37.8,
+      "prior": {
+        "revenue": 17281,
+        "eps": 31.78,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1564,6 +2494,12 @@
       "revenue": 19317,
       "operatingProfit": 7093,
       "eps": 11.55,
+      "prior": {
+        "revenue": 17599,
+        "eps": 3.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1574,6 +2510,12 @@
       "revenue": 14326,
       "operatingProfit": -785,
       "eps": -3.15,
+      "prior": {
+        "revenue": 15608,
+        "eps": 1.08,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1584,6 +2526,12 @@
       "revenue": 199125,
       "operatingProfit": 7199,
       "eps": 25.21,
+      "prior": {
+        "revenue": 177011,
+        "eps": 25.68,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1594,6 +2542,12 @@
       "revenue": 16986.4,
       "operatingProfit": 1713.4,
       "eps": 28.19,
+      "prior": {
+        "revenue": 14566.1,
+        "eps": 21.52,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1604,6 +2558,12 @@
       "revenue": 18016,
       "operatingProfit": null,
       "eps": 4.04,
+      "prior": {
+        "revenue": 17492,
+        "eps": 3.43,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1614,6 +2574,12 @@
       "revenue": 22632,
       "operatingProfit": 6385,
       "eps": 9.12,
+      "prior": {
+        "revenue": 23698,
+        "eps": 11.25,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1624,6 +2590,12 @@
       "revenue": 9217,
       "operatingProfit": 1848,
       "eps": 13.76,
+      "prior": {
+        "revenue": 8748,
+        "eps": 8.5,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1634,6 +2606,12 @@
       "revenue": 8644.2,
       "operatingProfit": 3249.6,
       "eps": 3.31,
+      "prior": {
+        "revenue": 5273.3,
+        "eps": 0.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1644,6 +2622,12 @@
       "revenue": 4067.3,
       "operatingProfit": 717.2,
       "eps": null,
+      "prior": {
+        "revenue": 3795.1,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1654,6 +2638,12 @@
       "revenue": 13547.2,
       "operatingProfit": 2988.6,
       "eps": 4.56,
+      "prior": {
+        "revenue": 11900.8,
+        "eps": 2.27,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1664,6 +2654,12 @@
       "revenue": 1887.3,
       "operatingProfit": 899.3,
       "eps": 10.4,
+      "prior": {
+        "revenue": 1774.5,
+        "eps": 11.54,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1674,6 +2670,12 @@
       "revenue": 27448,
       "operatingProfit": 3675,
       "eps": 10.45,
+      "prior": {
+        "revenue": 24878,
+        "eps": 9.5,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1684,6 +2686,12 @@
       "revenue": 12946.7,
       "operatingProfit": 3202.3,
       "eps": 3.91,
+      "prior": {
+        "revenue": 11879.7,
+        "eps": 2.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1694,6 +2702,12 @@
       "revenue": 5961.6,
       "operatingProfit": 1532.9,
       "eps": 3.66,
+      "prior": {
+        "revenue": 5847.3,
+        "eps": 3.79,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1704,6 +2718,12 @@
       "revenue": 6067.6,
       "operatingProfit": 1264.2,
       "eps": 1.83,
+      "prior": {
+        "revenue": 5439.5,
+        "eps": 6.97,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1714,6 +2734,12 @@
       "revenue": 24258,
       "operatingProfit": 5148,
       "eps": null,
+      "prior": {
+        "revenue": 23028,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1724,6 +2750,12 @@
       "revenue": 12124,
       "operatingProfit": 2471,
       "eps": 7.57,
+      "prior": {
+        "revenue": 4235,
+        "eps": -4.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1734,6 +2766,12 @@
       "revenue": 11069,
       "operatingProfit": 1052.5,
       "eps": 5.95,
+      "prior": {
+        "revenue": 10600.5,
+        "eps": 5.72,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1744,6 +2782,12 @@
       "revenue": 14733,
       "operatingProfit": 1871,
       "eps": 9.81,
+      "prior": {
+        "revenue": 13691,
+        "eps": 8.95,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1754,6 +2798,12 @@
       "revenue": 3377.5,
       "operatingProfit": 1412.7,
       "eps": 4.59,
+      "prior": {
+        "revenue": 3256.9,
+        "eps": 4.03,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1764,6 +2814,12 @@
       "revenue": 187267,
       "operatingProfit": -9169,
       "eps": -2.06,
+      "prior": {
+        "revenue": 184992,
+        "eps": 1.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1774,6 +2830,12 @@
       "revenue": 15026,
       "operatingProfit": 1266,
       "eps": 5.73,
+      "prior": {
+        "revenue": 11066,
+        "eps": 15.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1784,6 +2846,12 @@
       "revenue": 8200.5,
       "operatingProfit": 1655.7,
       "eps": 1.09,
+      "prior": {
+        "revenue": 7546,
+        "eps": 1,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1794,6 +2862,12 @@
       "revenue": 25915,
       "operatingProfit": 6518,
       "eps": null,
+      "prior": {
+        "revenue": 25455,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1804,6 +2878,12 @@
       "revenue": 2321.7,
       "operatingProfit": 748.3,
       "eps": 15.55,
+      "prior": {
+        "revenue": 2203.1,
+        "eps": 13.91,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1814,6 +2894,12 @@
       "revenue": 94720,
       "operatingProfit": 5463,
       "eps": 18.55,
+      "prior": {
+        "revenue": 87926,
+        "eps": 16.81,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1824,6 +2910,12 @@
       "revenue": 8795,
       "operatingProfit": 540,
       "eps": 4.38,
+      "prior": {
+        "revenue": 8892,
+        "eps": 9,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1834,6 +2926,12 @@
       "revenue": 15090,
       "operatingProfit": 2206,
       "eps": 1.76,
+      "prior": {
+        "revenue": 13472,
+        "eps": 1.7,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1844,6 +2942,12 @@
       "revenue": 30762,
       "operatingProfit": 2606,
       "eps": 9.32,
+      "prior": {
+        "revenue": 29635,
+        "eps": 8.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1854,6 +2958,12 @@
       "revenue": 3088.1,
       "operatingProfit": 765.9,
       "eps": 11.8,
+      "prior": {
+        "revenue": 2816.1,
+        "eps": 9.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1864,6 +2974,12 @@
       "revenue": 1990.9,
       "operatingProfit": 924.9,
       "eps": 26.54,
+      "prior": {
+        "revenue": 1717.5,
+        "eps": 20.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1874,6 +2990,12 @@
       "revenue": 10677,
       "operatingProfit": 1741,
       "eps": 0.73,
+      "prior": {
+        "revenue": 10127,
+        "eps": 2.61,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1884,6 +3006,12 @@
       "revenue": 21193,
       "operatingProfit": 5818,
       "eps": 6.34,
+      "prior": {
+        "revenue": 20456,
+        "eps": 5.38,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1894,6 +3022,12 @@
       "revenue": 577,
       "operatingProfit": null,
       "eps": 3.53,
+      "prior": {
+        "revenue": null,
+        "eps": 3.14,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1904,6 +3038,12 @@
       "revenue": 1831.3,
       "operatingProfit": 209.1,
       "eps": 28.88,
+      "prior": {
+        "revenue": 7027.5,
+        "eps": 14.6,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1914,6 +3054,12 @@
       "revenue": 27914,
       "operatingProfit": 1368,
       "eps": 2.33,
+      "prior": {
+        "revenue": 25813,
+        "eps": 2.11,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1924,6 +3070,12 @@
       "revenue": 16300,
       "operatingProfit": null,
       "eps": 4.91,
+      "prior": {
+        "revenue": 13980,
+        "eps": 3.13,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1934,6 +3086,12 @@
       "revenue": 16300,
       "operatingProfit": null,
       "eps": 4.91,
+      "prior": {
+        "revenue": 13980,
+        "eps": 3.13,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1944,6 +3102,12 @@
       "revenue": 1279,
       "operatingProfit": 602.2,
       "eps": 4.68,
+      "prior": {
+        "revenue": 1202.5,
+        "eps": 3.42,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1954,6 +3118,12 @@
       "revenue": 5219.4,
       "operatingProfit": 1596.9,
       "eps": 14.21,
+      "prior": {
+        "revenue": 4206.3,
+        "eps": 12.02,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1964,6 +3134,12 @@
       "revenue": 6799.6,
       "operatingProfit": 2084.7,
       "eps": 2.42,
+      "prior": {
+        "revenue": 5955.8,
+        "eps": 2.26,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1974,6 +3150,12 @@
       "revenue": 4159.1,
       "operatingProfit": 720.2,
       "eps": 1.73,
+      "prior": {
+        "revenue": 4080.9,
+        "eps": 2.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1984,6 +3166,12 @@
       "revenue": 52550,
       "operatingProfit": 5356,
       "eps": 15.45,
+      "prior": {
+        "revenue": 47716,
+        "eps": 13.63,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -1994,6 +3182,12 @@
       "revenue": 4951.1,
       "operatingProfit": 1127.3,
       "eps": 6.22,
+      "prior": {
+        "revenue": 4573.2,
+        "eps": 6.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2004,6 +3198,12 @@
       "revenue": 45855,
       "operatingProfit": 22887,
       "eps": 8.14,
+      "prior": {
+        "revenue": 38702,
+        "eps": 5.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2014,6 +3214,12 @@
       "revenue": 20625,
       "operatingProfit": 2763,
       "eps": 4.55,
+      "prior": {
+        "revenue": 19672,
+        "eps": 4.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2024,6 +3230,12 @@
       "revenue": 5000,
       "operatingProfit": 2120,
       "eps": 1.57,
+      "prior": {
+        "revenue": 3935,
+        "eps": 1.03,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2034,6 +3246,12 @@
       "revenue": 38068,
       "operatingProfit": 1388,
       "eps": 17.69,
+      "prior": {
+        "revenue": 34935,
+        "eps": 5.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2044,6 +3262,12 @@
       "revenue": 29443,
       "operatingProfit": 10022,
       "eps": 6.78,
+      "prior": {
+        "revenue": 28754,
+        "eps": 0.38,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2054,6 +3278,12 @@
       "revenue": 18424.6,
       "operatingProfit": 885.8,
       "eps": -0.16,
+      "prior": {
+        "revenue": 19486.6,
+        "eps": 4.1,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2064,6 +3294,12 @@
       "revenue": 5994.3,
       "operatingProfit": 1265,
       "eps": 14.07,
+      "prior": {
+        "revenue": 5778.1,
+        "eps": 11.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2074,6 +3310,12 @@
       "revenue": 15629,
       "operatingProfit": 2279,
       "eps": 1.83,
+      "prior": {
+        "revenue": 13118,
+        "eps": 0.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2084,6 +3326,12 @@
       "revenue": 185019,
       "operatingProfit": 2909,
       "eps": 3.27,
+      "prior": {
+        "revenue": 187442,
+        "eps": 6.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2094,6 +3342,12 @@
       "revenue": 4209.1,
       "operatingProfit": 289.2,
       "eps": 2.69,
+      "prior": {
+        "revenue": 4295.8,
+        "eps": 5.39,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2104,6 +3358,12 @@
       "revenue": 402836,
       "operatingProfit": 129039,
       "eps": 10.81,
+      "prior": {
+        "revenue": 350018,
+        "eps": 8.04,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2114,6 +3374,12 @@
       "revenue": 402836,
       "operatingProfit": 129039,
       "eps": 10.81,
+      "prior": {
+        "revenue": 350018,
+        "eps": 8.04,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2124,6 +3390,12 @@
       "revenue": 24300.1,
       "operatingProfit": 1430.5,
       "eps": 0.47,
+      "prior": {
+        "revenue": 23486.6,
+        "eps": 6.47,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2134,6 +3406,12 @@
       "revenue": 7705.9,
       "operatingProfit": 1754.6,
       "eps": 5.78,
+      "prior": {
+        "revenue": 7736,
+        "eps": 6.16,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2144,6 +3422,12 @@
       "revenue": 7245.5,
       "operatingProfit": 1876.1,
       "eps": 8.59,
+      "prior": {
+        "revenue": 6296.9,
+        "eps": 7.3,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2154,6 +3438,12 @@
       "revenue": null,
       "operatingProfit": null,
       "eps": 51.32,
+      "prior": {
+        "revenue": null,
+        "eps": 40.54,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2164,6 +3454,12 @@
       "revenue": 17942,
       "operatingProfit": 2495,
       "eps": 35.4,
+      "prior": {
+        "revenue": 17168,
+        "eps": 38.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2174,6 +3470,12 @@
       "revenue": 22184,
       "operatingProfit": 2260,
       "eps": null,
+      "prior": {
+        "revenue": 22944,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2184,6 +3486,12 @@
       "revenue": 5365.9,
       "operatingProfit": 11.1,
       "eps": -2.3,
+      "prior": {
+        "revenue": 4745.9,
+        "eps": 2.75,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2194,6 +3502,12 @@
       "revenue": 1562,
       "operatingProfit": null,
       "eps": 1.39,
+      "prior": {
+        "revenue": 1468,
+        "eps": 1.22,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2204,6 +3518,12 @@
       "revenue": 75600,
       "operatingProfit": null,
       "eps": 28.33,
+      "prior": {
+        "revenue": 70603,
+        "eps": 22,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2214,6 +3534,12 @@
       "revenue": 164683,
       "operatingProfit": 20890,
       "eps": 14.23,
+      "prior": {
+        "revenue": 159514,
+        "eps": 14.91,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2224,6 +3550,12 @@
       "revenue": 28368,
       "operatingProfit": -1728,
       "eps": 13.32,
+      "prior": {
+        "revenue": 26535,
+        "eps": 10.35,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2234,6 +3566,12 @@
       "revenue": 12484,
       "operatingProfit": 657,
       "eps": 15.39,
+      "prior": {
+        "revenue": 11535,
+        "eps": 13.96,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2244,6 +3582,12 @@
       "revenue": 12039,
       "operatingProfit": 2693,
       "eps": 6.12,
+      "prior": {
+        "revenue": 11174,
+        "eps": 6.14,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2254,6 +3598,12 @@
       "revenue": 37442,
       "operatingProfit": 8127,
       "eps": 7.36,
+      "prior": {
+        "revenue": 34717,
+        "eps": 8.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2264,6 +3614,12 @@
       "revenue": null,
       "operatingProfit": null,
       "eps": null,
+      "prior": {
+        "revenue": null,
+        "eps": null,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": null
+      },
       "fiscalYear": null
     },
     {
@@ -2274,6 +3630,12 @@
       "revenue": 4473,
       "operatingProfit": null,
       "eps": 2.05,
+      "prior": {
+        "revenue": 2951,
+        "eps": 1.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2284,6 +3646,12 @@
       "revenue": 34296,
       "operatingProfit": -437,
       "eps": -0.04,
+      "prior": {
+        "revenue": 30127,
+        "eps": 1.93,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2294,6 +3662,12 @@
       "revenue": 55295,
       "operatingProfit": 3174,
       "eps": 2.65,
+      "prior": {
+        "revenue": 53559,
+        "eps": 2.81,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2304,6 +3678,12 @@
       "revenue": 12106.2,
       "operatingProfit": 718.6,
       "eps": 0.87,
+      "prior": {
+        "revenue": 11920.8,
+        "eps": 1.47,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2314,6 +3694,12 @@
       "revenue": 13184,
       "operatingProfit": 653,
       "eps": 3.27,
+      "prior": {
+        "revenue": 12673,
+        "eps": 3.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2324,6 +3710,12 @@
       "revenue": 6114,
       "operatingProfit": 855,
       "eps": 1.1,
+      "prior": {
+        "revenue": 5684,
+        "eps": 0.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2334,6 +3726,12 @@
       "revenue": 11692.6,
       "operatingProfit": 1441.5,
       "eps": null,
+      "prior": {
+        "revenue": 11202.3,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2344,6 +3742,12 @@
       "revenue": 5844.6,
       "operatingProfit": 1208.8,
       "eps": 16.54,
+      "prior": {
+        "revenue": 5628.5,
+        "eps": 14.39,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2354,6 +3758,12 @@
       "revenue": 129664,
       "operatingProfit": 2704,
       "eps": 9.84,
+      "prior": {
+        "revenue": 117761,
+        "eps": 9.98,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2364,6 +3774,12 @@
       "revenue": 8252,
       "operatingProfit": 2046,
       "eps": 3.71,
+      "prior": {
+        "revenue": 7430,
+        "eps": 2.81,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2374,6 +3790,12 @@
       "revenue": 2440,
       "operatingProfit": null,
       "eps": 2.22,
+      "prior": {
+        "revenue": 1977,
+        "eps": 1.73,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2384,6 +3806,12 @@
       "revenue": 67535,
       "operatingProfit": null,
       "eps": 11.17,
+      "prior": {
+        "revenue": 62753,
+        "eps": 6.43,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2394,6 +3822,12 @@
       "revenue": 12640,
       "operatingProfit": 4929,
       "eps": 5.77,
+      "prior": {
+        "revenue": 11761,
+        "eps": 4.78,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2404,6 +3838,12 @@
       "revenue": 4303.7,
       "operatingProfit": 1360,
       "eps": 13.08,
+      "prior": {
+        "revenue": 3897.5,
+        "eps": 10.67,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2414,6 +3854,12 @@
       "revenue": 3457.5,
       "operatingProfit": 699.3,
       "eps": 6.41,
+      "prior": {
+        "revenue": 3268.8,
+        "eps": 6.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2424,6 +3870,12 @@
       "revenue": 10890,
       "operatingProfit": -382,
       "eps": -1.41,
+      "prior": {
+        "revenue": 11484,
+        "eps": 1.04,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2434,6 +3886,12 @@
       "revenue": 4343,
       "operatingProfit": 807,
       "eps": 5.45,
+      "prior": {
+        "revenue": 4372,
+        "eps": -7.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2444,6 +3902,12 @@
       "revenue": 5141.2,
       "operatingProfit": 1514.9,
       "eps": 6.41,
+      "prior": {
+        "revenue": 4241.2,
+        "eps": 0.15,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2454,6 +3918,12 @@
       "revenue": 18831,
       "operatingProfit": 4923,
       "eps": 13.67,
+      "prior": {
+        "revenue": 16285,
+        "eps": 10.43,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2464,6 +3934,12 @@
       "revenue": 2729.3,
       "operatingProfit": 118.2,
       "eps": 0.96,
+      "prior": {
+        "revenue": 2618.9,
+        "eps": 0.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2474,6 +3950,12 @@
       "revenue": 23634,
       "operatingProfit": 2361,
       "eps": -6.95,
+      "prior": {
+        "revenue": 15835,
+        "eps": 1.57,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2484,6 +3966,12 @@
       "revenue": 16310,
       "operatingProfit": 2182,
       "eps": 7.84,
+      "prior": {
+        "revenue": 15405,
+        "eps": 7.49,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2494,6 +3982,12 @@
       "revenue": 7650.9,
       "operatingProfit": 1144.6,
       "eps": 1.45,
+      "prior": {
+        "revenue": 7235,
+        "eps": 2.06,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2504,6 +3998,12 @@
       "revenue": 6901.7,
       "operatingProfit": 1163.8,
       "eps": 0.49,
+      "prior": {
+        "revenue": 6149.9,
+        "eps": 0.61,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2514,6 +4014,12 @@
       "revenue": 10064.7,
       "operatingProfit": 2945.5,
       "eps": 7.87,
+      "prior": {
+        "revenue": 8352.1,
+        "eps": 6.42,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2524,6 +4030,12 @@
       "revenue": 6497.2,
       "operatingProfit": 1025.7,
       "eps": 9.65,
+      "prior": {
+        "revenue": 6267.4,
+        "eps": 16,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2534,6 +4046,12 @@
       "revenue": 16044,
       "operatingProfit": 4216,
       "eps": 10.49,
+      "prior": {
+        "revenue": 15898,
+        "eps": 11.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2544,6 +4062,12 @@
       "revenue": 6377.1,
       "operatingProfit": -695.7,
       "eps": -1.6,
+      "prior": {
+        "revenue": 6067,
+        "eps": 1.18,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2554,6 +4078,12 @@
       "revenue": 12029.8,
       "operatingProfit": 863.6,
       "eps": 2.38,
+      "prior": {
+        "revenue": 11500.9,
+        "eps": 6.32,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2564,6 +4094,12 @@
       "revenue": 11999.1,
       "operatingProfit": 865.1,
       "eps": 6.12,
+      "prior": {
+        "revenue": 12087.2,
+        "eps": 5.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2574,6 +4110,12 @@
       "revenue": 29802,
       "operatingProfit": 1182,
       "eps": 5.92,
+      "prior": {
+        "revenue": 28883,
+        "eps": 11.17,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2584,6 +4126,12 @@
       "revenue": 23596,
       "operatingProfit": 884,
       "eps": 5.03,
+      "prior": {
+        "revenue": 22952,
+        "eps": 2.52,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2594,6 +4142,12 @@
       "revenue": 2375.3,
       "operatingProfit": 568.7,
       "eps": 6.24,
+      "prior": {
+        "revenue": 2215.5,
+        "eps": 5.23,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2604,6 +4158,12 @@
       "revenue": 94193,
       "operatingProfit": 21590,
       "eps": 11.03,
+      "prior": {
+        "revenue": 88821,
+        "eps": 5.79,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2614,6 +4174,12 @@
       "revenue": 182447,
       "operatingProfit": null,
       "eps": 20.02,
+      "prior": {
+        "revenue": 177556,
+        "eps": 19.75,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2624,6 +4190,12 @@
       "revenue": 16603,
       "operatingProfit": 3575,
       "eps": 1.53,
+      "prior": {
+        "revenue": 15351,
+        "eps": 1.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2634,6 +4206,12 @@
       "revenue": 7513,
       "operatingProfit": null,
       "eps": 1.52,
+      "prior": {
+        "revenue": 4619,
+        "eps": -0.32,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2644,6 +4222,12 @@
       "revenue": 5375,
       "operatingProfit": 876,
       "eps": 4.91,
+      "prior": {
+        "revenue": 4979,
+        "eps": 3.51,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2654,6 +4238,12 @@
       "revenue": 24942,
       "operatingProfit": -4669,
       "eps": -4.93,
+      "prior": {
+        "revenue": 25846,
+        "eps": 2.26,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2664,6 +4254,12 @@
       "revenue": 2140.1,
       "operatingProfit": 770.8,
       "eps": null,
+      "prior": {
+        "revenue": 2037,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2674,6 +4270,12 @@
       "revenue": 19464.3,
       "operatingProfit": null,
       "eps": null,
+      "prior": {
+        "revenue": 21878.7,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2684,6 +4286,12 @@
       "revenue": 12156.2,
       "operatingProfit": 772.1,
       "eps": 3.04,
+      "prior": {
+        "revenue": 9812.2,
+        "eps": 2.03,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2694,6 +4302,12 @@
       "revenue": 16447,
       "operatingProfit": 2351,
       "eps": 6.07,
+      "prior": {
+        "revenue": 16805,
+        "eps": 7.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2704,6 +4318,12 @@
       "revenue": 16937,
       "operatingProfit": 4724,
       "eps": 1.37,
+      "prior": {
+        "revenue": 15100,
+        "eps": 1.17,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2714,6 +4334,12 @@
       "revenue": 47941,
       "operatingProfit": 13762,
       "eps": 3.04,
+      "prior": {
+        "revenue": 47061,
+        "eps": 2.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2724,6 +4350,12 @@
       "revenue": 147642,
       "operatingProfit": 1890,
       "eps": 1.54,
+      "prior": {
+        "revenue": 147123,
+        "eps": 3.67,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2734,6 +4366,12 @@
       "revenue": 15124,
       "operatingProfit": 2414,
       "eps": 0.76,
+      "prior": {
+        "revenue": 15455,
+        "eps": 0.54,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2744,6 +4382,12 @@
       "revenue": 18454,
       "operatingProfit": null,
       "eps": 7.97,
+      "prior": {
+        "revenue": 17510,
+        "eps": 6.41,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2754,6 +4398,12 @@
       "revenue": 17174,
       "operatingProfit": 2109,
       "eps": 11.14,
+      "prior": {
+        "revenue": 16662,
+        "eps": 9.22,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2764,6 +4414,12 @@
       "revenue": 34186.9,
       "operatingProfit": 3482.2,
       "eps": 7.98,
+      "prior": {
+        "revenue": 35441.5,
+        "eps": 14.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2774,6 +4430,12 @@
       "revenue": 13951.7,
       "operatingProfit": 1384.7,
       "eps": 10.46,
+      "prior": {
+        "revenue": 13008.9,
+        "eps": 8.84,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2784,6 +4446,12 @@
       "revenue": 21325,
       "operatingProfit": 2110,
       "eps": 8.53,
+      "prior": {
+        "revenue": 19419,
+        "eps": 7.87,
+        "revenueFiscalYear": "CY2023",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2794,6 +4462,12 @@
       "revenue": 5195.3,
       "operatingProfit": 1041.5,
       "eps": 22.79,
+      "prior": {
+        "revenue": 5341.3,
+        "eps": 22.66,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2804,6 +4478,12 @@
       "revenue": 33986,
       "operatingProfit": 8923,
       "eps": 14.61,
+      "prior": {
+        "revenue": 33005,
+        "eps": 13.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2814,6 +4494,12 @@
       "revenue": 3014,
       "operatingProfit": 524.8,
       "eps": -92.96,
+      "prior": {
+        "revenue": 1645,
+        "eps": 0.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2824,6 +4510,12 @@
       "revenue": 65179,
       "operatingProfit": null,
       "eps": 22.95,
+      "prior": {
+        "revenue": 45043,
+        "eps": 11.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2834,6 +4526,12 @@
       "revenue": 75048,
       "operatingProfit": 7731,
       "eps": 21.49,
+      "prior": {
+        "revenue": 71043,
+        "eps": 22.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2844,6 +4542,12 @@
       "revenue": 4362,
       "operatingProfit": 1025,
       "eps": 3.14,
+      "prior": {
+        "revenue": 3981,
+        "eps": 2.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2854,6 +4558,12 @@
       "revenue": 86286,
       "operatingProfit": 10153,
       "eps": 11.85,
+      "prior": {
+        "revenue": 83674,
+        "eps": 12.23,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2864,6 +4574,12 @@
       "revenue": 23232.7,
       "operatingProfit": 8199.8,
       "eps": 5.76,
+      "prior": {
+        "revenue": 18435.6,
+        "eps": 4.15,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2874,6 +4590,12 @@
       "revenue": 11102.6,
       "operatingProfit": 2210.6,
       "eps": 13.26,
+      "prior": {
+        "revenue": 10588.1,
+        "eps": 14.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2884,6 +4606,12 @@
       "revenue": 28063,
       "operatingProfit": 428,
       "eps": 0.79,
+      "prior": {
+        "revenue": 27483,
+        "eps": 0.76,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2894,6 +4622,12 @@
       "revenue": 13017,
       "operatingProfit": 2818,
       "eps": 2.35,
+      "prior": {
+        "revenue": 11298,
+        "eps": 1.96,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2904,6 +4638,12 @@
       "revenue": 30153,
       "operatingProfit": -420,
       "eps": -2.34,
+      "prior": {
+        "revenue": 33394,
+        "eps": 4.15,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2914,6 +4654,12 @@
       "revenue": 25201.4,
       "operatingProfit": 1251.2,
       "eps": -0.24,
+      "prior": {
+        "revenue": 23155.6,
+        "eps": 2.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2924,6 +4670,12 @@
       "revenue": 32791,
       "operatingProfit": 18897,
       "eps": 16.52,
+      "prior": {
+        "revenue": 28167,
+        "eps": 13.89,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2934,6 +4686,12 @@
       "revenue": 2209.1,
       "operatingProfit": 130.3,
       "eps": 3.78,
+      "prior": {
+        "revenue": 2191,
+        "eps": 4.49,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2944,6 +4702,12 @@
       "revenue": 26186,
       "operatingProfit": 4141,
       "eps": 9.51,
+      "prior": {
+        "revenue": 25100,
+        "eps": 8.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2954,6 +4718,12 @@
       "revenue": 7562,
       "operatingProfit": 1248,
       "eps": 3.86,
+      "prior": {
+        "revenue": 7828,
+        "eps": 3.76,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2964,6 +4734,12 @@
       "revenue": 26885,
       "operatingProfit": 12393,
       "eps": 11.95,
+      "prior": {
+        "revenue": 25920,
+        "eps": 11.39,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2974,6 +4750,12 @@
       "revenue": 4713.1,
       "operatingProfit": 490.1,
       "eps": 0.22,
+      "prior": {
+        "revenue": 4401.6,
+        "eps": -0.01,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2984,6 +4766,12 @@
       "revenue": 403430,
       "operatingProfit": 6212,
       "eps": 38.38,
+      "prior": {
+        "revenue": 359051,
+        "eps": 25.72,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -2994,6 +4782,12 @@
       "revenue": 7718,
       "operatingProfit": 3351,
       "eps": 13.67,
+      "prior": {
+        "revenue": 7088,
+        "eps": 11.26,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3004,6 +4798,12 @@
       "revenue": 38537,
       "operatingProfit": 3548,
       "eps": 1.89,
+      "prior": {
+        "revenue": 36441,
+        "eps": 3.42,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3014,6 +4814,12 @@
       "revenue": 36364,
       "operatingProfit": 6467,
       "eps": 3.73,
+      "prior": {
+        "revenue": 33537,
+        "eps": 3.61,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3024,6 +4830,12 @@
       "revenue": 77084,
       "operatingProfit": 6137,
       "eps": 4.71,
+      "prior": {
+        "revenue": 70986,
+        "eps": 5.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3034,6 +4846,12 @@
       "revenue": 200966,
       "operatingProfit": 83276,
       "eps": 23.49,
+      "prior": {
+        "revenue": 164501,
+        "eps": 23.86,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3044,6 +4862,12 @@
       "revenue": 17537.7,
       "operatingProfit": 1001.8,
       "eps": 0.76,
+      "prior": {
+        "revenue": 17240.5,
+        "eps": 2.4,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3054,6 +4878,12 @@
       "revenue": 6840.3,
       "operatingProfit": 1070.8,
       "eps": 2.93,
+      "prior": {
+        "revenue": 6723.7,
+        "eps": 2.92,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3064,6 +4894,12 @@
       "revenue": 6150,
       "operatingProfit": 1437,
       "eps": 18.77,
+      "prior": {
+        "revenue": 5662,
+        "eps": 32.41,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3074,6 +4910,12 @@
       "revenue": 24948,
       "operatingProfit": 4629,
       "eps": 6,
+      "prior": {
+        "revenue": 24575,
+        "eps": 7.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3084,6 +4926,12 @@
       "revenue": 8294.3,
       "operatingProfit": 2419.4,
       "eps": null,
+      "prior": {
+        "revenue": 7492.7,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3094,6 +4942,12 @@
       "revenue": 23279,
       "operatingProfit": 9899,
       "eps": 4.12,
+      "prior": {
+        "revenue": 24018,
+        "eps": 6.54,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3104,6 +4958,12 @@
       "revenue": 12052.4,
       "operatingProfit": 821.5,
       "eps": 1.7,
+      "prior": {
+        "revenue": 11122.8,
+        "eps": 0.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3114,6 +4974,12 @@
       "revenue": 132699,
       "operatingProfit": 8291,
       "eps": 13.22,
+      "prior": {
+        "revenue": 138864,
+        "eps": 10.08,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3124,6 +4990,12 @@
       "revenue": 2790.5,
       "operatingProfit": 728.6,
       "eps": 12.86,
+      "prior": {
+        "revenue": 2207.1,
+        "eps": 32.6,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3134,6 +5006,12 @@
       "revenue": 65011,
       "operatingProfit": null,
       "eps": 7.28,
+      "prior": {
+        "revenue": 64168,
+        "eps": 6.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3144,6 +5022,12 @@
       "revenue": 1944,
       "operatingProfit": -3074,
       "eps": -7.26,
+      "prior": {
+        "revenue": 3236,
+        "eps": -9.28,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3154,6 +5038,12 @@
       "revenue": 26981,
       "operatingProfit": 6223,
       "eps": 8.43,
+      "prior": {
+        "revenue": 24458,
+        "eps": 8.18,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3164,6 +5054,12 @@
       "revenue": 8194.6,
       "operatingProfit": 1322.9,
       "eps": 3.07,
+      "prior": {
+        "revenue": 5767.3,
+        "eps": -1.02,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3174,6 +5070,12 @@
       "revenue": 34275,
       "operatingProfit": null,
       "eps": 10.21,
+      "prior": {
+        "revenue": 32417,
+        "eps": 7.95,
+        "revenueFiscalYear": "FY2013",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3184,6 +5086,12 @@
       "revenue": 3134.5,
       "operatingProfit": 1713.6,
       "eps": 15.69,
+      "prior": {
+        "revenue": 2856.1,
+        "eps": 14.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3194,6 +5102,12 @@
       "revenue": 281724,
       "operatingProfit": 128528,
       "eps": 13.64,
+      "prior": {
+        "revenue": 245122,
+        "eps": 11.8,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3204,6 +5118,12 @@
       "revenue": 11682,
       "operatingProfit": 2988,
       "eps": 12.75,
+      "prior": {
+        "revenue": 10817,
+        "eps": 9.23,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3214,6 +5134,12 @@
       "revenue": 1657,
       "operatingProfit": null,
       "eps": 17,
+      "prior": {
+        "revenue": 1541,
+        "eps": 14.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3224,6 +5150,12 @@
       "revenue": 4026.4,
       "operatingProfit": null,
       "eps": 42.05,
+      "prior": {
+        "revenue": 3872.4,
+        "eps": 40.48,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3234,6 +5166,12 @@
       "revenue": 37378,
       "operatingProfit": 9770,
       "eps": 7.59,
+      "prior": {
+        "revenue": 25111,
+        "eps": 0.7,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3244,6 +5182,12 @@
       "revenue": 9827.6,
       "operatingProfit": 1560.9,
       "eps": 0.92,
+      "prior": {
+        "revenue": 9479.7,
+        "eps": 1.89,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3254,6 +5198,12 @@
       "revenue": 8262,
       "operatingProfit": 2331,
       "eps": 3.09,
+      "prior": {
+        "revenue": 7400,
+        "eps": 1.93,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3264,6 +5214,12 @@
       "revenue": 2791.7,
       "operatingProfit": 711.7,
       "eps": 8.51,
+      "prior": {
+        "revenue": 2689.9,
+        "eps": 8.11,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3274,6 +5230,12 @@
       "revenue": 25800,
       "operatingProfit": 8280,
       "eps": 3.3,
+      "prior": {
+        "revenue": 23500,
+        "eps": 3.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3284,6 +5246,12 @@
       "revenue": 22669,
       "operatingProfit": null,
       "eps": 6.39,
+      "prior": {
+        "revenue": 18682,
+        "eps": 2.92,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3294,6 +5262,12 @@
       "revenue": 45183,
       "operatingProfit": 13326.6,
       "eps": 2.53,
+      "prior": {
+        "revenue": 39001,
+        "eps": 1.98,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3304,6 +5278,12 @@
       "revenue": 6522.8,
       "operatingProfit": 1835.3,
       "eps": 1.95,
+      "prior": {
+        "revenue": 5282.9,
+        "eps": 1.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3314,6 +5294,12 @@
       "revenue": 46398,
       "operatingProfit": null,
       "eps": 2.1,
+      "prior": {
+        "revenue": 46309,
+        "eps": 2.16,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3324,6 +5310,12 @@
       "revenue": 41954,
       "operatingProfit": 4511,
       "eps": 29.08,
+      "prior": {
+        "revenue": 41033,
+        "eps": 28.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3334,6 +5326,12 @@
       "revenue": 13278,
       "operatingProfit": 1824,
       "eps": 1.67,
+      "prior": {
+        "revenue": 10984,
+        "eps": 1.37,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3344,6 +5342,12 @@
       "revenue": 30713,
       "operatingProfit": 1845,
       "eps": 4.01,
+      "prior": {
+        "revenue": 28130,
+        "eps": 4.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3354,6 +5358,12 @@
       "revenue": 12180,
       "operatingProfit": 4356,
       "eps": 12.75,
+      "prior": {
+        "revenue": 12123,
+        "eps": 11.57,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3364,6 +5374,12 @@
       "revenue": 6237,
       "operatingProfit": 1674,
       "eps": 6.35,
+      "prior": {
+        "revenue": 5907,
+        "eps": 5.67,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3374,6 +5390,12 @@
       "revenue": 8086.4,
       "operatingProfit": null,
       "eps": 8.74,
+      "prior": {
+        "revenue": 8290.4,
+        "eps": 9.77,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3384,6 +5406,12 @@
       "revenue": 32494,
       "operatingProfit": null,
       "eps": 7.52,
+      "prior": {
+        "revenue": 30734,
+        "eps": 8.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3394,6 +5422,12 @@
       "revenue": 215938,
       "operatingProfit": 130387,
       "eps": 4.9,
+      "prior": {
+        "revenue": 130497,
+        "eps": 2.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3404,6 +5438,12 @@
       "revenue": 10324,
       "operatingProfit": null,
       "eps": 436.55,
+      "prior": {
+        "revenue": 10524.5,
+        "eps": 506.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3414,6 +5454,12 @@
       "revenue": 8452,
       "operatingProfit": null,
       "eps": 2.07,
+      "prior": {
+        "revenue": 8252,
+        "eps": 0.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3424,6 +5470,12 @@
       "revenue": 8452,
       "operatingProfit": null,
       "eps": 2.07,
+      "prior": {
+        "revenue": 8252,
+        "eps": 0.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3434,6 +5486,12 @@
       "revenue": 12269,
       "operatingProfit": 3047,
       "eps": 7.95,
+      "prior": {
+        "revenue": 12614,
+        "eps": 9.73,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3444,6 +5502,12 @@
       "revenue": 5749.4,
       "operatingProfit": null,
       "eps": 1.17,
+      "prior": {
+        "revenue": 5271.1,
+        "eps": 0.98,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3454,6 +5518,12 @@
       "revenue": 5496.4,
       "operatingProfit": 1361,
       "eps": 4.84,
+      "prior": {
+        "revenue": 5814.8,
+        "eps": 5.48,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3464,6 +5534,12 @@
       "revenue": 33629,
       "operatingProfit": 5741,
       "eps": 5.42,
+      "prior": {
+        "revenue": 21698,
+        "eps": 5.17,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3474,6 +5550,12 @@
       "revenue": 17271.9,
       "operatingProfit": 444.7,
       "eps": -0.27,
+      "prior": {
+        "revenue": 15689.1,
+        "eps": 7.46,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3484,6 +5566,12 @@
       "revenue": 5995.4,
       "operatingProfit": 84.2,
       "eps": 0.29,
+      "prior": {
+        "revenue": 7082.3,
+        "eps": 3.63,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3494,6 +5582,12 @@
       "revenue": 67357,
       "operatingProfit": 20606,
       "eps": 5.83,
+      "prior": {
+        "revenue": 57399,
+        "eps": 4.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3504,6 +5598,12 @@
       "revenue": 17782,
       "operatingProfit": 3460.6,
       "eps": 2.97,
+      "prior": {
+        "revenue": 16708.5,
+        "eps": 2.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3514,6 +5614,12 @@
       "revenue": 14431,
       "operatingProfit": 2133,
       "eps": 3.5,
+      "prior": {
+        "revenue": 14261,
+        "eps": 4.07,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3524,6 +5630,12 @@
       "revenue": 21593,
       "operatingProfit": null,
       "eps": 1.61,
+      "prior": {
+        "revenue": 22019,
+        "eps": 2.44,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3534,6 +5646,12 @@
       "revenue": 3662.8,
       "operatingProfit": 114.8,
       "eps": 0.55,
+      "prior": {
+        "revenue": 3168.2,
+        "eps": 0.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3544,6 +5662,12 @@
       "revenue": 9221,
       "operatingProfit": 1243,
       "eps": 1.6,
+      "prior": {
+        "revenue": 8027,
+        "eps": 3.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3554,6 +5678,12 @@
       "revenue": 6512,
       "operatingProfit": 2510.5,
       "eps": 4.89,
+      "prior": {
+        "revenue": 5571.7,
+        "eps": 4.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3564,6 +5694,12 @@
       "revenue": 28444.8,
       "operatingProfit": null,
       "eps": 4.51,
+      "prior": {
+        "revenue": 33663.8,
+        "eps": 7.9,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3574,6 +5710,12 @@
       "revenue": 24935,
       "operatingProfit": 4749,
       "eps": 1.18,
+      "prior": {
+        "revenue": 24419,
+        "eps": 1.15,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3584,6 +5726,12 @@
       "revenue": 12168,
       "operatingProfit": 2980,
       "eps": 4.22,
+      "prior": {
+        "revenue": 10290,
+        "eps": 3.54,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3594,6 +5742,12 @@
       "revenue": 93925,
       "operatingProfit": 11498,
       "eps": 6,
+      "prior": {
+        "revenue": 91854,
+        "eps": 6.95,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3604,6 +5758,12 @@
       "revenue": 62579,
       "operatingProfit": null,
       "eps": 1.36,
+      "prior": {
+        "revenue": 63627,
+        "eps": 1.41,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3614,6 +5774,12 @@
       "revenue": 15625.5,
       "operatingProfit": null,
       "eps": 5.25,
+      "prior": {
+        "revenue": 16127.7,
+        "eps": 6.68,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3624,6 +5790,12 @@
       "revenue": 84284,
       "operatingProfit": 20451,
       "eps": 6.51,
+      "prior": {
+        "revenue": 84039,
+        "eps": 6.02,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3634,6 +5806,12 @@
       "revenue": 87671,
       "operatingProfit": null,
       "eps": 19.23,
+      "prior": {
+        "revenue": 75372,
+        "eps": 14.4,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3644,6 +5822,12 @@
       "revenue": 19850,
       "operatingProfit": 4347,
       "eps": 27.12,
+      "prior": {
+        "revenue": 19930,
+        "eps": 21.84,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3654,6 +5838,12 @@
       "revenue": 17312,
       "operatingProfit": null,
       "eps": 11.12,
+      "prior": {
+        "revenue": 17947,
+        "eps": 14.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3664,6 +5854,12 @@
       "revenue": 8989.3,
       "operatingProfit": 1107,
       "eps": 8.58,
+      "prior": {
+        "revenue": 8383.3,
+        "eps": 8.93,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3674,6 +5870,12 @@
       "revenue": 8790.1,
       "operatingProfit": 4357.9,
       "eps": 3.56,
+      "prior": {
+        "revenue": 8201.6,
+        "eps": 4.01,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3684,6 +5886,12 @@
       "revenue": 4475.4,
       "operatingProfit": 1414,
       "eps": 0.63,
+      "prior": {
+        "revenue": 2865.5,
+        "eps": 0.19,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3694,6 +5902,12 @@
       "revenue": 40648,
       "operatingProfit": 14892,
       "eps": 7.26,
+      "prior": {
+        "revenue": 37878,
+        "eps": 4.52,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3704,6 +5918,12 @@
       "revenue": 23099,
       "operatingProfit": null,
       "eps": 16.59,
+      "prior": {
+        "revenue": 21555,
+        "eps": 13.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3714,6 +5934,12 @@
       "revenue": 4176,
       "operatingProfit": 857.5,
       "eps": 3.96,
+      "prior": {
+        "revenue": 4082.8,
+        "eps": 3.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3724,6 +5950,12 @@
       "revenue": 5339.9,
       "operatingProfit": 1067.6,
       "eps": 5.05,
+      "prior": {
+        "revenue": 5124.9,
+        "eps": 5.24,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3734,6 +5966,12 @@
       "revenue": 52853,
       "operatingProfit": -2214,
       "eps": -0.06,
+      "prior": {
+        "revenue": 53101,
+        "eps": -4.38,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3744,6 +5982,12 @@
       "revenue": 15875,
       "operatingProfit": 2675,
       "eps": 6.94,
+      "prior": {
+        "revenue": 15845,
+        "eps": 4.75,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3754,6 +5998,12 @@
       "revenue": 9042,
       "operatingProfit": 2129,
       "eps": 1.59,
+      "prior": {
+        "revenue": 8462,
+        "eps": 1.2,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3764,6 +6014,12 @@
       "revenue": 60774,
       "operatingProfit": null,
       "eps": 9.99,
+      "prior": {
+        "revenue": 70405,
+        "eps": 7.5,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3774,6 +6030,12 @@
       "revenue": 4824.1,
       "operatingProfit": 1423.1,
       "eps": 9.01,
+      "prior": {
+        "revenue": 4695.6,
+        "eps": 10.64,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3784,6 +6046,12 @@
       "revenue": 29213,
       "operatingProfit": -5269,
       "eps": -9.34,
+      "prior": {
+        "revenue": 29652,
+        "eps": -1.02,
+        "revenueFiscalYear": "CY2023",
+        "epsFiscalYear": "CY2023"
+      },
       "fiscalYear": "CY2024"
     },
     {
@@ -3794,6 +6062,12 @@
       "revenue": 132376,
       "operatingProfit": null,
       "eps": 10.79,
+      "prior": {
+        "revenue": 143153,
+        "eps": 4.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3804,6 +6078,12 @@
       "revenue": 2739.2,
       "operatingProfit": 982.4,
       "eps": 6.08,
+      "prior": {
+        "revenue": 2298.5,
+        "eps": 3.12,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3814,6 +6094,12 @@
       "revenue": 28479.7,
       "operatingProfit": 1611.5,
       "eps": 6.8,
+      "prior": {
+        "revenue": 23672.8,
+        "eps": 6.03,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3824,6 +6110,12 @@
       "revenue": 33172,
       "operatingProfit": 6065,
       "eps": 5.41,
+      "prior": {
+        "revenue": 31797,
+        "eps": 3.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3834,6 +6126,12 @@
       "revenue": 4754,
       "operatingProfit": null,
       "eps": 3.3,
+      "prior": {
+        "revenue": 4335,
+        "eps": 3.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3844,6 +6142,12 @@
       "revenue": 44284,
       "operatingProfit": 12355,
       "eps": 5.01,
+      "prior": {
+        "revenue": 38962,
+        "eps": 8.97,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3854,6 +6158,12 @@
       "revenue": 17935,
       "operatingProfit": 4910,
       "eps": 15.61,
+      "prior": {
+        "revenue": 16484,
+        "eps": 10.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3864,6 +6174,12 @@
       "revenue": 2202.5,
       "operatingProfit": 442,
       "eps": 2.62,
+      "prior": {
+        "revenue": 1300.2,
+        "eps": -3.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3874,6 +6190,12 @@
       "revenue": 1553.5,
       "operatingProfit": 1123.4,
       "eps": null,
+      "prior": {
+        "revenue": 1453.9,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3884,6 +6206,12 @@
       "revenue": 14342.9,
       "operatingProfit": 3577.9,
       "eps": 41.48,
+      "prior": {
+        "revenue": 14202,
+        "eps": 38.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3894,6 +6222,12 @@
       "revenue": 104,
       "operatingProfit": 53,
       "eps": 2.3,
+      "prior": {
+        "revenue": 84,
+        "eps": 1.93,
+        "revenueFiscalYear": "FY2020",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3904,6 +6238,12 @@
       "revenue": 15912,
       "operatingProfit": null,
       "eps": 10.3,
+      "prior": {
+        "revenue": 14923,
+        "eps": 9.7,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3914,6 +6254,12 @@
       "revenue": 8114.5,
       "operatingProfit": 1179.2,
       "eps": 15.11,
+      "prior": {
+        "revenue": 7079,
+        "eps": 11.61,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3924,6 +6270,12 @@
       "revenue": 5146.3,
       "operatingProfit": 1685.4,
       "eps": 9.51,
+      "prior": {
+        "revenue": 4685.3,
+        "eps": 6.92,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3934,6 +6286,12 @@
       "revenue": 8342,
       "operatingProfit": 1703,
       "eps": 7.67,
+      "prior": {
+        "revenue": 8264,
+        "eps": 8.28,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3944,6 +6302,12 @@
       "revenue": 3761.1,
       "operatingProfit": 726.1,
       "eps": 1.09,
+      "prior": {
+        "revenue": 3388.7,
+        "eps": 0.96,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3954,6 +6318,12 @@
       "revenue": 7902.5,
       "operatingProfit": 2235.4,
       "eps": 14.2,
+      "prior": {
+        "revenue": 7039.2,
+        "eps": 14.35,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3964,6 +6334,12 @@
       "revenue": 22750.6,
       "operatingProfit": 2707.4,
       "eps": 6.61,
+      "prior": {
+        "revenue": 21129.2,
+        "eps": 6.32,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3974,6 +6350,12 @@
       "revenue": 19027,
       "operatingProfit": 3302,
       "eps": 6.85,
+      "prior": {
+        "revenue": 18418,
+        "eps": 6.49,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3984,6 +6366,12 @@
       "revenue": 88603,
       "operatingProfit": 9300,
       "eps": 4.96,
+      "prior": {
+        "revenue": 80738,
+        "eps": 3.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -3994,6 +6382,12 @@
       "revenue": 2856.1,
       "operatingProfit": 356.6,
       "eps": 2.07,
+      "prior": {
+        "revenue": 2755,
+        "eps": 2.2,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4004,6 +6398,12 @@
       "revenue": 2815.1,
       "operatingProfit": 1342.8,
       "eps": 9.8,
+      "prior": {
+        "revenue": 2679.6,
+        "eps": 6.94,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4014,6 +6414,12 @@
       "revenue": 37184.4,
       "operatingProfit": 2936.6,
       "eps": 1.63,
+      "prior": {
+        "revenue": 36176.2,
+        "eps": 3.31,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4024,6 +6430,12 @@
       "revenue": 23921,
       "operatingProfit": null,
       "eps": 4.65,
+      "prior": {
+        "revenue": 19606,
+        "eps": 2.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4034,6 +6446,12 @@
       "revenue": 23574.3,
       "operatingProfit": 4161.7,
       "eps": 10.26,
+      "prior": {
+        "revenue": 23098.5,
+        "eps": 10.55,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4044,6 +6462,12 @@
       "revenue": 9050.9,
       "operatingProfit": 360.2,
       "eps": -1.3,
+      "prior": {
+        "revenue": 8726.1,
+        "eps": -11.57,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4054,6 +6478,12 @@
       "revenue": 35708,
       "operatingProfit": 6523,
       "eps": 2.35,
+      "prior": {
+        "revenue": 36289,
+        "eps": 3.11,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4064,6 +6494,12 @@
       "revenue": 21972,
       "operatingProfit": 1253,
       "eps": 1.68,
+      "prior": {
+        "revenue": 14989.3,
+        "eps": 1.92,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4074,6 +6510,12 @@
       "revenue": 5156.1,
       "operatingProfit": 1327.7,
       "eps": 19.19,
+      "prior": {
+        "revenue": 5108.4,
+        "eps": 19.51,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4084,6 +6526,12 @@
       "revenue": 7355,
       "operatingProfit": -1377,
       "eps": -11.32,
+      "prior": {
+        "revenue": 6663,
+        "eps": -4.63,
+        "revenueFiscalYear": "CY2023",
+        "epsFiscalYear": "CY2023"
+      },
       "fiscalYear": "CY2024"
     },
     {
@@ -4094,6 +6542,12 @@
       "revenue": 7054.2,
       "operatingProfit": 914.9,
       "eps": 8.04,
+      "prior": {
+        "revenue": 6127.4,
+        "eps": 14.51,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4104,6 +6558,12 @@
       "revenue": 29553,
       "operatingProfit": 7285,
       "eps": 3.92,
+      "prior": {
+        "revenue": 26724,
+        "eps": 3.99,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4114,6 +6574,12 @@
       "revenue": 8325,
       "operatingProfit": 2181,
       "eps": 8.88,
+      "prior": {
+        "revenue": 8254,
+        "eps": 2.76,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4124,6 +6590,12 @@
       "revenue": 6364.5,
       "operatingProfit": 3175.4,
       "eps": 14.17,
+      "prior": {
+        "revenue": 5963.8,
+        "eps": 7.26,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4134,6 +6606,12 @@
       "revenue": 15336,
       "operatingProfit": 6478,
       "eps": 14.66,
+      "prior": {
+        "revenue": 14208,
+        "eps": 12.35,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4144,6 +6622,12 @@
       "revenue": 13702,
       "operatingProfit": null,
       "eps": 2.75,
+      "prior": {
+        "revenue": 13185,
+        "eps": 4.42,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4154,6 +6638,12 @@
       "revenue": 5935.9,
       "operatingProfit": 1101.8,
       "eps": 7.93,
+      "prior": {
+        "revenue": 5459.5,
+        "eps": 6.2,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4164,6 +6654,12 @@
       "revenue": 18176.6,
       "operatingProfit": 1476,
       "eps": 7.99,
+      "prior": {
+        "revenue": 17540.4,
+        "eps": 9.84,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4174,6 +6670,12 @@
       "revenue": 13944,
       "operatingProfit": null,
       "eps": 9.4,
+      "prior": {
+        "revenue": 13000,
+        "eps": 8.21,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4184,6 +6686,12 @@
       "revenue": 9097,
       "operatingProfit": 1890,
       "eps": 6.77,
+      "prior": {
+        "revenue": 6551,
+        "eps": 1.58,
+        "revenueFiscalYear": "CY2023",
+        "epsFiscalYear": "CY2023"
+      },
       "fiscalYear": "CY2024"
     },
     {
@@ -4194,6 +6702,12 @@
       "revenue": 9139,
       "operatingProfit": 2721.4,
       "eps": null,
+      "prior": {
+        "revenue": 10208.7,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4204,6 +6718,12 @@
       "revenue": 31179,
       "operatingProfit": 1719,
       "eps": 1.33,
+      "prior": {
+        "revenue": 21109,
+        "eps": 0.82,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4214,6 +6734,12 @@
       "revenue": 15130.4,
       "operatingProfit": 2176,
       "eps": 2.65,
+      "prior": {
+        "revenue": 15365.7,
+        "eps": 1.95,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4224,6 +6750,12 @@
       "revenue": 4086.9,
       "operatingProfit": 500,
       "eps": 3.08,
+      "prior": {
+        "revenue": 4178,
+        "eps": 3.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4234,6 +6766,12 @@
       "revenue": null,
       "operatingProfit": null,
       "eps": 9.28,
+      "prior": {
+        "revenue": null,
+        "eps": 8.55,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4244,6 +6782,12 @@
       "revenue": 25116,
       "operatingProfit": 4889,
       "eps": 8.4,
+      "prior": {
+        "revenue": 22595,
+        "eps": 7.76,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4254,6 +6798,12 @@
       "revenue": 84553,
       "operatingProfit": 3095,
       "eps": 3.66,
+      "prior": {
+        "revenue": 81370,
+        "eps": 3.73,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4264,6 +6814,12 @@
       "revenue": 125648,
       "operatingProfit": 24162,
       "eps": 3.04,
+      "prior": {
+        "revenue": 122336,
+        "eps": 1.49,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4274,6 +6830,12 @@
       "revenue": 8831,
       "operatingProfit": 4165,
       "eps": 32.08,
+      "prior": {
+        "revenue": 7940,
+        "eps": 25.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4284,6 +6846,12 @@
       "revenue": 6115.4,
       "operatingProfit": 1149.8,
       "eps": 18.88,
+      "prior": {
+        "revenue": 5670,
+        "eps": 17.21,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4294,6 +6862,12 @@
       "revenue": 1219.6,
       "operatingProfit": 102.3,
       "eps": 0.46,
+      "prior": {
+        "revenue": 1159.1,
+        "eps": 1.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4304,6 +6878,12 @@
       "revenue": 17262,
       "operatingProfit": 3211,
       "eps": 6.16,
+      "prior": {
+        "revenue": 15845,
+        "eps": 10.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4314,6 +6894,12 @@
       "revenue": 3190,
       "operatingProfit": 650.1,
       "eps": 3.47,
+      "prior": {
+        "revenue": 2819.9,
+        "eps": 3.32,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4324,6 +6910,12 @@
       "revenue": null,
       "operatingProfit": null,
       "eps": 3.82,
+      "prior": {
+        "revenue": null,
+        "eps": 3.36,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4334,6 +6926,12 @@
       "revenue": 104780,
       "operatingProfit": 5117,
       "eps": 8.13,
+      "prior": {
+        "revenue": 106566,
+        "eps": 8.86,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4344,6 +6942,12 @@
       "revenue": 60372,
       "operatingProfit": 4763.2,
       "eps": 4.87,
+      "prior": {
+        "revenue": 56360,
+        "eps": 4.26,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4354,6 +6958,12 @@
       "revenue": 4735.2,
       "operatingProfit": 835,
       "eps": 2.26,
+      "prior": {
+        "revenue": 4884.2,
+        "eps": 0.02,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4364,6 +6974,12 @@
       "revenue": 44556,
       "operatingProfit": 7746,
       "eps": 17.74,
+      "prior": {
+        "revenue": 42879,
+        "eps": 16.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4374,6 +6990,12 @@
       "revenue": 88309,
       "operatingProfit": 18279,
       "eps": 9.72,
+      "prior": {
+        "revenue": 81400,
+        "eps": 9.66,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4384,6 +7006,12 @@
       "revenue": 798.2,
       "operatingProfit": 592.2,
       "eps": 6.97,
+      "prior": {
+        "revenue": 705.8,
+        "eps": 6.57,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4394,6 +7022,12 @@
       "revenue": 8004.2,
       "operatingProfit": 1914.4,
       "eps": 7.27,
+      "prior": {
+        "revenue": 7010.7,
+        "eps": 0.82,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4404,6 +7038,12 @@
       "revenue": 17028.3,
       "operatingProfit": 3331.2,
       "eps": 8.49,
+      "prior": {
+        "revenue": 16381.5,
+        "eps": 5.74,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4414,6 +7054,12 @@
       "revenue": 3587.3,
       "operatingProfit": 592,
       "eps": 1.76,
+      "prior": {
+        "revenue": 3683.3,
+        "eps": 6.09,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4424,6 +7070,12 @@
       "revenue": 7314.8,
       "operatingProfit": 2188.8,
       "eps": 9.24,
+      "prior": {
+        "revenue": 7093.6,
+        "eps": 9.15,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4434,6 +7086,12 @@
       "revenue": 48828,
       "operatingProfit": 3641,
       "eps": 27.43,
+      "prior": {
+        "revenue": 46423,
+        "eps": 21.47,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4444,6 +7102,12 @@
       "revenue": 15524,
       "operatingProfit": 1467.4,
       "eps": 2.06,
+      "prior": {
+        "revenue": 14883.2,
+        "eps": 2.04,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4454,6 +7118,12 @@
       "revenue": 94827,
       "operatingProfit": 4355,
       "eps": 1.08,
+      "prior": {
+        "revenue": 97690,
+        "eps": 2.04,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4464,6 +7134,12 @@
       "revenue": 54441,
       "operatingProfit": 1098,
       "eps": 1.33,
+      "prior": {
+        "revenue": 53309,
+        "eps": 2.25,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4474,6 +7150,12 @@
       "revenue": 21321.9,
       "operatingProfit": 3967.4,
       "eps": 12.98,
+      "prior": {
+        "revenue": 19838.2,
+        "eps": 11.24,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4484,6 +7166,12 @@
       "revenue": 6656.4,
       "operatingProfit": -104.2,
       "eps": -1.62,
+      "prior": {
+        "revenue": 5633.6,
+        "eps": -25.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4494,6 +7182,12 @@
       "revenue": 17682,
       "operatingProfit": 6023,
       "eps": 5.45,
+      "prior": {
+        "revenue": 15641,
+        "eps": 5.2,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4504,6 +7198,12 @@
       "revenue": 14799,
       "operatingProfit": null,
       "eps": 5.11,
+      "prior": {
+        "revenue": 13702,
+        "eps": 4.33,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4514,6 +7214,12 @@
       "revenue": 2332.3,
       "operatingProfit": 357.7,
       "eps": 7.2,
+      "prior": {
+        "revenue": 2137.8,
+        "eps": 6.05,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4524,6 +7230,12 @@
       "revenue": 59070,
       "operatingProfit": 4713,
       "eps": 10.2,
+      "prior": {
+        "revenue": 57063,
+        "eps": 9.45,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4534,6 +7246,12 @@
       "revenue": 52017,
       "operatingProfit": 5565,
       "eps": 4.73,
+      "prior": {
+        "revenue": 43978,
+        "eps": 4.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4544,6 +7262,12 @@
       "revenue": 1712.3,
       "operatingProfit": 553.6,
       "eps": 1.13,
+      "prior": {
+        "revenue": 1671.8,
+        "eps": 0.26,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4554,6 +7278,12 @@
       "revenue": 17364.8,
       "operatingProfit": 1994,
       "eps": 23.1,
+      "prior": {
+        "revenue": 15827.9,
+        "eps": 16.82,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4564,6 +7294,12 @@
       "revenue": 12392.8,
       "operatingProfit": 1533,
       "eps": 25.64,
+      "prior": {
+        "revenue": 11295.7,
+        "eps": 25.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4574,6 +7310,12 @@
       "revenue": 447567,
       "operatingProfit": 18964,
       "eps": 13.23,
+      "prior": {
+        "revenue": 400278,
+        "eps": 15.51,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4584,6 +7326,12 @@
       "revenue": 24510,
       "operatingProfit": 9846,
       "eps": 11.98,
+      "prior": {
+        "revenue": 24250,
+        "eps": 11.09,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4594,6 +7342,12 @@
       "revenue": 88661,
       "operatingProfit": 7867,
       "eps": 6.56,
+      "prior": {
+        "revenue": 91070,
+        "eps": 6.75,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4604,6 +7358,12 @@
       "revenue": 16099,
       "operatingProfit": 3973,
       "eps": 38.61,
+      "prior": {
+        "revenue": 15345,
+        "eps": 38.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4614,6 +7374,12 @@
       "revenue": 28656,
       "operatingProfit": null,
       "eps": 4.62,
+      "prior": {
+        "revenue": 27455,
+        "eps": 3.79,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4624,6 +7390,12 @@
       "revenue": 40000,
       "operatingProfit": 23994,
       "eps": null,
+      "prior": {
+        "revenue": 35926,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4634,6 +7406,12 @@
       "revenue": 3195.3,
       "operatingProfit": 916.4,
       "eps": 5.44,
+      "prior": {
+        "revenue": 2746.6,
+        "eps": 4.32,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4644,6 +7422,12 @@
       "revenue": 4006.1,
       "operatingProfit": 321,
       "eps": 2.61,
+      "prior": {
+        "revenue": 3849.2,
+        "eps": 2.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4654,6 +7438,12 @@
       "revenue": 122687,
       "operatingProfit": 3181,
       "eps": 7.57,
+      "prior": {
+        "revenue": 129881,
+        "eps": 8.58,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4664,6 +7454,12 @@
       "revenue": 5503,
       "operatingProfit": 1277,
       "eps": 3.76,
+      "prior": {
+        "revenue": 5193,
+        "eps": 3.34,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4674,6 +7470,12 @@
       "revenue": 7941.1,
       "operatingProfit": 1619.6,
       "eps": 8.11,
+      "prior": {
+        "revenue": 7417.7,
+        "eps": 6.85,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4684,6 +7486,12 @@
       "revenue": 2701.1,
       "operatingProfit": 1160.6,
       "eps": 2.94,
+      "prior": {
+        "revenue": 2578.4,
+        "eps": 2.72,
+        "revenueFiscalYear": "FY2018",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4694,6 +7502,12 @@
       "revenue": 3072.7,
       "operatingProfit": 1343.9,
       "eps": 6.48,
+      "prior": {
+        "revenue": 2881.7,
+        "eps": 6.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4704,6 +7518,12 @@
       "revenue": 1656.6,
       "operatingProfit": 1121,
       "eps": null,
+      "prior": {
+        "revenue": 1557.4,
+        "eps": null,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": null
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4714,6 +7534,12 @@
       "revenue": 10229.9,
       "operatingProfit": 1829.7,
       "eps": 3.41,
+      "prior": {
+        "revenue": 8011.8,
+        "eps": 1.28,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4724,6 +7550,12 @@
       "revenue": 12001.3,
       "operatingProfit": 4173.3,
       "eps": 15.32,
+      "prior": {
+        "revenue": 11020.1,
+        "eps": -2.08,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4734,6 +7566,12 @@
       "revenue": 17738,
       "operatingProfit": 1906,
       "eps": 2.18,
+      "prior": {
+        "revenue": 17224,
+        "eps": 7,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4744,6 +7582,12 @@
       "revenue": 5834,
       "operatingProfit": null,
       "eps": 0.54,
+      "prior": {
+        "revenue": 4924.3,
+        "eps": 0.19,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4754,6 +7598,12 @@
       "revenue": 14299.9,
       "operatingProfit": -2663.1,
       "eps": -3,
+      "prior": {
+        "revenue": 14739.3,
+        "eps": -0.53,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4764,6 +7614,12 @@
       "revenue": 138191,
       "operatingProfit": 29259,
       "eps": 4.06,
+      "prior": {
+        "revenue": 134788,
+        "eps": 4.14,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4774,6 +7630,12 @@
       "revenue": 11167,
       "operatingProfit": 1793,
       "eps": 6.83,
+      "prior": {
+        "revenue": 10387,
+        "eps": 6.04,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4784,6 +7646,12 @@
       "revenue": 3165.3,
       "operatingProfit": 802.6,
       "eps": 10.76,
+      "prior": {
+        "revenue": 2958.4,
+        "eps": 10.71,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4794,6 +7662,12 @@
       "revenue": 37296,
       "operatingProfit": 738,
       "eps": 0.29,
+      "prior": {
+        "revenue": 39321,
+        "eps": -4.62,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4804,6 +7678,12 @@
       "revenue": 9552,
       "operatingProfit": 721,
       "eps": 2.59,
+      "prior": {
+        "revenue": 8446,
+        "eps": 1.95,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4814,6 +7694,12 @@
       "revenue": 9520,
       "operatingProfit": 2334,
       "eps": 5.12,
+      "prior": {
+        "revenue": 6317,
+        "eps": -2.61,
+        "revenueFiscalYear": "CY2023",
+        "epsFiscalYear": "CY2023"
+      },
       "fiscalYear": "CY2024"
     },
     {
@@ -4824,6 +7710,12 @@
       "revenue": 9800.1,
       "operatingProfit": 2244.9,
       "eps": 4.81,
+      "prior": {
+        "revenue": 8599.9,
+        "eps": 4.83,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4834,6 +7726,12 @@
       "revenue": 10838,
       "operatingProfit": null,
       "eps": 1.39,
+      "prior": {
+        "revenue": 7991.1,
+        "eps": 1.57,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4844,6 +7742,12 @@
       "revenue": 85063,
       "operatingProfit": null,
       "eps": 6.26,
+      "prior": {
+        "revenue": 86408,
+        "eps": 5.37,
+        "revenueFiscalYear": "FY2018",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4854,6 +7758,12 @@
       "revenue": 25204,
       "operatingProfit": 4308,
       "eps": 6.7,
+      "prior": {
+        "revenue": 22063,
+        "eps": 6.81,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4864,6 +7774,12 @@
       "revenue": 11950,
       "operatingProfit": 4196,
       "eps": 2.14,
+      "prior": {
+        "revenue": 10503,
+        "eps": 1.82,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4874,6 +7790,12 @@
       "revenue": 713163,
       "operatingProfit": 29825,
       "eps": 2.73,
+      "prior": {
+        "revenue": 680985,
+        "eps": 2.41,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4884,6 +7806,12 @@
       "revenue": 14707.9,
       "operatingProfit": null,
       "eps": 4.45,
+      "prior": {
+        "revenue": 13638.8,
+        "eps": 4.36,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4894,6 +7822,12 @@
       "revenue": 7806.8,
       "operatingProfit": 1415.7,
       "eps": 8.84,
+      "prior": {
+        "revenue": 7711.5,
+        "eps": 8.79,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4904,6 +7838,12 @@
       "revenue": 3074.1,
       "operatingProfit": 584.9,
       "eps": 6.79,
+      "prior": {
+        "revenue": 2893.2,
+        "eps": 6.69,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4914,6 +7854,12 @@
       "revenue": 9708,
       "operatingProfit": 2234,
       "eps": 16.26,
+      "prior": {
+        "revenue": 9930,
+        "eps": -0.96,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4924,6 +7870,12 @@
       "revenue": 6905,
       "operatingProfit": 731,
       "eps": 0.45,
+      "prior": {
+        "revenue": 7124,
+        "eps": 0.54,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4934,6 +7886,12 @@
       "revenue": 7137.9,
       "operatingProfit": 1118.4,
       "eps": 3.14,
+      "prior": {
+        "revenue": 7128,
+        "eps": 4.35,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4944,6 +7902,12 @@
       "revenue": 11537,
       "operatingProfit": 2583,
       "eps": 3.42,
+      "prior": {
+        "revenue": 11404,
+        "eps": 3.44,
+        "revenueFiscalYear": "FY2017",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4954,6 +7918,12 @@
       "revenue": null,
       "operatingProfit": null,
       "eps": null,
+      "prior": {
+        "revenue": null,
+        "eps": null,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": null
+      },
       "fiscalYear": null
     },
     {
@@ -4964,6 +7934,12 @@
       "revenue": 9035,
       "operatingProfit": 1223,
       "eps": 3.92,
+      "prior": {
+        "revenue": 8562,
+        "eps": 3.65,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4974,6 +7950,12 @@
       "revenue": 24193.7,
       "operatingProfit": 1708.4,
       "eps": 2.1,
+      "prior": {
+        "revenue": 24121.1,
+        "eps": 4.56,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4984,6 +7966,12 @@
       "revenue": 8214,
       "operatingProfit": 2574,
       "eps": 5.55,
+      "prior": {
+        "revenue": 7549,
+        "eps": 5.22,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -4994,6 +7982,12 @@
       "revenue": 8231.5,
       "operatingProfit": 1098.1,
       "eps": 3.55,
+      "prior": {
+        "revenue": 7678.6,
+        "eps": 4.43,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -5004,6 +7998,12 @@
       "revenue": 5396,
       "operatingProfit": 700,
       "eps": 8.18,
+      "prior": {
+        "revenue": 4981,
+        "eps": 10.18,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     },
     {
@@ -5014,6 +8014,12 @@
       "revenue": 9467,
       "operatingProfit": null,
       "eps": 6.02,
+      "prior": {
+        "revenue": 9256,
+        "eps": 5.47,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
       "fiscalYear": "CY2025"
     }
   ]

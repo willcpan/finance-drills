@@ -227,7 +227,7 @@ describe("gameReducer", () => {
 });
 
 describe("derived helpers", () => {
-  const record = (correct: boolean, type: "peRatio" | "ruleOf72", ms: number): AnswerRecord => ({
+  const record = (correct: boolean, type: "peRatio" | "doublingTime", ms: number): AnswerRecord => ({
     question: generateQuestion(type, "easy"),
     userAnswer: 1,
     correct,
@@ -242,8 +242,8 @@ describe("derived helpers", () => {
 
   it("breaks results down by type, weakest first", () => {
     const rows = breakdownByType([
-      record(true, "ruleOf72", 1000),
-      record(true, "ruleOf72", 3000),
+      record(true, "doublingTime", 1000),
+      record(true, "doublingTime", 3000),
       record(false, "peRatio", 2000),
       record(false, "peRatio", 4000),
     ]);
@@ -251,7 +251,7 @@ describe("derived helpers", () => {
     expect(rows[0].type).toBe("peRatio");
     expect(rows[0].correct).toBe(0);
     expect(rows[0].avgMs).toBe(3000);
-    expect(rows[1].type).toBe("ruleOf72");
+    expect(rows[1].type).toBe("doublingTime");
     expect(rows[1].avgMs).toBe(2000);
   });
 });

@@ -1,4 +1,4 @@
-import type { DifficultyLevel, QuestionType } from "./questionGenerator";
+import { ALL_QUESTION_TYPES, type DifficultyLevel, type QuestionType } from "./questionGenerator";
 
 const STORAGE_KEY = "finance-drills:stats:v1";
 
@@ -140,12 +140,29 @@ const isStats = (value: unknown): value is Stats => {
   );
 };
 
+// Saved stats outlive the question types they were recorded against: a player
+// who drilled Rule of 72 before it was replaced still has it in localStorage.
+// A retired type reaching the app is not harmless - weakestType would hand it
+// back as the thing to practise next, and nothing downstream has a pool or a
+// label for it - so it is dropped on the way in. The run history is kept
+// whole: those runs did happen, and a summary records no type.
+const forgetRetiredTypes = (stats: Stats): Stats => {
+  const known = new Set<string>(ALL_QUESTION_TYPES);
+
+  return {
+    ...stats,
+    byType: Object.fromEntries(
+      Object.entries(stats.byType).filter(([type]) => known.has(type))
+    ) as Stats["byType"],
+  };
+};
+
 export const loadStats = (): Stats => {
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
     if (!raw) return emptyStats();
     const parsed: unknown = JSON.parse(raw);
-    return isStats(parsed) ? parsed : emptyStats();
+    return isStats(parsed) ? forgetRetiredTypes(parsed) : emptyStats();
   } catch {
     return emptyStats();
   }

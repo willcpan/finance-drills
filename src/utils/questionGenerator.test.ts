@@ -123,7 +123,9 @@ describe("question generation", () => {
       peRatio: "ratio",
       earningsYield: "percentagePoints",
       operatingMargin: "percentagePoints",
-      ruleOf72: "years",
+      revenueGrowth: "percentagePoints",
+      epsGrowth: "percentagePoints",
+      doublingTime: "years",
     };
 
     for (const type of ALL_QUESTION_TYPES) {
@@ -183,11 +185,9 @@ describe("question generation", () => {
   });
 
   it("names the company and the ticker in every question about a company", () => {
+    // Every type now names a company, including the growth ones: there is no
+    // longer a question about an anonymous "holding".
     for (const type of ALL_QUESTION_TYPES) {
-      // Rule of 72 is pure arithmetic. It still carries a stock row - the
-      // generator takes one and ignores it - so it has to be skipped by type.
-      if (type === "ruleOf72") continue;
-
       const q = generateQuestion(type, "easy");
       const stock = q.stockData;
       expect(stock).toBeTruthy();
@@ -246,7 +246,7 @@ describe("question generation", () => {
   });
 
   it("restricts a generated set to the requested types", () => {
-    const wanted: QuestionType[] = ["peRatio", "ruleOf72"];
+    const wanted: QuestionType[] = ["peRatio", "doublingTime"];
     const questions = generateQuestions(12, "medium", wanted);
     expect(questions).toHaveLength(12);
     for (const q of questions) {
@@ -344,11 +344,42 @@ describe("checkAnswer", () => {
     }
   });
 
-  it("gets the rule-of-72 arithmetic right", () => {
+  it("gets the rule-of-72 arithmetic right, on a rate the company grew at", () => {
     for (let i = 0; i < 100; i++) {
-      const q = generateQuestion("ruleOf72", "easy");
-      const rate = Number(/at (\d+(?:\.\d+)?)% a year/.exec(q.text)?.[1]);
+      const q = generateQuestion("doublingTime", "easy");
+      const stock = q.stockData as NonNullable<typeof q.stockData>;
+
+      // The rate in the question is the company's own revenue growth, not a
+      // number invented for the drill.
+      const rate = Number(/grew revenue (-?\d+(?:\.\d+)?)%/.exec(q.text)?.[1]);
+      expect(rate).toBeCloseTo(priceMoveOf(stock.priorRevenue, stock.revenue), 1);
+
+      // And the answer follows from the rate as printed, so working it out
+      // from what is on screen is exactly right rather than nearly right.
       expect(q.correctAnswer).toBeCloseTo(72 / rate, 2);
+      expect(q.method.join(" ")).toContain(`72 / ${rate}`);
+
+      // A rate worth compounding: outside this the answer is decades or months.
+      expect(rate).toBeGreaterThanOrEqual(3);
+      expect(rate).toBeLessThanOrEqual(40);
+    }
+  });
+
+  it("builds growth questions from two years the company actually reported", () => {
+    for (const [type, prior, current] of [
+      ["revenueGrowth", "priorRevenue", "revenue"],
+      ["epsGrowth", "priorEps", "eps"],
+    ] as const) {
+      for (let i = 0; i < 50; i++) {
+        const q = generateQuestion(type, "medium");
+        const stock = q.stockData as NonNullable<typeof q.stockData>;
+
+        expect(Number.isFinite(stock[prior])).toBe(true);
+        expect(stock[prior]).toBeGreaterThan(0);
+        expect(q.correctAnswer).toBeCloseTo(priceMoveOf(stock[prior], stock[current]), 1);
+        // Both ends are on screen, and the question dates them.
+        expect(q.text).toMatch(/\b(19|20)\d{2}\b/);
+      }
     }
   });
 });
