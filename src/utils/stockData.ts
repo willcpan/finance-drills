@@ -8,6 +8,19 @@ export interface PastClose {
   date: string; // YYYY-MM-DD
 }
 
+// One fiscal year of a reported figure, e.g. { period: "CY2021", value: 4.18 }.
+export interface FiledYear {
+  period: string;
+  value: number;
+}
+
+// Shares outstanding from a filing's cover page, in millions, and the date
+// they were counted.
+export interface ShareCount {
+  millions: number;
+  date: string; // YYYY-MM-DD
+}
+
 export interface StockData {
   ticker: string;
   // The company's own name, falling back to the ticker when neither source
@@ -21,6 +34,10 @@ export interface StockData {
   // session and now so its printed close no longer compares with today's.
   monthAgo: PastClose | null;
   yearAgo: PastClose | null;
+  // For the price CAGR questions. Yahoo's closes are split-adjusted, so these
+  // compare with today's price; null where the listing is younger.
+  threeYearsAgo: PastClose | null;
+  fiveYearsAgo: PastClose | null;
   // NaN where the company never reported the figure - financials and REITs
   // largely do not report operating income. The eligibility bands reject NaN,
   // so such a company sits out only the questions that need it.
@@ -35,6 +52,12 @@ export interface StockData {
   priorEps: number;
   priorRevenueFiscalYear: string | null;
   priorEpsFiscalYear: string | null;
+  // Consecutive filed years, newest first, for the CAGR questions. Empty where
+  // there is nothing to span.
+  revenueHistory: FiledYear[]; // millions
+  epsHistory: FiledYear[];
+  // Null for a multi-class company or one whose count failed its cross-check.
+  shares: ShareCount | null;
   // Trailing twelve months of dividends actually paid; 0 for a company that
   // pays none.
   dividendPerShare: number;
@@ -111,9 +134,13 @@ export const SENSIBLE = {
   // collapses that teach nothing.
   revenueGrowth: { min: -40, max: 80 },
   epsGrowth: { min: -60, max: 120 },
-  // The rate a doubling-time question is asked about. Below this the answer
-  // runs to decades, above it to months, and neither is worth the arithmetic.
-  growthRate: { min: 3, max: 40 },
+  // A compound annual rate over three or five years. Negative is fine - a
+  // business that shrank is a real answer - but past these the span is
+  // dominated by a merger or a collapse rather than compounding.
+  cagr: { min: -30, max: 60 },
+  // Market cap in $bn. The floor keeps out a share count that has gone wrong
+  // somewhere; the index itself starts around $5bn.
+  marketCap: { min: 3, max: 10000 },
 } as const;
 
 export const within = (value: number, band: { min: number; max: number }): boolean =>
@@ -138,3 +165,13 @@ export const earningsYieldOf = (s: StockData): number => (s.eps / s.currentPrice
 export const operatingMarginOf = (s: StockData): number =>
   (s.operatingProfit / s.revenue) * 100;
 export const payoutRatioOf = (s: StockData): number => (s.dividendPerShare / s.eps) * 100;
+
+// Compound annual growth between two values a number of years apart, in
+// percent. NaN unless both ends are positive: a CAGR into or out of a loss is
+// not a rate of anything.
+export const cagrOf = (from: number, to: number, years: number): number =>
+  from > 0 && to > 0 && years > 0 ? (Math.pow(to / from, 1 / years) - 1) * 100 : Number.NaN;
+
+// Market cap in $bn: price times shares outstanding (held in millions).
+export const marketCapOf = (s: StockData): number =>
+  s.shares ? (s.currentPrice * s.shares.millions) / 1000 : Number.NaN;

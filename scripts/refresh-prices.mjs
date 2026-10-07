@@ -5,9 +5,9 @@
 // they move once a quarter. Prices move every day, which is why they are
 // refreshed separately and why the daily commit touches only this file.
 //
-// One call per ticker returns a year of daily bars, carrying the company name,
-// the closes a month and a year back, and the dividends paid over the year -
-// so the longer-horizon and dividend questions cost no extra requests.
+// One call per ticker returns five years of daily bars, carrying the company name,
+// the closes a month, a year, three and five years back, and the dividends paid
+// over the last year - so the longer-horizon and dividend questions cost no extra requests.
 //
 // The output is committed. The site stays static: no runtime fetch, no CORS
 // negotiation, no third-party script in the page.
@@ -43,16 +43,27 @@ const MIN_COVERAGE = 0.9;
 const MONTH_DAYS = 30;
 const YEAR_DAYS = 365;
 
-// A 1-year range stops a day or two short of a full year on some listings. A
-// bar this old still fairly answers "a year ago".
-const MIN_YEAR_DAYS = 350;
+// The price CAGR questions look three and five years back. A 5-year range
+// returns those bars in the same call, so they cost no extra requests.
+const THREE_YEAR_DAYS = 3 * 365 + 1;
+const FIVE_YEAR_DAYS = 5 * 365 + 1;
 
-// A split rewrites history: Yahoo divides the pre-split closes in adjclose but
-// leaves close as the price actually printed that day, so the two diverge by
-// the split factor. Dividend adjustments separate them by a fraction of a
-// percent. A gap past this means a split sits between that bar and today, and
-// quoting its raw close would invent a 90% crash.
+// A range can stop a day or two short of its nominal length on some listings.
+// A bar this close to the target still fairly answers "five years ago".
+const MAX_SHORTFALL_DAYS = 15;
+
+// Yahoo's `close` is split-adjusted (NVDA's 2021 bars read about $33, not the
+// $330 printed then); `adjclose` additionally folds in dividends. So the two
+// drift apart by the dividends paid since, not by a split. Over a month or a
+// year that is a few percent at most, and a gap past this means something is
+// wrong with the bar.
 const MAX_ADJUSTMENT_GAP = 0.25;
+
+// Over three and five years the dividend drift alone can pass that gap, so the
+// long horizons are checked differently: at every split Yahoo reports inside
+// the span, the closes either side must not jump by more than this. A 10:1
+// split left unadjusted would show as a 90% overnight fall.
+const MAX_SPLIT_JUMP = 0.3;
 
 // The index membership is refresh-universe.mjs's job; this script prices
 // whoever is in it.
@@ -80,24 +91,47 @@ const daysBetween = (fromDay, toDay) =>
 
 const splitFree = bar => Math.abs(bar.close / bar.adjusted - 1) <= MAX_ADJUSTMENT_GAP;
 
-// The last bar on or before `cutoffDay`, unless a split sits between it and
-// today - in which case its printed close no longer compares with today's.
+// The last bar on or before `cutoffDay`, unless its close and adjusted close
+// have drifted apart further than a month or a year of dividends explains.
 const closeOnOrBefore = (bars, cutoffDay) => {
+  const bar = barOnOrBefore(bars, cutoffDay);
+  return bar && splitFree(bar) ? bar : null;
+};
+
+const barOnOrBefore = (bars, cutoffDay) => {
   for (let i = bars.length - 1; i >= 0; i--) {
-    if (bars[i].day > cutoffDay) continue;
-    return splitFree(bars[i]) ? bars[i] : null;
+    if (bars[i].day <= cutoffDay) return bars[i];
   }
   return null;
+};
+
+// A close from years back, used for a CAGR. It has to sit near the target date
+// - a listing younger than the span has no such bar - and no split between it
+// and today may show up as a jump, which would mean the series was not
+// adjusted for it.
+const longCloseOnOrBefore = (bars, splits, cutoffDay) => {
+  const bar = barOnOrBefore(bars, cutoffDay);
+  if (!bar || daysBetween(bar.day, cutoffDay) > MAX_SHORTFALL_DAYS) return null;
+
+  for (const split of splits) {
+    if (split.day <= bar.day) continue;
+    const after = bars.findIndex(b => b.day >= split.day);
+    if (after <= 0) continue;
+    const jump = bars[after].close / bars[after - 1].close - 1;
+    if (Math.abs(jump) > MAX_SPLIT_JUMP) return null;
+  }
+  return bar;
 };
 
 async function fetchQuote(ticker) {
   // events=div brings the dividends paid over the range back in the same
   // response. The SEC tags dividends inconsistently - barely a quarter of the
   // index files CommonStockDividendsPerShareDeclared - so the trailing twelve
-  // months are summed from what was actually paid instead.
+  // months are summed from what was actually paid instead. events=split lists
+  // the splits, which the long-horizon closes are checked against.
   const url =
     `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}` +
-    `?interval=1d&range=1y&includeAdjustedClose=true&events=div`;
+    `?interval=1d&range=5y&includeAdjustedClose=true&events=div,split`;
 
   for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
     try {
@@ -135,9 +169,8 @@ async function fetchQuote(ticker) {
         .map((stamp, i) => ({
           day: dayOf(stamp),
           close: closes[i],
-          // With no adjclose in the response, treat the raw close as adjusted.
-          // The split guard then passes, which is the same exposure the
-          // earlier 5-day fetch carried.
+          // With no adjclose in the response, treat the close as adjusted, so
+          // the gap check passes rather than discarding the bar.
           adjusted: Number.isFinite(adjusted[i]) ? adjusted[i] : closes[i],
         }))
         .filter(bar => Number.isFinite(bar.close) && bar.close > 0 && Number.isFinite(bar.adjusted));
@@ -149,8 +182,8 @@ async function fetchQuote(ticker) {
       // US equities trade 13:30-20:00 UTC, so the UTC date of a quote is its
       // trading day and any earlier date is a previous session. The previous
       // close is read off the series rather than from meta.chartPreviousClose,
-      // which over a 1-year range holds the close before the range started -
-      // a year ago, not yesterday.
+      // which holds the close before the requested range started - five years
+      // ago, not yesterday.
       const today = dayOf(meta?.regularMarketTime ?? Date.now() / 1000);
       const previous = closeOnOrBefore(bars, shiftDay(today, 1));
       if (!previous) {
@@ -158,22 +191,23 @@ async function fetchQuote(ticker) {
       }
 
       const monthAgo = closeOnOrBefore(bars, shiftDay(today, MONTH_DAYS));
-      let yearAgo = closeOnOrBefore(bars, shiftDay(today, YEAR_DAYS));
+      const yearAgo = closeOnOrBefore(bars, shiftDay(today, YEAR_DAYS));
 
-      // Often no bar reaches a full year back, so fall back to the oldest one
-      // held as long as it is old enough to call "a year ago".
-      if (!yearAgo) {
-        const oldest = bars[0];
-        if (splitFree(oldest) && daysBetween(oldest.day, today) >= MIN_YEAR_DAYS) {
-          yearAgo = oldest;
-        }
-      }
+      const splits = Object.values(result?.events?.splits ?? {})
+        .filter(s => Number.isFinite(s.date))
+        .map(s => ({ day: dayOf(s.date) }));
+      const threeYearsAgo = longCloseOnOrBefore(bars, splits, shiftDay(today, THREE_YEAR_DAYS));
+      const fiveYearsAgo = longCloseOnOrBefore(bars, splits, shiftDay(today, FIVE_YEAR_DAYS));
 
       const past = bar => (bar ? { price: round2(bar.close), date: bar.day } : null);
 
-      // A year of payments is the trailing dividend. A company that pays none
-      // sums to zero, which is the right answer for it rather than a gap.
-      const payments = Object.values(result?.events?.dividends ?? {});
+      // The last twelve months of payments is the trailing dividend - the
+      // response carries five years of them. A company that pays none sums to
+      // zero, which is the right answer for it rather than a gap.
+      const yearBack = shiftDay(today, YEAR_DAYS);
+      const payments = Object.values(result?.events?.dividends ?? {}).filter(
+        d => Number.isFinite(d.date) && dayOf(d.date) > yearBack
+      );
       const dividend = payments.reduce((sum, d) => sum + (Number.isFinite(d.amount) ? d.amount : 0), 0);
 
       return {
@@ -184,6 +218,8 @@ async function fetchQuote(ticker) {
         previousClose: round2(previous.close),
         monthAgo: past(monthAgo),
         yearAgo: past(yearAgo),
+        threeYearsAgo: past(threeYearsAgo),
+        fiveYearsAgo: past(fiveYearsAgo),
         dividend: Math.round(dividend * 1000) / 1000,
         payments: payments.length,
         asOf: meta?.regularMarketTime,
@@ -250,6 +286,8 @@ console.log('\nof those:');
 report('name      ', r => r.name);
 report('month-ago ', r => r.monthAgo);
 report('year-ago  ', r => r.yearAgo);
+report('3y-ago    ', r => r.threeYearsAgo);
+report('5y-ago    ', r => r.fiveYearsAgo);
 // Not a gap: a company that pays nothing is correctly recorded as zero.
 report('pays a dividend', r => r.dividend > 0, 'pay none');
 
@@ -279,6 +317,8 @@ const payload = {
           previousClose: r.previousClose,
           monthAgo: r.monthAgo,
           yearAgo: r.yearAgo,
+          threeYearsAgo: r.threeYearsAgo,
+          fiveYearsAgo: r.fiveYearsAgo,
           dividend: r.dividend,
         },
       ])

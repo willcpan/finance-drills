@@ -11,7 +11,7 @@ import {
   type DifficultyLevel,
   type QuestionType,
 } from "./questionGenerator";
-import { SENSIBLE, priceMoveOf, pricesAsOf, stocks, within } from "./stockData";
+import { SENSIBLE, cagrOf, priceMoveOf, pricesAsOf, stocks, within } from "./stockData";
 import { money, shortDate } from "./format";
 
 const DIFFICULTIES: DifficultyLevel[] = ["easy", "medium", "hard"];
@@ -110,13 +110,15 @@ describe("question generation", () => {
   });
 
   it("tags each question with the unit its answer is in", () => {
-    const expected: Record<QuestionType, AnswerUnit> = {
-      priceIncrease: "currency",
-      priceDecrease: "currency",
+    // Market cap asks for whichever of its three figures is missing, so its
+    // unit depends on the variant drawn.
+    const expected: Record<Exclude<QuestionType, "marketCap">, AnswerUnit> = {
       percentageChange: "percentagePoints",
       monthChange: "percentagePoints",
       yearChange: "percentagePoints",
+      priceFromMove: "currency",
       recoveryGain: "percentagePoints",
+      priceCagr: "percentagePoints",
       dividendYield: "percentagePoints",
       dividendPerShare: "currency",
       payoutRatio: "percentagePoints",
@@ -125,12 +127,20 @@ describe("question generation", () => {
       operatingMargin: "percentagePoints",
       revenueGrowth: "percentagePoints",
       epsGrowth: "percentagePoints",
-      doublingTime: "years",
+      epsFromGrowth: "currency",
+      revenueCagr: "percentagePoints",
+      epsCagr: "percentagePoints",
     };
 
     for (const type of ALL_QUESTION_TYPES) {
+      if (type === "marketCap") continue;
       expect(generateQuestion(type, "easy").answerUnit).toBe(expected[type]);
     }
+
+    const capUnits = new Set(
+      Array.from({ length: 60 }, () => generateQuestion("marketCap", "easy").answerUnit)
+    );
+    expect([...capUnits].sort()).toEqual(["billions", "currency", "millionShares"]);
   });
 
   it("asks for the thing its type is named after", () => {
@@ -167,8 +177,8 @@ describe("question generation", () => {
     // day-move tolerance would demand four significant figures.
     for (let i = 0; i < 100; i++) {
       const q = generateQuestion("yearChange", "hard");
-      expect(q.tolerance).toBeGreaterThanOrEqual(0.05);
-      expect(q.tolerance).toBeLessThanOrEqual(Math.max(0.05, Math.abs(q.correctAnswer) * 0.015));
+      expect(q.tolerance).toBeGreaterThanOrEqual(0.1);
+      expect(q.tolerance).toBeLessThanOrEqual(Math.max(0.1, Math.abs(q.correctAnswer) * 0.025));
     }
   });
 
@@ -246,7 +256,7 @@ describe("question generation", () => {
   });
 
   it("restricts a generated set to the requested types", () => {
-    const wanted: QuestionType[] = ["peRatio", "doublingTime"];
+    const wanted: QuestionType[] = ["peRatio", "revenueCagr"];
     const questions = generateQuestions(12, "medium", wanted);
     expect(questions).toHaveLength(12);
     for (const q of questions) {
@@ -288,26 +298,44 @@ describe("checkAnswer", () => {
   });
 
   it("accepts just inside the tolerance and rejects just outside", () => {
+    // Judged on magnitude, so "outside" is measured away from zero.
     for (const type of ALL_QUESTION_TYPES) {
       for (const difficulty of DIFFICULTIES) {
         const q = generateQuestion(type, difficulty);
-        expect(checkAnswer(q, q.correctAnswer + q.tolerance * 0.99)).toBe(true);
-        expect(checkAnswer(q, q.correctAnswer - q.tolerance * 0.99)).toBe(true);
-        expect(checkAnswer(q, q.correctAnswer + q.tolerance * 1.01 + 1e-9)).toBe(false);
+        const size = Math.abs(q.correctAnswer);
+        expect(checkAnswer(q, size + q.tolerance * 0.99)).toBe(true);
+        expect(checkAnswer(q, size - q.tolerance * 0.99)).toBe(true);
+        expect(checkAnswer(q, size + q.tolerance * 1.01 + 1e-9)).toBe(false);
       }
     }
   });
 
-  it("does not accept the price already shown in a price-move question", () => {
+  it("ignores the sign, so a phone keypad with no minus key can answer a fall", () => {
+    let seen = 0;
+    for (let i = 0; i < 3000 && seen < 50; i++) {
+      const q = generateQuestion("yearChange", "medium");
+      if (q.correctAnswer < -1) {
+        expect(checkAnswer(q, Math.abs(q.correctAnswer))).toBe(true);
+        expect(checkAnswer(q, q.correctAnswer)).toBe(true);
+        seen++;
+      }
+    }
+    expect(seen).toBeGreaterThan(0);
+  });
+
+  it("does not accept the starting figure in a question that applies a move", () => {
     // The old margin was 10% of the answer while the move itself was only
-    // 5-10%, so retyping the number on screen scored every time.
+    // 5-10%, so retyping the number on screen scored every time. A real move
+    // can be tiny, so these only draw moves of 5% or more.
     for (let i = 0; i < 200; i++) {
-      for (const type of ["priceIncrease", "priceDecrease"] as QuestionType[]) {
-        for (const difficulty of DIFFICULTIES) {
-          const q = generateQuestion(type, difficulty);
-          const shown = q.stockData?.currentPrice ?? 0;
-          expect(checkAnswer(q, shown)).toBe(false);
-        }
+      for (const difficulty of DIFFICULTIES) {
+        const move = generateQuestion("priceFromMove", difficulty);
+        const start = Number(/closed at \$([\d,]+\.\d{2})/.exec(move.text)?.[1].replace(/,/g, ""));
+        expect(Number.isFinite(start)).toBe(true);
+        expect(checkAnswer(move, start)).toBe(false);
+
+        const eps = generateQuestion("epsFromGrowth", difficulty);
+        expect(checkAnswer(eps, eps.stockData?.priorEps as number)).toBe(false);
       }
     }
   });
@@ -332,36 +360,105 @@ describe("checkAnswer", () => {
     }
   });
 
-  it("gets the recovery-gain arithmetic right", () => {
-    // A 50% fall always needs a 100% gain to undo. Worth pinning exactly.
-    for (let i = 0; i < 300; i++) {
+  it("asks the recovery question about a stock that really fell", () => {
+    // It used to be a round-number fall applied to nobody in particular. Now
+    // the fall is the stock's own over the year, from the close it fell from.
+    for (let i = 0; i < 200; i++) {
       const q = generateQuestion("recoveryGain", "medium");
-      const drop = Number(/falls (\d+(?:\.\d+)?)%/.exec(q.text)?.[1]);
-      expect(Number.isFinite(drop)).toBe(true);
-      expect(q.correctAnswer).toBeCloseTo((drop / (100 - drop)) * 100, 1);
+      const stock = q.stockData as NonNullable<typeof q.stockData>;
+      const from = stock.yearAgo?.price as number;
+
+      expect(stock.currentPrice).toBeLessThan(from * 0.9);
+      expect(q.text).toContain(money(from));
+      expect(q.text).toContain(money(stock.currentPrice));
+      expect(q.correctAnswer).toBeCloseTo(priceMoveOf(stock.currentPrice, from), 1);
       // Recovering always costs more than the fall.
-      expect(q.correctAnswer).toBeGreaterThan(drop);
+      expect(q.correctAnswer).toBeGreaterThan(-priceMoveOf(from, stock.currentPrice));
     }
   });
 
-  it("gets the rule-of-72 arithmetic right, on a rate the company grew at", () => {
-    for (let i = 0; i < 100; i++) {
-      const q = generateQuestion("doublingTime", "easy");
+  it("applies a real move and lands where the stock actually trades", () => {
+    for (let i = 0; i < 200; i++) {
+      const q = generateQuestion("priceFromMove", "medium");
       const stock = q.stockData as NonNullable<typeof q.stockData>;
+      // The move is printed to a tenth of a point, so the answer can sit a
+      // hair off the real price - never by more than that rounding, which is
+      // half a tenth of a percent of the price it started from.
+      const start = Number(/closed at \$([\d,]+\.\d{2})/.exec(q.text)?.[1].replace(/,/g, ""));
+      expect(Math.abs(q.correctAnswer - stock.currentPrice)).toBeLessThanOrEqual(start * 0.0005 + 0.01);
+      expect(q.text).toMatch(/(risen|fallen) \d+\.\d%/);
+    }
+  });
 
-      // The rate in the question is the company's own revenue growth, not a
-      // number invented for the drill.
-      const rate = Number(/grew revenue (-?\d+(?:\.\d+)?)%/.exec(q.text)?.[1]);
-      expect(rate).toBeCloseTo(priceMoveOf(stock.priorRevenue, stock.revenue), 1);
+  it("applies real EPS growth and lands on what the company reported", () => {
+    for (let i = 0; i < 200; i++) {
+      const q = generateQuestion("epsFromGrowth", "medium");
+      const stock = q.stockData as NonNullable<typeof q.stockData>;
+      expect(Math.abs(q.correctAnswer - stock.eps)).toBeLessThanOrEqual(stock.priorEps * 0.0005 + 0.01);
+      expect(q.text).toContain(money(stock.priorEps));
+    }
+  });
 
-      // And the answer follows from the rate as printed, so working it out
-      // from what is on screen is exactly right rather than nearly right.
-      expect(q.correctAnswer).toBeCloseTo(72 / rate, 2);
-      expect(q.method.join(" ")).toContain(`72 / ${rate}`);
+  it("builds market-cap questions that agree with price x shares", () => {
+    for (let i = 0; i < 300; i++) {
+      const q = generateQuestion("marketCap", "medium");
+      const stock = q.stockData as NonNullable<typeof q.stockData>;
+      const shares = stock.shares as NonNullable<typeof stock.shares>;
+      const cap = (stock.currentPrice * shares.millions) / 1000;
 
-      // A rate worth compounding: outside this the answer is decades or months.
-      expect(rate).toBeGreaterThanOrEqual(3);
-      expect(rate).toBeLessThanOrEqual(40);
+      // Every variant's answer is the real figure, up to the rounding of what
+      // the question prints.
+      const truth =
+        q.answerUnit === "billions" ? cap : q.answerUnit === "millionShares" ? shares.millions : stock.currentPrice;
+      // A $7bn cap printed to $0.1bn is up to 0.7% off, and the share count
+      // worked back from it with it.
+      expect(Math.abs(q.correctAnswer / truth - 1)).toBeLessThan(0.01);
+      // Within the bounds of a real index member.
+      expect(within(cap, SENSIBLE.marketCap)).toBe(true);
+      if (q.answerUnit !== "billions") {
+        const printed = Number(/\$([\d,]+\.\d)bn/.exec(q.text)?.[1].replace(/,/g, ""));
+        expect(Math.abs(printed - cap)).toBeLessThan(Math.max(0.1, cap * 0.001));
+      }
+    }
+  });
+
+  it("builds CAGR questions on three or five years that actually happened", () => {
+    let negative = 0;
+    for (let i = 0; i < 300; i++) {
+      for (const type of ["revenueCagr", "epsCagr", "priceCagr"] as QuestionType[]) {
+        const q = generateQuestion(type, "medium");
+        const years = Number(/over those (\d) years/.exec(q.text)?.[1]);
+        expect([3, 5]).toContain(years);
+
+        // The two figures printed are the two ends, and the answer is the
+        // compound rate between them.
+        const shown =
+          type === "revenueCagr"
+            ? [...q.text.matchAll(/\$([\d,]+\.\d)bn|\$([\d,]+)m/g)].map(m =>
+                m[1] ? Number(m[1].replace(/,/g, "")) * 1000 : Number(m[2].replace(/,/g, ""))
+              )
+            : [...q.text.matchAll(/\$([\d,]+\.\d{2})/g)].map(m => Number(m[1].replace(/,/g, "")));
+        expect(shown).toHaveLength(2);
+        // Worked from what is on screen, the arithmetic is exactly right.
+        expect(cagrOf(shown[0], shown[1], years)).toBeCloseTo(q.correctAnswer, 1);
+
+        expect(within(q.correctAnswer, SENSIBLE.cagr)).toBe(true);
+        if (q.correctAnswer < 0) negative++;
+
+        // The method brackets the answer between two whole rates.
+        expect(q.method.join(" ")).toContain(`${Math.floor(q.correctAnswer)}% a year for ${years} years`);
+      }
+    }
+    // A business that shrank is a real answer too.
+    expect(negative).toBeGreaterThan(0);
+  });
+
+  it("dates a price CAGR from a close that existed", () => {
+    for (let i = 0; i < 100; i++) {
+      const q = generateQuestion("priceCagr", "hard");
+      const stock = q.stockData as NonNullable<typeof q.stockData>;
+      const pasts = [stock.threeYearsAgo, stock.fiveYearsAgo].filter(Boolean) as { price: number; date: string }[];
+      expect(pasts.some(p => q.text.includes(money(p.price)) && q.text.includes(shortDate(p.date)))).toBe(true);
     }
   });
 

@@ -30,8 +30,8 @@ Two files, split by how fast their contents age and who publishes them:
 
 | File | Holds | Source | Refreshed |
 | --- | --- | --- | --- |
-| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, and the year before | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
-| `data/prices.json` | price, the closes yesterday / a month / a year back, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
+| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, up to seven years of revenue and EPS history, shares outstanding | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
+| `data/prices.json` | price, the closes yesterday / a month / a year / three / five years back, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
 
 `src/utils/buildStockData.ts` joins the two at build time and the build injects
 the result as `__GAME_STOCK_DATA__`, so **the page never calls a data provider at
@@ -43,10 +43,24 @@ mid-drill, and the CSP stays as tight as it was.
 The constituent list comes from Wikipedia's S&P 500 table, which carries each
 company's **CIK** — the key that opens the SEC. Fundamentals then come from the
 SEC's XBRL `frames` API, which returns one concept for every filer in a single
-request, so the whole index costs about two dozen calls rather than 500
+request, so the whole index costs about sixty calls rather than 500
 multi-megabyte company files.
 
-Three things about the SEC worth knowing before touching that script:
+It walks seven calendar years back, so the CAGR questions can span three or five
+years of what was actually filed. A company's history is the run of consecutive
+years filed under the same XBRL concept as its latest year, so a change of
+revenue tag never shows up as growth.
+
+Shares outstanding come from the cover page of each 10-K and 10-Q
+(`dei:EntityCommonStockSharesOutstanding`, framed by calendar quarter), cross-
+checked against the diluted weighted-average count behind EPS. A company whose
+two counts differ by more than 20% — almost always because the cover counts
+each share class separately — sits the market-cap question out, as does any
+company listed twice in the index (GOOG and GOOGL). Berkshire, Alphabet, Meta,
+Visa and Nike are all out for that reason: one price times their total shares
+is not their value.
+
+Four things about the SEC worth knowing before touching that script:
 
 - **A User-Agent containing the string "github" is rejected outright**, with a
   403 and "Your Request Originates from an Undeclared Automated Tool".
@@ -61,6 +75,12 @@ Three things about the SEC worth knowing before touching that script:
   not report `OperatingIncomeLoss` at all — about 90 companies. That is an
   accounting fact, not a gap to paper over, so those companies keep every other
   question and lose the operating margin one.
+- **Older EPS is not always restated for splits.** A 10-K presents three years,
+  so a year that dropped out of the filings before a split is never restated,
+  and NVIDIA's 2020 EPS still sits at its pre-split level. The diluted share
+  count for those same years carries the same unadjusted basis, so the EPS
+  history stops at the first year the share count jumps by more than 1.6x —
+  a split, or a merger a CAGR should not span either.
 
 A figure a company never reported is carried as `NaN`, never 0, because 0 is a
 claim. JSON has no `NaN` and writes `null`, so `stockData.ts` converts it back on
@@ -71,14 +91,16 @@ operating margin.
 ### The prices
 
 Prices come from Yahoo's `v8/finance/chart` endpoint, which needs no key. One
-call per ticker returns a year of daily bars, so the company name, the
+call per ticker returns five years of daily bars, so the company name, the
 longer-horizon closes and the dividends paid all cost no extra requests. The
-whole index takes about 25 seconds.
+whole index takes about 30 seconds.
 
 Dividends are the trailing twelve months of payments actually made, rather than
 an SEC figure: barely a quarter of the index files
 `CommonStockDividendsPerShareDeclared`. A company that pays none sums to zero,
-which is a fact about it rather than a missing value.
+which is a fact about it rather than a missing value. The window is the last
+365 days exactly — summing every payment in a one-year range used to catch a
+fifth quarterly payment at its edge, and JPMorgan read $7.65 instead of $6.15.
 
 Two things about that endpoint are worth knowing before changing the script:
 
@@ -86,16 +108,16 @@ Two things about that endpoint are worth knowing before changing the script:
   yesterday's.** Over `range=1y` it holds the close from a year ago; over
   `range=5d` it is five sessions back, which quietly made the day-move question
   a six-session move. Every close is now read off the bar series by date.
-- **A split rewrites history.** Yahoo divides the pre-split closes in `adjclose`
-  but leaves `close` as the price actually printed that day, so quoting a raw
-  close from before a 10:1 split would invent a 90% crash. Where the two
-  diverge by more than 25% — far past any dividend adjustment — that horizon is
-  dropped for that company.
+- **`close` is split-adjusted; `adjclose` adds dividends on top.** NVIDIA's
+  2021 bars read about $33, not the $330 printed that day, so a five-year
+  close compares with today's price directly. As a guard, any split Yahoo
+  reports inside a three- or five-year span must not show as a jump of more
+  than 30% between the closes either side of it, or that horizon is dropped.
 
-The stored closes are the raw ones, so a month or year move is a **price** move
-and not a total return: it excludes dividends. That is what the question asks —
-the percentage between two prices it puts on the screen — and it keeps the
-arithmetic consistent with the current price, which is also unadjusted.
+The stored closes are `close`, not `adjclose`, so every move is a **price**
+move and not a total return: it excludes dividends. That is what the questions
+ask — the percentage between two prices on the screen — and the price CAGR
+question says so.
 
 ### Refreshing
 
@@ -113,9 +135,8 @@ drill. The previous hand-typed list had no such mechanism, and seven of its
 names had been acquired or taken private before anyone noticed.
 
 An index member with no usable quote sits the drill out, since every question
-prints a price — including the ones asking about earnings. None do today. A
-company whose history is missing or split-affected keeps its place and loses
-only its month and year questions.
+prints a price — including the ones asking about earnings. A company whose
+history is missing keeps its place and loses only the questions that need it.
 
 Questions name the company as well as the ticker — "Union Pacific Corporation
 (UNP) trades at…" — because a ticker alone is how a desk talks but not always
@@ -126,36 +147,53 @@ the name reaches every question template from one place.
 
 | Type | Given | Asked for |
 | --- | --- | --- |
-| Price Increase / Decrease | price, % move | new price |
 | Percentage Change | yesterday's close, price | % move over the session |
 | 1-Month Change | the close a month ago, price | % move over the month |
 | 1-Year Change | the close a year ago, price | % move over the year |
-| Recovery Gain | a % fall | % gain to get back to even |
+| Price From a Move | the close a month or a year ago, the stock's real % move since | today's price |
+| Recovery Gain | a stock's year-ago close and today's lower price | % gain to get back |
+| Price CAGR | the close three or five years ago, price | annual price return |
 | Dividend Yield | price, dividend | yield |
 | Dividend Per Share | price, yield | cash dividend |
 | Payout Ratio | EPS, dividend | % of earnings paid out |
 | P/E Ratio | price, EPS | multiple |
 | Earnings Yield | price, EPS | EPS as % of price |
+| Market Cap | two of price, shares outstanding, market cap | the third |
 | Operating Margin | revenue, operating profit | margin |
 | Revenue Growth | two filed years of revenue | growth rate |
 | EPS Growth | two filed years of EPS | growth rate |
-| Doubling Time | the rate that company grew at | years to double |
+| EPS From Growth | last year's EPS, the company's real EPS growth | this year's EPS |
+| Revenue CAGR | revenue filed three or five years apart | compound annual rate |
+| EPS CAGR | EPS filed three or five years apart | compound annual rate |
 
-Every question is about a named company. Rule of 72 used to be asked about an
-anonymous "holding compounding at 12% a year" — invented rate, invented holding,
-nothing to do with the market. Doubling Time asks the same arithmetic about the
-rate a company's revenue actually grew at last year, which is why the universe
-now carries the prior year as well as the latest one, measured under the same
-XBRL concept so that growth is growth rather than a change of accounting tag.
+**Every number is real.** Each question is about a named company, and every
+figure in it is a price the stock closed at or a number the company filed —
+never a round percentage invented for the drill, and never a rate projected
+forward. The types that used to work that way have gone: Price Increase and
+Decrease applied a made-up 5–25% move, Recovery Gain asked about a made-up
+round fall, and Doubling Time projected last year's growth forward. Their
+replacements ask the same arithmetic about what actually happened, so each
+answer is also a fact about the company: Newmont's revenue really did
+compound at 14.6% a year from 2020 to 2025.
+Negative answers are kept — a business that shrank is a real answer.
 
-The rate in a Doubling Time question is rounded once, and the answer follows
-from the rounded figure — the one on screen. Answering `72 / 3.46` while the
-question says 3.5% would mark correct arithmetic wrong.
+Where a question rounds a figure for display, the answer follows from the
+figure as printed, so working from what is on screen is exactly right rather
+than nearly right. A move printed as 12.7% is applied as 12.7%; a revenue
+CAGR is worked from the $bn figures shown; a market cap printed to $0.1bn is
+the one the share count is backed out of.
 
 ## How answers are judged
 
+Answers are judged on **magnitude**: 4.2 and -4.2 both answer a fall of 4.2%.
+Both prices are on screen, so the direction is never the hard part, and a
+phone's numeric keypad usually has no minus key. The question card says so
+under every percentage answer.
+
 Tolerance is **absolute and in the answer's own units**, computed when the
-question is built. Three rules drive it:
+question is built. The bands are set for estimating in your head: an answer
+right to two significant figures, or the first decimal of a percentage, should
+score. Three rules drive them:
 
 1. A price tolerance stays well below the smallest move asked about. If the
    margin were wider than the move, the price printed in the question would sit
@@ -165,7 +203,7 @@ question is built. Three rules drive it:
    time; scaling by the answer collapses the tolerance or turns it negative, and
    a negative tolerance makes a question impossible to get right.
 3. The exception is the month and year moves, which run to tens of points and
-   occasionally past a hundred — a flat 0.05pp on a 509% answer would be asking
+   occasionally past a hundred — a flat 0.1pp on a 509% answer would be asking
    for four significant figures. Those scale with the answer, but never tighten
    past the flat tolerance, so a month that barely moved is judged like a day.
 
@@ -186,9 +224,10 @@ Real market data contains values that are arithmetically valid but useless to
 drill: a company earning about a cent a share gives a P/E of 12,150 and a payout
 ratio of 30,000%. `SENSIBLE` in `src/utils/stockData.ts` declares the band each
 derived figure has to land in, and question types only draw from companies that
-qualify — which today leaves every type a pool of at least 330. A handful sit
-outside the price band at either end, because a $3 or a $1,800 share price makes
-a poor mental-arithmetic drill.
+qualify — which today leaves every type a pool of at least 300, except Recovery
+Gain, which only asks about the hundred-odd stocks that really are down 10% or
+more on the year. A handful sit outside the price band at either end, because a
+$3 or a $1,800 share price makes a poor mental-arithmetic drill.
 
 Two bugs from the hand-maintained era are pinned by
 `src/utils/buildStockData.test.ts`. The previous close used to be invented — a

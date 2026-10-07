@@ -14,10 +14,21 @@ export const percent = (value: number, decimals = 2): string => `${value.toFixed
 
 export const ratio = (value: number, decimals = 1): string => `${value.toFixed(decimals)}x`;
 
-export const years = (value: number, decimals = 1): string => {
-  const rounded = Number(value.toFixed(decimals));
-  return `${rounded} ${rounded === 1 ? "year" : "years"}`;
+// A market cap, already in $bn: $4,869.4bn. Kept in billions even past a
+// trillion, so the figure in the question and the unit the answer is typed in
+// are the same.
+export const billions = (value: number): string => {
+  const magnitude = Math.abs(value).toLocaleString("en-US", {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+  return `${value < 0 ? "-" : ""}$${magnitude}bn`;
 };
+
+// A share count, already in millions: 14,594m shares, or 426.3m shares below
+// a billion where the tenth still matters.
+export const millionShares = (value: number): string =>
+  `${value.toLocaleString("en-US", { maximumFractionDigits: Math.abs(value) >= 1000 ? 0 : 1 })}m shares`;
 
 // Revenue and operating profit arrive in millions. Billions read better in a
 // question a person has to hold in their head.
@@ -35,6 +46,12 @@ export const bigMoney = (millions: number): string => {
   }
   return `${sign}$${magnitude.toLocaleString("en-US", { maximumFractionDigits: 0 })}m`;
 };
+
+// The figure bigMoney actually prints, still in millions. A question whose
+// answer is worked from printed figures computes it from these, so the
+// arithmetic on screen is exactly right rather than nearly right.
+export const bigMoneyShown = (millions: number): number =>
+  Math.abs(millions) >= 1000 ? Math.round(millions / 100) * 100 : Math.round(millions);
 
 const MONTHS = [
   "Jan",
@@ -78,8 +95,10 @@ export const formatAnswer = (value: number, unit: AnswerUnit): string => {
       return percent(value);
     case "ratio":
       return ratio(value);
-    case "years":
-      return years(value);
+    case "billions":
+      return billions(value);
+    case "millionShares":
+      return millionShares(value);
     default:
       return value.toFixed(2);
   }
@@ -94,8 +113,10 @@ export const unitSuffix = (unit: AnswerUnit): string => {
       return "%";
     case "ratio":
       return "x";
-    case "years":
-      return "yrs";
+    case "billions":
+      return "$bn";
+    case "millionShares":
+      return "m";
     default:
       return "";
   }

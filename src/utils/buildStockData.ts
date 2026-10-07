@@ -11,7 +11,7 @@
 //                  reconstituted.
 //   prices.json    price, the closes behind it, and the dividends paid.
 //                  Changes every trading day.
-import type { PastClose, StockData } from "./stockData";
+import type { FiledYear, PastClose, ShareCount, StockData } from "./stockData";
 
 export interface Company {
   ticker: string;
@@ -33,6 +33,16 @@ export interface Company {
     revenueFiscalYear: string | null;
     epsFiscalYear: string | null;
   };
+  // Every consecutive year back from the latest, newest first, for the CAGR
+  // questions. The EPS run also stops at any split the SEC left unrestated.
+  history?: {
+    revenue: FiledYear[]; // millions
+    eps: FiledYear[];
+  };
+  // Cover-page shares outstanding, cross-checked against the diluted count.
+  // Null for a multi-class company, whose one listed price times its total
+  // shares would not be its value.
+  shares?: ShareCount | null;
 }
 
 export interface Universe {
@@ -47,6 +57,8 @@ export interface Quote {
   name?: string | null;
   monthAgo?: PastClose | null;
   yearAgo?: PastClose | null;
+  threeYearsAgo?: PastClose | null;
+  fiveYearsAgo?: PastClose | null;
   // Trailing twelve months of payments. Zero for a company that pays none,
   // which is a fact about it rather than a missing value.
   dividend?: number | null;
@@ -88,6 +100,22 @@ const pastClose = (past: PastClose | null | undefined): PastClose | null =>
 const reported = (value: number | null | undefined): number =>
   isNumber(value) ? value : Number.NaN;
 
+// A history is only as long as its run of well-formed years: one bad entry
+// ends it, because every year after it would be counted from the wrong end.
+const filedYears = (history: FiledYear[] | undefined): FiledYear[] => {
+  const run: FiledYear[] = [];
+  for (const entry of history ?? []) {
+    if (!entry || typeof entry.period !== "string" || !isNumber(entry.value)) break;
+    run.push({ period: entry.period, value: entry.value });
+  }
+  return run;
+};
+
+const shareCount = (shares: ShareCount | null | undefined): ShareCount | null =>
+  shares && isNumber(shares.millions) && shares.millions > 0 && typeof shares.date === "string"
+    ? { millions: shares.millions, date: shares.date }
+    : null;
+
 export function buildStockData(universe: Universe | null, prices: PriceFile | null): BuildResult {
   const companies = universe?.companies ?? [];
   const quotes = prices?.quotes ?? {};
@@ -122,6 +150,8 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       previousClose: round2(quote.previousClose),
       monthAgo: pastClose(quote.monthAgo),
       yearAgo: pastClose(quote.yearAgo),
+      threeYearsAgo: pastClose(quote.threeYearsAgo),
+      fiveYearsAgo: pastClose(quote.fiveYearsAgo),
       eps: reported(company.eps),
       revenue: reported(company.revenue),
       operatingProfit: reported(company.operatingProfit),
@@ -130,6 +160,9 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       priorEps: reported(company.prior?.eps),
       priorRevenueFiscalYear: company.prior?.revenueFiscalYear ?? null,
       priorEpsFiscalYear: company.prior?.epsFiscalYear ?? null,
+      revenueHistory: filedYears(company.history?.revenue),
+      epsHistory: filedYears(company.history?.eps),
+      shares: shareCount(company.shares),
       dividendPerShare,
       dividendYield: price > 0 ? round2((dividendPerShare / price) * 100) : 0,
     });

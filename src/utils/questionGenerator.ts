@@ -1,5 +1,7 @@
 import {
   type StockData,
+  type FiledYear,
+  type PastClose,
   stocks,
   randomInt,
   pickFrom,
@@ -10,30 +12,44 @@ import {
   usablePast,
   revenueGrowthOf,
   epsGrowthOf,
-  type PastClose,
   peRatioOf,
   earningsYieldOf,
   operatingMarginOf,
   payoutRatioOf,
+  cagrOf,
+  marketCapOf,
 } from "./stockData";
-import { money, percent, ratio, shortDate, fiscalLabel, years as formatYears, bigMoney } from "./format";
+import {
+  money,
+  percent,
+  ratio,
+  shortDate,
+  fiscalLabel,
+  bigMoney,
+  bigMoneyShown,
+  billions,
+  millionShares,
+} from "./format";
 
 export type QuestionType =
-  | "priceIncrease"
-  | "priceDecrease"
   | "percentageChange"
   | "monthChange"
   | "yearChange"
+  | "priceFromMove"
   | "recoveryGain"
+  | "priceCagr"
   | "dividendYield"
   | "dividendPerShare"
   | "payoutRatio"
   | "peRatio"
   | "earningsYield"
+  | "marketCap"
   | "operatingMargin"
   | "revenueGrowth"
   | "epsGrowth"
-  | "doublingTime";
+  | "epsFromGrowth"
+  | "revenueCagr"
+  | "epsCagr";
 
 export type QuestionCategory =
   | "priceMoves"
@@ -46,7 +62,7 @@ export type DifficultyLevel = "easy" | "medium" | "hard";
 
 // What unit the answer is in. Drives tolerance, the input affordances and how
 // the answer is rendered back to the player.
-export type AnswerUnit = "currency" | "percentagePoints" | "ratio" | "years";
+export type AnswerUnit = "currency" | "percentagePoints" | "ratio" | "billions" | "millionShares";
 
 export interface Question {
   id: string;
@@ -64,20 +80,13 @@ export interface Question {
   method: string[];
 }
 
+// Every question is built from something that actually happened: a price the
+// stock closed at, a figure the company filed. Nothing is a round number
+// invented for the drill, so each answer is also a fact worth knowing.
 export const QUESTION_META: Record<
   QuestionType,
   { label: string; category: QuestionCategory; blurb: string }
 > = {
-  priceIncrease: {
-    label: "Price Increase",
-    category: "priceMoves",
-    blurb: "Apply a percentage gain to a share price",
-  },
-  priceDecrease: {
-    label: "Price Decrease",
-    category: "priceMoves",
-    blurb: "Apply a percentage fall to a share price",
-  },
   percentageChange: {
     label: "Percentage Change",
     category: "priceMoves",
@@ -93,10 +102,20 @@ export const QUESTION_META: Record<
     category: "priceMoves",
     blurb: "A year of price movement as a percentage",
   },
+  priceFromMove: {
+    label: "Price From a Move",
+    category: "priceMoves",
+    blurb: "Apply a stock's real move to the price it started from",
+  },
   recoveryGain: {
     label: "Recovery Gain",
     category: "priceMoves",
-    blurb: "What gain undoes a given fall",
+    blurb: "The gain a stock that fell needs to get back",
+  },
+  priceCagr: {
+    label: "Price CAGR",
+    category: "priceMoves",
+    blurb: "Three or five years of share price as an annual rate",
   },
   dividendYield: {
     label: "Dividend Yield",
@@ -123,6 +142,11 @@ export const QUESTION_META: Record<
     category: "valuation",
     blurb: "The P/E flipped over",
   },
+  marketCap: {
+    label: "Market Cap",
+    category: "valuation",
+    blurb: "Price, shares outstanding, market cap: given two, find the third",
+  },
   operatingMargin: {
     label: "Operating Margin",
     category: "profitability",
@@ -138,10 +162,20 @@ export const QUESTION_META: Record<
     category: "growth",
     blurb: "Two years of earnings per share into a growth rate",
   },
-  doublingTime: {
-    label: "Doubling Time",
+  epsFromGrowth: {
+    label: "EPS From Growth",
     category: "growth",
-    blurb: "Rule of 72, on the rate a company actually grew at",
+    blurb: "Apply a company's real EPS growth to the year before",
+  },
+  revenueCagr: {
+    label: "Revenue CAGR",
+    category: "growth",
+    blurb: "Three or five filed years of revenue as an annual rate",
+  },
+  epsCagr: {
+    label: "EPS CAGR",
+    category: "growth",
+    blurb: "Three or five filed years of EPS as an annual rate",
   },
 };
 
@@ -167,44 +201,65 @@ export const ALL_QUESTION_TYPES = Object.keys(QUESTION_META) as QuestionType[];
 // 2. Percentage-point answers get a flat tolerance rather than a fraction of
 //    the answer. Percentage changes sit near zero and are often negative;
 //    scaling by the answer collapses the tolerance or turns it negative.
+//
+// The bands are meant for estimating in your head, not for long division: an
+// answer that is right to the first decimal or two significant figures should
+// score.
 // ---------------------------------------------------------------------------
 
 const PRICE_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
-  easy: 0.01,
-  medium: 0.005,
-  hard: 0.0025,
+  easy: 0.015,
+  medium: 0.0075,
+  hard: 0.004,
 };
 
 const POINT_TOLERANCE: Record<DifficultyLevel, number> = {
-  easy: 0.25,
-  medium: 0.15,
-  hard: 0.05,
+  easy: 0.35,
+  medium: 0.2,
+  hard: 0.1,
 };
 
 // Margins and payout ratios run to tens of points, so a flat quarter-point is
 // unreasonably strict. These scale, with a floor.
 const WIDE_POINT_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
-  easy: 0.04,
-  medium: 0.025,
-  hard: 0.015,
+  easy: 0.06,
+  medium: 0.04,
+  hard: 0.025,
 };
 
 const DIVIDEND_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
-  easy: 0.05,
-  medium: 0.03,
-  hard: 0.015,
-};
-
-const RATIO_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
-  easy: 0.08,
+  easy: 0.07,
   medium: 0.05,
   hard: 0.03,
 };
 
-const YEARS_TOLERANCE: Record<DifficultyLevel, number> = {
-  easy: 0.6,
-  medium: 0.35,
-  hard: 0.2,
+const RATIO_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
+  easy: 0.1,
+  medium: 0.07,
+  hard: 0.05,
+};
+
+// Market cap is a multiplication or division of two awkward numbers, done by
+// rounding them. These allow for that rounding and no more.
+const PRODUCT_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
+  easy: 0.05,
+  medium: 0.03,
+  hard: 0.02,
+};
+
+// A CAGR is found by bracketing - 9% a year for five years is 1.54x, 10% is
+// 1.61x - so the band is about a point wide on easy, scaling up for the large
+// rates where a single point is a fine distinction.
+const CAGR_TOLERANCE: Record<DifficultyLevel, number> = {
+  easy: 0.75,
+  medium: 0.5,
+  hard: 0.3,
+};
+
+const CAGR_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
+  easy: 0.06,
+  medium: 0.04,
+  hard: 0.025,
 };
 
 const scaled = (
@@ -215,6 +270,75 @@ const scaled = (
 ): number => Math.max(floor, Math.abs(answer) * table[difficulty]);
 
 // ---------------------------------------------------------------------------
+// Real spans and moves a question can be built on
+// ---------------------------------------------------------------------------
+
+// The questions that apply a real move to a starting figure ask for a price
+// or an EPS. The move has to be comfortably wider than the easy tolerance, or
+// retyping the starting figure would score (rule 1 above).
+const MIN_APPLIED_MOVE = 5;
+
+// A stock has to have fallen at least this far for "what gets it back" to be a
+// question worth asking.
+const MIN_RECOVERY_FALL = 10;
+
+const CAGR_SPANS = [3, 5] as const;
+
+interface Horizon {
+  label: string;
+  past: PastClose;
+}
+
+const horizonsOf = (s: StockData): Horizon[] => {
+  const horizons: Horizon[] = [];
+  if (usablePast(s.monthAgo)) horizons.push({ label: "a month ago", past: s.monthAgo });
+  if (usablePast(s.yearAgo)) horizons.push({ label: "a year ago", past: s.yearAgo });
+  return horizons;
+};
+
+const appliedMoveHorizons = (s: StockData): Horizon[] =>
+  horizonsOf(s).filter(h => Math.abs(priceMoveOf(h.past.price, s.currentPrice)) >= MIN_APPLIED_MOVE);
+
+interface Span {
+  years: number;
+  from: number;
+  to: number;
+  fromLabel: string;
+  toLabel: string;
+}
+
+// Spans across a filed history (newest first): the latest year against the
+// one three or five years before it.
+const filedSpans = (history: FiledYear[]): Span[] =>
+  CAGR_SPANS.filter(years => history.length > years)
+    .map(years => ({
+      years,
+      from: history[years].value,
+      to: history[0].value,
+      fromLabel: fiscalLabel(history[years].period),
+      toLabel: fiscalLabel(history[0].period),
+    }))
+    .filter(span => within(cagrOf(span.from, span.to, span.years), SENSIBLE.cagr));
+
+const priceSpans = (s: StockData): Span[] => {
+  const spans: Span[] = [];
+  for (const [years, past] of [
+    [3, s.threeYearsAgo],
+    [5, s.fiveYearsAgo],
+  ] as [number, PastClose | null][]) {
+    if (!usablePast(past)) continue;
+    spans.push({
+      years,
+      from: past.price,
+      to: s.currentPrice,
+      fromLabel: shortDate(past.date),
+      toLabel: "today",
+    });
+  }
+  return spans.filter(span => within(cagrOf(span.from, span.to, span.years), SENSIBLE.cagr));
+};
+
+// ---------------------------------------------------------------------------
 // Eligible stocks per question type
 //
 // Built once at module load. A question type only draws from rows where its
@@ -223,9 +347,10 @@ const scaled = (
 
 const hasUsablePrice = (s: StockData) => within(s.currentPrice, SENSIBLE.price);
 
+const hasEpsPair = (s: StockData) =>
+  s.priorEps > 0 && s.eps > 0 && within(epsGrowthOf(s), SENSIBLE.epsGrowth);
+
 const ELIGIBLE: Record<QuestionType, StockData[]> = {
-  priceIncrease: stocks.filter(hasUsablePrice),
-  priceDecrease: stocks.filter(hasUsablePrice),
   percentageChange: stocks.filter(s => hasUsablePrice(s) && s.previousClose > 0),
   // Both prices a longer-horizon question prints have to be workable numbers,
   // so the past close passes the same band as the current price. The move
@@ -233,7 +358,14 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
   // case, not a broken one.
   monthChange: stocks.filter(s => hasUsablePrice(s) && usablePast(s.monthAgo)),
   yearChange: stocks.filter(s => hasUsablePrice(s) && usablePast(s.yearAgo)),
-  recoveryGain: stocks.filter(hasUsablePrice),
+  priceFromMove: stocks.filter(s => hasUsablePrice(s) && appliedMoveHorizons(s).length > 0),
+  recoveryGain: stocks.filter(
+    s =>
+      hasUsablePrice(s) &&
+      usablePast(s.yearAgo) &&
+      -priceMoveOf(s.yearAgo.price, s.currentPrice) >= MIN_RECOVERY_FALL
+  ),
+  priceCagr: stocks.filter(s => hasUsablePrice(s) && priceSpans(s).length > 0),
   dividendYield: stocks.filter(
     s =>
       hasUsablePrice(s) &&
@@ -253,6 +385,7 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
   earningsYield: stocks.filter(
     s => s.eps > 0 && hasUsablePrice(s) && within(earningsYieldOf(s), SENSIBLE.earningsYield)
   ),
+  marketCap: stocks.filter(s => hasUsablePrice(s) && within(marketCapOf(s), SENSIBLE.marketCap)),
   operatingMargin: stocks.filter(
     s => s.revenue > 0 && within(operatingMarginOf(s), SENSIBLE.operatingMargin)
   ),
@@ -262,14 +395,10 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
   revenueGrowth: stocks.filter(
     s => s.priorRevenue > 0 && s.revenue > 0 && within(revenueGrowthOf(s), SENSIBLE.revenueGrowth)
   ),
-  epsGrowth: stocks.filter(
-    s => s.priorEps > 0 && s.eps > 0 && within(epsGrowthOf(s), SENSIBLE.epsGrowth)
-  ),
-  // Rule of 72 needs a rate worth compounding, so this draws from companies
-  // whose revenue actually grew at one.
-  doublingTime: stocks.filter(
-    s => s.priorRevenue > 0 && s.revenue > 0 && within(revenueGrowthOf(s), SENSIBLE.growthRate)
-  ),
+  epsGrowth: stocks.filter(hasEpsPair),
+  epsFromGrowth: stocks.filter(s => hasEpsPair(s) && Math.abs(epsGrowthOf(s)) >= MIN_APPLIED_MOVE),
+  revenueCagr: stocks.filter(s => filedSpans(s.revenueHistory).length > 0),
+  epsCagr: stocks.filter(s => filedSpans(s.epsHistory).length > 0),
 };
 
 // On easy, prefer prices that are kinder to work with.
@@ -308,59 +437,6 @@ const base = (
 const subject = (stock: StockData): string =>
   stock.name === stock.ticker ? stock.ticker : `${stock.name} (${stock.ticker})`;
 
-const movePercent = (difficulty: DifficultyLevel): number => {
-  switch (difficulty) {
-    case "easy":
-      return randomInt(5, 10);
-    case "medium":
-      return randomInt(12, 25);
-    case "hard":
-      return randomInt(9, 37) / 2; // half-point moves
-    default:
-      return 10;
-  }
-};
-
-const priceIncrease = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const pct = movePercent(difficulty);
-  const onePercent = stock.currentPrice / 100;
-  const rise = stock.currentPrice * (pct / 100);
-  const answer = roundTo2(stock.currentPrice + rise);
-
-  return {
-    ...base("priceIncrease", difficulty, stock),
-    text: `${subject(stock)} trades at ${money(stock.currentPrice)}. If it rises ${pct}%, what is the new price?`,
-    correctAnswer: answer,
-    answerUnit: "currency",
-    tolerance: scaled(stock.currentPrice, PRICE_TOLERANCE_FRACTION, difficulty, 0.02),
-    method: [
-      `1% of ${money(stock.currentPrice)} is ${money(onePercent)}.`,
-      `${pct}% is ${money(onePercent)} x ${pct} = ${money(rise)}.`,
-      `${money(stock.currentPrice)} + ${money(rise)} = ${money(answer)}.`,
-    ],
-  };
-};
-
-const priceDecrease = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const pct = movePercent(difficulty);
-  const onePercent = stock.currentPrice / 100;
-  const fall = stock.currentPrice * (pct / 100);
-  const answer = roundTo2(stock.currentPrice - fall);
-
-  return {
-    ...base("priceDecrease", difficulty, stock),
-    text: `${subject(stock)} trades at ${money(stock.currentPrice)}. If it falls ${pct}%, what is the new price?`,
-    correctAnswer: answer,
-    answerUnit: "currency",
-    tolerance: scaled(stock.currentPrice, PRICE_TOLERANCE_FRACTION, difficulty, 0.02),
-    method: [
-      `1% of ${money(stock.currentPrice)} is ${money(onePercent)}.`,
-      `${pct}% is ${money(onePercent)} x ${pct} = ${money(fall)}.`,
-      `${money(stock.currentPrice)} - ${money(fall)} = ${money(answer)}.`,
-    ],
-  };
-};
-
 // The three percentage-move questions differ only in where they start from, so
 // they share the arithmetic and the worked method.
 const moveMethod = (from: number, to: number, answer: number): string[] => {
@@ -389,7 +465,7 @@ const percentageChange = (stock: StockData, difficulty: DifficultyLevel): Questi
 
 // A month or a year of movement runs to tens of points and sometimes past a
 // hundred, where the flat day-move tolerance would be punishing - a hard
-// 0.05pp on a 509% answer asks for four significant figures. These scale with
+// 0.1pp on a 509% answer asks for four significant figures. These scale with
 // the answer instead, and never tighten past the flat one.
 const horizonTolerance = (answer: number, difficulty: DifficultyLevel): number =>
   scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, POINT_TOLERANCE[difficulty]);
@@ -429,24 +505,152 @@ const yearChange = (stock: StockData, difficulty: DifficultyLevel): Question => 
   return horizonChange("yearChange", "a year ago", past, stock, difficulty);
 };
 
-const recoveryGain = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const drop = difficulty === "easy" ? randomInt(1, 5) * 10 : randomInt(5, 60);
-  const remaining = 100 - drop;
-  const answer = roundTo2((drop / remaining) * 100);
+// The move is printed to one decimal and the answer follows from the printed
+// figure, so working from what is on screen is exactly right. It lands within
+// a few cents of where the stock actually trades.
+const priceFromMove = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const horizon = pickFrom(appliedMoveHorizons(stock));
+  const start = horizon.past.price;
+  const move = Number(priceMoveOf(start, stock.currentPrice).toFixed(1));
+  const onePercent = start / 100;
+  const change = start * (move / 100);
+  const answer = roundTo2(start + change);
 
   return {
-    ...base("recoveryGain", difficulty, stock),
-    text: `${subject(stock)} falls ${drop}%. What percentage gain would take it back to where it started?`,
+    ...base("priceFromMove", difficulty, stock),
+    text:
+      `${subject(stock)} closed at ${money(start)} ${horizon.label} (${shortDate(horizon.past.date)}) ` +
+      `and has ${move >= 0 ? "risen" : "fallen"} ${percent(Math.abs(move), 1)} since. ` +
+      `What does it trade at now?`,
     correctAnswer: answer,
-    answerUnit: "percentagePoints",
-    tolerance: scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, 0.3),
+    answerUnit: "currency",
+    tolerance: scaled(answer, PRICE_TOLERANCE_FRACTION, difficulty, 0.02),
     method: [
-      `A ${drop}% fall leaves ${remaining} of every 100.`,
-      `Getting ${remaining} back to 100 means adding ${drop}.`,
-      `${drop} / ${remaining} = ${percent(answer)} - always more than the fall.`,
+      `1% of ${money(start)} is ${money(onePercent)}.`,
+      `${percent(Math.abs(move), 1)} is ${money(onePercent)} x ${Math.abs(move)} = ${money(Math.abs(change))}.`,
+      `${money(start)} ${move >= 0 ? "+" : "-"} ${money(Math.abs(change))} = ${money(answer)}. It last traded at ${money(stock.currentPrice)}.`,
     ],
   };
 };
+
+// Asked about a stock that really did fall, from the close it fell from.
+const recoveryGain = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const past = stock.yearAgo;
+  if (!usablePast(past)) throw new Error(`${stock.ticker} has no year-ago close`);
+
+  const from = past.price;
+  const now = stock.currentPrice;
+  const fall = -priceMoveOf(from, now);
+  const gap = from - now;
+  const answer = roundTo2(priceMoveOf(now, from));
+
+  return {
+    ...base("recoveryGain", difficulty, stock),
+    text:
+      `${subject(stock)} closed at ${money(from)} a year ago (${shortDate(past.date)}) and now trades at ` +
+      `${money(now)}, down ${percent(fall, 1)}. What gain from here would take it back to ${money(from)}?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, POINT_TOLERANCE[difficulty]),
+    method: [
+      `The ${money(gap)} it lost has to be made back on today's smaller ${money(now)} base.`,
+      `1% of ${money(now)} is ${money(now / 100)}.`,
+      `${money(gap)} / ${money(now / 100)} = ${percent(answer)} - more than the ${percent(fall, 1)} it fell.`,
+    ],
+  };
+};
+
+// ---------------------------------------------------------------------------
+// CAGR
+// ---------------------------------------------------------------------------
+
+const multipleOf = (rate: number, years: number): number => Math.pow(1 + rate / 100, years);
+
+// Bracketing is how a CAGR is done without a calculator: compound two whole
+// rates either side for the span and see where the real multiple falls.
+const cagrMethod = (span: Span, answer: number, fmt: (value: number) => string): string[] => {
+  const multiple = span.to / span.from;
+  const simple = ((multiple - 1) * 100) / span.years;
+  const low = Math.floor(answer);
+  const high = low + 1;
+
+  return [
+    `Total change: ${fmt(span.to)} / ${fmt(span.from)} = ${multiple.toFixed(2)}x over ${span.years} years.`,
+    `First guess: the ${percent((multiple - 1) * 100, 0)} total spread evenly is ${percent(simple, 1)} a year. ` +
+      `Compounding always lands below that.`,
+    `Bracket it: ${low}% a year for ${span.years} years is ${multipleOf(low, span.years).toFixed(2)}x, ` +
+      `${high}% is ${multipleOf(high, span.years).toFixed(2)}x.`,
+    `${multiple.toFixed(2)}x sits between them: ${percent(answer)} a year.`,
+  ];
+};
+
+const cagrTolerance = (answer: number, difficulty: DifficultyLevel): number =>
+  scaled(answer, CAGR_TOLERANCE_FRACTION, difficulty, CAGR_TOLERANCE[difficulty]);
+
+const pickSpan = (spans: Span[], difficulty: DifficultyLevel): Span => {
+  // A three-year span is the gentler root to take; easy prefers it.
+  if (difficulty === "easy") {
+    const short = spans.filter(s => s.years === 3);
+    if (short.length > 0) return pickFrom(short);
+  }
+  return pickFrom(spans);
+};
+
+const revenueCagr = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const filed = pickSpan(filedSpans(stock.revenueHistory), difficulty);
+  // Revenue prints to $0.1bn, which over three years can move the rate by a
+  // fifth of a point. The rate is worked from the printed figures instead.
+  const span = { ...filed, from: bigMoneyShown(filed.from), to: bigMoneyShown(filed.to) };
+  const answer = roundTo2(cagrOf(span.from, span.to, span.years));
+
+  return {
+    ...base("revenueCagr", difficulty, stock),
+    text:
+      `${subject(stock)} reported revenue of ${bigMoney(span.from)} in ${span.fromLabel} and ` +
+      `${bigMoney(span.to)} in ${span.toLabel}. What was its compound annual growth rate over those ${span.years} years?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: cagrTolerance(answer, difficulty),
+    method: cagrMethod(span, answer, bigMoney),
+  };
+};
+
+const epsCagr = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const span = pickSpan(filedSpans(stock.epsHistory), difficulty);
+  const answer = roundTo2(cagrOf(span.from, span.to, span.years));
+
+  return {
+    ...base("epsCagr", difficulty, stock),
+    text:
+      `${subject(stock)} earned ${money(span.from)} a share in ${span.fromLabel} and ` +
+      `${money(span.to)} in ${span.toLabel}. What was the compound annual growth rate of its EPS over those ${span.years} years?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: cagrTolerance(answer, difficulty),
+    method: cagrMethod(span, answer, money),
+  };
+};
+
+const priceCagr = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const span = pickSpan(priceSpans(stock), difficulty);
+  const answer = roundTo2(cagrOf(span.from, span.to, span.years));
+
+  return {
+    ...base("priceCagr", difficulty, stock),
+    text:
+      `${subject(stock)} closed at ${money(span.from)} on ${span.fromLabel} and trades at ` +
+      `${money(span.to)} today. What is its compound annual price return over those ${span.years} years ` +
+      `(excluding dividends)?`,
+    correctAnswer: answer,
+    answerUnit: "percentagePoints",
+    tolerance: cagrTolerance(answer, difficulty),
+    method: cagrMethod(span, answer, money),
+  };
+};
+
+// ---------------------------------------------------------------------------
+// Dividends, valuation, profitability, growth
+// ---------------------------------------------------------------------------
 
 const dividendYield = (stock: StockData, difficulty: DifficultyLevel): Question => {
   const answer = roundTo2((stock.dividendPerShare / stock.currentPrice) * 100);
@@ -537,6 +741,81 @@ const earningsYield = (stock: StockData, difficulty: DifficultyLevel): Question 
   };
 };
 
+// Price, shares outstanding and market cap: two are given and the third is
+// asked for. The share count is the one the company printed on the cover of
+// its latest filing; the market cap is today's price times it. Each answer is
+// worked from the figures as printed, so rounding them for the question never
+// marks correct arithmetic wrong.
+const marketCap = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const shares = stock.shares;
+  if (!shares) throw new Error(`${stock.ticker} has no share count`);
+
+  const price = stock.currentPrice;
+  // As printed: shares to the nearest million (a tenth below a billion), the
+  // cap to the nearest $0.1bn.
+  const sharesShown =
+    shares.millions >= 1000 ? Math.round(shares.millions) : Math.round(shares.millions * 10) / 10;
+  const sharesText = millionShares(sharesShown);
+  const capShown = Math.round(((price * sharesShown) / 1000) * 10) / 10;
+  const asOf = `as of ${shortDate(shares.date)}`;
+  // Working in millions reads the same for a $7bn company as a $4tn one.
+  const capMillions = (capShown * 1000).toLocaleString("en-US", { maximumFractionDigits: 0 });
+
+  switch (randomInt(0, 2)) {
+    case 0: {
+      const answer = roundTo2((price * sharesShown) / 1000);
+      return {
+        ...base("marketCap", difficulty, stock),
+        text:
+          `${subject(stock)} trades at ${money(price)} and has ${sharesText} outstanding (${asOf}). ` +
+          `What is its market cap, in $bn?`,
+        correctAnswer: answer,
+        answerUnit: "billions",
+        tolerance: scaled(answer, PRODUCT_TOLERANCE_FRACTION, difficulty, 0.1),
+        method: [
+          `Market cap is price x shares outstanding.`,
+          `${money(price)} x ${sharesText} = $${(answer * 1000).toLocaleString("en-US", { maximumFractionDigits: 0 })}m.`,
+          `Divide by 1,000 for billions: ${billions(answer)}.`,
+        ],
+      };
+    }
+    case 1: {
+      const answer = roundTo2((capShown * 1000) / price);
+      return {
+        ...base("marketCap", difficulty, stock),
+        text:
+          `${subject(stock)} trades at ${money(price)} and has a market cap of ${billions(capShown)}. ` +
+          `How many shares does it have outstanding, in millions?`,
+        correctAnswer: answer,
+        answerUnit: "millionShares",
+        tolerance: scaled(answer, PRODUCT_TOLERANCE_FRACTION, difficulty, 0.1),
+        method: [
+          `Shares outstanding is market cap / price.`,
+          `Work in millions: ${billions(capShown)} is $${capMillions}m.`,
+          `$${capMillions}m / ${money(price)} = ${millionShares(answer)}. The filing (${asOf}) says ${sharesText}.`,
+        ],
+      };
+    }
+    default: {
+      const answer = roundTo2((capShown * 1000) / sharesShown);
+      return {
+        ...base("marketCap", difficulty, stock),
+        text:
+          `${subject(stock)} has a market cap of ${billions(capShown)} and ${sharesText} outstanding (${asOf}). ` +
+          `What is the share price?`,
+        correctAnswer: answer,
+        answerUnit: "currency",
+        tolerance: scaled(answer, PRODUCT_TOLERANCE_FRACTION, difficulty, 0.02),
+        method: [
+          `Price is market cap / shares outstanding.`,
+          `Work in millions: ${billions(capShown)} is $${capMillions}m.`,
+          `$${capMillions}m / ${sharesText} = ${money(answer)} a share. It last traded at ${money(price)}.`,
+        ],
+      };
+    }
+  }
+};
+
 const operatingMargin = (stock: StockData, difficulty: DifficultyLevel): Question => {
   const answer = roundTo2((stock.operatingProfit / stock.revenue) * 100);
   const tenPercent = stock.revenue / 10;
@@ -563,8 +842,8 @@ const revenueGrowth = (stock: StockData, difficulty: DifficultyLevel): Question 
   return {
     ...base("revenueGrowth", difficulty, stock),
     text:
-      `${subject(stock)} grew revenue from ${bigMoney(stock.priorRevenue)} in ` +
-      `${fiscalLabel(stock.priorRevenueFiscalYear)} to ${bigMoney(stock.revenue)} in ` +
+      `${subject(stock)} reported revenue of ${bigMoney(stock.priorRevenue)} in ` +
+      `${fiscalLabel(stock.priorRevenueFiscalYear)} and ${bigMoney(stock.revenue)} in ` +
       `${fiscalLabel(stock.fiscalYear)}. What was the growth rate?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
@@ -599,27 +878,28 @@ const epsGrowth = (stock: StockData, difficulty: DifficultyLevel): Question => {
   };
 };
 
-// The Rule of 72, asked about a rate a company actually grew at rather than
-// one invented for the question.
-const doublingTime = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  // The rate is rounded once, and the answer follows from the rounded figure -
-  // the one printed in the question. Answering 72 / 3.46 while the question
-  // says 3.5% would mark the player's correct arithmetic wrong.
-  const rate = Number(revenueGrowthOf(stock).toFixed(1));
-  const answer = roundTo2(72 / rate);
+// EPS growth run forwards: the company's real growth rate, applied to the year
+// before. As with priceFromMove, the answer follows from the rate as printed.
+const epsFromGrowth = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const growth = Number(epsGrowthOf(stock).toFixed(1));
+  const onePercent = stock.priorEps / 100;
+  const change = stock.priorEps * (growth / 100);
+  const answer = roundTo2(stock.priorEps + change);
+  const year = fiscalLabel(stock.fiscalYear);
 
   return {
-    ...base("doublingTime", difficulty, stock),
+    ...base("epsFromGrowth", difficulty, stock),
     text:
-      `${subject(stock)} grew revenue ${percent(rate, 1)} in ${fiscalLabel(stock.fiscalYear)}. ` +
-      `At that pace, roughly how long until revenue doubles?`,
+      `${subject(stock)} earned ${money(stock.priorEps)} a share in ${fiscalLabel(stock.priorEpsFiscalYear)}. ` +
+      `In ${year} its EPS ${growth >= 0 ? "grew" : "fell"} ${percent(Math.abs(growth), 1)}. ` +
+      `What did it earn per share in ${year}?`,
     correctAnswer: answer,
-    answerUnit: "years",
-    tolerance: YEARS_TOLERANCE[difficulty],
+    answerUnit: "currency",
+    tolerance: scaled(answer, PRICE_TOLERANCE_FRACTION, difficulty, 0.01),
     method: [
-      `Rule of 72: divide 72 by the growth rate.`,
-      `72 / ${rate}.`,
-      `About ${formatYears(answer)}.`,
+      `1% of ${money(stock.priorEps)} is ${money(onePercent)}.`,
+      `${percent(Math.abs(growth), 1)} is ${money(onePercent)} x ${Math.abs(growth)} = ${money(Math.abs(change))}.`,
+      `${money(stock.priorEps)} ${growth >= 0 ? "+" : "-"} ${money(Math.abs(change))} = ${money(answer)}. It reported ${money(stock.eps)}.`,
     ],
   };
 };
@@ -628,28 +908,31 @@ const GENERATORS: Record<
   QuestionType,
   (stock: StockData, difficulty: DifficultyLevel) => Question
 > = {
-  priceIncrease,
-  priceDecrease,
   percentageChange,
   monthChange,
   yearChange,
+  priceFromMove,
   recoveryGain,
+  priceCagr,
   dividendYield,
   dividendPerShare,
   payoutRatio,
   peRatio,
   earningsYield,
+  marketCap,
   operatingMargin,
   revenueGrowth,
   epsGrowth,
-  doublingTime,
+  epsFromGrowth,
+  revenueCagr,
+  epsCagr,
 };
 
 const noDataQuestion = (difficulty: DifficultyLevel): Question => ({
-  ...base("priceIncrease", difficulty, null),
+  ...base("peRatio", difficulty, null),
   text: "Stock data could not be loaded.",
   correctAnswer: 0,
-  answerUnit: "currency",
+  answerUnit: "ratio",
   tolerance: 1,
   method: ["Run `npm run refresh:universe` and `npm run refresh:prices`, then rebuild."],
 });
@@ -669,9 +952,13 @@ export const generateQuestion = (
 };
 
 // Check whether the answer is close enough. The tolerance is absolute and
-// already in the answer's units, so this stays a straight comparison.
+// already in the answer's units.
+//
+// The sign is not marked: 4.2 and -4.2 both answer a move of -4.2%. Both
+// prices are on screen, so which way it went is never the hard part, and a
+// phone's numeric keypad often has no minus key at all.
 export const checkAnswer = (question: Question, userAnswer: number): boolean =>
-  Math.abs(userAnswer - question.correctAnswer) <= question.tolerance;
+  Math.abs(Math.abs(userAnswer) - Math.abs(question.correctAnswer)) <= question.tolerance;
 
 // Build a set, cycling through the requested types so a run stays varied.
 export const generateQuestions = (

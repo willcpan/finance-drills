@@ -20,7 +20,7 @@ const session = (overrides: Partial<SessionResult> = {}): SessionResult => ({
   answers: [
     { type: "peRatio", correct: true, ms: 4000 },
     { type: "peRatio", correct: false, ms: 6000 },
-    { type: "doublingTime", correct: true, ms: 2000 },
+    { type: "revenueCagr", correct: true, ms: 2000 },
   ],
   ...overrides,
 });
@@ -29,15 +29,19 @@ describe("loadStats", () => {
   beforeEach(() => window.localStorage.clear());
 
   it("drops a question type that no longer exists", () => {
-    // Rule of 72 was replaced by Doubling Time, which asks the same arithmetic
-    // about a rate a company actually grew at. Anyone who drilled the old one
-    // still has it saved, and handing it back would point them at a question
-    // with no pool and no label.
+    // Rule of 72 became Doubling Time, which in turn gave way to CAGRs over
+    // years that actually happened; Price Increase and Decrease applied
+    // invented moves and were replaced by real ones. Anyone who drilled the
+    // old types still has them saved, and handing one back would point them
+    // at a question with no pool and no label.
     const saved = {
       ...emptyStats(),
       byType: {
         peRatio: { attempts: 5, correct: 2, totalMs: 10000 },
         ruleOf72: { attempts: 9, correct: 1, totalMs: 9000 },
+        doublingTime: { attempts: 6, correct: 0, totalMs: 6000 },
+        priceIncrease: { attempts: 4, correct: 0, totalMs: 4000 },
+        priceDecrease: { attempts: 4, correct: 0, totalMs: 4000 },
       },
     } as unknown as Stats;
     saveStats(saved);
@@ -97,7 +101,7 @@ describe("mergeSession", () => {
   it("tracks per-type attempts, correctness and time", () => {
     const stats = mergeSession(emptyStats(), session());
     expect(stats.byType.peRatio).toEqual({ attempts: 2, correct: 1, totalMs: 10000 });
-    expect(stats.byType.doublingTime).toEqual({ attempts: 1, correct: 1, totalMs: 2000 });
+    expect(stats.byType.revenueCagr).toEqual({ attempts: 1, correct: 1, totalMs: 2000 });
   });
 
   it("keeps the high-water marks", () => {
@@ -146,7 +150,7 @@ describe("weakestType", () => {
     let stats = emptyStats();
     for (let i = 0; i < 3; i++) stats = mergeSession(stats, session());
 
-    // peRatio: 3 of 6 correct. doublingTime: 3 of 3.
+    // peRatio: 3 of 6 correct. revenueCagr: 3 of 3.
     expect(weakestType(stats, 3)).toBe("peRatio");
   });
 });

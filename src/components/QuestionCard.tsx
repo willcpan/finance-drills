@@ -125,6 +125,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               disabled={revealed}
             />
           </div>
+          {/* Answers are judged on size alone (see checkAnswer), which matters
+              most on a phone: the numeric keypad often has no minus key. */}
+          {question.answerUnit === "percentagePoints" && !revealed && (
+            <p className="mt-1 text-xs text-gray-400">No need for a minus sign - a fall of 4.2% is just 4.2.</p>
+          )}
         </div>
 
         {!revealed && (

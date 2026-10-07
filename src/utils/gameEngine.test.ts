@@ -17,7 +17,7 @@ const startedGame = (overrides: Partial<GameState> = {}): GameState => {
   const base = initialState({ ...DEFAULT_CONFIG, questionCount: 3, secondsPerQuestion: 30 });
   return gameReducer(
     { ...base, ...overrides },
-    { type: "START", question: generateQuestion("priceIncrease", "easy"), now: 1000 }
+    { type: "START", question: generateQuestion("peRatio", "easy"), now: 1000 }
   );
 };
 
@@ -51,7 +51,7 @@ describe("scoreAnswer", () => {
 
 describe("nextDifficulty", () => {
   const record = (correct: boolean): AnswerRecord => ({
-    question: generateQuestion("priceIncrease", "easy"),
+    question: generateQuestion("peRatio", "easy"),
     userAnswer: 1,
     correct,
     ms: 1000,
@@ -144,7 +144,7 @@ describe("gameReducer", () => {
       game = gameReducer(game, { type: "SUBMIT", answer: game.current!.correctAnswer, now: 2000 });
       game = gameReducer(game, {
         type: "NEXT",
-        question: generateQuestion("priceIncrease", "easy"),
+        question: generateQuestion("peRatio", "easy"),
         now: 3000,
       });
     }
@@ -179,7 +179,7 @@ describe("gameReducer", () => {
       game = gameReducer(game, { type: "SUBMIT", answer: game.current!.correctAnswer, now: 2000 });
       game = gameReducer(game, {
         type: "NEXT",
-        question: generateQuestion("priceIncrease", "easy"),
+        question: generateQuestion("peRatio", "easy"),
         now: 3000,
       });
     }
@@ -205,7 +205,7 @@ describe("gameReducer", () => {
     const runThree = (start: GameState): GameState => {
       let game = gameReducer(start, {
         type: "START",
-        question: generateQuestion("priceIncrease", "easy"),
+        question: generateQuestion("peRatio", "easy"),
         now: 0,
       });
       for (let i = 0; i < 3; i++) {
@@ -213,7 +213,7 @@ describe("gameReducer", () => {
         if (i < 2) {
           game = gameReducer(game, {
             type: "NEXT",
-            question: generateQuestion("priceIncrease", "easy"),
+            question: generateQuestion("peRatio", "easy"),
             now: 1500,
           });
         }
@@ -227,7 +227,7 @@ describe("gameReducer", () => {
 });
 
 describe("derived helpers", () => {
-  const record = (correct: boolean, type: "peRatio" | "doublingTime", ms: number): AnswerRecord => ({
+  const record = (correct: boolean, type: "peRatio" | "revenueCagr", ms: number): AnswerRecord => ({
     question: generateQuestion(type, "easy"),
     userAnswer: 1,
     correct,
@@ -242,8 +242,8 @@ describe("derived helpers", () => {
 
   it("breaks results down by type, weakest first", () => {
     const rows = breakdownByType([
-      record(true, "doublingTime", 1000),
-      record(true, "doublingTime", 3000),
+      record(true, "revenueCagr", 1000),
+      record(true, "revenueCagr", 3000),
       record(false, "peRatio", 2000),
       record(false, "peRatio", 4000),
     ]);
@@ -251,7 +251,7 @@ describe("derived helpers", () => {
     expect(rows[0].type).toBe("peRatio");
     expect(rows[0].correct).toBe(0);
     expect(rows[0].avgMs).toBe(3000);
-    expect(rows[1].type).toBe("doublingTime");
+    expect(rows[1].type).toBe("revenueCagr");
     expect(rows[1].avgMs).toBe(2000);
   });
 });
