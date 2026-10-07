@@ -44,9 +44,9 @@ const GameContainer: React.FC = () => {
   const correctSoFar = state.answers.filter(a => a.correct).length;
 
   return (
-    <div className="max-w-5xl mx-auto p-4 grid md:grid-cols-3 gap-6 items-start">
-      <div className="md:col-span-2 space-y-4 animate-slide-up">
-        <div className="bg-white rounded-lg shadow-md p-4 flex items-center justify-between gap-4">
+    <div className="max-w-5xl mx-auto p-0 md:p-4 grid md:grid-cols-3 gap-4 md:gap-6 items-start">
+      <div className="md:col-span-2 space-y-3 md:space-y-4 animate-slide-up">
+        <div className="bg-white rounded-lg shadow-md px-4 py-2.5 md:p-4 flex items-center justify-between gap-4">
           <div>
             <span className="block text-sm text-gray-500">
               Question {state.index + 1} of {state.config.questionCount}

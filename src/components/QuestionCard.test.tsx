@@ -121,6 +121,55 @@ describe("QuestionCard", () => {
     expect(onNext).toHaveBeenCalled();
   });
 
+  it("moves on when the revealed card is tapped anywhere", async () => {
+    // On a phone the button is a small target; the card is most of the screen.
+    const user = userEvent.setup();
+    const now = vi.spyOn(Date, "now").mockReturnValue(1_000_000);
+    const { onNext } = show({}, { revealed: true });
+
+    now.mockReturnValue(1_000_000 + 1000);
+    await user.click(screen.getByText(/doing it in your head/i));
+
+    expect(onNext).toHaveBeenCalledTimes(1);
+    now.mockRestore();
+  });
+
+  it("ignores a card tap that lands as the answer appears", async () => {
+    // A tap meant for Submit as the timer runs out would otherwise skip
+    // straight past the explanation.
+    const user = userEvent.setup();
+    const now = vi.spyOn(Date, "now").mockReturnValue(1_000_000);
+    const { onNext } = show({}, { revealed: true });
+
+    now.mockReturnValue(1_000_000 + 100);
+    await user.click(screen.getByText(/doing it in your head/i));
+
+    expect(onNext).not.toHaveBeenCalled();
+    now.mockRestore();
+  });
+
+  it("moves on once, not twice, when the button itself is tapped", async () => {
+    // The button sits inside the card, which listens for taps too.
+    const user = userEvent.setup();
+    const now = vi.spyOn(Date, "now").mockReturnValue(1_000_000);
+    const { onNext } = show({}, { revealed: true });
+
+    now.mockReturnValue(1_000_000 + 1000);
+    await user.click(screen.getByRole("button", { name: /next question/i }));
+
+    expect(onNext).toHaveBeenCalledTimes(1);
+    now.mockRestore();
+  });
+
+  it("does not move on from a tap before the answer is in", async () => {
+    const user = userEvent.setup();
+    const { onNext } = show();
+
+    await user.click(screen.getByText(/P\/E ratio\?/));
+
+    expect(onNext).not.toHaveBeenCalled();
+  });
+
   it("names the company as well as the ticker", () => {
     // A ticker alone is how a desk talks, but not always enough to know who
     // you are looking at.

@@ -23,7 +23,7 @@ const Index = () => {
         </div>
       </header>
       
-      <main className="container mx-auto py-8 px-4">
+      <main className="container mx-auto py-4 md:py-8 px-4">
         <GameContainer />
       </main>
       

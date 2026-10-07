@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, Lightbulb, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +28,16 @@ const difficultyBadge = (difficulty: Question["difficulty"]): string => {
   }
 };
 
+// A tap on the card continues, but not one that lands just as the answer
+// appears: a tap meant for Submit as the timer runs out would otherwise skip
+// straight past the explanation.
+const TAP_GUARD_MS = 400;
+
+// Phone-sized screens, where the on-screen keyboard takes half the height.
+// matchMedia is absent in jsdom, so this is simply false under test.
+const isSmallScreen = (): boolean =>
+  typeof window !== "undefined" && !!window.matchMedia?.("(max-width: 767px)").matches;
+
 const QuestionCard: React.FC<QuestionCardProps> = ({
   question,
   revealed,
@@ -39,20 +49,57 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
   isLast,
 }) => {
   const [value, setValue] = useState("");
+  const cardRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
+  const revealedAt = useRef(0);
+
+  // On a phone the keyboard covers the bottom half of the screen, and iOS
+  // scrolls only far enough to show the input - leaving the start of the
+  // question above the top edge. Pinning the card's top to the top of the
+  // screen keeps the whole question and the input in view together.
+  const alignCard = useCallback(() => {
+    const card = cardRef.current;
+    if (!card || !isSmallScreen()) return;
+    const top = card.getBoundingClientRect().top + window.scrollY - 8;
+    window.scrollTo({ top: Math.max(0, top) });
+  }, []);
+
+  // The keyboard opening or closing resizes the visual viewport; realign once
+  // it has settled.
+  useEffect(() => {
+    const viewport = window.visualViewport;
+    if (!viewport) return;
+
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const onResize = () => {
+      clearTimeout(timer);
+      timer = setTimeout(alignCard, 60);
+    };
+
+    viewport.addEventListener("resize", onResize);
+    return () => {
+      clearTimeout(timer);
+      viewport.removeEventListener("resize", onResize);
+    };
+  }, [alignCard]);
 
   // Clear and refocus whenever a new question arrives.
   useEffect(() => {
     setValue("");
-    inputRef.current?.focus();
-  }, [question.id]);
+    inputRef.current?.focus({ preventScroll: true });
+    alignCard();
+  }, [question.id, alignCard]);
 
   // Once the answer is showing, move focus to Continue so Enter carries the
-  // player straight on. A drill should never need the mouse.
+  // player straight on. A drill should never need the mouse. On a phone this
+  // also drops the keyboard, so the worked method has the whole screen.
   useEffect(() => {
-    if (revealed) nextRef.current?.focus();
-  }, [revealed]);
+    if (!revealed) return;
+    revealedAt.current = Date.now();
+    nextRef.current?.focus({ preventScroll: true });
+    alignCard();
+  }, [revealed, alignCard]);
 
   const submit = () => {
     if (revealed) return;
@@ -76,37 +123,56 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     submit();
   };
 
+  // iOS only raises the keyboard for a focus made inside a tap. Focusing the
+  // input here, in the same tap that moves on, keeps the keyboard up for the
+  // next question instead of making the player tap the box again. The input
+  // is read-only rather than disabled while revealed, so it can take focus.
+  const advance = () => {
+    if (!isLast) inputRef.current?.focus({ preventScroll: true });
+    onNext();
+  };
+
+  const handleCardTap = () => {
+    if (!revealed || Date.now() - revealedAt.current < TAP_GUARD_MS) return;
+    // Selecting text to copy a figure is not a request to move on.
+    if (window.getSelection?.()?.toString()) return;
+    advance();
+  };
+
   const meta = QUESTION_META[question.type];
   const suffix = unitSuffix(question.answerUnit);
 
   return (
     <div
+      ref={cardRef}
+      onClick={revealed ? handleCardTap : undefined}
       className={cn(
-        "bg-white rounded-lg shadow-md p-6 transition-colors duration-200 border-2",
+        "bg-white rounded-lg shadow-md p-4 md:p-6 transition-colors duration-200 border-2",
         revealed
-          ? wasCorrect
-            ? "border-finance-green"
-            : "border-finance-red"
+          ? cn("cursor-pointer pb-28 md:pb-6", wasCorrect ? "border-finance-green" : "border-finance-red")
           : "border-transparent"
       )}
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-        <span className="font-medium text-finance-gray">{meta.label}</span>
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-2 md:mb-4">
+        <span className="text-sm md:text-base font-medium text-finance-gray">{meta.label}</span>
         <span className={cn("text-xs font-medium px-2 py-1 rounded-full", difficultyBadge(question.difficulty))}>
           {question.difficulty}
         </span>
       </div>
 
-      <h2 className="text-lg font-semibold text-finance-blue mb-6 leading-relaxed">
+      <h2 className="text-lg font-semibold text-finance-blue mb-4 md:mb-6 leading-snug md:leading-relaxed">
         {question.text}
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label htmlFor="answer" className="block text-sm font-medium text-gray-700 mb-1">
-            Your answer
-          </label>
-          <div className="relative">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="answer" className="sr-only">
+          Your answer
+        </label>
+        {/* The input and Submit share a row, so on a phone the button sits
+            right above the keyboard - whose decimal pad has no return key,
+            which makes Submit the only way to answer. */}
+        <div className="flex gap-2">
+          <div className="relative flex-1 min-w-0">
             <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400 text-sm font-medium pointer-events-none">
               {suffix}
             </span>
@@ -117,31 +183,40 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               step="any"
               inputMode="decimal"
               autoComplete="off"
-              placeholder={revealed ? "" : "Type a number, press Enter or Space"}
+              placeholder={revealed ? "" : "Your answer"}
               value={value}
               onChange={event => setValue(event.target.value)}
               onKeyDown={handleKeyDown}
-              className="pl-10"
-              disabled={revealed}
+              onFocus={() => setTimeout(alignCard, 350)}
+              className="pl-11 h-14 text-lg md:text-lg"
+              readOnly={revealed}
+              aria-disabled={revealed}
             />
           </div>
-          {/* Answers are judged on size alone (see checkAnswer), which matters
-              most on a phone: the numeric keypad often has no minus key. */}
-          {question.answerUnit === "percentagePoints" && !revealed && (
-            <p className="mt-1 text-xs text-gray-400">No need for a minus sign - a fall of 4.2% is just 4.2.</p>
+          {!revealed && (
+            <Button
+              type="submit"
+              className="h-14 px-6 text-base bg-finance-blue hover:bg-blue-800 text-white shrink-0"
+              disabled={value === ""}
+            >
+              Submit
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
           )}
         </div>
-
         {!revealed && (
-          <Button type="submit" className="w-full bg-finance-blue hover:bg-blue-800 text-white" disabled={value === ""}>
-            Submit
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <p className="mt-1.5 text-xs text-gray-400">
+            {/* Answers are judged on size alone (see checkAnswer), which
+                matters most on a phone: the numeric keypad often has no
+                minus key. */}
+            {question.answerUnit === "percentagePoints" && "No minus sign needed - a fall of 4.2% is just 4.2. "}
+            <span className="hidden md:inline">Enter or Space submits.</span>
+          </p>
         )}
       </form>
 
       {revealed && (
-        <div className="mt-5 space-y-4 animate-fade-in">
+        <div className="mt-4 space-y-4 animate-fade-in">
           <div
             className={cn(
               "flex items-start gap-3 p-3 rounded-lg",
@@ -186,15 +261,27 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
             </ol>
           </div>
 
-          <Button
-            ref={nextRef}
-            onClick={onNext}
-            className="w-full bg-finance-green hover:bg-teal-700 text-white"
-          >
-            {isLast ? "See results" : "Next question"}
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <p className="text-center text-xs text-gray-400">Press Enter to continue</p>
+          {/* On a phone, Continue is a full-width bar pinned to the bottom of
+              the screen, where a thumb already is; the card's bottom padding
+              keeps it from covering the method. */}
+          <div className="fixed inset-x-0 bottom-0 z-20 bg-white border-t px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:static md:z-auto md:bg-transparent md:border-0 md:p-0">
+            <Button
+              ref={nextRef}
+              onClick={event => {
+                // The card would otherwise take the same tap and move on twice.
+                event.stopPropagation();
+                advance();
+              }}
+              className="w-full h-14 text-lg bg-finance-green hover:bg-teal-700 text-white"
+            >
+              {isLast ? "See results" : "Next question"}
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <p className="text-center text-xs text-gray-400 mt-1.5">
+              <span className="md:hidden">or tap anywhere on the card</span>
+              <span className="hidden md:inline">Press Enter to continue</span>
+            </p>
+          </div>
         </div>
       )}
     </div>
