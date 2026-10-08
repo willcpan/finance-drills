@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import {
   ALL_QUESTION_TYPES,
   QUESTION_META,
+  runOrder,
   availableTypes,
   checkAnswer,
   eligibleCount,
@@ -478,5 +479,42 @@ describe("checkAnswer", () => {
         expect(q.text).toMatch(/\b(19|20)\d{2}\b/);
       }
     }
+  });
+});
+
+describe("runOrder", () => {
+  it("asks the day move about a third as often as the rest", () => {
+    // A single session's move is usually a fraction of a percent - a dull
+    // question, so it is weighted down rather than dropped.
+    const counts = new Map<QuestionType, number>();
+    for (let run = 0; run < 400; run++) {
+      for (const type of runOrder(ALL_QUESTION_TYPES, ALL_QUESTION_TYPES.length)) {
+        counts.set(type, (counts.get(type) ?? 0) + 1);
+      }
+    }
+    const day = counts.get("percentageChange") ?? 0;
+    const others = ALL_QUESTION_TYPES.filter(t => t !== "percentageChange").map(t => counts.get(t) ?? 0);
+    const typical = others.reduce((a, b) => a + b, 0) / others.length;
+
+    expect(day / typical).toBeGreaterThan(0.15);
+    expect(day / typical).toBeLessThan(0.5);
+  });
+
+  it("fills the run and keeps to the requested types", () => {
+    const wanted: QuestionType[] = ["peRatio", "revenueCagr", "percentageChange"];
+    const order = runOrder(wanted, 25);
+    expect(order).toHaveLength(25);
+    for (const type of order) expect(wanted).toContain(type);
+  });
+
+  it("still asks a down-weighted type the player chose on its own", () => {
+    expect(runOrder(["percentageChange"], 10)).toEqual(Array(10).fill("percentageChange"));
+  });
+
+  it("does not repeat a type back to back within a pass", () => {
+    // Each pass is a shuffle of distinct types, so with every weight at 1 a
+    // run of that length holds each type once.
+    const order = runOrder(["peRatio", "revenueCagr", "marketCap"], 3);
+    expect(new Set(order).size).toBe(3);
   });
 });

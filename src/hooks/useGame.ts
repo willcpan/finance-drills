@@ -8,20 +8,12 @@ import {
 } from "@/utils/gameEngine";
 import {
   generateQuestion,
+  runOrder,
   type DifficultyLevel,
   type QuestionType,
 } from "@/utils/questionGenerator";
 import { clearStats, emptyStats, loadStats, mergeSession, saveStats, type Stats } from "@/utils/stats";
 import { primeKeyboard } from "@/utils/keyboard";
-
-const shuffle = <T,>(items: readonly T[]): T[] => {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-};
 
 export interface UseGame {
   state: GameState;
@@ -63,7 +55,7 @@ export const useGame = (): UseGame => {
   // raise the phone keyboard for a question that does not exist yet.
   const start = useCallback(() => {
     primeKeyboard();
-    orderRef.current = shuffle(state.config.types);
+    orderRef.current = runOrder(state.config.types, state.config.questionCount);
     recordedRef.current = false;
     // Start from the configured difficulty, not whatever adaptive drifted to on
     // the previous run - the reducer resets activeDifficulty the same way, and

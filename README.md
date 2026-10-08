@@ -177,6 +177,12 @@ answer is also a fact about the company: Newmont's revenue really did
 compound at 14.6% a year from 2020 to 2025.
 Negative answers are kept — a business that shrank is a real answer.
 
+Types come up equally often, except Percentage Change: a single session's move
+is usually a fraction of a percent, which makes a dull question, so it carries a
+weight of 0.3 in `QUESTION_META` and turns up about a third as often. Each pass
+through the selected types is still shuffled, so a run cycles rather than
+repeating one type (`runOrder` in `questionGenerator.ts`).
+
 Where a question rounds a figure for display, the answer follows from the
 figure as printed, so working from what is on screen is exactly right rather
 than nearly right. A move printed as 12.7% is applied as 12.7%; a revenue

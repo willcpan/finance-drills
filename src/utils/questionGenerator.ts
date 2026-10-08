@@ -83,14 +83,19 @@ export interface Question {
 // Every question is built from something that actually happened: a price the
 // stock closed at, a figure the company filed. Nothing is a round number
 // invented for the drill, so each answer is also a fact worth knowing.
+//
+// `weight` is how often a type comes up relative to the rest (default 1).
 export const QUESTION_META: Record<
   QuestionType,
-  { label: string; category: QuestionCategory; blurb: string }
+  { label: string; category: QuestionCategory; blurb: string; weight?: number }
 > = {
   percentageChange: {
     label: "Percentage Change",
     category: "priceMoves",
     blurb: "Turn yesterday's close and today's price into a move",
+    // A single session's move is usually a fraction of a percent, which makes
+    // for a dull question asked often. It still turns up, just less.
+    weight: 0.3,
   },
   monthChange: {
     label: "1-Month Change",
@@ -959,6 +964,33 @@ export const generateQuestion = (
 // phone's numeric keypad often has no minus key at all.
 export const checkAnswer = (question: Question, userAnswer: number): boolean =>
   Math.abs(Math.abs(userAnswer) - Math.abs(question.correctAnswer)) <= question.tolerance;
+
+// The order a run asks its types in. Each pass through the requested types is
+// shuffled, so a run cycles rather than repeating one type, and each type
+// joins a pass with probability equal to its weight - so a type weighted 0.3
+// turns up about a third as often as the rest. A pass that draws nothing (only
+// down-weighted types were requested) takes them all, since the player asked
+// for them.
+export const runOrder = (
+  types: readonly QuestionType[],
+  count: number,
+  random: () => number = Math.random
+): QuestionType[] => {
+  const order: QuestionType[] = [];
+  if (types.length === 0) return order;
+
+  while (order.length < count) {
+    const drawn = types.filter(type => random() < (QUESTION_META[type].weight ?? 1));
+    const pass = drawn.length > 0 ? [...drawn] : [...types];
+    for (let i = pass.length - 1; i > 0; i--) {
+      const j = Math.floor(random() * (i + 1));
+      [pass[i], pass[j]] = [pass[j], pass[i]];
+    }
+    order.push(...pass);
+  }
+
+  return order.slice(0, count);
+};
 
 // Build a set, cycling through the requested types so a run stays varied.
 export const generateQuestions = (
