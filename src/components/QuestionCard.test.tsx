@@ -161,6 +161,33 @@ describe("QuestionCard", () => {
     now.mockRestore();
   });
 
+  it("makes the box editable and focuses it inside the tap that moves on", async () => {
+    // iOS raises the keyboard only for a focus inside a tap, and never for a
+    // read-only input - which the box is while the answer shows.
+    const user = userEvent.setup();
+    const input = () => screen.getByLabelText(/your answer/i) as HTMLInputElement;
+    let atTap: { focused: boolean; readOnly: boolean } | null = null;
+    const onNext = vi.fn(() => {
+      atTap = { focused: document.activeElement === input(), readOnly: input().readOnly };
+    });
+    render(
+      <QuestionCard
+        question={question()}
+        revealed
+        wasCorrect={false}
+        userAnswer={null}
+        elapsedMs={0}
+        onAnswer={vi.fn()}
+        onNext={onNext}
+        isLast={false}
+      />
+    );
+
+    await user.click(screen.getByRole("button", { name: /next question/i }));
+
+    expect(atTap).toEqual({ focused: true, readOnly: false });
+  });
+
   it("does not move on from a tap before the answer is in", async () => {
     const user = userEvent.setup();
     const { onNext } = show();

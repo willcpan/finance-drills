@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { QUESTION_META, type Question } from "@/utils/questionGenerator";
 import { formatAnswer, formatDuration, unitSuffix } from "@/utils/format";
+import { focusAnswer } from "@/utils/keyboard";
 
 interface QuestionCardProps {
   question: Question;
@@ -84,10 +85,11 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     };
   }, [alignCard]);
 
-  // Clear and refocus whenever a new question arrives.
+  // Clear and refocus whenever a new question arrives - but on a phone only
+  // where the keyboard can come up with it (see utils/keyboard.ts).
   useEffect(() => {
     setValue("");
-    inputRef.current?.focus({ preventScroll: true });
+    focusAnswer(inputRef.current);
     alignCard();
   }, [question.id, alignCard]);
 
@@ -123,12 +125,16 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
     submit();
   };
 
-  // iOS only raises the keyboard for a focus made inside a tap. Focusing the
-  // input here, in the same tap that moves on, keeps the keyboard up for the
-  // next question instead of making the player tap the box again. The input
-  // is read-only rather than disabled while revealed, so it can take focus.
+  // iOS only raises the keyboard for a focus made inside a tap, so the input
+  // is focused here, in the same tap that moves on. It is read-only while the
+  // answer shows, and iOS raises no keyboard for a read-only input either -
+  // so it is made editable first, ahead of React's own re-render.
   const advance = () => {
-    if (!isLast) inputRef.current?.focus({ preventScroll: true });
+    const input = inputRef.current;
+    if (!isLast && input) {
+      input.readOnly = false;
+      input.focus({ preventScroll: true });
+    }
     onNext();
   };
 

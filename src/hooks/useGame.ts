@@ -12,6 +12,7 @@ import {
   type QuestionType,
 } from "@/utils/questionGenerator";
 import { clearStats, emptyStats, loadStats, mergeSession, saveStats, type Stats } from "@/utils/stats";
+import { primeKeyboard } from "@/utils/keyboard";
 
 const shuffle = <T,>(items: readonly T[]): T[] => {
   const copy = [...items];
@@ -58,7 +59,10 @@ export const useGame = (): UseGame => {
     [difficultyFor]
   );
 
+  // Called straight from the Start and Play again taps, which is what lets it
+  // raise the phone keyboard for a question that does not exist yet.
   const start = useCallback(() => {
+    primeKeyboard();
     orderRef.current = shuffle(state.config.types);
     recordedRef.current = false;
     // Start from the configured difficulty, not whatever adaptive drifted to on
