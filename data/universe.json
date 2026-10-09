@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-08T01:10:25.174Z",
+  "asOf": "2026-10-09T01:20:10.743Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -9364,88 +9364,6 @@
       },
       "shares": {
         "millions": 450.44,
-        "date": "2026-07-24"
-      }
-    },
-    {
-      "ticker": "CTVA",
-      "name": "Corteva",
-      "sector": "Materials",
-      "cik": 1755672,
-      "revenue": 17401,
-      "operatingProfit": null,
-      "eps": 1.6,
-      "prior": {
-        "revenue": 16908,
-        "eps": 1.3,
-        "revenueFiscalYear": "CY2024",
-        "epsFiscalYear": "CY2024"
-      },
-      "fiscalYear": "CY2025",
-      "history": {
-        "revenue": [
-          {
-            "period": "CY2025",
-            "value": 17401
-          },
-          {
-            "period": "CY2024",
-            "value": 16908
-          },
-          {
-            "period": "CY2023",
-            "value": 17226
-          },
-          {
-            "period": "CY2022",
-            "value": 17455
-          },
-          {
-            "period": "CY2021",
-            "value": 15655
-          },
-          {
-            "period": "CY2020",
-            "value": 14217
-          },
-          {
-            "period": "CY2019",
-            "value": 13846
-          }
-        ],
-        "eps": [
-          {
-            "period": "CY2025",
-            "value": 1.6
-          },
-          {
-            "period": "CY2024",
-            "value": 1.3
-          },
-          {
-            "period": "CY2023",
-            "value": 1.03
-          },
-          {
-            "period": "CY2022",
-            "value": 1.58
-          },
-          {
-            "period": "CY2021",
-            "value": 2.37
-          },
-          {
-            "period": "CY2020",
-            "value": 0.91
-          },
-          {
-            "period": "CY2019",
-            "value": -1.28
-          }
-        ]
-      },
-      "shares": {
-        "millions": 667.2,
         "date": "2026-07-24"
       }
     },
@@ -27811,8 +27729,8 @@
         ]
       },
       "shares": {
-        "millions": 1364.89,
-        "date": "2026-07-02"
+        "millions": 1362.74,
+        "date": "2026-10-01"
       }
     },
     {
@@ -29275,45 +29193,6 @@
         "millions": 175.62,
         "date": "2026-07-21"
       }
-    },
-    {
-      "ticker": "PSKY",
-      "name": "Paramount Skydance",
-      "sector": "Communication Services",
-      "cik": 2041610,
-      "revenue": 29213,
-      "operatingProfit": -5269,
-      "eps": -9.34,
-      "prior": {
-        "revenue": 29652,
-        "eps": -1.02,
-        "revenueFiscalYear": "CY2023",
-        "epsFiscalYear": "CY2023"
-      },
-      "fiscalYear": "CY2024",
-      "history": {
-        "revenue": [
-          {
-            "period": "CY2024",
-            "value": 29213
-          },
-          {
-            "period": "CY2023",
-            "value": 29652
-          }
-        ],
-        "eps": [
-          {
-            "period": "CY2024",
-            "value": -9.34
-          },
-          {
-            "period": "CY2023",
-            "value": -1.02
-          }
-        ]
-      },
-      "shares": null
     },
     {
       "ticker": "PSX",
@@ -31283,6 +31162,45 @@
           }
         ],
         "eps": []
+      },
+      "shares": null
+    },
+    {
+      "ticker": "SKYD",
+      "name": "Skydance Corporation",
+      "sector": "Communication Services",
+      "cik": 2041610,
+      "revenue": 29213,
+      "operatingProfit": -5269,
+      "eps": -9.34,
+      "prior": {
+        "revenue": 29652,
+        "eps": -1.02,
+        "revenueFiscalYear": "CY2023",
+        "epsFiscalYear": "CY2023"
+      },
+      "fiscalYear": "CY2024",
+      "history": {
+        "revenue": [
+          {
+            "period": "CY2024",
+            "value": 29213
+          },
+          {
+            "period": "CY2023",
+            "value": 29652
+          }
+        ],
+        "eps": [
+          {
+            "period": "CY2024",
+            "value": -9.34
+          },
+          {
+            "period": "CY2023",
+            "value": -1.02
+          }
+        ]
       },
       "shares": null
     },
@@ -34496,6 +34414,88 @@
       "shares": null
     },
     {
+      "ticker": "TWLO",
+      "name": "Twilio",
+      "sector": "Information Technology",
+      "cik": 1447669,
+      "revenue": 5067.2,
+      "operatingProfit": 157.8,
+      "eps": 0.21,
+      "prior": {
+        "revenue": 4458,
+        "eps": -0.66,
+        "revenueFiscalYear": "CY2024",
+        "epsFiscalYear": "CY2024"
+      },
+      "fiscalYear": "CY2025",
+      "history": {
+        "revenue": [
+          {
+            "period": "CY2025",
+            "value": 5067.2
+          },
+          {
+            "period": "CY2024",
+            "value": 4458
+          },
+          {
+            "period": "CY2023",
+            "value": 4153.9
+          },
+          {
+            "period": "CY2022",
+            "value": 3826.3
+          },
+          {
+            "period": "CY2021",
+            "value": 2841.8
+          },
+          {
+            "period": "CY2020",
+            "value": 1761.8
+          },
+          {
+            "period": "CY2019",
+            "value": 1134.5
+          }
+        ],
+        "eps": [
+          {
+            "period": "CY2025",
+            "value": 0.21
+          },
+          {
+            "period": "CY2024",
+            "value": -0.66
+          },
+          {
+            "period": "CY2023",
+            "value": -5.54
+          },
+          {
+            "period": "CY2022",
+            "value": -6.86
+          },
+          {
+            "period": "CY2021",
+            "value": -5.45
+          },
+          {
+            "period": "CY2020",
+            "value": -3.35
+          },
+          {
+            "period": "CY2019",
+            "value": -2.36
+          }
+        ]
+      },
+      "shares": {
+        "millions": 153.58,
+        "date": "2026-07-24"
+      }
+    },
+    {
       "ticker": "TXN",
       "name": "Texas Instruments",
       "sector": "Information Technology",
@@ -36552,6 +36552,27 @@
       "shares": null
     },
     {
+      "ticker": "VYLR",
+      "name": "Vylor",
+      "sector": "Consumer Staples",
+      "cik": 2128626,
+      "revenue": null,
+      "operatingProfit": null,
+      "eps": null,
+      "prior": {
+        "revenue": null,
+        "eps": null,
+        "revenueFiscalYear": null,
+        "epsFiscalYear": null
+      },
+      "fiscalYear": null,
+      "history": {
+        "revenue": [],
+        "eps": []
+      },
+      "shares": null
+    },
+    {
       "ticker": "VZ",
       "name": "Verizon",
       "sector": "Communication Services",
@@ -36793,76 +36814,6 @@
         ]
       },
       "shares": null
-    },
-    {
-      "ticker": "WBD",
-      "name": "Warner Bros. Discovery",
-      "sector": "Communication Services",
-      "cik": 1437107,
-      "revenue": 37296,
-      "operatingProfit": 738,
-      "eps": 0.29,
-      "prior": {
-        "revenue": 39321,
-        "eps": -4.62,
-        "revenueFiscalYear": "CY2024",
-        "epsFiscalYear": "CY2024"
-      },
-      "fiscalYear": "CY2025",
-      "history": {
-        "revenue": [
-          {
-            "period": "CY2025",
-            "value": 37296
-          },
-          {
-            "period": "CY2024",
-            "value": 39321
-          },
-          {
-            "period": "CY2023",
-            "value": 41321
-          },
-          {
-            "period": "CY2022",
-            "value": 33817
-          },
-          {
-            "period": "CY2021",
-            "value": 12191
-          },
-          {
-            "period": "CY2020",
-            "value": 10671
-          },
-          {
-            "period": "CY2019",
-            "value": 11144
-          }
-        ],
-        "eps": [
-          {
-            "period": "CY2025",
-            "value": 0.29
-          },
-          {
-            "period": "CY2024",
-            "value": -4.62
-          },
-          {
-            "period": "CY2023",
-            "value": -1.28
-          },
-          {
-            "period": "CY2022",
-            "value": -3.82
-          }
-        ]
-      },
-      "shares": {
-        "millions": 2510.7,
-        "date": "2026-07-23"
-      }
     },
     {
       "ticker": "WDAY",
