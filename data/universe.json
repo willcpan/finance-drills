@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-09T01:20:10.743Z",
+  "asOf": "2026-10-10T01:05:51.823Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -9746,8 +9746,8 @@
         ]
       },
       "shares": {
-        "millions": 657.62,
-        "date": "2026-06-30"
+        "millions": 657.91,
+        "date": "2026-09-30"
       }
     },
     {
@@ -24916,8 +24916,8 @@
         ]
       },
       "shares": {
-        "millions": 1129.39,
-        "date": "2026-06-17"
+        "millions": 1131.42,
+        "date": "2026-10-02"
       }
     },
     {
