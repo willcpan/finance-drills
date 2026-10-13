@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Award, BarChart3, Check, ChevronDown, ChevronUp, Flame, RefreshCw, X, Zap } from "lucide-react";
+import { Award, BarChart3, Check, ChevronDown, ChevronUp, ExternalLink, Flame, RefreshCw, X, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { accuracy, breakdownByType, type AnswerRecord, type GameConfig } from "@/utils/gameEngine";
 import { QUESTION_META } from "@/utils/questionGenerator";
 import { formatAnswer, formatDuration } from "@/utils/format";
+import { googleFinanceUrl } from "@/utils/links";
 import { median, type Stats } from "@/utils/stats";
 
 interface ResultScreenProps {
@@ -181,6 +182,17 @@ const ResultScreen: React.FC<ResultScreenProps> = ({
                       <span className="text-finance-green font-medium"> · +{record.points}</span>
                     )}
                   </p>
+                  {record.question.stockData && (
+                    <a
+                      href={googleFinanceUrl(record.question.stockData)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-medium text-finance-blue hover:underline mt-1"
+                    >
+                      {record.question.stockData.ticker} on Google Finance
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  )}
                   {!record.correct && (
                     <p className="text-xs text-gray-600 mt-1.5 flex items-start gap-1.5">
                       <Zap className="h-3 w-3 shrink-0 mt-0.5 text-finance-blue" />

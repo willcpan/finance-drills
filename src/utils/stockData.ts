@@ -21,6 +21,26 @@ export interface ShareCount {
   date: string; // YYYY-MM-DD
 }
 
+// What a player can look up after answering: where the company trades, what
+// it is, and where to read more. Any field may be null.
+export interface CompanyProfile {
+  // The exchange as Google Finance writes it ("NASDAQ", "NYSE").
+  exchange: string | null;
+  wikiTitle: string | null;
+  subIndustry: string | null;
+  headquarters: string | null;
+  founded: string | null;
+  // The opening of its Wikipedia article, two sentences at most.
+  description: string | null;
+}
+
+// Month-end closes, oldest first, starting with the month `start` (YYYY-MM).
+// The last one is the current month, ending on the latest close.
+export interface MonthlyCloses {
+  start: string;
+  closes: number[];
+}
+
 export interface StockData {
   ticker: string;
   // The company's own name, falling back to the ticker when neither source
@@ -58,6 +78,9 @@ export interface StockData {
   epsHistory: FiledYear[];
   // Null for a multi-class company or one whose count failed its cross-check.
   shares: ShareCount | null;
+  profile: CompanyProfile;
+  // About five years of them, for the chart in the company panel.
+  monthly: MonthlyCloses | null;
   // Trailing twelve months of dividends actually paid; 0 for a company that
   // pays none.
   dividendPerShare: number;

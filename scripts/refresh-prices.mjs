@@ -47,6 +47,9 @@ const YEAR_DAYS = 365;
 // returns those bars in the same call, so they cost no extra requests.
 const THREE_YEAR_DAYS = 3 * 365 + 1;
 const FIVE_YEAR_DAYS = 5 * 365 + 1;
+// Fetched this far past five years, so the bar on or before the five-year
+// date is always in the response even across a long weekend.
+const HISTORY_MARGIN_DAYS = 21;
 
 // A range can stop a day or two short of its nominal length on some listings.
 // A bar this close to the target still fairly answers "five years ago".
@@ -129,9 +132,16 @@ async function fetchQuote(ticker) {
   // index files CommonStockDividendsPerShareDeclared - so the trailing twelve
   // months are summed from what was actually paid instead. events=split lists
   // the splits, which the long-horizon closes are checked against.
+  //
+  // An explicit start rather than range=5y: that range begins a day or two
+  // short of five calendar years, which left no bar on or before the
+  // five-year date and quietly dropped every five-year close.
+  const nowSeconds = Math.floor(Date.now() / 1000);
+  const fromSeconds = nowSeconds - (FIVE_YEAR_DAYS + HISTORY_MARGIN_DAYS) * 86400;
   const url =
     `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}` +
-    `?interval=1d&range=5y&includeAdjustedClose=true&events=div,split`;
+    `?interval=1d&period1=${fromSeconds}&period2=${nowSeconds}` +
+    `&includeAdjustedClose=true&events=div,split`;
 
   for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
     try {
@@ -201,6 +211,18 @@ async function fetchQuote(ticker) {
 
       const past = bar => (bar ? { price: round2(bar.close), date: bar.day } : null);
 
+      // The last close of each calendar month, oldest first, for the five-year
+      // chart in the company panel. The current month ends on today's close.
+      // Four significant figures is finer than a 300px-wide line can show, and
+      // keeps 500 companies' worth small enough to ship in the page.
+      const monthEnds = new Map();
+      for (const bar of bars) monthEnds.set(bar.day.slice(0, 7), bar.close);
+      const months = [...monthEnds.keys()].sort();
+      const monthly =
+        months.length >= 2
+          ? { start: months[0], closes: months.map(m => Number(monthEnds.get(m).toPrecision(4))) }
+          : null;
+
       // The last twelve months of payments is the trailing dividend - the
       // response carries five years of them. A company that pays none sums to
       // zero, which is the right answer for it rather than a gap.
@@ -220,6 +242,7 @@ async function fetchQuote(ticker) {
         yearAgo: past(yearAgo),
         threeYearsAgo: past(threeYearsAgo),
         fiveYearsAgo: past(fiveYearsAgo),
+        monthly,
         dividend: Math.round(dividend * 1000) / 1000,
         payments: payments.length,
         asOf: meta?.regularMarketTime,
@@ -319,6 +342,7 @@ const payload = {
           yearAgo: r.yearAgo,
           threeYearsAgo: r.threeYearsAgo,
           fiveYearsAgo: r.fiveYearsAgo,
+          monthly: r.monthly,
           dividend: r.dividend,
         },
       ])

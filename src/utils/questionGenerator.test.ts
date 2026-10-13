@@ -81,6 +81,27 @@ describe("stock data", () => {
     }
   });
 
+  it("carries the history the CAGR and market-cap questions are built on", () => {
+    // The five-year closes once went missing for every company - range=5y
+    // starts a day or two short of five years - and Price CAGR quietly asked
+    // only three-year questions for a week. A gap that wide should fail here.
+    const share = (has: (s: (typeof stocks)[number]) => boolean) => stocks.filter(has).length / stocks.length;
+
+    expect(share(s => !!s.threeYearsAgo)).toBeGreaterThan(0.9);
+    expect(share(s => !!s.fiveYearsAgo)).toBeGreaterThan(0.85);
+    expect(share(s => s.revenueHistory.length > 5)).toBeGreaterThan(0.8);
+    expect(share(s => !!s.shares)).toBeGreaterThan(0.75);
+  });
+
+  it("carries what the company panel shows", () => {
+    const share = (has: (s: (typeof stocks)[number]) => boolean) => stocks.filter(has).length / stocks.length;
+
+    // Google Finance needs the exchange to open the right page.
+    expect(share(s => !!s.profile.exchange)).toBeGreaterThan(0.98);
+    expect(share(s => !!s.profile.description)).toBeGreaterThan(0.95);
+    expect(share(s => (s.monthly?.closes.length ?? 0) >= 48)).toBeGreaterThan(0.9);
+  });
+
   it("dates the prices it was built with", () => {
     expect(pricesAsOf).not.toBeNull();
     expect(Number.isNaN(Date.parse(pricesAsOf as string))).toBe(false);

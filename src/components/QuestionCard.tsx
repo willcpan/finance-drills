@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { QUESTION_META, type Question } from "@/utils/questionGenerator";
 import { formatAnswer, formatDuration, unitSuffix } from "@/utils/format";
 import { focusAnswer } from "@/utils/keyboard";
+import CompanyPanel from "./CompanyPanel";
 
 interface QuestionCardProps {
   question: Question;
@@ -266,6 +267,8 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
               ))}
             </ol>
           </div>
+
+          {question.stockData && <CompanyPanel stock={question.stockData} />}
 
           {/* On a phone, Continue is a full-width bar pinned to the bottom of
               the screen, where a thumb already is; the card's bottom padding

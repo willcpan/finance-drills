@@ -29,6 +29,15 @@ const stock = (overrides: Partial<StockData> = {}): StockData => ({
   revenueHistory: [],
   epsHistory: [],
   shares: null,
+  profile: {
+    exchange: "NYSE",
+    wikiTitle: "Alpha Industries",
+    subIndustry: "Industrial Machinery",
+    headquarters: "Springfield, Illinois",
+    founded: "1901",
+    description: "Alpha Industries Inc. is an American maker of machine tools.",
+  },
+  monthly: { start: "2021-10", closes: [30, 32, 35, 40, 38, 45, 60, 100] },
   dividendPerShare: 2,
   dividendYield: 2,
   ...overrides,
@@ -195,6 +204,39 @@ describe("QuestionCard", () => {
     await user.click(screen.getByText(/P\/E ratio\?/));
 
     expect(onNext).not.toHaveBeenCalled();
+  });
+
+  it("links to the company's chart and article once the answer is in", () => {
+    show({}, { revealed: true });
+
+    const chart = screen.getByRole("link", { name: /google finance chart/i });
+    // Google Finance needs the exchange, or it opens its home page.
+    expect(chart.getAttribute("href")).toBe("https://www.google.com/finance/quote/AAA:NYSE");
+    expect(chart.getAttribute("target")).toBe("_blank");
+    expect(screen.getByRole("link", { name: /wikipedia/i }).getAttribute("href")).toBe(
+      "https://en.wikipedia.org/wiki/Alpha_Industries"
+    );
+  });
+
+  it("does not show the company panel before the answer is in", () => {
+    // It would give away nothing, but it is clutter while thinking.
+    show();
+    expect(screen.queryByRole("link", { name: /google finance/i })).toBeNull();
+  });
+
+  it("opens the company panel without moving on", async () => {
+    // The card moves on when tapped; the panel inside it must not.
+    const user = userEvent.setup();
+    const now = vi.spyOn(Date, "now").mockReturnValue(1_000_000);
+    const { onNext } = show({}, { revealed: true });
+    now.mockReturnValue(1_000_000 + 1000);
+
+    await user.click(screen.getByRole("button", { name: /about alpha industries/i }));
+
+    expect(screen.getByText(/maker of machine tools/i)).toBeTruthy();
+    expect(screen.getByRole("img", { name: /share price from \$30\.00/i })).toBeTruthy();
+    expect(onNext).not.toHaveBeenCalled();
+    now.mockRestore();
   });
 
   it("names the company as well as the ticker", () => {

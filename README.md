@@ -30,8 +30,8 @@ Two files, split by how fast their contents age and who publishes them:
 
 | File | Holds | Source | Refreshed |
 | --- | --- | --- | --- |
-| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, up to seven years of revenue and EPS history, shares outstanding | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
-| `data/prices.json` | price, the closes yesterday / a month / a year / three / five years back, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
+| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, up to seven years of revenue and EPS history, shares outstanding, a company profile (exchange, sub-industry, headquarters, founded, a two-sentence description) | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
+| `data/prices.json` | price, the closes yesterday / a month / a year / three / five years back, five years of month-end closes, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
 
 `src/utils/buildStockData.ts` joins the two at build time and the build injects
 the result as `__GAME_STOCK_DATA__`, so **the page never calls a data provider at
@@ -45,6 +45,20 @@ company's **CIK** — the key that opens the SEC. Fundamentals then come from th
 SEC's XBRL `frames` API, which returns one concept for every filer in a single
 request, so the whole index costs about sixty calls rather than 500
 multi-megabyte company files.
+
+The table is read a row at a time. It used to be read with one pattern across
+the whole table that expected each name to be a wiki link; Insulet's is plain
+text, so the pattern ran on into the next row and PODD was drilled with
+Intel's name-link, CIK and SEC figures while Intel itself was missing. A row
+that does not parse cleanly is now skipped with a warning rather than
+borrowing from its neighbour.
+
+The rest of each row feeds the company panel: the exchange (from the
+`{{NyseSymbol}}` template), sub-industry, headquarters and founding year. The
+description is the opening two sentences of the company's Wikipedia article,
+from the REST summary endpoint. Those are fetched once per article and carried
+over from the previous file on every later run, so a daily refresh only asks
+Wikipedia about companies new to the index.
 
 It walks seven calendar years back, so the CAGR questions can span three or five
 years of what was actually filed. A company's history is the run of consecutive
@@ -92,8 +106,14 @@ operating margin.
 
 Prices come from Yahoo's `v8/finance/chart` endpoint, which needs no key. One
 call per ticker returns five years of daily bars, so the company name, the
-longer-horizon closes and the dividends paid all cost no extra requests. The
-whole index takes about 30 seconds.
+longer-horizon closes, the month-end closes for the panel's chart and the
+dividends paid all cost no extra requests. The whole index takes about 30
+seconds.
+
+The request asks for an explicit start date three weeks past five years, not
+`range=5y`: that range begins a day or two short of five calendar years, so
+no bar sat on or before the five-year date and every five-year close went
+missing for a week before a test was added to catch it.
 
 Dividends are the trailing twelve months of payments actually made, rather than
 an SEC figure: barely a quarter of the index files
@@ -215,6 +235,22 @@ score. Three rules drive them:
 
 The first two were real bugs before — see `src/utils/questionGenerator.test.ts`,
 which pins each of them.
+
+## After answering
+
+Once an answer is showing, the card carries a link to the company's chart on
+Google Finance and to its Wikipedia article, and an **About** panel with what
+the company does, where and when it started, a five-year chart of month-end
+closes, and its numbers at a glance: market cap, P/E, yield, the year's move,
+revenue and its growth, operating margin, five-year revenue CAGR. The panel
+remembers whether it was left open. Tapping inside it never moves on to the
+next question. The results screen links each question's company to Google
+Finance too.
+
+Google Finance needs the exchange in the URL — `/quote/AAPL` on its own opens
+the Google Finance home page — and writes class shares with a dot (`BRK.B`).
+The chart is a single inline SVG path, so the page still loads nothing from
+anywhere else.
 
 ## Playing it
 

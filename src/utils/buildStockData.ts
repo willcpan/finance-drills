@@ -11,7 +11,14 @@
 //                  reconstituted.
 //   prices.json    price, the closes behind it, and the dividends paid.
 //                  Changes every trading day.
-import type { FiledYear, PastClose, ShareCount, StockData } from "./stockData";
+import type {
+  CompanyProfile,
+  FiledYear,
+  MonthlyCloses,
+  PastClose,
+  ShareCount,
+  StockData,
+} from "./stockData";
 
 export interface Company {
   ticker: string;
@@ -43,6 +50,7 @@ export interface Company {
   // Null for a multi-class company, whose one listed price times its total
   // shares would not be its value.
   shares?: ShareCount | null;
+  profile?: Partial<CompanyProfile>;
 }
 
 export interface Universe {
@@ -59,6 +67,7 @@ export interface Quote {
   yearAgo?: PastClose | null;
   threeYearsAgo?: PastClose | null;
   fiveYearsAgo?: PastClose | null;
+  monthly?: MonthlyCloses | null;
   // Trailing twelve months of payments. Zero for a company that pays none,
   // which is a fact about it rather than a missing value.
   dividend?: number | null;
@@ -110,6 +119,29 @@ const filedYears = (history: FiledYear[] | undefined): FiledYear[] => {
   }
   return run;
 };
+
+const text = (value: unknown): string | null =>
+  typeof value === "string" && value.trim() ? value.trim() : null;
+
+const companyProfile = (profile: Partial<CompanyProfile> | undefined): CompanyProfile => ({
+  exchange: text(profile?.exchange),
+  wikiTitle: text(profile?.wikiTitle),
+  subIndustry: text(profile?.subIndustry),
+  headquarters: text(profile?.headquarters),
+  founded: text(profile?.founded),
+  description: text(profile?.description),
+});
+
+// A chart needs a run of real prices; one bad entry and it is not drawn.
+const monthlyCloses = (monthly: MonthlyCloses | null | undefined): MonthlyCloses | null =>
+  monthly &&
+  typeof monthly.start === "string" &&
+  /^\d{4}-\d{2}$/.test(monthly.start) &&
+  Array.isArray(monthly.closes) &&
+  monthly.closes.length >= 2 &&
+  monthly.closes.every(close => isNumber(close) && close > 0)
+    ? { start: monthly.start, closes: monthly.closes }
+    : null;
 
 const shareCount = (shares: ShareCount | null | undefined): ShareCount | null =>
   shares && isNumber(shares.millions) && shares.millions > 0 && typeof shares.date === "string"
@@ -163,6 +195,8 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       revenueHistory: filedYears(company.history?.revenue),
       epsHistory: filedYears(company.history?.eps),
       shares: shareCount(company.shares),
+      profile: companyProfile(company.profile),
+      monthly: monthlyCloses(quote.monthly),
       dividendPerShare,
       dividendYield: price > 0 ? round2((dividendPerShare / price) * 100) : 0,
     });

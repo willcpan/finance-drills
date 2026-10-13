@@ -132,25 +132,168 @@ async function fetchConstituents() {
   if (start < 0) throw new Error('constituents table not found');
   const table = wikitext.slice(start, end > start ? end : undefined);
 
-  // Each row: a {{NyseSymbol|TICKER}} template, the company as a wiki link,
-  // then four columns along, a ten-digit CIK.
-  const rows = [
-    ...table.matchAll(
-      /\{\{(?:Nyse|Nasdaq|BATS|NYSE American)Symbol\|([A-Z.\-]{1,6})\}\}[\s\S]*?\|\|\s*\[\[([^\]|]+)(?:\|[^\]]*)?\]\][\s\S]*?\|\|\s*([A-Za-z \-&,.']+?)\s*\n[\s\S]*?\|\|\s*(\d{10})/g
-    ),
-  ];
-
   const seen = new Set();
   const constituents = [];
 
-  for (const [, symbol, name, sector, cik] of rows) {
-    const ticker = toQuoteSymbol(symbol);
-    if (seen.has(ticker)) continue;
-    seen.add(ticker);
-    constituents.push({ ticker, name: name.trim(), sector: sector.trim(), cik: Number(cik) });
+  for (const row of parseRows(table)) {
+    if (seen.has(row.ticker)) continue;
+    seen.add(row.ticker);
+    constituents.push(row);
   }
 
   return constituents;
+}
+
+// The listing exchange, as Google Finance names it in a quote URL
+// (google.com/finance/quote/AAPL:NASDAQ). Without one that URL opens the
+// Google Finance home page rather than the stock.
+const GOOGLE_EXCHANGE = {
+  Nyse: 'NYSE',
+  Nasdaq: 'NASDAQ',
+  BATS: 'BATS',
+  'NYSE American': 'NYSEAMERICAN',
+};
+
+// [[Target|Shown]] -> Shown, [[Target]] -> Target; references and other
+// templates dropped. For the plain-text cells: sub-industry, headquarters,
+// founded.
+const plainText = cell =>
+  cell
+    .replace(/<ref[^>]*\/>/g, '')
+    .replace(/<ref[^>]*>[\s\S]*?<\/ref>/g, '')
+    .replace(/\{\{[^}]*\}\}/g, '')
+    .replace(/\[\[(?:[^\]|]*\|)?([^\]]*)\]\]/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+// The table, a row at a time. Columns: symbol || security || sector ||
+// sub-industry || headquarters || date added || CIK || founded.
+//
+// Each row is cut out on its own before any field is read. The previous parse
+// was one pattern run across the whole table, expecting the name as a wiki
+// link; Insulet's name is plain text, so the pattern ran on into the next row
+// and gave PODD Intel's name-link, CIK and SEC figures - and dropped Intel.
+//
+// Cells are separated by "||", but a row sometimes starts a cell on a fresh
+// line with a single "|" (Apple's founding year), so lines are split first.
+const parseRows = table => {
+  const rows = [];
+
+  for (const chunk of table.split(/\n\|-/)) {
+    const symbol = /\{\{(Nyse|Nasdaq|BATS|NYSE American)Symbol\|([A-Z.\-]{1,6})\}\}/.exec(chunk);
+    if (!symbol) continue;
+
+    const cells = chunk
+      .split('\n')
+      .filter(line => line.startsWith('|') && !line.startsWith('|-') && !line.startsWith('|}'))
+      .flatMap(line => line.replace(/^\|\|?/, '').split('||'))
+      .map(cell => cell.trim());
+    const at = cells.findIndex(cell => cell.includes(symbol[0]));
+    const [security, sector, subIndustry, headquarters, , cik, founded] = cells.slice(at + 1);
+
+    // A row that does not read as a company is skipped, never half-filled:
+    // the CIK is what every SEC figure hangs off.
+    const cikNumber = /^\d{10}$/.test(cik ?? '') ? Number(cik) : null;
+    // "Walt Disney Company (The)" is how the table sorts it, not its name.
+    const name = security ? plainText(security).replace(/^(.*) \(The\)$/, 'The $1') : '';
+    if (!cikNumber || !name || !sector) {
+      console.warn(`skipping unreadable row for ${symbol[2]}`);
+      continue;
+    }
+
+    rows.push({
+      ticker: toQuoteSymbol(symbol[2]),
+      name,
+      sector: plainText(sector),
+      cik: cikNumber,
+      exchange: GOOGLE_EXCHANGE[symbol[1]] ?? null,
+      // The article the name links to. An unlinked name (Insulet) is tried
+      // as a title as it stands; if no such article exists, the company
+      // simply has no description.
+      wikiTitle: /\[\[([^\]|]+)/.exec(security)?.[1]?.trim() ?? name,
+      subIndustry: subIndustry ? plainText(subIndustry) || null : null,
+      headquarters: headquarters ? plainText(headquarters) || null : null,
+      founded: founded ? plainText(founded) || null : null,
+    });
+  }
+
+  return rows;
+};
+
+// A short account of what the company does: the opening of its Wikipedia
+// article, cut to two sentences. Fetched once per article and carried over
+// from the previous file after that - a company's lead paragraph rarely
+// changes, and 500 requests a day for it would be rude.
+const DESCRIPTION_SENTENCES = 2;
+const DESCRIPTION_MAX_CHARS = 420;
+
+// Abbreviations that end in a full stop without ending the sentence: "Apple
+// Inc. is an American...".
+const NOT_A_SENTENCE_END = /(?:\b(?:Inc|Co|Corp|Ltd|Bros|St|Jr|Sr|No|Mr|Dr|plc|U\.S|U\.K|N\.A|S\.A|L\.P)|\b[A-Z])\.$/;
+
+const firstSentences = text => {
+  const sentences = [];
+  let start = 0;
+  for (const match of text.matchAll(/[.!?](?=\s+[A-Z"(])/g)) {
+    const candidate = text.slice(start, match.index + 1);
+    if (NOT_A_SENTENCE_END.test(candidate)) continue;
+    sentences.push(candidate.trim());
+    start = match.index + 1;
+    if (sentences.length === DESCRIPTION_SENTENCES) break;
+  }
+  if (sentences.length < DESCRIPTION_SENTENCES && start < text.length) sentences.push(text.slice(start).trim());
+
+  let out = '';
+  for (const sentence of sentences) {
+    const next = out ? `${out} ${sentence}` : sentence;
+    if (out && next.length > DESCRIPTION_MAX_CHARS) break;
+    out = next;
+  }
+  return out;
+};
+
+async function fetchDescription(title) {
+  const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title.replace(/ /g, '_'))}`;
+  try {
+    const res = await fetch(url, { headers: UA });
+    if (!res.ok) return null;
+    const extract = (await res.json())?.extract;
+    return typeof extract === 'string' && extract.length > 40 ? firstSentences(extract) : null;
+  } catch {
+    return null;
+  }
+}
+
+// Descriptions already held, by article title, so a refresh only fetches the
+// companies new to the index (or whose article moved).
+const heldDescriptions = () => {
+  try {
+    const { companies } = JSON.parse(fs.readFileSync(OUT, 'utf-8'));
+    return new Map(
+      (companies ?? [])
+        .filter(c => c.profile?.wikiTitle && c.profile?.description)
+        .map(c => [c.profile.wikiTitle, c.profile.description])
+    );
+  } catch {
+    return new Map();
+  }
+};
+
+async function fetchDescriptions(constituents) {
+  const held = heldDescriptions();
+  const descriptions = new Map(held);
+  const wanted = [...new Set(constituents.map(c => c.wikiTitle).filter(t => t && !held.has(t)))];
+
+  // A few at a time; Wikipedia asks for modest, identified traffic.
+  for (let i = 0; i < wanted.length; i += 4) {
+    const batch = wanted.slice(i, i + 4);
+    const results = await Promise.all(batch.map(fetchDescription));
+    batch.forEach((title, j) => results[j] && descriptions.set(title, results[j]));
+    await sleep(SEC_PACING_MS);
+  }
+
+  console.log(`descriptions: ${held.size} held, ${wanted.length} fetched`);
+  return descriptions;
 }
 
 // One concept, one period, every filer that reported it.
@@ -402,6 +545,7 @@ const cikCounts = new Map();
 for (const c of constituents) cikCounts.set(c.cik, (cikCounts.get(c.cik) ?? 0) + 1);
 const multiListed = new Set([...cikCounts].filter(([, n]) => n > 1).map(([cik]) => cik));
 const { shares, dilutedByYear } = await fetchShares(byCik, multiListed);
+const descriptions = await fetchDescriptions(constituents);
 console.log(
   `\nframes: revenue ${beforeGaps.revenue}  operating profit ${beforeGaps.operatingProfit}  eps ${beforeGaps.eps}` +
     `\nper-company fallback filled ${filled} more`
@@ -453,6 +597,16 @@ const companies = constituents
       // Cover-page shares outstanding, in millions, and the date they were
       // counted.
       shares: held ? { millions: Math.round(held.value / 1e4) / 100, date: held.date } : null,
+      // For the panel a player can open after answering: where to read more,
+      // and what the company is.
+      profile: {
+        exchange: c.exchange ?? null,
+        wikiTitle: c.wikiTitle ?? null,
+        subIndustry: c.subIndustry ?? null,
+        headquarters: c.headquarters ?? null,
+        founded: c.founded ?? null,
+        description: (c.wikiTitle && descriptions.get(c.wikiTitle)) || null,
+      },
     };
   })
   .sort((a, b) => a.ticker.localeCompare(b.ticker));
