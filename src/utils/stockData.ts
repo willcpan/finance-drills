@@ -78,6 +78,18 @@ export interface StockData {
   epsHistory: FiledYear[];
   // Null for a multi-class company or one whose count failed its cross-check.
   shares: ShareCount | null;
+  // Diluted weighted-average shares behind the latest EPS, in millions, on
+  // today's share basis. The company panel's market cap falls back to this
+  // where there is no cross-checked cover count (multi-class companies).
+  dilutedShares: number;
+  // Millions; NaN where not reported. Panel fallbacks: net income for an EPS
+  // where none was filed for the whole company (Airbnb files it per class),
+  // pre-tax income for a margin where there is no operating line (banks).
+  netIncome: number;
+  pretaxIncome: number;
+  // First day of trading (YYYY-MM-DD), for a listing too young to have a
+  // one- or five-year return.
+  listed: string | null;
   profile: CompanyProfile;
   // About five years of them, for the chart in the company panel.
   monthly: MonthlyCloses | null;
@@ -89,16 +101,16 @@ export interface StockData {
 
 // A figure the company never reported is NaN in the build, but the build
 // injects the array through JSON - which has no NaN and writes null instead.
-type InjectedStock = Omit<
-  StockData,
-  "eps" | "revenue" | "operatingProfit" | "priorRevenue" | "priorEps"
-> & {
-  eps: number | null;
-  revenue: number | null;
-  operatingProfit: number | null;
-  priorRevenue: number | null;
-  priorEps: number | null;
-};
+type NumericField =
+  | "eps"
+  | "revenue"
+  | "operatingProfit"
+  | "priorRevenue"
+  | "priorEps"
+  | "dilutedShares"
+  | "netIncome"
+  | "pretaxIncome";
+type InjectedStock = Omit<StockData, NumericField> & Record<NumericField, number | null>;
 
 declare const __GAME_STOCK_DATA__: InjectedStock[];
 declare const __PRICES_AS_OF__: string | null;
@@ -121,6 +133,9 @@ export const stocks: StockData[] = (
   operatingProfit: reported(stock.operatingProfit),
   priorRevenue: reported(stock.priorRevenue),
   priorEps: reported(stock.priorEps),
+  dilutedShares: reported(stock.dilutedShares),
+  netIncome: reported(stock.netIncome),
+  pretaxIncome: reported(stock.pretaxIncome),
 }));
 
 // ISO timestamp the prices were taken. The UI dates the data from this so a

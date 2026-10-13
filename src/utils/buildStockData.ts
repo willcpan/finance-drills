@@ -11,14 +11,8 @@
 //                  reconstituted.
 //   prices.json    price, the closes behind it, and the dividends paid.
 //                  Changes every trading day.
-import type {
-  CompanyProfile,
-  FiledYear,
-  MonthlyCloses,
-  PastClose,
-  ShareCount,
-  StockData,
-} from "./stockData";
+import type { CompanyProfile, FiledYear, MonthlyCloses, PastClose, StockData } from "./stockData";
+import { reconcileShares, type ShareCounts, type Split } from "./shareBasis";
 
 export interface Company {
   ticker: string;
@@ -46,10 +40,14 @@ export interface Company {
     revenue: FiledYear[]; // millions
     eps: FiledYear[];
   };
-  // Cover-page shares outstanding, cross-checked against the diluted count.
-  // Null for a multi-class company, whose one listed price times its total
-  // shares would not be its value.
-  shares?: ShareCount | null;
+  // The cover page's count and the diluted weighted average, reconciled here
+  // against splits (see shareBasis.ts).
+  shareCounts?: ShareCounts;
+  // For the company panel: net income for an EPS where none was filed for the
+  // whole company, pre-tax income for a margin where there is no operating
+  // line. Millions.
+  netIncome?: number | null;
+  pretaxIncome?: number | null;
   profile?: Partial<CompanyProfile>;
 }
 
@@ -68,6 +66,8 @@ export interface Quote {
   threeYearsAgo?: PastClose | null;
   fiveYearsAgo?: PastClose | null;
   monthly?: MonthlyCloses | null;
+  splits?: Split[] | null;
+  listed?: string | null;
   // Trailing twelve months of payments. Zero for a company that pays none,
   // which is a fact about it rather than a missing value.
   dividend?: number | null;
@@ -143,10 +143,8 @@ const monthlyCloses = (monthly: MonthlyCloses | null | undefined): MonthlyCloses
     ? { start: monthly.start, closes: monthly.closes }
     : null;
 
-const shareCount = (shares: ShareCount | null | undefined): ShareCount | null =>
-  shares && isNumber(shares.millions) && shares.millions > 0 && typeof shares.date === "string"
-    ? { millions: shares.millions, date: shares.date }
-    : null;
+const splitList = (splits: Split[] | null | undefined): Split[] =>
+  (splits ?? []).filter(s => s && typeof s.date === "string" && isNumber(s.ratio) && s.ratio > 0);
 
 export function buildStockData(universe: Universe | null, prices: PriceFile | null): BuildResult {
   const companies = universe?.companies ?? [];
@@ -172,6 +170,20 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
     const price = round2(quote.price);
     const dividendPerShare = isNumber(quote.dividend) ? round2(quote.dividend) : 0;
 
+    // Per-share figures onto the basis today's price is quoted on.
+    const basis = reconcileShares(
+      company.shareCounts,
+      splitList(quote.splits),
+      reported(company.netIncome),
+      reported(company.eps),
+      company.fiscalYear ?? null
+    );
+    // EPS is reported in cents, so an adjusted figure is rounded back to them:
+    // a question prints it to the cent and works its answer from what it prints.
+    const onBasis = (value: number): number =>
+      basis.epsDivisor === 1 ? value : round2(value / basis.epsDivisor);
+    const perShare = (value: number | null | undefined): number => onBasis(reported(value));
+
     stocks.push({
       ticker,
       // The index table's name is the plain one ("Apple Inc." over "Apple Inc.
@@ -184,17 +196,24 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       yearAgo: pastClose(quote.yearAgo),
       threeYearsAgo: pastClose(quote.threeYearsAgo),
       fiveYearsAgo: pastClose(quote.fiveYearsAgo),
-      eps: reported(company.eps),
+      eps: perShare(company.eps),
       revenue: reported(company.revenue),
       operatingProfit: reported(company.operatingProfit),
       fiscalYear: company.fiscalYear ?? null,
       priorRevenue: reported(company.prior?.revenue),
-      priorEps: reported(company.prior?.eps),
+      priorEps: perShare(company.prior?.eps),
       priorRevenueFiscalYear: company.prior?.revenueFiscalYear ?? null,
       priorEpsFiscalYear: company.prior?.epsFiscalYear ?? null,
       revenueHistory: filedYears(company.history?.revenue),
-      epsHistory: filedYears(company.history?.eps),
-      shares: shareCount(company.shares),
+      epsHistory: filedYears(company.history?.eps).map(year => ({
+        period: year.period,
+        value: onBasis(year.value),
+      })),
+      shares: basis.shares,
+      dilutedShares: basis.dilutedMillions,
+      netIncome: reported(company.netIncome),
+      pretaxIncome: reported(company.pretaxIncome),
+      listed: typeof quote.listed === "string" ? quote.listed : null,
       profile: companyProfile(company.profile),
       monthly: monthlyCloses(quote.monthly),
       dividendPerShare,

@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
-import {
-  type MonthlyCloses,
-  type StockData,
-  cagrOf,
-  marketCapOf,
-  operatingMarginOf,
-  peRatioOf,
-  priceMoveOf,
-  revenueGrowthOf,
-} from "@/utils/stockData";
-import { bigMoney, billions, fiscalLabel, money, percent, ratio } from "@/utils/format";
+import type { MonthlyCloses, StockData } from "@/utils/stockData";
+import { money } from "@/utils/format";
+import { companyFigures } from "@/utils/companyFigures";
 import { googleFinanceUrl, wikipediaUrl } from "@/utils/links";
 
 // Whether the panel is open is remembered per browser: someone who opens it
@@ -34,9 +25,6 @@ const writeOpen = (open: boolean): void => {
     // Nothing to do; it just will not be remembered.
   }
 };
-
-const signed = (value: number, decimals = 1): string =>
-  `${value > 0 ? "+" : ""}${percent(value, decimals)}`;
 
 const monthLabel = (start: string, offset: number): string => {
   const [year, month] = start.split("-").map(Number);
@@ -77,8 +65,11 @@ const PriceChart: React.FC<{ monthly: MonthlyCloses }> = ({ monthly }) => {
     <figure className="space-y-1">
       <div className="flex items-baseline justify-between text-xs text-gray-500">
         <span>5-year price, month-end</span>
-        <span className={cn("font-semibold tabular-nums", up ? "text-finance-green" : "text-finance-red")}>
-          {money(first)} → {money(last)} ({signed(priceMoveOf(first, last), 0)})
+        {/* Dates, not a percentage: the chart starts at a month-end, so its
+            change would disagree with the 5-year return row above it, which
+            runs from the close five years ago to the day. */}
+        <span className="tabular-nums">
+          {monthLabel(start, 0)} – {monthLabel(start, closes.length - 1)}
         </span>
       </div>
       <div>
@@ -117,33 +108,6 @@ const PriceChart: React.FC<{ monthly: MonthlyCloses }> = ({ monthly }) => {
       </figcaption>
     </figure>
   );
-};
-
-// The company's numbers at a glance, from the same data the questions use.
-const keyFigures = (stock: StockData): { label: string; value: string }[] => {
-  const figures: { label: string; value: string }[] = [];
-  const cap = marketCapOf(stock);
-  if (Number.isFinite(cap)) figures.push({ label: "Market cap", value: billions(cap) });
-  if (stock.eps > 0) figures.push({ label: "P/E", value: ratio(peRatioOf(stock)) });
-  if (stock.dividendPerShare > 0) figures.push({ label: "Dividend yield", value: percent(stock.dividendYield) });
-  if (stock.yearAgo) {
-    figures.push({ label: "1-year move", value: signed(priceMoveOf(stock.yearAgo.price, stock.currentPrice)) });
-  }
-  if (stock.revenue > 0) {
-    const growth = revenueGrowthOf(stock);
-    figures.push({
-      label: `Revenue ${fiscalLabel(stock.fiscalYear)}`,
-      value: `${bigMoney(stock.revenue)}${Number.isFinite(growth) ? ` (${signed(growth)})` : ""}`,
-    });
-  }
-  const margin = operatingMarginOf(stock);
-  if (Number.isFinite(margin)) figures.push({ label: "Operating margin", value: percent(margin, 1) });
-  const history = stock.revenueHistory;
-  if (history.length > 5) {
-    const rate = cagrOf(history[5].value, history[0].value, 5);
-    if (Number.isFinite(rate)) figures.push({ label: "Revenue, 5-yr CAGR", value: signed(rate) });
-  }
-  return figures;
 };
 
 const linkClass =
@@ -194,15 +158,18 @@ const CompanyPanel: React.FC<{ stock: StockData }> = ({ stock }) => {
         <div className="space-y-3 animate-fade-in">
           {facts.length > 0 && <p className="text-xs text-gray-500">{facts.join(" · ")}</p>}
           {profile.description && <p className="text-sm text-gray-700 leading-relaxed">{profile.description}</p>}
-          {stock.monthly && <PriceChart monthly={stock.monthly} />}
-          <dl className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
-            {keyFigures(stock).map(({ label, value }) => (
-              <div key={label} className="flex flex-col">
+          {/* The same eight rows for every company, in the same order (see
+              utils/companyFigures.ts); a missing figure says why. */}
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+            {companyFigures(stock).map(({ label, value, note }) => (
+              <div key={label} className="flex flex-col min-w-0">
                 <dt className="text-xs text-gray-500">{label}</dt>
                 <dd className="font-medium text-gray-800 tabular-nums">{value}</dd>
+                {note && <dd className="text-[11px] leading-snug text-gray-400">{note}</dd>}
               </div>
             ))}
           </dl>
+          {stock.monthly && <PriceChart monthly={stock.monthly} />}
         </div>
       )}
     </div>

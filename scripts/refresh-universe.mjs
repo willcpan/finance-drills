@@ -86,29 +86,57 @@ const SHARE_QUARTERS = (() => {
   return quarters;
 })();
 
-// A cover-page count is checked against the diluted weighted-average count
-// behind the latest EPS. A buyback or an issue moves the two apart by a few
-// percent; a gap past this means the cover counted one share class of several
-// (or something else entirely), and price x shares would not be the company's
-// value.
-const MAX_SHARE_GAP = 0.2;
 
 // Revenue has no single tag - the one a filer uses depends on how it earns.
 // Operating income is a single tag that financials and REITs simply do not
 // report, which is an accounting fact rather than a gap to paper over: those
 // companies end up without an operating margin question.
+//
+// Banks file their top line as RevenuesNetOfInterestExpense (Goldman, Wells
+// Fargo). Without it Goldman had no revenue at all, and Wells Fargo's latest
+// "revenue" was a Revenues figure from 2019, the last year it used that tag.
+// Exxon files EPS as one figure for basic and diluted.
 const CONCEPTS = {
   revenue: [
     ['Revenues', 'USD'],
     ['RevenueFromContractWithCustomerExcludingAssessedTax', 'USD'],
     ['RevenueFromContractWithCustomerIncludingAssessedTax', 'USD'],
+    ['RevenuesNetOfInterestExpense', 'USD'],
+    // Utilities (DTE).
+    ['RegulatedAndUnregulatedOperatingRevenue', 'USD'],
   ],
   operatingProfit: [['OperatingIncomeLoss', 'USD']],
   eps: [
     ['EarningsPerShareDiluted', 'USD-per-shares'],
     ['EarningsPerShareBasic', 'USD-per-shares'],
+    ['EarningsPerShareBasicAndDiluted', 'USD-per-shares'],
+  ],
+  // For the company panel only. A company that reports EPS per share class
+  // and never for the whole (Airbnb) gets an EPS of net income over diluted
+  // shares; one with no operating line (banks, insurers) gets a pre-tax margin.
+  // Monster and Exelon stopped tagging EPS and file net income as ProfitLoss.
+  netIncome: [
+    ['NetIncomeLoss', 'USD'],
+    ['ProfitLoss', 'USD'],
+  ],
+  pretaxIncome: [
+    ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', 'USD'],
+    ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments', 'USD'],
   ],
 };
+
+// A company that moved under a new holding company files under a new CIK with
+// none of its history: ExxonMobil Holdings Corp (2026) has filed 10-Qs but no
+// 10-K yet. Its figures are read from the predecessor until it has its own.
+// The run logs any company with no figures at all, which is how the next one
+// of these will show up.
+const PREDECESSOR_CIK = {
+  2115436: 34088, // ExxonMobil Holdings Corp <- Exxon Mobil Corporation
+};
+
+// The latest figure has to be recent. Without this, a company that stopped
+// using a tag reported its last year under it as current.
+const MAX_STALE_YEARS = 1;
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -325,7 +353,7 @@ async function fetchFrame(concept, unit, period, taxonomy = 'us-gaap') {
 // pair has to be measured the same way: a company that switched revenue tags
 // between years would otherwise show growth that is an accounting change.
 async function fetchFundamentals(wanted) {
-  const found = { revenue: new Map(), operatingProfit: new Map(), eps: new Map() };
+  const found = Object.fromEntries(Object.keys(CONCEPTS).map(field => [field, new Map()]));
 
   const record = (field, cik, entry) => {
     const series = found[field].get(cik) ?? [];
@@ -349,29 +377,54 @@ async function fetchFundamentals(wanted) {
   return found;
 }
 
+const yearOf = period => Number(String(period).slice(2));
+
+// Two concepts carrying the same year at the same value are the same figure
+// under two tags - a company restating its old years under the new tag when it
+// switches. Within this, the history may continue under the old tag.
+const SPLICE_MATCH = 0.005;
+
 // The company's latest reported figure, and the year before it measured under
 // the same concept.
 const latestPair = series => {
-  if (!series || series.length === 0) return { current: null, prior: null, history: [] };
+  const none = { current: null, prior: null, history: [] };
+  if (!series || series.length === 0) return none;
 
   // PERIODS is newest first and the series was built in that order.
   const current = series[0];
+  if (yearOf(current.period) < LATEST_YEAR - MAX_STALE_YEARS) return none;
   const prior = series.find(e => e.frame === current.frame && e.period !== current.period) ?? null;
 
-  // Every year filed under the latest year's concept, newest first and one per
-  // period. A CAGR spans the ends of this, so mixing concepts would report a
-  // change of revenue tag as five years of growth.
-  const seen = new Set();
-  const history = series.filter(e => {
-    if (e.frame !== current.frame || seen.has(e.period)) return false;
-    seen.add(e.period);
-    return true;
-  });
+  // Every year back from the latest, newest first and one per period, under
+  // the latest year's concept. A CAGR spans the ends of this, so mixing
+  // concepts would report a change of revenue tag as growth - except where the
+  // company filed the same year identically under both tags, which shows the
+  // two measure the same thing (AMETEK moved tags in 2022 and filed 2022 and
+  // 2023 under both). There the history carries on under the older tag.
+  const at = (frame, period) => series.find(e => e.frame === frame && e.period === period);
+  const history = [current];
+  let frame = current.frame;
+  while (history.length < HISTORY_YEARS) {
+    const last = history[history.length - 1];
+    const wanted = `${last.period.slice(0, 2)}${yearOf(last.period) - 1}`;
+    let next = at(frame, wanted);
+    if (!next) {
+      const bridge = series.find(
+        e =>
+          e.frame !== frame &&
+          e.period === last.period &&
+          Math.abs(e.value / last.value - 1) <= SPLICE_MATCH &&
+          at(e.frame, wanted)
+      );
+      if (!bridge) break;
+      frame = bridge.frame;
+      next = at(frame, wanted);
+    }
+    history.push(next);
+  }
 
   return { current, prior, history };
 };
-
-const yearOf = period => Number(String(period).slice(2));
 
 // The run of consecutive years from the latest backwards. A gap would leave a
 // span the question could not honestly put a number of years on.
@@ -385,10 +438,12 @@ const consecutive = history => {
   return run;
 };
 
-// The freshest cover-page count per company, cross-checked against the
-// diluted weighted-average count. A company without both sits the market-cap
-// question out rather than being valued on one class of its shares.
-async function fetchShares(wanted, multiListed) {
+// The freshest cover-page count per company, and the diluted weighted-average
+// count behind each year's EPS. The two are cross-checked in the build
+// (buildStockData.ts), which also knows about splits from the price feed: a
+// split since the last annual report moves the cover count but not the
+// annual one, and the check has to allow for it.
+async function fetchShares(wanted) {
   const cover = new Map();
   for (const quarter of SHARE_QUARTERS) {
     for (const row of await fetchFrame('EntityCommonStockSharesOutstanding', 'shares', quarter, 'dei')) {
@@ -410,27 +465,8 @@ async function fetchShares(wanted, multiListed) {
     }
   }
 
-  const latestDiluted = cik => {
-    const years = dilutedByYear.get(cik);
-    return years?.get(PERIODS[0]) ?? years?.get(PERIODS[1]);
-  };
-
-  const shares = new Map();
-  let rejected = 0;
-  for (const [cik, count] of cover) {
-    // Two listings under one CIK (GOOG and GOOGL) are two classes of one
-    // company; either price times the total is not quite its value.
-    if (multiListed.has(cik)) continue;
-    const check = latestDiluted(cik);
-    if (!check || Math.abs(count.value / check - 1) > MAX_SHARE_GAP) {
-      rejected++;
-      continue;
-    }
-    shares.set(cik, count);
-  }
-
-  console.log(`shares: cover ${cover.size}  cross-checked ${shares.size}  rejected ${rejected}`);
-  return { shares, dilutedByYear };
+  console.log(`shares: cover ${cover.size}  diluted ${dilutedByYear.size}`);
+  return { cover, dilutedByYear };
 }
 
 // A year's EPS is restated for a split only if a filing after the split still
@@ -506,12 +542,12 @@ async function fillGaps(constituents, facts) {
 
   for (const company of constituents) {
     for (const [field, concepts] of Object.entries(CONCEPTS)) {
-      if (facts[field].has(company.cik)) continue;
+      if (facts[field].has(company.factsCik)) continue;
 
       for (const [concept, unit] of concepts) {
-        const series = await fetchConcept(company.cik, concept, unit);
+        const series = await fetchConcept(company.factsCik, concept, unit);
         if (series?.length) {
-          facts[field].set(company.cik, series);
+          facts[field].set(company.factsCik, series);
           filled++;
           break;
         }
@@ -533,7 +569,8 @@ if (constituents.length < MIN_CONSTITUENTS) {
   process.exit(1);
 }
 
-const byCik = new Set(constituents.map(c => c.cik));
+for (const c of constituents) c.factsCik = PREDECESSOR_CIK[c.cik] ?? c.cik;
+const byCik = new Set(constituents.flatMap(c => [c.cik, c.factsCik]));
 const facts = await fetchFundamentals(byCik);
 
 const beforeGaps = Object.fromEntries(
@@ -544,7 +581,19 @@ const filled = await fillGaps(constituents, facts);
 const cikCounts = new Map();
 for (const c of constituents) cikCounts.set(c.cik, (cikCounts.get(c.cik) ?? 0) + 1);
 const multiListed = new Set([...cikCounts].filter(([, n]) => n > 1).map(([cik]) => cik));
-const { shares, dilutedByYear } = await fetchShares(byCik, multiListed);
+const { cover, dilutedByYear } = await fetchShares(byCik);
+
+// The frames miss a non-calendar filer's diluted count as they miss its other
+// figures (Constellation, Take-Two, Smucker); fetch those one at a time.
+let dilutedFilled = 0;
+for (const c of constituents) {
+  if (dilutedByYear.has(c.factsCik)) continue;
+  const series = await fetchConcept(c.factsCik, 'WeightedAverageNumberOfDilutedSharesOutstanding', 'shares');
+  if (!series?.length) continue;
+  dilutedByYear.set(c.factsCik, new Map(series.map(e => [e.period, e.value])));
+  dilutedFilled++;
+}
+console.log(`diluted counts filled per company: ${dilutedFilled}`);
 const descriptions = await fetchDescriptions(constituents);
 console.log(
   `\nframes: revenue ${beforeGaps.revenue}  operating profit ${beforeGaps.operatingProfit}  eps ${beforeGaps.eps}` +
@@ -557,10 +606,20 @@ const toMillions = value => Math.round((value / 1e6) * 10) / 10;
 
 const companies = constituents
   .map(c => {
-    const revenue = latestPair(facts.revenue.get(c.cik));
-    const operatingProfit = latestPair(facts.operatingProfit.get(c.cik));
-    const eps = latestPair(facts.eps.get(c.cik));
-    const held = shares.get(c.cik);
+    const revenue = latestPair(facts.revenue.get(c.factsCik));
+    const operatingProfit = latestPair(facts.operatingProfit.get(c.factsCik));
+    const eps = latestPair(facts.eps.get(c.factsCik));
+    const netIncome = latestPair(facts.netIncome.get(c.factsCik));
+    const pretaxIncome = latestPair(facts.pretaxIncome.get(c.factsCik));
+    // A margin divides two figures from the same year, or it is not a margin.
+    const sameYear = pair => (pair.current && pair.current.period === revenue.current?.period ? pair.current : null);
+    const held = cover.get(c.cik) ?? cover.get(c.factsCik);
+    const dilutedYears = dilutedByYear.get(c.factsCik);
+    // The latest year held: CY2025 from the frames, or FY2026 from the
+    // per-company fallback.
+    const dilutedPeriod = dilutedYears
+      ? [...dilutedYears.keys()].sort((a, b) => yearOf(b) - yearOf(a)).find(p => yearOf(p) >= LATEST_YEAR - MAX_STALE_YEARS)
+      : undefined;
 
     return {
       ticker: c.ticker,
@@ -571,7 +630,15 @@ const companies = constituents
       // simply loses the question types that need it - the eligibility bands
       // in the app already work that way.
       revenue: revenue.current ? toMillions(revenue.current.value) : null,
-      operatingProfit: operatingProfit.current ? toMillions(operatingProfit.current.value) : null,
+      operatingProfit: sameYear(operatingProfit) ? toMillions(operatingProfit.current.value) : null,
+      // Panel-only fallbacks; see CONCEPTS.
+      pretaxIncome: sameYear(pretaxIncome) ? toMillions(pretaxIncome.current.value) : null,
+      netIncome: netIncome.current && netIncome.current.period === eps.current?.period
+        ? toMillions(netIncome.current.value)
+        : netIncome.current && !eps.current
+          ? toMillions(netIncome.current.value)
+          : null,
+      netIncomeFiscalYear: netIncome.current?.period ?? null,
       eps: eps.current ? eps.current.value : null,
       // The year before, measured under the same concept, so that a growth
       // question compares like with like rather than reporting an accounting
@@ -589,14 +656,23 @@ const companies = constituents
       // CAGR questions. Revenue in millions, like the figures above.
       history: {
         revenue: consecutive(revenue.history).map(e => ({ period: e.period, value: toMillions(e.value) })),
-        eps: splitFreeEps(consecutive(eps.history), dilutedByYear.get(c.cik)).map(e => ({
+        eps: splitFreeEps(consecutive(eps.history), dilutedYears).map(e => ({
           period: e.period,
           value: e.value,
         })),
       },
-      // Cover-page shares outstanding, in millions, and the date they were
-      // counted.
-      shares: held ? { millions: Math.round(held.value / 1e4) / 100, date: held.date } : null,
+      // Share counts, in millions: the cover page's (with the date counted)
+      // and the diluted weighted average behind the latest EPS. Cross-checked
+      // and split-adjusted in the build. A company listed twice (GOOG and
+      // GOOGL) is two classes of one company, so neither price times the
+      // total is quite its value.
+      shareCounts: {
+        cover: held ? { millions: Math.round(held.value / 1e4) / 100, date: held.date } : null,
+        diluted: dilutedPeriod
+          ? { millions: Math.round(dilutedYears.get(dilutedPeriod) / 1e4) / 100, period: dilutedPeriod }
+          : null,
+        multiClass: multiListed.has(c.cik),
+      },
       // For the panel a player can open after answering: where to read more,
       // and what the company is.
       profile: {
@@ -628,7 +704,14 @@ console.log(
   `3-year spans: revenue ${spans('revenue', 3)}  eps ${spans('eps', 3)}   ` +
     `5-year: revenue ${spans('revenue', 5)}  eps ${spans('eps', 5)}`
 );
-console.log(`shares outstanding: ${companies.filter(c => c.shares).length}`);
+console.log(
+  `share counts: cover ${companies.filter(c => c.shareCounts.cover).length}  ` +
+    `diluted ${companies.filter(c => c.shareCounts.diluted).length}`
+);
+
+// A company with nothing at all has usually moved CIK (see PREDECESSOR_CIK).
+const empty = companies.filter(c => c.revenue === null && c.eps === null);
+if (empty.length) console.warn(`no fundamentals at all: ${empty.map(c => `${c.ticker} (CIK ${c.cik})`).join(', ')}`);
 
 // Prices alone make a drill of six question types; the valuation, margin and
 // dividend questions need these. If the join collapses, the file that is

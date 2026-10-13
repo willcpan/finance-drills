@@ -204,8 +204,9 @@ async function fetchQuote(ticker) {
       const yearAgo = closeOnOrBefore(bars, shiftDay(today, YEAR_DAYS));
 
       const splits = Object.values(result?.events?.splits ?? {})
-        .filter(s => Number.isFinite(s.date))
-        .map(s => ({ day: dayOf(s.date) }));
+        .filter(s => Number.isFinite(s.date) && s.numerator > 0 && s.denominator > 0)
+        .map(s => ({ day: dayOf(s.date), ratio: s.numerator / s.denominator }))
+        .sort((a, b) => (a.day < b.day ? -1 : 1));
       const threeYearsAgo = longCloseOnOrBefore(bars, splits, shiftDay(today, THREE_YEAR_DAYS));
       const fiveYearsAgo = longCloseOnOrBefore(bars, splits, shiftDay(today, FIVE_YEAR_DAYS));
 
@@ -243,6 +244,13 @@ async function fetchQuote(ticker) {
         threeYearsAgo: past(threeYearsAgo),
         fiveYearsAgo: past(fiveYearsAgo),
         monthly,
+        // Splits in the last five years. The SEC figures for a year before a
+        // split are on the old share basis until a later 10-K restates them;
+        // the build uses these to put EPS and share counts on today's.
+        splits: splits.map(s => ({ date: s.day, ratio: Math.round(s.ratio * 10000) / 10000 })),
+        // First day of trading, so a panel can say why a recent listing has no
+        // five-year return.
+        listed: Number.isFinite(meta?.firstTradeDate) ? dayOf(meta.firstTradeDate) : null,
         dividend: Math.round(dividend * 1000) / 1000,
         payments: payments.length,
         asOf: meta?.regularMarketTime,
@@ -343,6 +351,8 @@ const payload = {
           threeYearsAgo: r.threeYearsAgo,
           fiveYearsAgo: r.fiveYearsAgo,
           monthly: r.monthly,
+          splits: r.splits,
+          listed: r.listed,
           dividend: r.dividend,
         },
       ])

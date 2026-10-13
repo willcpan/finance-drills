@@ -60,6 +60,31 @@ from the REST summary endpoint. Those are fetched once per article and carried
 over from the previous file on every later run, so a daily refresh only asks
 Wikipedia about companies new to the index.
 
+Fixes found by insisting every company show the same figures:
+
+- **Banks' and utilities' revenue tags.** Banks file `RevenuesNetOfInterestExpense`
+  and utilities `RegulatedAndUnregulatedOperatingRevenue`; without them Goldman
+  had no revenue and DTE none either.
+- **Stale figures passed off as current.** The latest figure is whichever recent
+  year a company filed under *any* of the concepts, so a company that stopped
+  using a tag reported its last year under it as this year's: Wells Fargo's
+  "revenue" was its 2019 `Revenues`, and 36 operating margins divided an old
+  year's operating income by this year's revenue (Devon's 2020 loss among
+  them). The latest figure must now be from the last year or two, and a margin
+  only divides figures from the same year.
+- **A change of revenue tag cut the history short.** Where a company filed the
+  same year at the same value under both its old and new tag (AMETEK in 2022
+  and 2023), the history carries on under the old one.
+- **A new holding company.** Exxon moved under ExxonMobil Holdings Corp in 2026,
+  whose CIK has no 10-K yet; `PREDECESSOR_CIK` reads it from the old one, and
+  the run logs any company with no figures at all so the next case shows up.
+- **Splits after the last 10-K.** The annual EPS and diluted count stay on the
+  old share basis until a later 10-K restates them, while the cover page and
+  the price move straight away: Booking's 25-for-1 split would have given it a
+  P/E of 1. `src/utils/shareBasis.ts` puts both on today's basis, using
+  Yahoo's split list as the clue and the share counts as the proof - Yahoo's
+  list also carries spin-off price adjustments, which change no share count.
+
 It walks seven calendar years back, so the CAGR questions can span three or five
 years of what was actually filed. A company's history is the run of consecutive
 years filed under the same XBRL concept as its latest year, so a change of
@@ -241,9 +266,22 @@ which pins each of them.
 Once an answer is showing, the card carries a link to the company's chart on
 Google Finance and to its Wikipedia article, and an **About** panel with what
 the company does, where and when it started, a five-year chart of month-end
-closes, and its numbers at a glance: market cap, P/E, yield, the year's move,
-revenue and its growth, operating margin, five-year revenue CAGR. The panel
-remembers whether it was left open. Tapping inside it never moves on to the
+closes, and the same eight figures for every company, in the same order:
+market cap, P/E, dividend yield, 1-year and 5-year return, operating margin,
+and revenue growth over one and five years (`src/utils/companyFigures.ts`).
+
+A figure that cannot be had says why instead of disappearing ("listed 15 Jun
+2026", "EPS filed per share class only"). One worked out a second-best way is
+marked ≈ with a note saying how:
+
+| Figure | Normally | Fallback |
+| --- | --- | --- |
+| Market cap | price × cross-checked cover-page shares | price × diluted shares (multi-class companies such as Alphabet and Meta) |
+| P/E | price ÷ filed EPS; "n/m" for a loss | price ÷ (net income ÷ diluted shares), for a company that files EPS only per class (Airbnb) or stopped tagging it (Monster) |
+| Operating margin | operating income ÷ revenue, same year | pre-tax income ÷ revenue, for banks and insurers, which file no operating line |
+| Revenue growth, 5 yr | compound rate over five filed years | the longest comparable span, labelled with its length |
+
+The panel remembers whether it was left open. Tapping inside it never moves on to the
 next question. The results screen links each question's company to Google
 Finance too.
 

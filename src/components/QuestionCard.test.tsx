@@ -29,6 +29,10 @@ const stock = (overrides: Partial<StockData> = {}): StockData => ({
   revenueHistory: [],
   epsHistory: [],
   shares: null,
+  dilutedShares: 10,
+  netIncome: 50,
+  pretaxIncome: Number.NaN,
+  listed: "1990-01-02",
   profile: {
     exchange: "NYSE",
     wikiTitle: "Alpha Industries",
