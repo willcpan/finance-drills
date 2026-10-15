@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-15T00:01:59.046Z",
+  "asOf": "2026-10-15T23:46:11.702Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -30135,8 +30135,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 477.21,
-          "date": "2026-07-16"
+          "millions": 475.51,
+          "date": "2026-10-12"
         },
         "diluted": {
           "millions": 494,
