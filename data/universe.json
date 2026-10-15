@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-14T00:28:42.394Z",
+  "asOf": "2026-10-15T00:01:59.046Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -28390,7 +28390,7 @@
     },
     {
       "ticker": "MCK",
-      "name": "McKesson Corporation",
+      "name": "McKesson",
       "sector": "Health Care",
       "cik": 927653,
       "revenue": 403430,
@@ -28481,7 +28481,7 @@
       },
       "profile": {
         "exchange": "NYSE",
-        "wikiTitle": "McKesson Corporation",
+        "wikiTitle": "McKesson",
         "subIndustry": "Health Care Distributors",
         "headquarters": "Irving, Texas",
         "founded": "1833",
