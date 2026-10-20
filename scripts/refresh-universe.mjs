@@ -517,7 +517,8 @@ async function fetchFacts(cik, concept, unit) {
   if (!res.ok) throw new Error(`SEC returned HTTP ${res.status} for ${concept} of CIK ${cik}`);
 
   const units = (await res.json())?.units ?? {};
-  return units[unit] ?? units[unit.replace('-per-', '/')] ?? [];
+  const facts = units[unit] ?? units[unit.replace('-per-', '/')];
+  return Array.isArray(facts) ? facts : [];
 }
 
 async function fetchConcept(cik, concept, unit) {
@@ -556,33 +557,53 @@ async function fetchConcept(cik, concept, unit) {
 // one concept. A company that moved CIK (Exxon) has its 10-K under the old one
 // and its 10-Qs under the new, so both are read together.
 //
-// Five hundred requests make a transient refusal likely enough that one must
-// cost a company its trailing figure, not the whole run its universe.
+// Five hundred requests make a transient failure likely enough that one must
+// cost a company its trailing figure, not the whole run its universe. The
+// first run lost 33 companies (Coca-Cola, Abbott, Ford among them) to an error
+// thrown from inside fetch itself, scattered through the list, so each company
+// gets a few tries before it goes without.
+const TRAILING_TRIES = 3;
+
+async function trailingFor(c) {
+  const ciks = [...new Set([c.factsCik, c.cik])];
+  for (const [concept, unit] of CONCEPTS.eps) {
+    const facts = [];
+    for (const cik of ciks) facts.push(...((await fetchFacts(cik, concept, unit)) ?? []));
+    const ttm = trailingEps(facts);
+    if (ttm) return { ...ttm, concept };
+  }
+  return null;
+}
+
 async function fetchTrailingEps(constituents) {
   const trailing = new Map();
   const failed = [];
+  let retried = 0;
   for (const c of constituents) {
-    const ciks = [...new Set([c.factsCik, c.cik])];
-    try {
-      for (const [concept, unit] of CONCEPTS.eps) {
-        const facts = [];
-        for (const cik of ciks) facts.push(...((await fetchFacts(cik, concept, unit)) ?? []));
-        const ttm = trailingEps(facts);
-        if (ttm) {
-          trailing.set(c.ticker, { ...ttm, concept });
-          break;
+    for (let attempt = 1; attempt <= TRAILING_TRIES; attempt++) {
+      try {
+        const ttm = await trailingFor(c);
+        if (ttm) trailing.set(c.ticker, ttm);
+        break;
+      } catch (error) {
+        if (attempt < TRAILING_TRIES) {
+          retried++;
+          await sleep(2000 * attempt);
+          continue;
         }
+        // Where it was thrown, so a failure that is not transient can be found.
+        const at = (error.stack ?? '').split('\n')[1]?.trim() ?? '';
+        failed.push(`${c.ticker} (${error.message}${at ? ` ${at}` : ''})`);
       }
-    } catch (error) {
-      failed.push(`${c.ticker} (${error.message})`);
     }
   }
+  if (retried) console.log(`trailing eps: ${retried} retries`);
 
   const extended = [...trailing.values()].filter(t => t.ytd).length;
   console.log(
     `trailing eps: ${trailing.size} (${extended} extended by a 10-Q, ${trailing.size - extended} fiscal year only)`
   );
-  if (failed.length) console.warn(`trailing eps failed for ${failed.length}: ${failed.slice(0, 10).join(', ')}`);
+  if (failed.length) console.warn(`trailing eps failed for ${failed.length}:\n  ${failed.join('\n  ')}`);
   return trailing;
 }
 
