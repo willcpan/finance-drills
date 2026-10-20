@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-16T23:46:22.047Z",
+  "asOf": "2026-10-20T00:31:17.279Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -17018,8 +17018,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 1147.5,
-          "date": "2026-07-10"
+          "millions": 1147.3,
+          "date": "2026-10-13"
         },
         "diluted": {
           "millions": 1150.33,
@@ -42381,7 +42381,7 @@
       "revenue": 94827,
       "operatingProfit": 4355,
       "pretaxIncome": 5278,
-      "netIncome": 3794,
+      "netIncome": 3855,
       "netIncomeFiscalYear": "CY2025",
       "eps": 1.08,
       "prior": {
