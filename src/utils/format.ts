@@ -1,4 +1,5 @@
 import type { AnswerUnit } from "./questionGenerator";
+import type { TrailingEps } from "./stockData";
 
 // The sign goes outside the currency symbol: a falling move reads as -$1.90,
 // not $-1.90.
@@ -85,6 +86,14 @@ export const shortDate = (iso: string): string => {
 // A non-calendar filer keeps its "FY2026", which is what its own report says.
 export const fiscalLabel = (period: string | null): string =>
   !period ? "its last reported year" : period.startsWith("CY") ? period.slice(2) : period;
+
+// What a trailing EPS covers, said in full wherever one is printed: a P/E is
+// only as meaningful as knowing whose twelve months it divides by.
+export const trailingPeriod = (eps: TrailingEps): string =>
+  eps.end ? `the 12 months to ${shortDate(eps.end)}` : "its last reported fiscal year";
+
+export const trailingKind = (eps: TrailingEps): string =>
+  eps.diluted === false ? "basic EPS, GAAP" : eps.diluted ? "diluted EPS, GAAP" : "EPS, GAAP";
 
 // Render an answer in whatever unit its question uses.
 export const formatAnswer = (value: number, unit: AnswerUnit): string => {

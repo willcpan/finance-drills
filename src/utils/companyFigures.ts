@@ -57,7 +57,15 @@ const marketCap = (s: StockData): Figure => {
 
 const peRatio = (s: StockData): Figure => {
   const label = "P/E";
-  if (s.eps > 0) return { label, value: ratio(s.currentPrice / s.eps) };
+  // Trailing, and the note says whose twelve months.
+  const trailing = s.trailingEps;
+  if (trailing) {
+    const period = trailing.end ? `TTM to ${shortDate(trailing.end)}` : "last annual report";
+    return trailing.value > 0
+      ? { label, value: ratio(s.currentPrice / trailing.value), note: `${period}, ${money(trailing.value)} EPS` }
+      : { label, value: "n/m", note: `loss of ${money(Math.abs(trailing.value))} a share, ${period}` };
+  }
+  if (s.eps > 0) return { label, value: ratio(s.currentPrice / s.eps), note: "last annual report" };
   if (s.eps <= 0) return { label, value: "n/m", note: `loss of ${money(Math.abs(s.eps))} a share` };
 
   // No EPS for the whole company (Airbnb files it per share class).

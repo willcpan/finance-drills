@@ -65,6 +65,26 @@ describe("stock data", () => {
     expect(dated.length).toBe(withEps.length);
   });
 
+  it("dates every trailing EPS to twelve recent months", () => {
+    // Before the first refresh that collects them, the last fiscal year stands
+    // in undated. Once collected, nearly every company has one, and none ends
+    // more than about a year and a month before the prices were taken.
+    const dated = stocks.filter(s => s.trailingEps?.end);
+    if (dated.length === 0) return;
+    expect(dated.length).toBeGreaterThan(stocks.length * 0.85);
+    const asOf = Date.parse(pricesAsOf ?? "");
+    for (const stock of dated) {
+      expect((asOf - Date.parse(stock.trailingEps!.end!)) / 86400000).toBeLessThan(400);
+    }
+  });
+
+  it("says whose twelve months a valuation question divides by", () => {
+    for (const type of ["peRatio", "earningsYield", "payoutRatio"] as QuestionType[]) {
+      const { text } = generateQuestion(type, "easy");
+      expect(text).toMatch(/EPS, GAAP\) in (the 12 months to \d{1,2} \w{3} \d{4}|its last reported fiscal year)/);
+    }
+  });
+
   it("carries a real prior close for every row", () => {
     // The prior close used to be invented from a hash of the ticker, within a
     // fixed +/-2% of the price, so Percentage Change drilled a made-up move.
@@ -272,7 +292,7 @@ describe("question generation", () => {
   it("only asks valuation questions about companies that earn money", () => {
     for (let i = 0; i < 200; i++) {
       for (const type of ["peRatio", "earningsYield"] as QuestionType[]) {
-        expect(generateQuestion(type, "easy").stockData?.eps).toBeGreaterThan(0);
+        expect(generateQuestion(type, "easy").stockData?.trailingEps?.value).toBeGreaterThan(0);
       }
     }
   });

@@ -11,8 +11,8 @@
 //                  reconstituted.
 //   prices.json    price, the closes behind it, and the dividends paid.
 //                  Changes every trading day.
-import type { CompanyProfile, FiledYear, MonthlyCloses, PastClose, StockData } from "./stockData";
-import { reconcileShares, type ShareCounts, type Split } from "./shareBasis";
+import type { CompanyProfile, FiledYear, MonthlyCloses, PastClose, StockData, TrailingEps } from "./stockData";
+import { reconcileShares, trailingOnBasis, type ShareCounts, type Split } from "./shareBasis";
 
 export interface Company {
   ticker: string;
@@ -25,6 +25,9 @@ export interface Company {
   revenue: number | null; // millions
   operatingProfit: number | null; // millions
   eps: number | null;
+  // Trailing twelve months: the last 10-K, plus the latest 10-Q's year to
+  // date, less the same months a year earlier (scripts/trailing-eps.mjs).
+  ttmEps?: FiledTrailingEps | null;
   fiscalYear: string | null;
   // The year before, measured under the same XBRL concept, so growth is
   // growth rather than a change of accounting tag.
@@ -49,6 +52,22 @@ export interface Company {
   netIncome?: number | null;
   pretaxIncome?: number | null;
   profile?: Partial<CompanyProfile>;
+}
+
+export interface FiledEpsPart {
+  value: number;
+  start: string;
+  end: string;
+  filed: string;
+}
+
+export interface FiledTrailingEps {
+  value: number;
+  end: string;
+  annual: FiledEpsPart;
+  ytd: FiledEpsPart | null;
+  priorYtd: FiledEpsPart | null;
+  concept?: string;
 }
 
 export interface Universe {
@@ -146,6 +165,34 @@ const monthlyCloses = (monthly: MonthlyCloses | null | undefined): MonthlyCloses
 const splitList = (splits: Split[] | null | undefined): Split[] =>
   (splits ?? []).filter(s => s && typeof s.date === "string" && isNumber(s.ratio) && s.ratio > 0);
 
+const isPart = (part: FiledEpsPart | null | undefined): part is FiledEpsPart =>
+  !!part && isNumber(part.value) && typeof part.filed === "string";
+
+// The filed trailing figure on today's basis. Without one - a universe file
+// written before trailing figures were collected - the last fiscal year stands
+// in, and says so by having no end date.
+const trailingEps = (
+  filed: FiledTrailingEps | null | undefined,
+  splits: Split[],
+  annualEps: number
+): TrailingEps | null => {
+  if (filed && isPart(filed.annual) && typeof filed.end === "string") {
+    const extended = isPart(filed.ytd) && isPart(filed.priorYtd);
+    const value = trailingOnBasis(
+      filed.annual,
+      extended ? { current: filed.ytd!, prior: filed.priorYtd! } : null,
+      splits
+    );
+    return {
+      value: round2(value),
+      end: filed.end,
+      diluted: filed.concept ? filed.concept === "EarningsPerShareDiluted" : null,
+    };
+  }
+  if (filed === undefined && Number.isFinite(annualEps)) return { value: annualEps, end: null, diluted: null };
+  return null;
+};
+
 export function buildStockData(universe: Universe | null, prices: PriceFile | null): BuildResult {
   const companies = universe?.companies ?? [];
   const quotes = prices?.quotes ?? {};
@@ -183,6 +230,7 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
     const onBasis = (value: number): number =>
       basis.epsDivisor === 1 ? value : round2(value / basis.epsDivisor);
     const perShare = (value: number | null | undefined): number => onBasis(reported(value));
+    const splits = splitList(quote.splits);
 
     stocks.push({
       ticker,
@@ -197,6 +245,7 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       threeYearsAgo: pastClose(quote.threeYearsAgo),
       fiveYearsAgo: pastClose(quote.fiveYearsAgo),
       eps: perShare(company.eps),
+      trailingEps: trailingEps(company.ttmEps, splits, perShare(company.eps)),
       revenue: reported(company.revenue),
       operatingProfit: reported(company.operatingProfit),
       fiscalYear: company.fiscalYear ?? null,

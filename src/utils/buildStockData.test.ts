@@ -176,4 +176,52 @@ describe("buildStockData", () => {
     expect(buildStockData(universe(company()), null).stocks).toHaveLength(0);
     expect(buildStockData(null, null).asOf).toBeNull();
   });
+
+  describe("trailing EPS", () => {
+    // A 10-K filed in February and a Q2 10-Q filed in August.
+    const ttmEps = {
+      value: 7.5,
+      end: "2026-06-30",
+      concept: "EarningsPerShareDiluted",
+      annual: { value: 7.0, start: "2025-01-01", end: "2025-12-31", filed: "2026-02-10" },
+      ytd: { value: 4.0, start: "2026-01-01", end: "2026-06-30", filed: "2026-08-01" },
+      priorYtd: { value: 3.5, start: "2025-01-01", end: "2025-06-30", filed: "2026-08-01" },
+    };
+    const build = (overrides: Partial<Company>, splits: { date: string; ratio: number }[] = []) =>
+      buildStockData(
+        universe(company(overrides)),
+        priceFile({ AAA: { price: 150, previousClose: 149, splits } })
+      ).stocks[0];
+
+    it("carries the twelve months and the day they end", () => {
+      expect(build({ ttmEps }).trailingEps).toEqual({ value: 7.5, end: "2026-06-30", diluted: true });
+    });
+
+    it("puts a 10-K filed before a split on the basis of the 10-Q filed after it", () => {
+      // A 2-for-1 in May: the 10-Q restated both halves, the 10-K did not.
+      const split = { date: "2026-05-15", ratio: 2 };
+      const halved = { ...ttmEps, ytd: { ...ttmEps.ytd, value: 2.0 }, priorYtd: { ...ttmEps.priorYtd, value: 1.75 } };
+      expect(build({ ttmEps: halved }, [split]).trailingEps?.value).toBe(3.75); // 7.00/2 + 2.00 - 1.75
+    });
+
+    it("puts every part on today's basis after a split since the last filing", () => {
+      expect(build({ ttmEps }, [{ date: "2026-09-01", ratio: 2 }]).trailingEps?.value).toBe(3.75);
+    });
+
+    it("ignores a spin-off's price adjustment", () => {
+      expect(build({ ttmEps }, [{ date: "2026-09-01", ratio: 1.06 }]).trailingEps?.value).toBe(7.5);
+    });
+
+    it("says it is basic when no diluted figure was filed", () => {
+      expect(build({ ttmEps: { ...ttmEps, concept: "EarningsPerShareBasic" } }).trailingEps?.diluted).toBe(false);
+    });
+
+    it("has none where the refresh found nothing recent", () => {
+      expect(build({ ttmEps: null }).trailingEps).toBeNull();
+    });
+
+    it("falls back to the fiscal year, undated, for a file written before trailing figures", () => {
+      expect(build({}).trailingEps).toEqual({ value: 5, end: null, diluted: null });
+    });
+  });
 });

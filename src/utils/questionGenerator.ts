@@ -14,6 +14,7 @@ import {
   epsGrowthOf,
   peRatioOf,
   earningsYieldOf,
+  trailingEpsOf,
   operatingMarginOf,
   payoutRatioOf,
   cagrOf,
@@ -25,6 +26,8 @@ import {
   ratio,
   shortDate,
   fiscalLabel,
+  trailingKind,
+  trailingPeriod,
   bigMoney,
   bigMoneyShown,
   billions,
@@ -384,11 +387,11 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
       within((s.dividendPerShare / s.currentPrice) * 100, SENSIBLE.dividendYield)
   ),
   payoutRatio: stocks.filter(
-    s => s.eps > 0 && s.dividendPerShare > 0 && within(payoutRatioOf(s), SENSIBLE.payoutRatio)
+    s => trailingEpsOf(s) > 0 && s.dividendPerShare > 0 && within(payoutRatioOf(s), SENSIBLE.payoutRatio)
   ),
-  peRatio: stocks.filter(s => s.eps > 0 && hasUsablePrice(s) && within(peRatioOf(s), SENSIBLE.peRatio)),
+  peRatio: stocks.filter(s => trailingEpsOf(s) > 0 && hasUsablePrice(s) && within(peRatioOf(s), SENSIBLE.peRatio)),
   earningsYield: stocks.filter(
-    s => s.eps > 0 && hasUsablePrice(s) && within(earningsYieldOf(s), SENSIBLE.earningsYield)
+    s => trailingEpsOf(s) > 0 && hasUsablePrice(s) && within(earningsYieldOf(s), SENSIBLE.earningsYield)
   ),
   marketCap: stocks.filter(s => hasUsablePrice(s) && within(marketCapOf(s), SENSIBLE.marketCap)),
   operatingMargin: stocks.filter(
@@ -694,47 +697,65 @@ const dividendPerShare = (stock: StockData, difficulty: DifficultyLevel): Questi
   };
 };
 
+// The valuation questions share one EPS, and say exactly which: the trailing
+// twelve months, as filed, with the months they cover.
+const trailing = (stock: StockData) => {
+  const eps = stock.trailingEps!;
+  return {
+    value: eps.value,
+    // Only a dated figure is the trailing one; the undated fallback is the
+    // last fiscal year and is not called trailing.
+    trailing: eps.end ? "trailing " : "",
+    earned: `earned ${money(eps.value)} a share (${trailingKind(eps)}) in ${trailingPeriod(eps)}`,
+  };
+};
+
 const payoutRatio = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const answer = roundTo2((stock.dividendPerShare / stock.eps) * 100);
+  const eps = trailing(stock);
+  const answer = roundTo2((stock.dividendPerShare / eps.value) * 100);
 
   return {
     ...base("payoutRatio", difficulty, stock),
-    text: `${subject(stock)} earns ${money(stock.eps)} a share and pays ${money(stock.dividendPerShare)} of it out. What is the payout ratio?`,
+    text:
+      `${subject(stock)} ${eps.earned}, and paid ${money(stock.dividendPerShare)} a share in dividends ` +
+      `over the last 12 months. What is the payout ratio?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: scaled(answer, WIDE_POINT_TOLERANCE_FRACTION, difficulty, 0.5),
     method: [
       `Payout ratio is dividend / earnings per share.`,
-      `${money(stock.dividendPerShare)} / ${money(stock.eps)}.`,
+      `${money(stock.dividendPerShare)} / ${money(eps.value)}.`,
       `= ${percent(answer)} of earnings handed to shareholders.`,
     ],
   };
 };
 
 const peRatio = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const answer = roundTo2(stock.currentPrice / stock.eps);
+  const eps = trailing(stock);
+  const answer = roundTo2(stock.currentPrice / eps.value);
 
   return {
     ...base("peRatio", difficulty, stock),
-    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and earns ${money(stock.eps)} a share. What is its P/E ratio?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and ${eps.earned}. What is its ${eps.trailing}P/E ratio?`,
     correctAnswer: answer,
     answerUnit: "ratio",
     tolerance: scaled(answer, RATIO_TOLERANCE_FRACTION, difficulty, 0.2),
     method: [
-      `P/E is price / earnings per share.`,
-      `Bracket it: ${money(stock.eps)} x 10 = ${money(stock.eps * 10)}, x 20 = ${money(stock.eps * 20)}.`,
+      `P/E is today's price / earnings per share${eps.trailing ? " over the last 12 reported months" : ""}.`,
+      `Bracket it: ${money(eps.value)} x 10 = ${money(eps.value * 10)}, x 20 = ${money(eps.value * 20)}.`,
       `${money(stock.currentPrice)} lands at about ${ratio(answer)}.`,
     ],
   };
 };
 
 const earningsYield = (stock: StockData, difficulty: DifficultyLevel): Question => {
-  const pe = stock.currentPrice / stock.eps;
-  const answer = roundTo2((stock.eps / stock.currentPrice) * 100);
+  const eps = trailing(stock);
+  const pe = stock.currentPrice / eps.value;
+  const answer = roundTo2((eps.value / stock.currentPrice) * 100);
 
   return {
     ...base("earningsYield", difficulty, stock),
-    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and earns ${money(stock.eps)} a share. What is its earnings yield?`,
+    text: `${subject(stock)} trades at ${money(stock.currentPrice)} and ${eps.earned}. What is its earnings yield?`,
     correctAnswer: answer,
     answerUnit: "percentagePoints",
     tolerance: POINT_TOLERANCE[difficulty],

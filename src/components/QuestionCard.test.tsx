@@ -19,6 +19,7 @@ const stock = (overrides: Partial<StockData> = {}): StockData => ({
   threeYearsAgo: { price: 40, date: "2023-09-18" },
   fiveYearsAgo: { price: 30, date: "2021-09-17" },
   eps: 5,
+  trailingEps: { value: 5, end: "2026-06-30", diluted: true },
   revenue: 1000,
   operatingProfit: 200,
   fiscalYear: "CY2025",
