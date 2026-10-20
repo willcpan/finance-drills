@@ -55,6 +55,34 @@ const daysAfter = (from: string, to: string): number => (Date.parse(to) - Date.p
 
 const product = (splits: Split[]): number => splits.reduce((p, s) => p * s.ratio, 1);
 
+const splitSized = (splits: Split[] | null | undefined): Split[] =>
+  (splits ?? []).filter(
+    s => Number.isFinite(s.ratio) && s.ratio > 0 && (s.ratio >= SPLIT_SIZED || s.ratio <= 1 / SPLIT_SIZED)
+  );
+
+// One filed per-share figure, and the day the filing carrying it went in.
+export interface FiledPart {
+  value: number;
+  filed: string; // YYYY-MM-DD
+}
+
+// Trailing EPS onto today's basis. Its parts can sit on two: a 10-K filed
+// before a split keeps the old one, while a 10-Q filed after it restates both
+// its year-to-date figures. A filing is on the basis of the day it went in, so
+// each part is divided by whatever split came after its own filing. That needs
+// no share count to confirm it, because the two year-to-date figures always
+// come from one 10-Q and so always share a basis.
+export const trailingOnBasis = (
+  annual: FiledPart,
+  ytd: { current: FiledPart; prior: FiledPart } | null,
+  splits: Split[] | null | undefined
+): number => {
+  const real = splitSized(splits);
+  const after = (filed: string) => product(real.filter(s => s.date > filed));
+  const sinceYearEnd = ytd ? (ytd.current.value - ytd.prior.value) / after(ytd.current.filed) : 0;
+  return annual.value / after(annual.filed) + sinceYearEnd;
+};
+
 export const reconcileShares = (
   counts: ShareCounts | null | undefined,
   splits: Split[] | null | undefined,
@@ -64,9 +92,7 @@ export const reconcileShares = (
   eps: number,
   fiscalYear: string | null
 ): ShareBasis => {
-  const real = (splits ?? []).filter(
-    s => Number.isFinite(s.ratio) && s.ratio > 0 && (s.ratio >= SPLIT_SIZED || s.ratio <= 1 / SPLIT_SIZED)
-  );
+  const real = splitSized(splits);
 
   const cover = counts?.cover && counts.cover.millions > 0 ? counts.cover : null;
   // The cover count as of today: a split after the date it was counted

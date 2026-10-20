@@ -30,7 +30,7 @@ Two files, split by how fast their contents age and who publishes them:
 
 | File | Holds | Source | Refreshed |
 | --- | --- | --- | --- |
-| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, up to seven years of revenue and EPS history, shares outstanding, a company profile (exchange, sub-industry, headquarters, founded, a two-sentence description) | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs` |
+| `data/universe.json` | index membership, GICS sector, revenue, operating profit, EPS, trailing-twelve-month EPS, up to seven years of revenue and EPS history, shares outstanding, a company profile (exchange, sub-industry, headquarters, founded, a two-sentence description) | Wikipedia + SEC XBRL | `scripts/refresh-universe.mjs`, `scripts/trailing-eps.mjs` |
 | `data/prices.json` | price, the closes yesterday / a month / a year / three / five years back, five years of month-end closes, dividends paid | Yahoo `v8/finance/chart` | `scripts/refresh-prices.mjs` |
 
 `src/utils/buildStockData.ts` joins the two at build time and the build injects
@@ -84,6 +84,46 @@ Fixes found by insisting every company show the same figures:
   P/E of 1. `src/utils/shareBasis.ts` puts both on today's basis, using
   Yahoo's split list as the clue and the share counts as the proof - Yahoo's
   list also carries spin-off price adjustments, which change no share count.
+
+### Trailing EPS
+
+The P/E, earnings yield and payout ratio divide by **trailing-twelve-month
+diluted GAAP EPS**: the twelve months to the end of the latest 10-Q, as filed.
+They used to divide by the last 10-K's EPS, which by October is ten months
+old for a calendar-year company. Worse, the calendar-year frames had left
+Microsoft on FY2025 (to June 2025) after its FY2026 10-K was out. And no
+question said which year it meant.
+
+`scripts/trailing-eps.mjs` builds the figure from one company's
+`companyconcept` facts:
+
+    TTM = last fiscal year + year to date - the same months a year earlier
+
+Both year-to-date figures come from the same 10-Q, which presents last
+year's months beside this year's, so they are measured the same way and on
+the same share basis. No quarter has to be backed out of an annual total.
+Until a 10-Q follows the 10-K, the trailing figure is the fiscal year itself.
+A company with nothing filed in the last 400 days has none and sits the
+three questions out. The frames cannot supply this, because they never hold
+six- or nine-month figures. So it costs one request per company, about 500,
+which adds a couple of minutes to the refresh.
+
+Every question that uses it says what it is: "earned $7.50 a share (diluted
+EPS, GAAP) in the 12 months to 30 Jun 2026". The panel's P/E row notes the
+same ("TTM to 30 Jun 2026"). GAAP means one-off charges stay in: on its
+2025 10-K, AbbVie's acquired R&D put its P/E at 121. Adjusted and forward EPS come from
+press releases and analysts rather than filings, so the drill does not use
+them.
+
+The 10-K and the 10-Q can sit either side of a split. Each part is divided
+by the splits after its own filing date, so all three land on today's basis
+(`trailingOnBasis` in `src/utils/shareBasis.ts`). The growth and CAGR
+questions keep the fiscal years, since they compare one year with another.
+
+The per-company files also showed why Visa, Hershey and Constellation had no
+EPS at all. The frames API spells the per-share unit `USD-per-shares`, but
+`companyconcept` keys it `USD/shares`. The fallback asked for it under the
+frames spelling and got nothing back every time.
 
 It walks seven calendar years back, so the CAGR questions can span three or five
 years of what was actually filed. A company's history is the run of consecutive
@@ -200,9 +240,9 @@ the name reaches every question template from one place.
 | Price CAGR | the close three or five years ago, price | annual price return |
 | Dividend Yield | price, dividend | yield |
 | Dividend Per Share | price, yield | cash dividend |
-| Payout Ratio | EPS, dividend | % of earnings paid out |
-| P/E Ratio | price, EPS | multiple |
-| Earnings Yield | price, EPS | EPS as % of price |
+| Payout Ratio | trailing EPS, dividend | % of earnings paid out |
+| P/E Ratio | price, trailing EPS | multiple |
+| Earnings Yield | price, trailing EPS | EPS as % of price |
 | Market Cap | two of price, shares outstanding, market cap | the third |
 | Operating Margin | revenue, operating profit | margin |
 | Revenue Growth | two filed years of revenue | growth rate |
@@ -277,7 +317,7 @@ marked ≈ with a note saying how:
 | Figure | Normally | Fallback |
 | --- | --- | --- |
 | Market cap | price × cross-checked cover-page shares | price × diluted shares (multi-class companies such as Alphabet and Meta) |
-| P/E | price ÷ filed EPS; "n/m" for a loss | price ÷ (net income ÷ diluted shares), for a company that files EPS only per class (Airbnb) or stopped tagging it (Monster) |
+| P/E | price ÷ trailing-twelve-month EPS, dated; "n/m" for a loss | price ÷ (net income ÷ diluted shares), for a company that files EPS only per class (Airbnb) or stopped tagging it (Monster) |
 | Operating margin | operating income ÷ revenue, same year | pre-tax income ÷ revenue, for banks and insurers, which file no operating line |
 | Revenue growth, 5 yr | compound rate over five filed years | the longest comparable span, labelled with its length |
 
@@ -326,6 +366,7 @@ data/
   prices.json            quotes, past closes, dividends (generated)
 scripts/
   refresh-universe.mjs   Wikipedia constituents + SEC XBRL figures
+  trailing-eps.mjs       trailing-twelve-month EPS from a 10-K and 10-Q
   refresh-prices.mjs     Yahoo quotes, past closes and dividends
 src/
   utils/

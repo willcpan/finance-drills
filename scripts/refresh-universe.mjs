@@ -22,6 +22,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { trailingEps } from './trailing-eps.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'data', 'universe.json');
@@ -502,7 +503,11 @@ const splitFreeEps = (history, years) => {
 // and Constellation Brands all are. For the handful left over it is cheaper to
 // ask per company: companyconcept returns one tag's full history in a small
 // file, and there are only ever a few dozen of these.
-async function fetchConcept(cik, concept, unit) {
+// Every fact one company filed under one tag, in one unit. The frames API
+// writes a per-share unit as "USD-per-shares" in its URL, but companyconcept
+// keys it "USD/shares" - asked for under the frames spelling, every per-share
+// fallback came back empty, and Visa, Hershey and Constellation had no EPS.
+async function fetchFacts(cik, concept, unit) {
   const padded = String(cik).padStart(10, '0');
   const url = `https://data.sec.gov/api/xbrl/companyconcept/CIK${padded}/us-gaap/${concept}.json`;
   const res = await fetch(url, { headers: UA });
@@ -511,7 +516,12 @@ async function fetchConcept(cik, concept, unit) {
   if (res.status === 404) return null;
   if (!res.ok) throw new Error(`SEC returned HTTP ${res.status} for ${concept} of CIK ${cik}`);
 
-  const facts = (await res.json())?.units?.[unit] ?? [];
+  const units = (await res.json())?.units ?? {};
+  return units[unit] ?? units[unit.replace('-per-', '/')] ?? [];
+}
+
+async function fetchConcept(cik, concept, unit) {
+  const facts = (await fetchFacts(cik, concept, unit)) ?? [];
 
   // Annual figures only: a full-year filing, covering something close to a
   // year. Without the duration check a quarter would pass for a year.
@@ -535,6 +545,51 @@ async function fetchConcept(cik, concept, unit) {
 
   return [...byPeriod.values()].slice(0, HISTORY_YEARS);
 }
+
+// Trailing-twelve-month EPS, company by company (see trailing-eps.mjs). The
+// frames cannot supply it: they hold calendar quarters and years, never the
+// six- and nine-month year-to-date figures a 10-Q leads with. One small file
+// per company, so about 500 requests - a couple of minutes at the SEC's pace.
+//
+// The concepts are tried in the order CONCEPTS.eps gives them, and the first
+// that yields a recent figure is kept; all three parts of a sum come from the
+// one concept. A company that moved CIK (Exxon) has its 10-K under the old one
+// and its 10-Qs under the new, so both are read together.
+//
+// Five hundred requests make a transient refusal likely enough that one must
+// cost a company its trailing figure, not the whole run its universe.
+async function fetchTrailingEps(constituents) {
+  const trailing = new Map();
+  const failed = [];
+  for (const c of constituents) {
+    const ciks = [...new Set([c.factsCik, c.cik])];
+    try {
+      for (const [concept, unit] of CONCEPTS.eps) {
+        const facts = [];
+        for (const cik of ciks) facts.push(...((await fetchFacts(cik, concept, unit)) ?? []));
+        const ttm = trailingEps(facts);
+        if (ttm) {
+          trailing.set(c.ticker, { ...ttm, concept });
+          break;
+        }
+      }
+    } catch (error) {
+      failed.push(`${c.ticker} (${error.message})`);
+    }
+  }
+
+  const extended = [...trailing.values()].filter(t => t.ytd).length;
+  console.log(
+    `trailing eps: ${trailing.size} (${extended} extended by a 10-Q, ${trailing.size - extended} fiscal year only)`
+  );
+  if (failed.length) console.warn(`trailing eps failed for ${failed.length}: ${failed.slice(0, 10).join(', ')}`);
+  return trailing;
+}
+
+// Below this the trailing figures are left out of the file altogether, and the
+// build falls back to each company's last fiscal year - labelled as such -
+// rather than giving a P/E to some companies and not others.
+const MIN_TRAILING_SHARE = 0.8;
 
 // Fill whatever the frames missed, company by company.
 async function fillGaps(constituents, facts) {
@@ -594,6 +649,14 @@ for (const c of constituents) {
   dilutedFilled++;
 }
 console.log(`diluted counts filled per company: ${dilutedFilled}`);
+let trailing = await fetchTrailingEps(constituents);
+if (trailing.size < constituents.length * MIN_TRAILING_SHARE) {
+  console.warn(
+    `only ${trailing.size}/${constituents.length} trailing EPS figures - leaving them out, ` +
+      `so the P/E falls back to the last fiscal year`
+  );
+  trailing = null;
+}
 const descriptions = await fetchDescriptions(constituents);
 console.log(
   `\nframes: revenue ${beforeGaps.revenue}  operating profit ${beforeGaps.operatingProfit}  eps ${beforeGaps.eps}` +
@@ -640,6 +703,11 @@ const companies = constituents
           : null,
       netIncomeFiscalYear: netIncome.current?.period ?? null,
       eps: eps.current ? eps.current.value : null,
+      // Trailing twelve months to `end`, with the parts it was summed from so
+      // the build can put each on today's share basis. The P/E, earnings yield
+      // and payout ratio use this; the growth questions keep the fiscal years.
+      // Absent altogether, not null, when the run left them out (see above).
+      ...(trailing ? { ttmEps: trailing.get(c.ticker) ?? null } : {}),
       // The year before, measured under the same concept, so that a growth
       // question compares like with like rather than reporting an accounting
       // change as growth.
@@ -689,7 +757,8 @@ const companies = constituents
 
 const count = field => companies.filter(c => c[field] !== null).length;
 console.log(
-  `\nfundamentals: revenue ${count('revenue')}  operating profit ${count('operatingProfit')}  eps ${count('eps')}`
+  `\nfundamentals: revenue ${count('revenue')}  operating profit ${count('operatingProfit')}  eps ${count('eps')}  ` +
+    `ttm eps ${companies.filter(c => c.ttmEps).length}`
 );
 console.log(
   `complete (all three): ${companies.filter(c => c.revenue !== null && c.operatingProfit !== null && c.eps !== null).length}`
@@ -730,6 +799,7 @@ const payload = {
   sources: {
     constituents: 'Wikipedia: List of S&P 500 companies',
     fundamentals: 'SEC XBRL frames API (us-gaap)',
+    trailingEps: 'SEC XBRL companyconcept API: 10-K plus latest 10-Q year to date',
   },
   companies,
 };

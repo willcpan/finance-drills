@@ -41,6 +41,18 @@ export interface MonthlyCloses {
   closes: number[];
 }
 
+// The EPS a P/E divides by: the last twelve months the company has reported,
+// as filed (GAAP), on today's share basis.
+export interface TrailingEps {
+  value: number;
+  // Last day of the twelve months, YYYY-MM-DD. Null only where the universe
+  // file predates trailing figures and the last fiscal year stands in.
+  end: string | null;
+  // Whether the figure is the diluted one; a few companies file basic only.
+  // Null where not known.
+  diluted: boolean | null;
+}
+
 export interface StockData {
   ticker: string;
   // The company's own name, falling back to the ticker when neither source
@@ -62,6 +74,9 @@ export interface StockData {
   // largely do not report operating income. The eligibility bands reject NaN,
   // so such a company sits out only the questions that need it.
   eps: number;
+  // What the P/E, earnings yield and payout ratio use. Null where nothing
+  // recent was filed.
+  trailingEps: TrailingEps | null;
   revenue: number; // millions
   operatingProfit: number; // millions
   // The fiscal year the reported figures came from, e.g. "CY2025" or "FY2026".
@@ -198,11 +213,15 @@ export const usablePast = (past: PastClose | null): past is PastClose =>
 export const revenueGrowthOf = (s: StockData): number => priceMoveOf(s.priorRevenue, s.revenue);
 export const epsGrowthOf = (s: StockData): number => priceMoveOf(s.priorEps, s.eps);
 
-export const peRatioOf = (s: StockData): number => s.currentPrice / s.eps;
-export const earningsYieldOf = (s: StockData): number => (s.eps / s.currentPrice) * 100;
+// NaN without a trailing figure, so the eligibility bands reject it.
+export const trailingEpsOf = (s: StockData): number => s.trailingEps?.value ?? Number.NaN;
+export const peRatioOf = (s: StockData): number => s.currentPrice / trailingEpsOf(s);
+export const earningsYieldOf = (s: StockData): number => (trailingEpsOf(s) / s.currentPrice) * 100;
 export const operatingMarginOf = (s: StockData): number =>
   (s.operatingProfit / s.revenue) * 100;
-export const payoutRatioOf = (s: StockData): number => (s.dividendPerShare / s.eps) * 100;
+// Dividends are the trailing twelve months paid, so they set against the
+// trailing twelve months earned.
+export const payoutRatioOf = (s: StockData): number => (s.dividendPerShare / trailingEpsOf(s)) * 100;
 
 // Compound annual growth between two values a number of years apart, in
 // percent. NaN unless both ends are positive: a CAGR into or out of a loss is
