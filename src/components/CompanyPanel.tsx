@@ -3,6 +3,7 @@ import { ChevronDown, ChevronUp, ExternalLink } from "lucide-react";
 import type { MonthlyCloses, StockData } from "@/utils/stockData";
 import { money } from "@/utils/format";
 import { companyFigures } from "@/utils/companyFigures";
+import { priceTicks, tickLabel } from "@/utils/chartTicks";
 import { googleFinanceUrl, wikipediaUrl } from "@/utils/links";
 
 // Whether the panel is open is remembered per browser: someone who opens it
@@ -35,8 +36,11 @@ const monthLabel = (start: string, offset: number): string => {
 
 // Five years of month-end closes as a line. Drawn by hand rather than with a
 // chart library: it is one path, and the page loads nothing it does not ship.
+// A price scale runs down the right at round prices, and pointing at the line
+// (or dragging a finger along it) reads off that month's close.
 const PriceChart: React.FC<{ monthly: MonthlyCloses }> = ({ monthly }) => {
   const { closes, start } = monthly;
+  const [hover, setHover] = useState<number | null>(null);
   const width = 300;
   const height = 90;
   const pad = 4;
@@ -54,12 +58,22 @@ const PriceChart: React.FC<{ monthly: MonthlyCloses }> = ({ monthly }) => {
   const last = closes[closes.length - 1];
   const up = last >= first;
 
+  const ticks = priceTicks(low, high);
+  const step = ticks.length > 1 ? ticks[1] - ticks[0] : high;
+
   // A faint rule at each January, so the line reads against the calendar.
   const [startYear, startMonth] = start.split("-").map(Number);
   const januaries: { i: number; year: number }[] = [];
   for (let i = 0; i < closes.length; i++) {
     if ((startMonth - 1 + i) % 12 === 0) januaries.push({ i, year: startYear + Math.floor((startMonth - 1 + i) / 12) });
   }
+
+  // The month under the pointer, by where it sits across the chart's width.
+  const point = (event: React.PointerEvent<HTMLDivElement>) => {
+    const box = event.currentTarget.getBoundingClientRect();
+    const share = Math.min(Math.max((event.clientX - box.left) / box.width, 0), 1);
+    setHover(Math.round(share * (closes.length - 1)));
+  };
 
   return (
     <figure className="space-y-1">
@@ -68,43 +82,99 @@ const PriceChart: React.FC<{ monthly: MonthlyCloses }> = ({ monthly }) => {
         {/* Dates, not a percentage: the chart starts at a month-end, so its
             change would disagree with the 5-year return row above it, which
             runs from the close five years ago to the day. */}
-        <span className="tabular-nums">
-          {monthLabel(start, 0)} – {monthLabel(start, closes.length - 1)}
+        <span className="tabular-nums" aria-live="polite">
+          {hover === null ? (
+            `${monthLabel(start, 0)} – ${monthLabel(start, closes.length - 1)}`
+          ) : (
+            <>
+              {monthLabel(start, hover)} <span className="font-medium text-gray-800">{money(closes[hover])}</span>
+            </>
+          )}
         </span>
       </div>
-      <div>
-        <svg
-          viewBox={`0 0 ${width} ${height}`}
-          preserveAspectRatio="none"
-          className="w-full h-24 block"
-          role="img"
-          aria-label={`Share price from ${money(first)} in ${monthLabel(start, 0)} to ${money(last)} now; low ${money(low)}, high ${money(high)}`}
+      <div className="flex gap-1.5">
+        <div
+          className="relative flex-1 min-w-0 touch-pan-y"
+          onPointerDown={point}
+          onPointerMove={point}
+          onPointerLeave={() => setHover(null)}
+          onPointerCancel={() => setHover(null)}
         >
-          {januaries.map(({ i }) => (
-            <line key={i} x1={x(i)} x2={x(i)} y1={0} y2={height} stroke="#e5e7eb" strokeWidth={1} vectorEffect="non-scaling-stroke" />
+          <svg
+            viewBox={`0 0 ${width} ${height}`}
+            preserveAspectRatio="none"
+            className="w-full h-24 block"
+            role="img"
+            aria-label={`Share price from ${money(first)} in ${monthLabel(start, 0)} to ${money(last)} now; low ${money(low)}, high ${money(high)}`}
+          >
+            {ticks.map(v => (
+              <line
+                key={`p${v}`}
+                x1={0}
+                x2={width}
+                y1={y(v)}
+                y2={y(v)}
+                stroke="#e5e7eb"
+                strokeWidth={1}
+                strokeDasharray="3 3"
+                vectorEffect="non-scaling-stroke"
+              />
+            ))}
+            {januaries.map(({ i }) => (
+              <line key={i} x1={x(i)} x2={x(i)} y1={0} y2={height} stroke="#e5e7eb" strokeWidth={1} vectorEffect="non-scaling-stroke" />
+            ))}
+            <path d={area} className={up ? "fill-green-50" : "fill-red-50"} />
+            <path
+              d={line}
+              fill="none"
+              className={up ? "stroke-finance-green" : "stroke-finance-red"}
+              strokeWidth={2}
+              vectorEffect="non-scaling-stroke"
+              strokeLinejoin="round"
+            />
+            {hover !== null && (
+              <line x1={x(hover)} x2={x(hover)} y1={0} y2={height} stroke="#9ca3af" strokeWidth={1} vectorEffect="non-scaling-stroke" />
+            )}
+          </svg>
+          {/* The dot is HTML, not SVG: the SVG stretches to fit, and would
+              squash a circle into an ellipse. */}
+          {hover !== null && (
+            <span
+              className={`pointer-events-none absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full ring-2 ring-white ${
+                up ? "bg-finance-green" : "bg-finance-red"
+              }`}
+              style={{ left: `${(x(hover) / width) * 100}%`, top: `${(y(closes[hover]) / height) * 100}%` }}
+            />
+          )}
+        </div>
+        {/* Labels outside the SVG for the same reason, beside the line they
+            name rather than on top of the chart. */}
+        <div className="relative h-24 shrink-0 text-[10px] text-gray-400 tabular-nums" aria-hidden="true">
+          <span className="invisible block">{tickLabel(high, step)}</span>
+          {ticks.map(v => (
+            <span key={v} className="absolute left-0 -translate-y-1/2" style={{ top: `${(y(v) / height) * 100}%` }}>
+              {tickLabel(v, step)}
+            </span>
           ))}
-          <path d={area} className={up ? "fill-green-50" : "fill-red-50"} />
-          <path
-            d={line}
-            fill="none"
-            className={up ? "stroke-finance-green" : "stroke-finance-red"}
-            strokeWidth={2}
-            vectorEffect="non-scaling-stroke"
-            strokeLinejoin="round"
-          />
-        </svg>
+        </div>
       </div>
-      <div className="relative h-3 text-[10px] text-gray-400">
-        {januaries.map(({ i, year }) => (
-          <span key={i} className="absolute -translate-x-1/2" style={{ left: `${(x(i) / width) * 100}%` }}>
-            {year}
-          </span>
-        ))}
+      {/* Laid out like the row above, so each year sits under its rule. */}
+      <div className="flex gap-1.5 text-[10px] text-gray-400">
+        <div className="relative h-3 flex-1 min-w-0">
+          {januaries.map(({ i, year }) => (
+            <span key={i} className="absolute -translate-x-1/2" style={{ left: `${(x(i) / width) * 100}%` }}>
+              {year}
+            </span>
+          ))}
+        </div>
+        <span className="invisible tabular-nums" aria-hidden="true">
+          {tickLabel(high, step)}
+        </span>
       </div>
       {/* Below the line rather than on it, where a peak at either edge would
           run through the label. */}
       <figcaption className="pt-1 text-[11px] text-gray-500 tabular-nums">
-        Low {money(low)} · High {money(high)}
+        Low {money(low)} · High {money(high)} · Now {money(last)}
       </figcaption>
     </figure>
   );
