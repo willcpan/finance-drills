@@ -101,6 +101,10 @@ export interface StockData {
   // where none was filed for the whole company (Airbnb files it per class),
   // pre-tax income for a margin where there is no operating line (banks).
   netIncome: number;
+  // Amortization of intangibles in the same fiscal year as `eps`, millions;
+  // NaN where not filed. The panel's P/E note says when it is a large share of
+  // earnings, since it is why GAAP EPS can be far below an "adjusted" one.
+  intangibleAmortization: number;
   pretaxIncome: number;
   // First day of trading (YYYY-MM-DD), for a listing too young to have a
   // one- or five-year return.
@@ -124,6 +128,7 @@ type NumericField =
   | "priorEps"
   | "dilutedShares"
   | "netIncome"
+  | "intangibleAmortization"
   | "pretaxIncome";
 type InjectedStock = Omit<StockData, NumericField> & Record<NumericField, number | null>;
 
@@ -150,6 +155,7 @@ export const stocks: StockData[] = (
   priorEps: reported(stock.priorEps),
   dilutedShares: reported(stock.dilutedShares),
   netIncome: reported(stock.netIncome),
+  intangibleAmortization: reported(stock.intangibleAmortization),
   pretaxIncome: reported(stock.pretaxIncome),
 }));
 

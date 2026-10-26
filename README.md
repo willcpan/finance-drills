@@ -115,6 +115,14 @@ same ("TTM to 30 Jun 2026"). GAAP means one-off charges stay in: on its
 press releases and analysts rather than filings, so the drill does not use
 them.
 
+The gap is largest for serial acquirers. Gallagher's GAAP EPS is roughly
+half the "adjusted" figure it headlines, which adds back amortization of
+the intangibles it bought. That amortization is filed
+(`AmortizationOfIntangibleAssets`), so where it comes to a quarter or more of
+net income, the panel's P/E note says so: "GAAP, TTM to 30 Jun 2026, $6.03 EPS;
+after $1.1bn of intangibles amortization in 2025, which "adjusted" EPS adds
+back".
+
 The 10-K and the 10-Q can sit either side of a split. Each part is divided
 by the splits after its own filing date, so all three land on today's basis
 (`trailingOnBasis` in `src/utils/shareBasis.ts`). The growth and CAGR

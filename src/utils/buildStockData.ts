@@ -50,6 +50,8 @@ export interface Company {
   // whole company, pre-tax income for a margin where there is no operating
   // line. Millions.
   netIncome?: number | null;
+  // Amortization of intangibles in the EPS's fiscal year, millions.
+  intangibleAmortization?: number | null;
   pretaxIncome?: number | null;
   profile?: Partial<CompanyProfile>;
 }
@@ -261,6 +263,7 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       shares: basis.shares,
       dilutedShares: basis.dilutedMillions,
       netIncome: reported(company.netIncome),
+      intangibleAmortization: reported(company.intangibleAmortization),
       pretaxIncome: reported(company.pretaxIncome),
       listed: typeof quote.listed === "string" ? quote.listed : null,
       profile: companyProfile(company.profile),

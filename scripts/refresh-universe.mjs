@@ -120,6 +120,11 @@ const CONCEPTS = {
     ['NetIncomeLoss', 'USD'],
     ['ProfitLoss', 'USD'],
   ],
+  // For the panel's note on a P/E: amortization of intangibles is the usual
+  // reason a serial acquirer's GAAP EPS sits far below the "adjusted" EPS it
+  // headlines (Gallagher's is roughly half). Adjusted EPS itself is in press
+  // releases, not XBRL, so the drill can only say how big this part is.
+  intangibleAmortization: [['AmortizationOfIntangibleAssets', 'USD']],
   pretaxIncome: [
     ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', 'USD'],
     ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments', 'USD'],
@@ -694,6 +699,7 @@ const companies = constituents
     const operatingProfit = latestPair(facts.operatingProfit.get(c.factsCik));
     const eps = latestPair(facts.eps.get(c.factsCik));
     const netIncome = latestPair(facts.netIncome.get(c.factsCik));
+    const amortization = latestPair(facts.intangibleAmortization.get(c.factsCik));
     const pretaxIncome = latestPair(facts.pretaxIncome.get(c.factsCik));
     // A margin divides two figures from the same year, or it is not a margin.
     const sameYear = pair => (pair.current && pair.current.period === revenue.current?.period ? pair.current : null);
@@ -723,6 +729,12 @@ const companies = constituents
           ? toMillions(netIncome.current.value)
           : null,
       netIncomeFiscalYear: netIncome.current?.period ?? null,
+      // Millions, for the year of the EPS, so it sets against that year's net
+      // income; null otherwise.
+      intangibleAmortization:
+        amortization.current && amortization.current.period === eps.current?.period
+          ? toMillions(amortization.current.value)
+          : null,
       eps: eps.current ? eps.current.value : null,
       // Trailing twelve months to `end`, with the parts it was summed from so
       // the build can put each on today's share basis. The P/E, earnings yield

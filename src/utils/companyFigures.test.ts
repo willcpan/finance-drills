@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { companyFigures, FIGURE_LABELS } from "./companyFigures";
-import { stocks } from "./stockData";
+import { stocks, type StockData } from "./stockData";
 
 // Runs against the real index the build injected, like questionGenerator.test.
 describe("companyFigures", () => {
@@ -51,5 +51,34 @@ describe("companyFigures", () => {
     if (!exxon) return;
     expect(exxon.revenue).toBeGreaterThan(100000);
     expect(exxon.eps).toBeGreaterThan(0);
+  });
+
+  describe("the P/E note", () => {
+    // Gallagher, roughly: GAAP EPS about half the "adjusted" figure it
+    // headlines, the gap being amortization of what it has acquired.
+    const broker = (overrides: Partial<StockData> = {}): StockData => ({
+      ...stocks[0],
+      currentPrice: 268,
+      trailingEps: { value: 6.03, end: "2026-06-30", diluted: true },
+      fiscalYear: "CY2025",
+      netIncome: 1494,
+      intangibleAmortization: 1100,
+      ...overrides,
+    });
+    const note = (s: StockData) => companyFigures(s).find(f => f.label === "P/E")?.note;
+
+    it("says it is GAAP and whose twelve months", () => {
+      expect(note(broker({ intangibleAmortization: Number.NaN }))).toBe("GAAP, TTM to 30 Jun 2026, $6.03 EPS");
+    });
+
+    it("names the amortization when it is a large share of earnings", () => {
+      expect(note(broker())).toBe(
+        'GAAP, TTM to 30 Jun 2026, $6.03 EPS; after $1.1bn of intangibles amortization in 2025, which "adjusted" EPS adds back'
+      );
+    });
+
+    it("leaves out amortization too small to move the multiple", () => {
+      expect(note(broker({ intangibleAmortization: 200 }))).not.toMatch(/amortization/);
+    });
   });
 });

@@ -55,15 +55,31 @@ const marketCap = (s: StockData): Figure => {
   };
 };
 
+// Amortization this large a share of net income is the usual reason a GAAP
+// P/E sits far above the one a company quotes on its "adjusted" EPS, which
+// adds it back. A quarter is where it starts to move the multiple noticeably.
+export const AMORTIZATION_SHARE = 0.25;
+
+const amortizationNote = (s: StockData): string | null =>
+  s.intangibleAmortization > 0 && s.netIncome > 0 && s.intangibleAmortization / s.netIncome >= AMORTIZATION_SHARE
+    ? `after ${bigMoney(s.intangibleAmortization)} of intangibles amortization in ${fiscalLabel(s.fiscalYear)}, which "adjusted" EPS adds back`
+    : null;
+
 const peRatio = (s: StockData): Figure => {
   const label = "P/E";
-  // Trailing, and the note says whose twelve months.
+  // Trailing and GAAP, and the note says whose twelve months.
   const trailing = s.trailingEps;
   if (trailing) {
-    const period = trailing.end ? `TTM to ${shortDate(trailing.end)}` : "last annual report";
-    return trailing.value > 0
-      ? { label, value: ratio(s.currentPrice / trailing.value), note: `${period}, ${money(trailing.value)} EPS` }
-      : { label, value: "n/m", note: `loss of ${money(Math.abs(trailing.value))} a share, ${period}` };
+    const period = trailing.end ? `GAAP, TTM to ${shortDate(trailing.end)}` : "GAAP, last annual report";
+    if (trailing.value <= 0) {
+      return { label, value: "n/m", note: `loss of ${money(Math.abs(trailing.value))} a share, ${period}` };
+    }
+    const amortization = amortizationNote(s);
+    return {
+      label,
+      value: ratio(s.currentPrice / trailing.value),
+      note: `${period}, ${money(trailing.value)} EPS${amortization ? `; ${amortization}` : ""}`,
+    };
   }
   if (s.eps > 0) return { label, value: ratio(s.currentPrice / s.eps), note: "last annual report" };
   if (s.eps <= 0) return { label, value: "n/m", note: `loss of ${money(Math.abs(s.eps))} a share` };
