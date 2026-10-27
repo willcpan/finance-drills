@@ -228,7 +228,7 @@ const CompanyPanel: React.FC<{ stock: StockData }> = ({ stock }) => {
         <div className="space-y-3 animate-fade-in">
           {facts.length > 0 && <p className="text-xs text-gray-500">{facts.join(" · ")}</p>}
           {profile.description && <p className="text-sm text-gray-700 leading-relaxed">{profile.description}</p>}
-          {/* The same eight rows for every company, in the same order (see
+          {/* The same nine rows for every company, in the same order (see
               utils/companyFigures.ts); a missing figure says why. */}
           <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
             {companyFigures(stock).map(({ label, value, note }) => (
