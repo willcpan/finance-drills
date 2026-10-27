@@ -52,8 +52,18 @@ export interface Company {
   netIncome?: number | null;
   // Amortization of intangibles in the EPS's fiscal year, millions.
   intangibleAmortization?: number | null;
+  // Income tax for the EPS's fiscal year, millions; with pretaxIncome it gives
+  // the effective rate NOPAT is taxed at.
+  incomeTax?: number | null;
+  // The latest balance sheet's debt and cash, millions, each dated.
+  balanceSheet?: { debt?: DatedMillions | null; cash?: DatedMillions | null } | null;
   pretaxIncome?: number | null;
   profile?: Partial<CompanyProfile>;
+}
+
+export interface DatedMillions {
+  millions: number;
+  date: string;
 }
 
 export interface FiledEpsPart {
@@ -167,6 +177,11 @@ const monthlyCloses = (monthly: MonthlyCloses | null | undefined): MonthlyCloses
 const splitList = (splits: Split[] | null | undefined): Split[] =>
   (splits ?? []).filter(s => s && typeof s.date === "string" && isNumber(s.ratio) && s.ratio > 0);
 
+const dated = (part: DatedMillions | null | undefined): DatedMillions | null =>
+  part && isNumber(part.millions) && part.millions >= 0 && typeof part.date === "string"
+    ? { millions: part.millions, date: part.date }
+    : null;
+
 const isPart = (part: FiledEpsPart | null | undefined): part is FiledEpsPart =>
   !!part && isNumber(part.value) && typeof part.filed === "string";
 
@@ -264,6 +279,9 @@ export function buildStockData(universe: Universe | null, prices: PriceFile | nu
       dilutedShares: basis.dilutedMillions,
       netIncome: reported(company.netIncome),
       intangibleAmortization: reported(company.intangibleAmortization),
+      incomeTax: reported(company.incomeTax),
+      debt: dated(company.balanceSheet?.debt),
+      cash: dated(company.balanceSheet?.cash),
       pretaxIncome: reported(company.pretaxIncome),
       listed: typeof quote.listed === "string" ? quote.listed : null,
       profile: companyProfile(company.profile),

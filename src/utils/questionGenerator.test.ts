@@ -130,14 +130,20 @@ describe("stock data", () => {
 
 describe("question generation", () => {
   it("has a usable pool for every question type", () => {
-    for (const type of ALL_QUESTION_TYPES) {
+    // The EV types need debt and cash, which only a refresh after they were
+    // added collects; until then they have no pool and the drill skips them.
+    const collected = stocks.some(s => s.debt || s.cash);
+    const expected = collected
+      ? ALL_QUESTION_TYPES
+      : ALL_QUESTION_TYPES.filter(t => !["enterpriseValue", "nopat", "evToNopat"].includes(t));
+    for (const type of expected) {
       expect(eligibleCount(type)).toBeGreaterThan(0);
     }
-    expect(availableTypes().length).toBe(ALL_QUESTION_TYPES.length);
+    expect(availableTypes()).toEqual(expected);
   });
 
   it("produces a well-formed question for every type and difficulty", () => {
-    for (const type of ALL_QUESTION_TYPES) {
+    for (const type of availableTypes()) {
       for (const difficulty of DIFFICULTIES) {
         const q = generateQuestion(type, difficulty);
         expect(q.type).toBe(type);
@@ -165,6 +171,9 @@ describe("question generation", () => {
       dividendPerShare: "currency",
       payoutRatio: "percentagePoints",
       peRatio: "ratio",
+      enterpriseValue: "billions",
+      nopat: "billions",
+      evToNopat: "ratio",
       earningsYield: "percentagePoints",
       operatingMargin: "percentagePoints",
       revenueGrowth: "percentagePoints",
@@ -174,7 +183,7 @@ describe("question generation", () => {
       epsCagr: "percentagePoints",
     };
 
-    for (const type of ALL_QUESTION_TYPES) {
+    for (const type of availableTypes()) {
       if (type === "marketCap") continue;
       expect(generateQuestion(type, "easy").answerUnit).toBe(expected[type]);
     }

@@ -133,6 +133,32 @@ EPS at all. The frames API spells the per-share unit `USD-per-shares`, but
 `companyconcept` keys it `USD/shares`. The fallback asked for it under the
 frames spelling and got nothing back every time.
 
+### Enterprise value and NOPAT
+
+A P/E values the equity alone; the three EV questions and the panel's
+EV/NOPAT row value the whole enterprise, so two companies carrying different
+debt compare directly:
+
+    EV    = market cap + debt - cash
+    NOPAT = operating profit x (1 - effective tax rate)
+
+Every part is filed. Debt and cash are instants from the latest balance
+sheet, framed by calendar quarter like the cover-page share count: debt is
+`LongTermDebt` where the company files the total, else the non-current part
+plus any current part tagged the same day; cash is cash and equivalents only,
+not marketable securities, which some companies tag and others fold in.
+Leases are left out. The effective rate is `IncomeTaxExpenseBenefit` over
+pre-tax income for the same year as the operating profit, and a year whose
+rate fell outside 5-40% - a settlement, a credit, a loss carried forward -
+sits these questions out, as does a company with no operating line (banks
+and insurers) or no cross-checked share count. A company that files none of
+the debt tags may be debt-free or may tag its borrowings some other way, and
+since EV cannot tell which, it sits out too; the panel row says why.
+
+NOPAT over EBITDA because it is after tax and after the depreciation a
+capital-intensive business really incurs, so the multiple means the same
+thing for a railroad as for a software company.
+
 It walks seven calendar years back, so the CAGR questions can span three or five
 years of what was actually filed. A company's history is the run of consecutive
 years filed under the same XBRL concept as its latest year, so a change of
@@ -252,6 +278,9 @@ the name reaches every question template from one place.
 | P/E Ratio | price, trailing EPS | multiple |
 | Earnings Yield | price, trailing EPS | EPS as % of price |
 | Market Cap | two of price, shares outstanding, market cap | the third |
+| Enterprise Value | market cap, debt, cash | EV |
+| NOPAT | operating profit, effective tax rate | profit after tax |
+| EV / NOPAT | EV, operating profit, effective tax rate | the multiple |
 | Operating Margin | revenue, operating profit | margin |
 | Revenue Growth | two filed years of revenue | growth rate |
 | EPS Growth | two filed years of EPS | growth rate |
@@ -314,8 +343,8 @@ which pins each of them.
 Once an answer is showing, the card carries a link to the company's chart on
 Google Finance and to its Wikipedia article, and an **About** panel with what
 the company does, where and when it started, a five-year chart of month-end
-closes, and the same eight figures for every company, in the same order:
-market cap, P/E, dividend yield, 1-year and 5-year return, operating margin,
+closes, and the same nine figures for every company, in the same order:
+market cap, P/E, EV/NOPAT, dividend yield, 1-year and 5-year return, operating margin,
 and revenue growth over one and five years (`src/utils/companyFigures.ts`).
 
 A figure that cannot be had says why instead of disappearing ("listed 15 Jun

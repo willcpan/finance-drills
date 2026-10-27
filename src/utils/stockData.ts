@@ -105,6 +105,14 @@ export interface StockData {
   // NaN where not filed. The panel's P/E note says when it is a large share of
   // earnings, since it is why GAAP EPS can be far below an "adjusted" one.
   intangibleAmortization: number;
+  // Income tax in the same fiscal year as pretaxIncome, millions; NaN where
+  // not filed. Their ratio is the effective rate NOPAT is taxed at.
+  incomeTax: number;
+  // Latest balance sheet, millions and the date it was struck: borrowings,
+  // and cash and equivalents (not marketable securities). Null where not
+  // filed under a tag the refresh knows, which for debt may mean debt-free.
+  debt: { millions: number; date: string } | null;
+  cash: { millions: number; date: string } | null;
   pretaxIncome: number;
   // First day of trading (YYYY-MM-DD), for a listing too young to have a
   // one- or five-year return.
@@ -129,6 +137,7 @@ type NumericField =
   | "dilutedShares"
   | "netIncome"
   | "intangibleAmortization"
+  | "incomeTax"
   | "pretaxIncome";
 type InjectedStock = Omit<StockData, NumericField> & Record<NumericField, number | null>;
 
@@ -156,6 +165,7 @@ export const stocks: StockData[] = (
   dilutedShares: reported(stock.dilutedShares),
   netIncome: reported(stock.netIncome),
   intangibleAmortization: reported(stock.intangibleAmortization),
+  incomeTax: reported(stock.incomeTax),
   pretaxIncome: reported(stock.pretaxIncome),
 }));
 
@@ -200,6 +210,12 @@ export const SENSIBLE = {
   // Market cap in $bn. The floor keeps out a share count that has gone wrong
   // somewhere; the index itself starts around $5bn.
   marketCap: { min: 3, max: 10000 },
+  // An effective tax rate, in percent. Outside this a year's tax was a
+  // one-off - a settlement, a credit, a loss carried forward - and NOPAT on it
+  // is not what the business earns after tax.
+  taxRate: { min: 5, max: 40 },
+  // EV/NOPAT runs a little above P/E for the same company.
+  evToNopat: { min: 5, max: 80 },
 } as const;
 
 export const within = (value: number, band: { min: number; max: number }): boolean =>
@@ -238,3 +254,21 @@ export const cagrOf = (from: number, to: number, years: number): number =>
 // Market cap in $bn: price times shares outstanding (held in millions).
 export const marketCapOf = (s: StockData): number =>
   s.shares ? (s.currentPrice * s.shares.millions) / 1000 : Number.NaN;
+
+// Effective tax rate in percent: tax over pre-tax income, same year. NaN
+// unless both are positive - a refund on a loss is not a rate.
+export const taxRateOf = (s: StockData): number =>
+  s.pretaxIncome > 0 && s.incomeTax > 0 ? (s.incomeTax / s.pretaxIncome) * 100 : Number.NaN;
+
+// Net operating profit after tax, millions: operating profit taxed at the
+// effective rate. What the whole enterprise earns for debt and equity
+// together, which is why EV sets against it.
+export const nopatOf = (s: StockData): number => s.operatingProfit * (1 - taxRateOf(s) / 100);
+
+// Enterprise value in $bn: market cap plus debt less cash. NaN unless all
+// three are known - a missing debt figure could mean none, or a tag the
+// refresh does not read, and EV cannot tell which.
+export const enterpriseValueOf = (s: StockData): number =>
+  s.debt && s.cash ? marketCapOf(s) + (s.debt.millions - s.cash.millions) / 1000 : Number.NaN;
+
+export const evToNopatOf = (s: StockData): number => (enterpriseValueOf(s) * 1000) / nopatOf(s);

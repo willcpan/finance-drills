@@ -1,6 +1,13 @@
 import {
   type StockData,
   cagrOf,
+  enterpriseValueOf,
+  evToNopatOf,
+  marketCapOf,
+  nopatOf,
+  taxRateOf,
+  SENSIBLE,
+  within,
   priceMoveOf,
   revenueGrowthOf,
 } from "./stockData";
@@ -19,6 +26,7 @@ export interface Figure {
 export const FIGURE_LABELS = [
   "Market cap",
   "P/E",
+  "EV/NOPAT",
   "Dividend yield",
   "1-year return",
   "5-year return",
@@ -98,6 +106,40 @@ const peRatio = (s: StockData): Figure => {
   };
 };
 
+// EV/NOPAT: the valuation of the whole enterprise rather than the equity.
+// Needs a market cap stated as fact, both sides of net debt, an operating
+// line, and an ordinary tax year; the note says which is missing.
+const evToNopat = (s: StockData): Figure => {
+  const label = "EV/NOPAT";
+  if (!(s.operatingProfit > 0)) {
+    return {
+      label,
+      value: NA,
+      note: Number.isFinite(s.operatingProfit) ? "operating loss" : "no operating line filed",
+    };
+  }
+  if (!s.shares) return { label, value: NA, note: s.revenue > 0 ? "share count filed per class only" : "no annual report yet" };
+  if (!s.debt || !s.cash) return { label, value: NA, note: "debt or cash not filed under a known tag" };
+  const rate = taxRateOf(s);
+  if (!within(rate, SENSIBLE.taxRate)) {
+    return {
+      label,
+      value: NA,
+      note: Number.isFinite(rate) ? `tax rate of ${percent(rate, 1)} in ${fiscalLabel(s.fiscalYear)}` : "no tax figure filed",
+    };
+  }
+  const multiple = evToNopatOf(s);
+  if (!Number.isFinite(multiple) || multiple <= 0) return { label, value: NA, note: "enterprise value at or below zero" };
+  const net = s.debt.millions - s.cash.millions;
+  return {
+    label,
+    value: ratio(multiple),
+    note:
+      `EV ${billions(enterpriseValueOf(s))} = cap ${billions(marketCapOf(s))} ${net >= 0 ? "+" : "-"} ` +
+      `${bigMoney(Math.abs(net))} net ${net >= 0 ? "debt" : "cash"}; NOPAT ${bigMoney(nopatOf(s))} at ${percent(rate, 1)} tax`,
+  };
+};
+
 const dividendYield = (s: StockData): Figure =>
   s.dividendPerShare > 0
     ? { label: "Dividend yield", value: percent(s.dividendYield), note: `${money(s.dividendPerShare)} a year` }
@@ -166,6 +208,7 @@ const growthFiveYear = (s: StockData): Figure => {
 export const companyFigures = (s: StockData): Figure[] => [
   marketCap(s),
   peRatio(s),
+  evToNopat(s),
   dividendYield(s),
   oneYear(s),
   fiveYear(s),

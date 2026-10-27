@@ -125,6 +125,9 @@ const CONCEPTS = {
   // headlines (Gallagher's is roughly half). Adjusted EPS itself is in press
   // releases, not XBRL, so the drill can only say how big this part is.
   intangibleAmortization: [['AmortizationOfIntangibleAssets', 'USD']],
+  // For NOPAT: operating profit less tax at the company's own effective rate,
+  // which is this over pre-tax income for the same year.
+  incomeTax: [['IncomeTaxExpenseBenefit', 'USD']],
   pretaxIncome: [
     ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest', 'USD'],
     ['IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments', 'USD'],
@@ -444,6 +447,57 @@ const consecutive = history => {
   return run;
 };
 
+// Debt and cash from the latest balance sheet, for enterprise value. Instants
+// framed by calendar quarter, like the cover-page share count. Debt is the
+// company's borrowings - LongTermDebt where it files the total, else the
+// non-current part plus whatever current part it tags - and cash is cash and
+// equivalents only, not marketable securities, which some companies tag and
+// others fold in. Leases are left out. Each figure keeps its own balance-sheet
+// date, so a question can print it.
+//
+// A company that files none of the debt tags may be debt-free or may tag its
+// borrowings some other way; there is no telling which, so it sits out.
+const DEBT_TOTAL = 'LongTermDebt';
+const DEBT_PARTS = ['LongTermDebtNoncurrent', ['LongTermDebtCurrent', 'DebtCurrent']];
+const CASH = ['CashAndCashEquivalentsAtCarryingValue', 'CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents'];
+
+async function fetchBalanceSheet(wanted) {
+  // concept -> cik -> { value, date }, newest quarter wins.
+  const held = new Map();
+  const concepts = [DEBT_TOTAL, ...DEBT_PARTS.flat(), ...CASH];
+  for (const concept of concepts) held.set(concept, new Map());
+  for (const quarter of SHARE_QUARTERS) {
+    for (const concept of concepts) {
+      for (const row of await fetchFrame(concept, 'USD', quarter)) {
+        if (!wanted.has(row.cik) || !Number.isFinite(row.val) || row.val < 0) continue;
+        const byCik = held.get(concept);
+        const prev = byCik.get(row.cik);
+        if (!prev || row.end > prev.date) byCik.set(row.cik, { value: row.val, date: row.end });
+      }
+    }
+  }
+
+  const sheet = new Map();
+  for (const cik of wanted) {
+    let debt = held.get(DEBT_TOTAL).get(cik) ?? null;
+    if (!debt) {
+      const noncurrent = held.get(DEBT_PARTS[0]).get(cik);
+      if (noncurrent) {
+        // Only a current part dated the same day adds to it.
+        const current = DEBT_PARTS[1].map(c => held.get(c).get(cik)).find(p => p && p.date === noncurrent.date);
+        debt = { value: noncurrent.value + (current?.value ?? 0), date: noncurrent.date };
+      }
+    }
+    const cash = CASH.map(c => held.get(c).get(cik)).find(Boolean) ?? null;
+    if (debt || cash) sheet.set(cik, { debt, cash });
+  }
+
+  console.log(
+    `balance sheet: debt ${[...sheet.values()].filter(s => s.debt).length}  cash ${[...sheet.values()].filter(s => s.cash).length}`
+  );
+  return sheet;
+}
+
 // The freshest cover-page count per company, and the diluted weighted-average
 // count behind each year's EPS. The two are cross-checked in the build
 // (buildStockData.ts), which also knows about splits from the price feed: a
@@ -663,6 +717,7 @@ const cikCounts = new Map();
 for (const c of constituents) cikCounts.set(c.cik, (cikCounts.get(c.cik) ?? 0) + 1);
 const multiListed = new Set([...cikCounts].filter(([, n]) => n > 1).map(([cik]) => cik));
 const { cover, dilutedByYear } = await fetchShares(byCik);
+const balanceSheets = await fetchBalanceSheet(byCik);
 
 // The frames miss a non-calendar filer's diluted count as they miss its other
 // figures (Constellation, Take-Two, Smucker); fetch those one at a time.
@@ -700,6 +755,9 @@ const companies = constituents
     const eps = latestPair(facts.eps.get(c.factsCik));
     const netIncome = latestPair(facts.netIncome.get(c.factsCik));
     const amortization = latestPair(facts.intangibleAmortization.get(c.factsCik));
+    const incomeTax = latestPair(facts.incomeTax.get(c.factsCik));
+    const sheet = balanceSheets.get(c.cik) ?? balanceSheets.get(c.factsCik);
+    const dated = part => (part ? { millions: toMillions(part.value), date: part.date } : null);
     const pretaxIncome = latestPair(facts.pretaxIncome.get(c.factsCik));
     // A margin divides two figures from the same year, or it is not a margin.
     const sameYear = pair => (pair.current && pair.current.period === revenue.current?.period ? pair.current : null);
@@ -723,6 +781,10 @@ const companies = constituents
       operatingProfit: sameYear(operatingProfit) ? toMillions(operatingProfit.current.value) : null,
       // Panel-only fallbacks; see CONCEPTS.
       pretaxIncome: sameYear(pretaxIncome) ? toMillions(pretaxIncome.current.value) : null,
+      // Same year as the pre-tax figure it is divided by.
+      incomeTax: sameYear(incomeTax) ? toMillions(incomeTax.current.value) : null,
+      // Latest balance sheet, millions, each with the date it was struck.
+      balanceSheet: { debt: dated(sheet?.debt), cash: dated(sheet?.cash) },
       netIncome: netIncome.current && netIncome.current.period === eps.current?.period
         ? toMillions(netIncome.current.value)
         : netIncome.current && !eps.current
@@ -807,7 +869,9 @@ console.log(
     `5-year: revenue ${spans('revenue', 5)}  eps ${spans('eps', 5)}`
 );
 console.log(
-  `share counts: cover ${companies.filter(c => c.shareCounts.cover).length}  ` +
+  `balance sheets: debt ${companies.filter(c => c.balanceSheet.debt).length}  ` +
+    `cash ${companies.filter(c => c.balanceSheet.cash).length}  tax ${count('incomeTax')}\n` +
+    `share counts: cover ${companies.filter(c => c.shareCounts.cover).length}  ` +
     `diluted ${companies.filter(c => c.shareCounts.diluted).length}`
 );
 

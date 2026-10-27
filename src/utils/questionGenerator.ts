@@ -19,6 +19,10 @@ import {
   payoutRatioOf,
   cagrOf,
   marketCapOf,
+  taxRateOf,
+  nopatOf,
+  enterpriseValueOf,
+  evToNopatOf,
 } from "./stockData";
 import {
   money,
@@ -47,6 +51,9 @@ export type QuestionType =
   | "peRatio"
   | "earningsYield"
   | "marketCap"
+  | "enterpriseValue"
+  | "nopat"
+  | "evToNopat"
   | "operatingMargin"
   | "revenueGrowth"
   | "epsGrowth"
@@ -154,6 +161,21 @@ export const QUESTION_META: Record<
     label: "Market Cap",
     category: "valuation",
     blurb: "Price, shares outstanding, market cap: given two, find the third",
+  },
+  enterpriseValue: {
+    label: "Enterprise Value",
+    category: "valuation",
+    blurb: "Market cap plus debt less cash, from the latest balance sheet",
+  },
+  nopat: {
+    label: "NOPAT",
+    category: "valuation",
+    blurb: "Operating profit after tax at the company's own rate",
+  },
+  evToNopat: {
+    label: "EV / NOPAT",
+    category: "valuation",
+    blurb: "Enterprise value over operating profit after tax",
   },
   operatingMargin: {
     label: "Operating Margin",
@@ -358,6 +380,13 @@ const hasUsablePrice = (s: StockData) => within(s.currentPrice, SENSIBLE.price);
 const hasEpsPair = (s: StockData) =>
   s.priorEps > 0 && s.eps > 0 && within(epsGrowthOf(s), SENSIBLE.epsGrowth);
 
+// EV needs a market cap the drill can state as fact, and both sides of the
+// net debt. NOPAT needs an operating line - banks and insurers have none -
+// and a year whose tax rate was an ordinary one.
+const hasEnterpriseValue = (s: StockData) =>
+  hasUsablePrice(s) && within(marketCapOf(s), SENSIBLE.marketCap) && within(enterpriseValueOf(s), SENSIBLE.marketCap);
+const hasNopat = (s: StockData) => s.operatingProfit > 0 && within(taxRateOf(s), SENSIBLE.taxRate);
+
 const ELIGIBLE: Record<QuestionType, StockData[]> = {
   percentageChange: stocks.filter(s => hasUsablePrice(s) && s.previousClose > 0),
   // Both prices a longer-horizon question prints have to be workable numbers,
@@ -394,6 +423,11 @@ const ELIGIBLE: Record<QuestionType, StockData[]> = {
     s => trailingEpsOf(s) > 0 && hasUsablePrice(s) && within(earningsYieldOf(s), SENSIBLE.earningsYield)
   ),
   marketCap: stocks.filter(s => hasUsablePrice(s) && within(marketCapOf(s), SENSIBLE.marketCap)),
+  enterpriseValue: stocks.filter(hasEnterpriseValue),
+  nopat: stocks.filter(hasNopat),
+  evToNopat: stocks.filter(
+    s => hasEnterpriseValue(s) && hasNopat(s) && within(evToNopatOf(s), SENSIBLE.evToNopat)
+  ),
   operatingMargin: stocks.filter(
     s => s.revenue > 0 && within(operatingMarginOf(s), SENSIBLE.operatingMargin)
   ),
@@ -842,6 +876,97 @@ const marketCap = (stock: StockData, difficulty: DifficultyLevel): Question => {
   }
 };
 
+// Enterprise value: what it would cost to buy the whole company and settle
+// its borrowings, net of the cash you would get with it. Market cap and the
+// balance-sheet figures are printed to $0.1bn, and the answer is their sum as
+// printed.
+const EV_TOLERANCE_FRACTION: Record<DifficultyLevel, number> = {
+  easy: 0.02,
+  medium: 0.015,
+  hard: 0.01,
+};
+
+const toBillionsShown = (millions: number): number => Math.round(millions / 100) / 10;
+
+const evParts = (stock: StockData) => {
+  if (!stock.debt || !stock.cash) throw new Error(`${stock.ticker} has no balance sheet`);
+  const cap = Math.round(marketCapOf(stock) * 10) / 10;
+  const debt = toBillionsShown(stock.debt.millions);
+  const cash = toBillionsShown(stock.cash.millions);
+  return { cap, debt, cash, ev: roundTo2(cap + debt - cash), asOf: shortDate(stock.cash.date) };
+};
+
+const enterpriseValue = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const { cap, debt, cash, ev, asOf } = evParts(stock);
+
+  return {
+    ...base("enterpriseValue", difficulty, stock),
+    text:
+      `${subject(stock)} has a market cap of ${billions(cap)}. Its latest balance sheet (${asOf}) shows ` +
+      `${billions(debt)} of debt and ${billions(cash)} of cash. What is its enterprise value, in $bn?`,
+    correctAnswer: ev,
+    answerUnit: "billions",
+    tolerance: scaled(ev, EV_TOLERANCE_FRACTION, difficulty, 0.1),
+    method: [
+      `Enterprise value is market cap + debt - cash: what buying the equity and settling the debt costs, less the cash that comes with it.`,
+      `${billions(cap)} + ${billions(debt)} = ${billions(cap + debt)}.`,
+      `${billions(cap + debt)} - ${billions(cash)} = ${billions(ev)}.`,
+    ],
+  };
+};
+
+// NOPAT: operating profit taxed at the company's own effective rate, printed
+// to a tenth of a point. The answer applies the rate as printed to the profit
+// as printed.
+const nopatParts = (stock: StockData) => {
+  const profit = bigMoneyShown(stock.operatingProfit);
+  const rate = Math.round(taxRateOf(stock) * 10) / 10;
+  return { profit, rate, nopat: Math.round(profit * (1 - rate / 100)), year: fiscalLabel(stock.fiscalYear) };
+};
+
+const nopat = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const { profit, rate, nopat, year } = nopatParts(stock);
+  const answer = roundTo2(nopat / 1000);
+
+  return {
+    ...base("nopat", difficulty, stock),
+    text:
+      `${subject(stock)} made ${bigMoney(profit)} of operating profit in ${year} and paid tax at an effective ` +
+      `rate of ${percent(rate, 1)}. What was its NOPAT, in $bn?`,
+    correctAnswer: answer,
+    answerUnit: "billions",
+    tolerance: scaled(answer, PRODUCT_TOLERANCE_FRACTION, difficulty, 0.05),
+    method: [
+      `NOPAT is operating profit x (1 - tax rate): what the business earns after tax before anyone is paid interest.`,
+      `1 - ${percent(rate, 1)} = ${percent(100 - rate, 1)}, so keep ${(100 - rate).toFixed(1)}% of ${bigMoney(profit)}.`,
+      `${bigMoney(profit)} x ${((100 - rate) / 100).toFixed(3)} = ${bigMoney(nopat)}.`,
+    ],
+  };
+};
+
+// EV over NOPAT: like a P/E, but for the whole enterprise rather than the
+// equity, so two companies with different debt loads compare directly.
+const evToNopat = (stock: StockData, difficulty: DifficultyLevel): Question => {
+  const { ev } = evParts(stock);
+  const { profit, rate, nopat, year } = nopatParts(stock);
+  const answer = roundTo2((ev * 1000) / nopat);
+
+  return {
+    ...base("evToNopat", difficulty, stock),
+    text:
+      `${subject(stock)} has an enterprise value of ${billions(ev)}. It made ${bigMoney(profit)} of operating profit ` +
+      `in ${year}, taxed at an effective ${percent(rate, 1)}. What is its EV/NOPAT?`,
+    correctAnswer: answer,
+    answerUnit: "ratio",
+    tolerance: scaled(answer, RATIO_TOLERANCE_FRACTION, difficulty, 0.3),
+    method: [
+      `First NOPAT: ${bigMoney(profit)} x (1 - ${percent(rate, 1)}) = ${bigMoney(nopat)}.`,
+      `Then EV / NOPAT, both in millions: ${(ev * 1000).toLocaleString("en-US", { maximumFractionDigits: 0 })} / ${nopat.toLocaleString("en-US")}.`,
+      `Bracket it: ${bigMoney(nopat)} x 10 = ${bigMoney(nopat * 10)}, x 20 = ${bigMoney(nopat * 20)}. ${billions(ev)} lands at about ${ratio(answer)}.`,
+    ],
+  };
+};
+
 const operatingMargin = (stock: StockData, difficulty: DifficultyLevel): Question => {
   const answer = roundTo2((stock.operatingProfit / stock.revenue) * 100);
   const tenPercent = stock.revenue / 10;
@@ -952,6 +1077,9 @@ const GENERATORS: Record<
   epsFromGrowth,
   revenueCagr,
   epsCagr,
+  enterpriseValue,
+  nopat,
+  evToNopat,
 };
 
 const noDataQuestion = (difficulty: DifficultyLevel): Question => ({

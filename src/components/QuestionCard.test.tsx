@@ -33,6 +33,9 @@ const stock = (overrides: Partial<StockData> = {}): StockData => ({
   dilutedShares: 10,
   netIncome: 50,
   intangibleAmortization: Number.NaN,
+  incomeTax: 40,
+  debt: { millions: 300, date: "2026-06-30" },
+  cash: { millions: 100, date: "2026-06-30" },
   pretaxIncome: Number.NaN,
   listed: "1990-01-02",
   profile: {
