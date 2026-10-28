@@ -1,10 +1,10 @@
 {
-  "asOf": "2026-10-27T16:54:20.000Z",
+  "asOf": "2026-10-27T20:04:36.000Z",
   "source": "Yahoo Finance (v8 chart)",
   "quotes": {
     "A": {
       "name": "Agilent Technologies, Inc.",
-      "price": 177.6,
+      "price": 177.49,
       "previousClose": 175.96,
       "monthAgo": {
         "price": 172.79,
@@ -85,7 +85,7 @@
           138.4,
           153.6,
           172.3,
-          177.6
+          176
         ]
       },
       "splits": [],
@@ -94,7 +94,7 @@
     },
     "AAPL": {
       "name": "Apple Inc.",
-      "price": 346.23,
+      "price": 347.1,
       "previousClose": 343.91,
       "monthAgo": {
         "price": 341.07,
@@ -175,7 +175,7 @@
           308.9,
           316.9,
           333,
-          346.2
+          343.9
         ]
       },
       "splits": [],
@@ -184,7 +184,7 @@
     },
     "ABBV": {
       "name": "AbbVie Inc.",
-      "price": 286.64,
+      "price": 286.39,
       "previousClose": 286.74,
       "monthAgo": {
         "price": 264.34,
@@ -265,7 +265,7 @@
           250.9,
           256.4,
           261.6,
-          286.6
+          286.7
         ]
       },
       "splits": [],
@@ -274,7 +274,7 @@
     },
     "ABNB": {
       "name": "Airbnb, Inc.",
-      "price": 168.45,
+      "price": 168.82,
       "previousClose": 171.05,
       "monthAgo": {
         "price": 157.47,
@@ -355,7 +355,7 @@
           151.5,
           183.2,
           160.6,
-          168.4
+          171.1
         ]
       },
       "splits": [],
@@ -364,7 +364,7 @@
     },
     "ABT": {
       "name": "Abbott Laboratories",
-      "price": 103.31,
+      "price": 103.1,
       "previousClose": 104.88,
       "monthAgo": {
         "price": 101.29,
@@ -445,7 +445,7 @@
           105.7,
           110.4,
           98.83,
-          103.3
+          104.9
         ]
       },
       "splits": [],
@@ -454,7 +454,7 @@
     },
     "ACGL": {
       "name": "Arch Capital Group Ltd.",
-      "price": 100.18,
+      "price": 100.34,
       "previousClose": 102.34,
       "monthAgo": {
         "price": 94.66,
@@ -535,7 +535,7 @@
           100.5,
           98.07,
           92.36,
-          100.2
+          102.3
         ]
       },
       "splits": [],
@@ -544,7 +544,7 @@
     },
     "ACN": {
       "name": "Accenture plc",
-      "price": 236.58,
+      "price": 235.16,
       "previousClose": 247.23,
       "monthAgo": {
         "price": 176.11,
@@ -625,7 +625,7 @@
           165.9,
           189.8,
           183.4,
-          236.6
+          247.2
         ]
       },
       "splits": [],
@@ -634,7 +634,7 @@
     },
     "ADBE": {
       "name": "Adobe Inc.",
-      "price": 250.64,
+      "price": 248.36,
       "previousClose": 258.62,
       "monthAgo": {
         "price": 235.47,
@@ -715,7 +715,7 @@
           250.4,
           292.8,
           239.9,
-          250.6
+          258.6
         ]
       },
       "splits": [],
@@ -724,7 +724,7 @@
     },
     "ADI": {
       "name": "Analog Devices, Inc.",
-      "price": 419.31,
+      "price": 425.35,
       "previousClose": 407.93,
       "monthAgo": {
         "price": 393.6,
@@ -805,7 +805,7 @@
           367.4,
           362.1,
           396.7,
-          419.3
+          407.9
         ]
       },
       "splits": [],
@@ -814,7 +814,7 @@
     },
     "ADM": {
       "name": "Archer-Daniels-Midland Company",
-      "price": 78.37,
+      "price": 78.2,
       "previousClose": 79.01,
       "monthAgo": {
         "price": 81.12,
@@ -895,7 +895,7 @@
           79.27,
           81.29,
           79.38,
-          78.37
+          79.01
         ]
       },
       "splits": [],
@@ -904,7 +904,7 @@
     },
     "ADP": {
       "name": "Automatic Data Processing, Inc.",
-      "price": 292.51,
+      "price": 293.11,
       "previousClose": 301.12,
       "monthAgo": {
         "price": 263.67,
@@ -985,7 +985,7 @@
           266.5,
           286.2,
           258.1,
-          292.5
+          301.1
         ]
       },
       "splits": [],
@@ -994,7 +994,7 @@
     },
     "ADSK": {
       "name": "Autodesk, Inc.",
-      "price": 243.24,
+      "price": 242.1,
       "previousClose": 249.45,
       "monthAgo": {
         "price": 209.4,
@@ -1075,7 +1075,7 @@
           234.2,
           258.5,
           209,
-          243.2
+          249.4
         ]
       },
       "splits": [],
@@ -1084,7 +1084,7 @@
     },
     "AEE": {
       "name": "Ameren Corporation",
-      "price": 107.95,
+      "price": 108.74,
       "previousClose": 108.08,
       "monthAgo": {
         "price": 99.39,
@@ -1165,7 +1165,7 @@
           109.6,
           106,
           99.38,
-          107.9
+          108.1
         ]
       },
       "splits": [],
@@ -1174,7 +1174,7 @@
     },
     "AEP": {
       "name": "American Electric Power Company, Inc.",
-      "price": 128.82,
+      "price": 130.3,
       "previousClose": 129.22,
       "monthAgo": {
         "price": 118.35,
@@ -1255,7 +1255,7 @@
           127.8,
           122.4,
           118.6,
-          128.8
+          129.2
         ]
       },
       "splits": [],
@@ -1354,7 +1354,7 @@
     },
     "AFL": {
       "name": "Aflac Incorporated",
-      "price": 121.28,
+      "price": 121.99,
       "previousClose": 120.93,
       "monthAgo": {
         "price": 113.72,
@@ -1435,7 +1435,7 @@
           127.5,
           115.8,
           111.8,
-          121.3
+          120.9
         ]
       },
       "splits": [],
@@ -1444,7 +1444,7 @@
     },
     "AIG": {
       "name": "American International Group, Inc.",
-      "price": 79.73,
+      "price": 79.58,
       "previousClose": 81.13,
       "monthAgo": {
         "price": 74.17,
@@ -1525,7 +1525,7 @@
           78.58,
           76.36,
           74.42,
-          79.73
+          81.13
         ]
       },
       "splits": [],
@@ -1534,7 +1534,7 @@
     },
     "AIZ": {
       "name": "Assurant, Inc.",
-      "price": 285.53,
+      "price": 286.3,
       "previousClose": 287.15,
       "monthAgo": {
         "price": 265,
@@ -1615,7 +1615,7 @@
           279.2,
           281.9,
           263.5,
-          285.5
+          287.1
         ]
       },
       "splits": [],
@@ -1624,7 +1624,7 @@
     },
     "AJG": {
       "name": "Arthur J. Gallagher & Co.",
-      "price": 257.2,
+      "price": 259.01,
       "previousClose": 266.79,
       "monthAgo": {
         "price": 231.1,
@@ -1705,7 +1705,7 @@
           249.4,
           262.1,
           228.1,
-          257.2
+          266.8
         ]
       },
       "splits": [],
@@ -1714,7 +1714,7 @@
     },
     "AKAM": {
       "name": "Akamai Technologies, Inc.",
-      "price": 99.02,
+      "price": 99.59,
       "previousClose": 98.5,
       "monthAgo": {
         "price": 113.94,
@@ -1795,7 +1795,7 @@
           115.2,
           108.6,
           106.3,
-          99.01
+          98.5
         ]
       },
       "splits": [],
@@ -1804,7 +1804,7 @@
     },
     "ALB": {
       "name": "Albemarle Corporation",
-      "price": 99.09,
+      "price": 98.96,
       "previousClose": 93.42,
       "monthAgo": {
         "price": 109.73,
@@ -1885,7 +1885,7 @@
           117.6,
           135,
           105.8,
-          99.09
+          93.42
         ]
       },
       "splits": [],
@@ -1894,7 +1894,7 @@
     },
     "ALGN": {
       "name": "Align Technology, Inc.",
-      "price": 152.18,
+      "price": 151.95,
       "previousClose": 152.26,
       "monthAgo": {
         "price": 146.78,
@@ -1975,7 +1975,7 @@
           169.2,
           159.8,
           145.4,
-          152.2
+          152.3
         ]
       },
       "splits": [],
@@ -1984,7 +1984,7 @@
     },
     "ALL": {
       "name": "The Allstate Corporation",
-      "price": 251.09,
+      "price": 251.71,
       "previousClose": 255.95,
       "monthAgo": {
         "price": 227.6,
@@ -2065,7 +2065,7 @@
           264.1,
           257.8,
           221.9,
-          251.1
+          255.9
         ]
       },
       "splits": [],
@@ -2074,7 +2074,7 @@
     },
     "ALLE": {
       "name": "Allegion plc",
-      "price": 178.23,
+      "price": 180.55,
       "previousClose": 178.22,
       "monthAgo": {
         "price": 154.47,
@@ -2164,7 +2164,7 @@
     },
     "AMAT": {
       "name": "Applied Materials, Inc.",
-      "price": 395.06,
+      "price": 395.93,
       "previousClose": 387.59,
       "monthAgo": {
         "price": 485,
@@ -2245,7 +2245,7 @@
           507.7,
           458.4,
           511.4,
-          395.1
+          387.6
         ]
       },
       "splits": [],
@@ -2254,7 +2254,7 @@
     },
     "AMCR": {
       "name": "Amcor plc",
-      "price": 45.64,
+      "price": 45.94,
       "previousClose": 46.19,
       "monthAgo": {
         "price": 42.51,
@@ -2335,7 +2335,7 @@
           44.88,
           45.89,
           41.86,
-          45.63
+          46.19
         ]
       },
       "splits": [
@@ -2349,7 +2349,7 @@
     },
     "AMD": {
       "name": "Advanced Micro Devices, Inc.",
-      "price": 558.62,
+      "price": 560.26,
       "previousClose": 531.28,
       "monthAgo": {
         "price": 630.63,
@@ -2430,7 +2430,7 @@
           476.1,
           470.7,
           611.8,
-          558.6
+          531.3
         ]
       },
       "splits": [],
@@ -2439,7 +2439,7 @@
     },
     "AME": {
       "name": "AMETEK, Inc.",
-      "price": 244.77,
+      "price": 246.22,
       "previousClose": 242.81,
       "monthAgo": {
         "price": 250.74,
@@ -2520,7 +2520,7 @@
           241.7,
           235.2,
           247.7,
-          244.8
+          242.8
         ]
       },
       "splits": [],
@@ -2529,7 +2529,7 @@
     },
     "AMGN": {
       "name": "Amgen Inc.",
-      "price": 447.77,
+      "price": 447.95,
       "previousClose": 444.63,
       "monthAgo": {
         "price": 414.61,
@@ -2610,7 +2610,7 @@
           385.2,
           429.9,
           421.5,
-          447.8
+          444.6
         ]
       },
       "splits": [],
@@ -2619,7 +2619,7 @@
     },
     "AMP": {
       "name": "Ameriprise Financial, Inc.",
-      "price": 492.83,
+      "price": 492.85,
       "previousClose": 493.6,
       "monthAgo": {
         "price": 493,
@@ -2700,7 +2700,7 @@
           545.8,
           553.1,
           492.4,
-          492.8
+          493.6
         ]
       },
       "splits": [],
@@ -2709,7 +2709,7 @@
     },
     "AMT": {
       "name": "American Tower Corporation",
-      "price": 184.67,
+      "price": 183.83,
       "previousClose": 188.28,
       "monthAgo": {
         "price": 169.03,
@@ -2790,7 +2790,7 @@
           173.4,
           175.7,
           163.7,
-          184.7
+          188.3
         ]
       },
       "splits": [],
@@ -2799,7 +2799,7 @@
     },
     "AMZN": {
       "name": "Amazon.com, Inc.",
-      "price": 253.9,
+      "price": 253.1,
       "previousClose": 249.09,
       "monthAgo": {
         "price": 249.67,
@@ -2880,7 +2880,7 @@
           271.6,
           259.8,
           249.1,
-          253.9
+          249.1
         ]
       },
       "splits": [
@@ -2894,7 +2894,7 @@
     },
     "ANET": {
       "name": "Arista Networks, Inc.",
-      "price": 187.43,
+      "price": 187,
       "previousClose": 177.24,
       "monthAgo": {
         "price": 206.55,
@@ -2975,7 +2975,7 @@
           180.4,
           195.7,
           203.6,
-          187.4
+          177.2
         ]
       },
       "splits": [
@@ -2993,7 +2993,7 @@
     },
     "AON": {
       "name": "Aon plc",
-      "price": 295.8,
+      "price": 302.5,
       "previousClose": 302.06,
       "monthAgo": {
         "price": 277.99,
@@ -3074,7 +3074,7 @@
           360.5,
           321.5,
           276.8,
-          295.8
+          302.1
         ]
       },
       "splits": [],
@@ -3083,7 +3083,7 @@
     },
     "AOS": {
       "name": "A. O. Smith Corporation",
-      "price": 61.6,
+      "price": 62.06,
       "previousClose": 61.91,
       "monthAgo": {
         "price": 58.65,
@@ -3164,7 +3164,7 @@
           60.13,
           59.13,
           56.37,
-          61.6
+          61.91
         ]
       },
       "splits": [],
@@ -3254,7 +3254,7 @@
           37.32,
           43.15,
           41.54,
-          50.79
+          51.66
         ]
       },
       "splits": [],
@@ -3263,7 +3263,7 @@
     },
     "APD": {
       "name": "Air Products and Chemicals, Inc.",
-      "price": 305.36,
+      "price": 307.11,
       "previousClose": 305.72,
       "monthAgo": {
         "price": 281.76,
@@ -3344,7 +3344,7 @@
           294.9,
           309.5,
           278.2,
-          305.4
+          305.7
         ]
       },
       "splits": [],
@@ -3353,7 +3353,7 @@
     },
     "APH": {
       "name": "Amphenol Corporation",
-      "price": 77.62,
+      "price": 78.21,
       "previousClose": 75.27,
       "monthAgo": {
         "price": 84.09,
@@ -3434,7 +3434,7 @@
           80.35,
           79.28,
           84.3,
-          77.62
+          75.27
         ]
       },
       "splits": [
@@ -3452,7 +3452,7 @@
     },
     "APO": {
       "name": "Apollo Global Management, Inc.",
-      "price": 114.47,
+      "price": 114.26,
       "previousClose": 114.37,
       "monthAgo": {
         "price": 121.69,
@@ -3533,7 +3533,7 @@
           125.6,
           136.6,
           116.1,
-          114.5
+          114.4
         ]
       },
       "splits": [],
@@ -3542,7 +3542,7 @@
     },
     "APP": {
       "name": "AppLovin Corporation",
-      "price": 261.44,
+      "price": 262.82,
       "previousClose": 260.74,
       "monthAgo": {
         "price": 310.75,
@@ -3623,7 +3623,7 @@
           395.9,
           312.1,
           290.4,
-          261.4
+          260.7
         ]
       },
       "splits": [],
@@ -3632,7 +3632,7 @@
     },
     "APTV": {
       "name": "Aptiv PLC",
-      "price": 43.75,
+      "price": 43.65,
       "previousClose": 43.61,
       "monthAgo": {
         "price": 44.79,
@@ -3713,7 +3713,7 @@
           56.47,
           44.76,
           43.02,
-          43.75
+          43.61
         ]
       },
       "splits": [],
@@ -3722,7 +3722,7 @@
     },
     "ARE": {
       "name": "Alexandria Real Estate Equities, Inc.",
-      "price": 41.97,
+      "price": 40.86,
       "previousClose": 43.4,
       "monthAgo": {
         "price": 49.93,
@@ -3803,7 +3803,7 @@
           51.45,
           51.29,
           47.46,
-          41.97
+          43.4
         ]
       },
       "splits": [],
@@ -3812,7 +3812,7 @@
     },
     "ARES": {
       "name": "Ares Management Corporation",
-      "price": 121.91,
+      "price": 122.19,
       "previousClose": 121.88,
       "monthAgo": {
         "price": 122.01,
@@ -3902,7 +3902,7 @@
     },
     "ATO": {
       "name": "Atmos Energy Corporation",
-      "price": 170.89,
+      "price": 171.37,
       "previousClose": 171.29,
       "monthAgo": {
         "price": 157.21,
@@ -3983,7 +3983,7 @@
           172.8,
           166.1,
           156.4,
-          170.9
+          171.3
         ]
       },
       "splits": [],
@@ -3992,7 +3992,7 @@
     },
     "AVGO": {
       "name": "Broadcom Inc.",
-      "price": 342.16,
+      "price": 342.33,
       "previousClose": 329.17,
       "monthAgo": {
         "price": 352.81,
@@ -4073,7 +4073,7 @@
           389.3,
           370.3,
           351.2,
-          342.2
+          329.2
         ]
       },
       "splits": [
@@ -4087,7 +4087,7 @@
     },
     "AVY": {
       "name": "Avery Dennison Corporation",
-      "price": 181.39,
+      "price": 181.71,
       "previousClose": 183.43,
       "monthAgo": {
         "price": 170.34,
@@ -4168,7 +4168,7 @@
           169.7,
           174.1,
           170.7,
-          181.4
+          183.4
         ]
       },
       "splits": [],
@@ -4177,7 +4177,7 @@
     },
     "AWK": {
       "name": "American Water Works Company, Inc.",
-      "price": 139.94,
+      "price": 141.1,
       "previousClose": 141.7,
       "monthAgo": {
         "price": 130.91,
@@ -4258,7 +4258,7 @@
           134.2,
           138.2,
           129.5,
-          139.9
+          141.7
         ]
       },
       "splits": [],
@@ -4267,7 +4267,7 @@
     },
     "AXON": {
       "name": "Axon Enterprise, Inc.",
-      "price": 428.63,
+      "price": 425.87,
       "previousClose": 424.77,
       "monthAgo": {
         "price": 430.11,
@@ -4348,7 +4348,7 @@
           527.8,
           566.6,
           422.5,
-          428.6
+          424.8
         ]
       },
       "splits": [],
@@ -4357,7 +4357,7 @@
     },
     "AXP": {
       "name": "American Express Company",
-      "price": 314.49,
+      "price": 312.91,
       "previousClose": 315.05,
       "monthAgo": {
         "price": 308.89,
@@ -4438,7 +4438,7 @@
           336.3,
           330.2,
           304.1,
-          314.5
+          315
         ]
       },
       "splits": [],
@@ -4447,7 +4447,7 @@
     },
     "AZO": {
       "name": "AutoZone, Inc.",
-      "price": 3138.98,
+      "price": 3143.16,
       "previousClose": 3190.07,
       "monthAgo": {
         "price": 2872.16,
@@ -4528,7 +4528,7 @@
           3016,
           2991,
           2830,
-          3139
+          3190
         ]
       },
       "splits": [],
@@ -4537,7 +4537,7 @@
     },
     "BA": {
       "name": "The Boeing Company",
-      "price": 170.89,
+      "price": 168.18,
       "previousClose": 188.31,
       "monthAgo": {
         "price": 198.07,
@@ -4618,7 +4618,7 @@
           216.1,
           207.8,
           186.1,
-          170.9
+          188.3
         ]
       },
       "splits": [],
@@ -4627,7 +4627,7 @@
     },
     "BAC": {
       "name": "Bank of America Corporation",
-      "price": 50.67,
+      "price": 50.68,
       "previousClose": 50.52,
       "monthAgo": {
         "price": 56.7,
@@ -4708,7 +4708,7 @@
           61.95,
           61.94,
           54.43,
-          50.67
+          50.52
         ]
       },
       "splits": [],
@@ -4717,7 +4717,7 @@
     },
     "BALL": {
       "name": "Ball Corporation",
-      "price": 63.66,
+      "price": 64.1,
       "previousClose": 64.45,
       "monthAgo": {
         "price": 56.83,
@@ -4798,7 +4798,7 @@
           64.9,
           62.97,
           56.03,
-          63.66
+          64.45
         ]
       },
       "splits": [],
@@ -4807,7 +4807,7 @@
     },
     "BAX": {
       "name": "Baxter International Inc.",
-      "price": 24.83,
+      "price": 24.92,
       "previousClose": 25.29,
       "monthAgo": {
         "price": 23.37,
@@ -4888,7 +4888,7 @@
           26.16,
           26,
           24,
-          24.83
+          25.29
         ]
       },
       "splits": [],
@@ -4897,7 +4897,7 @@
     },
     "BBY": {
       "name": "Best Buy Co., Inc.",
-      "price": 97.9,
+      "price": 98.5,
       "previousClose": 97.95,
       "monthAgo": {
         "price": 90.51,
@@ -4978,7 +4978,7 @@
           86.26,
           80.15,
           88.24,
-          97.89
+          97.95
         ]
       },
       "splits": [],
@@ -4987,7 +4987,7 @@
     },
     "BDX": {
       "name": "Becton, Dickinson and Company",
-      "price": 194.33,
+      "price": 195.03,
       "previousClose": 196.39,
       "monthAgo": {
         "price": 183.82,
@@ -5068,7 +5068,7 @@
           165.6,
           188.1,
           179,
-          194.3
+          196.4
         ]
       },
       "splits": [
@@ -5086,7 +5086,7 @@
     },
     "BE": {
       "name": "Bloom Energy Corporation",
-      "price": 220.77,
+      "price": 218.5,
       "previousClose": 203.92,
       "monthAgo": {
         "price": 288.7,
@@ -5167,7 +5167,7 @@
           205.8,
           206.3,
           277,
-          220.8
+          203.9
         ]
       },
       "splits": [],
@@ -5176,7 +5176,7 @@
     },
     "BEN": {
       "name": "Franklin Templeton Inc.",
-      "price": 31.37,
+      "price": 31.23,
       "previousClose": 30.99,
       "monthAgo": {
         "price": 33.02,
@@ -5257,7 +5257,7 @@
           33.86,
           34.15,
           32.12,
-          31.37
+          30.99
         ]
       },
       "splits": [],
@@ -5266,7 +5266,7 @@
     },
     "BF-B": {
       "name": "Brown-Forman Corporation",
-      "price": 28.59,
+      "price": 28.51,
       "previousClose": 28.95,
       "monthAgo": {
         "price": 26.16,
@@ -5347,7 +5347,7 @@
           28.73,
           26.57,
           26.2,
-          28.59
+          28.95
         ]
       },
       "splits": [],
@@ -5356,7 +5356,7 @@
     },
     "BG": {
       "name": "Bunge Global SA",
-      "price": 101.33,
+      "price": 101.36,
       "previousClose": 102.22,
       "monthAgo": {
         "price": 109,
@@ -5437,7 +5437,7 @@
           106.2,
           116.2,
           106.9,
-          101.3
+          102.2
         ]
       },
       "splits": [],
@@ -5446,7 +5446,7 @@
     },
     "BIIB": {
       "name": "Biogen Inc.",
-      "price": 251.63,
+      "price": 252.73,
       "previousClose": 252.26,
       "monthAgo": {
         "price": 227.6,
@@ -5527,7 +5527,7 @@
           202.9,
           216.6,
           225.9,
-          251.6
+          252.3
         ]
       },
       "splits": [],
@@ -5536,7 +5536,7 @@
     },
     "BKNG": {
       "name": "Booking Holdings Inc.",
-      "price": 151.21,
+      "price": 150.14,
       "previousClose": 153.14,
       "monthAgo": {
         "price": 163.95,
@@ -5617,7 +5617,7 @@
           192.9,
           199.1,
           162.9,
-          151.2
+          153.1
         ]
       },
       "splits": [
@@ -5631,7 +5631,7 @@
     },
     "BKR": {
       "name": "Baker Hughes Company",
-      "price": 57.28,
+      "price": 59,
       "previousClose": 56.01,
       "monthAgo": {
         "price": 57.83,
@@ -5712,7 +5712,7 @@
           60.49,
           63.55,
           54.9,
-          57.28
+          56.01
         ]
       },
       "splits": [],
@@ -5721,7 +5721,7 @@
     },
     "BLK": {
       "name": "BlackRock, Inc.",
-      "price": 1134.18,
+      "price": 1136.05,
       "previousClose": 1127.66,
       "monthAgo": {
         "price": 1086.31,
@@ -5802,7 +5802,7 @@
           1090,
           1156,
           1058,
-          1134
+          1128
         ]
       },
       "splits": [],
@@ -5811,7 +5811,7 @@
     },
     "BMY": {
       "name": "Bristol-Myers Squibb Company",
-      "price": 61.24,
+      "price": 61.55,
       "previousClose": 61.61,
       "monthAgo": {
         "price": 62.86,
@@ -5892,7 +5892,7 @@
           65.31,
           66.81,
           62.4,
-          61.24
+          61.61
         ]
       },
       "splits": [],
@@ -5901,7 +5901,7 @@
     },
     "BNY": {
       "name": "The Bank of New York Mellon Corporation",
-      "price": 147.68,
+      "price": 147.58,
       "previousClose": 147.18,
       "monthAgo": {
         "price": 150.15,
@@ -5982,7 +5982,7 @@
           156.3,
           161.3,
           144.6,
-          147.7
+          147.2
         ]
       },
       "splits": [],
@@ -5991,7 +5991,7 @@
     },
     "BR": {
       "name": "Broadridge Financial Solutions, Inc.",
-      "price": 178.6,
+      "price": 177.09,
       "previousClose": 181.09,
       "monthAgo": {
         "price": 163.77,
@@ -6072,7 +6072,7 @@
           153.9,
           182.4,
           161.1,
-          178.6
+          181.1
         ]
       },
       "splits": [],
@@ -6081,7 +6081,7 @@
     },
     "BRK-B": {
       "name": "Berkshire Hathaway Inc.",
-      "price": 545.03,
+      "price": 542.99,
       "previousClose": 548.56,
       "monthAgo": {
         "price": 505.48,
@@ -6162,7 +6162,7 @@
           511.5,
           504,
           498,
-          545
+          548.6
         ]
       },
       "splits": [],
@@ -6171,7 +6171,7 @@
     },
     "BRO": {
       "name": "Brown & Brown, Inc.",
-      "price": 67.47,
+      "price": 67.55,
       "previousClose": 71.08,
       "monthAgo": {
         "price": 60.82,
@@ -6252,7 +6252,7 @@
           70.4,
           72.17,
           60.9,
-          67.47
+          71.08
         ]
       },
       "splits": [],
@@ -6261,7 +6261,7 @@
     },
     "BSX": {
       "name": "Boston Scientific Corporation",
-      "price": 44.88,
+      "price": 45.06,
       "previousClose": 45.58,
       "monthAgo": {
         "price": 43.92,
@@ -6342,7 +6342,7 @@
           46.73,
           48.3,
           43.65,
-          44.88
+          45.58
         ]
       },
       "splits": [],
@@ -6351,7 +6351,7 @@
     },
     "BX": {
       "name": "Blackstone Inc.",
-      "price": 117.92,
+      "price": 116.7,
       "previousClose": 119.06,
       "monthAgo": {
         "price": 118.42,
@@ -6432,7 +6432,7 @@
           127.8,
           143.2,
           112.1,
-          117.9
+          119.1
         ]
       },
       "splits": [],
@@ -6441,7 +6441,7 @@
     },
     "BXP": {
       "name": "BXP, Inc.",
-      "price": 62.12,
+      "price": 60.89,
       "previousClose": 62.26,
       "monthAgo": {
         "price": 63.4,
@@ -6522,7 +6522,7 @@
           70.12,
           67.99,
           61.11,
-          62.12
+          62.26
         ]
       },
       "splits": [],
@@ -6531,7 +6531,7 @@
     },
     "C": {
       "name": "Citigroup Inc.",
-      "price": 122.53,
+      "price": 122.69,
       "previousClose": 121.04,
       "monthAgo": {
         "price": 134.28,
@@ -6612,7 +6612,7 @@
           132.4,
           131.6,
           129.5,
-          122.5
+          121
         ]
       },
       "splits": [],
@@ -6621,7 +6621,7 @@
     },
     "CAH": {
       "name": "Cardinal Health, Inc.",
-      "price": 248.51,
+      "price": 246.45,
       "previousClose": 251.54,
       "monthAgo": {
         "price": 220.22,
@@ -6702,7 +6702,7 @@
           230,
           234.6,
           222.5,
-          248.5
+          251.5
         ]
       },
       "splits": [],
@@ -6711,7 +6711,7 @@
     },
     "CARR": {
       "name": "Carrier Global Corporation",
-      "price": 56.68,
+      "price": 57.83,
       "previousClose": 56.44,
       "monthAgo": {
         "price": 56.37,
@@ -6792,7 +6792,7 @@
           61.81,
           58.22,
           54.86,
-          56.68
+          56.44
         ]
       },
       "splits": [],
@@ -6801,7 +6801,7 @@
     },
     "CASY": {
       "name": "Casey's General Stores, Inc.",
-      "price": 693.15,
+      "price": 697.54,
       "previousClose": 703.93,
       "monthAgo": {
         "price": 598.46,
@@ -6882,7 +6882,7 @@
           871,
           752.2,
           608.5,
-          693.2
+          703.9
         ]
       },
       "splits": [],
@@ -6891,7 +6891,7 @@
     },
     "CAT": {
       "name": "Caterpillar Inc.",
-      "price": 709.8,
+      "price": 713.31,
       "previousClose": 692.13,
       "monthAgo": {
         "price": 821.58,
@@ -6972,7 +6972,7 @@
           814.8,
           797.5,
           810.8,
-          709.8
+          692.1
         ]
       },
       "splits": [],
@@ -6981,7 +6981,7 @@
     },
     "CB": {
       "name": "Chubb Limited",
-      "price": 354.39,
+      "price": 356.25,
       "previousClose": 356.74,
       "monthAgo": {
         "price": 333.37,
@@ -7062,7 +7062,7 @@
           350.7,
           338.6,
           325.3,
-          354.4
+          356.7
         ]
       },
       "splits": [],
@@ -7071,7 +7071,7 @@
     },
     "CBRE": {
       "name": "CBRE Group, Inc.",
-      "price": 122.11,
+      "price": 121.65,
       "previousClose": 122.88,
       "monthAgo": {
         "price": 134.55,
@@ -7152,7 +7152,7 @@
           146.8,
           145.8,
           128.5,
-          122.1
+          122.9
         ]
       },
       "splits": [],
@@ -7161,7 +7161,7 @@
     },
     "CCI": {
       "name": "Crown Castle Inc.",
-      "price": 85.96,
+      "price": 87.87,
       "previousClose": 87.47,
       "monthAgo": {
         "price": 67.84,
@@ -7242,7 +7242,7 @@
           76.3,
           76.14,
           66.65,
-          85.96
+          87.47
         ]
       },
       "splits": [],
@@ -7251,7 +7251,7 @@
     },
     "CCL": {
       "name": "Carnival Corporation Ltd.",
-      "price": 28.05,
+      "price": 27.74,
       "previousClose": 26.86,
       "monthAgo": {
         "price": 22.25,
@@ -7332,7 +7332,7 @@
           27.81,
           23.89,
           24.54,
-          28.05
+          26.86
         ]
       },
       "splits": [],
@@ -7341,7 +7341,7 @@
     },
     "CDNS": {
       "name": "Cadence Design Systems, Inc.",
-      "price": 345.89,
+      "price": 343.08,
       "previousClose": 322.17,
       "monthAgo": {
         "price": 326.13,
@@ -7422,7 +7422,7 @@
           340,
           338.8,
           330.2,
-          345.9
+          322.2
         ]
       },
       "splits": [],
@@ -7431,7 +7431,7 @@
     },
     "CDW": {
       "name": "CDW Corporation",
-      "price": 160.5,
+      "price": 161.41,
       "previousClose": 163.23,
       "monthAgo": {
         "price": 135.43,
@@ -7512,7 +7512,7 @@
           147.8,
           151.6,
           128.2,
-          160.5
+          163.2
         ]
       },
       "splits": [],
@@ -7521,7 +7521,7 @@
     },
     "CEG": {
       "name": "Constellation Energy Corporation",
-      "price": 257.81,
+      "price": 258.98,
       "previousClose": 252.48,
       "monthAgo": {
         "price": 263.27,
@@ -7596,7 +7596,7 @@
           262.8,
           274.8,
           254,
-          257.8
+          252.5
         ]
       },
       "splits": [],
@@ -7605,7 +7605,7 @@
     },
     "CF": {
       "name": "CF Industries Holdings, Inc.",
-      "price": 120.08,
+      "price": 120.54,
       "previousClose": 120.84,
       "monthAgo": {
         "price": 114.67,
@@ -7686,7 +7686,7 @@
           125.2,
           130,
           115.2,
-          120.1
+          120.8
         ]
       },
       "splits": [],
@@ -7695,7 +7695,7 @@
     },
     "CFG": {
       "name": "Citizens Financial Group, Inc.",
-      "price": 65.56,
+      "price": 65.31,
       "previousClose": 65.37,
       "monthAgo": {
         "price": 65.53,
@@ -7776,7 +7776,7 @@
           71.65,
           68.87,
           63.76,
-          65.56
+          65.37
         ]
       },
       "splits": [],
@@ -7785,7 +7785,7 @@
     },
     "CHD": {
       "name": "Church & Dwight Co., Inc.",
-      "price": 104.87,
+      "price": 105.01,
       "previousClose": 105.38,
       "monthAgo": {
         "price": 96.38,
@@ -7866,7 +7866,7 @@
           98.81,
           99.78,
           94.22,
-          104.9
+          105.4
         ]
       },
       "splits": [],
@@ -7875,7 +7875,7 @@
     },
     "CHRW": {
       "name": "C.H. Robinson Worldwide, Inc.",
-      "price": 140.98,
+      "price": 143.59,
       "previousClose": 140.15,
       "monthAgo": {
         "price": 147.1,
@@ -7956,7 +7956,7 @@
           147.7,
           149.7,
           148,
-          141
+          140.1
         ]
       },
       "splits": [],
@@ -7965,7 +7965,7 @@
     },
     "CHTR": {
       "name": "Charter Communications, Inc.",
-      "price": 105.15,
+      "price": 104.93,
       "previousClose": 102.18,
       "monthAgo": {
         "price": 112.91,
@@ -8046,7 +8046,7 @@
           145,
           152.4,
           110.9,
-          105.2
+          102.2
         ]
       },
       "splits": [],
@@ -8055,7 +8055,7 @@
     },
     "CI": {
       "name": "The Cigna Group",
-      "price": 300.3,
+      "price": 298.28,
       "previousClose": 305.78,
       "monthAgo": {
         "price": 272.01,
@@ -8136,7 +8136,7 @@
           279,
           276.1,
           271.8,
-          300.3
+          305.8
         ]
       },
       "splits": [],
@@ -8145,7 +8145,7 @@
     },
     "CIEN": {
       "name": "Ciena Corporation",
-      "price": 349.14,
+      "price": 351.15,
       "previousClose": 335.93,
       "monthAgo": {
         "price": 356.91,
@@ -8226,7 +8226,7 @@
           377,
           382.8,
           351.8,
-          349.1
+          335.9
         ]
       },
       "splits": [],
@@ -8235,7 +8235,7 @@
     },
     "CINF": {
       "name": "Cincinnati Financial Corporation",
-      "price": 181.55,
+      "price": 181.41,
       "previousClose": 177.31,
       "monthAgo": {
         "price": 162.54,
@@ -8316,7 +8316,7 @@
           177.7,
           169.9,
           159.4,
-          181.6
+          177.3
         ]
       },
       "splits": [],
@@ -8325,7 +8325,7 @@
     },
     "CL": {
       "name": "Colgate-Palmolive Company",
-      "price": 92.24,
+      "price": 92.17,
       "previousClose": 93.1,
       "monthAgo": {
         "price": 86.06,
@@ -8406,7 +8406,7 @@
           91.3,
           89.82,
           85.32,
-          92.24
+          93.1
         ]
       },
       "splits": [],
@@ -8415,7 +8415,7 @@
     },
     "CLX": {
       "name": "The Clorox Company",
-      "price": 86.85,
+      "price": 87.36,
       "previousClose": 86.76,
       "monthAgo": {
         "price": 83.8,
@@ -8496,7 +8496,7 @@
           95.53,
           97.68,
           81.01,
-          86.85
+          86.76
         ]
       },
       "splits": [],
@@ -8505,7 +8505,7 @@
     },
     "CMCSA": {
       "name": "Comcast Corporation",
-      "price": 21.87,
+      "price": 21.84,
       "previousClose": 22.05,
       "monthAgo": {
         "price": 21.91,
@@ -8586,7 +8586,7 @@
           23.96,
           26.62,
           21.76,
-          21.86
+          22.05
         ]
       },
       "splits": [
@@ -8600,7 +8600,7 @@
     },
     "CME": {
       "name": "CME Group Inc.",
-      "price": 295.61,
+      "price": 293.48,
       "previousClose": 308.06,
       "monthAgo": {
         "price": 264.48,
@@ -8681,7 +8681,7 @@
           267.8,
           285.5,
           262,
-          295.6
+          308.1
         ]
       },
       "splits": [],
@@ -8690,7 +8690,7 @@
     },
     "CMG": {
       "name": "Chipotle Mexican Grill, Inc.",
-      "price": 27.96,
+      "price": 27.98,
       "previousClose": 28.41,
       "monthAgo": {
         "price": 31.33,
@@ -8771,7 +8771,7 @@
           37.22,
           38.03,
           31.95,
-          27.95
+          28.41
         ]
       },
       "splits": [
@@ -8785,7 +8785,7 @@
     },
     "CMI": {
       "name": "Cummins Inc.",
-      "price": 526.16,
+      "price": 530.61,
       "previousClose": 522.13,
       "monthAgo": {
         "price": 525.06,
@@ -8866,7 +8866,7 @@
           634.2,
           564.4,
           516.6,
-          526.2
+          522.1
         ]
       },
       "splits": [],
@@ -8875,7 +8875,7 @@
     },
     "CMS": {
       "name": "CMS Energy Corporation",
-      "price": 68.99,
+      "price": 69,
       "previousClose": 69.59,
       "monthAgo": {
         "price": 62.95,
@@ -8956,7 +8956,7 @@
           71.99,
           68.06,
           63.08,
-          68.99
+          69.59
         ]
       },
       "splits": [],
@@ -8965,7 +8965,7 @@
     },
     "CNC": {
       "name": "Centene Corporation",
-      "price": 68.81,
+      "price": 68.71,
       "previousClose": 68.03,
       "monthAgo": {
         "price": 61.82,
@@ -9046,7 +9046,7 @@
           62.22,
           64.34,
           62.12,
-          68.81
+          68.03
         ]
       },
       "splits": [],
@@ -9055,7 +9055,7 @@
     },
     "CNP": {
       "name": "CenterPoint Energy, Inc.",
-      "price": 41.41,
+      "price": 41.97,
       "previousClose": 41.2,
       "monthAgo": {
         "price": 36.84,
@@ -9136,7 +9136,7 @@
           42.04,
           39.6,
           36.8,
-          41.4
+          41.2
         ]
       },
       "splits": [],
@@ -9145,7 +9145,7 @@
     },
     "COF": {
       "name": "Capital One Financial Corporation",
-      "price": 204.52,
+      "price": 203.44,
       "previousClose": 202.35,
       "monthAgo": {
         "price": 200.2,
@@ -9226,7 +9226,7 @@
           209,
           214.5,
           193.1,
-          204.5
+          202.4
         ]
       },
       "splits": [],
@@ -9235,7 +9235,7 @@
     },
     "COHR": {
       "name": "Coherent Corp.",
-      "price": 234.89,
+      "price": 235.79,
       "previousClose": 221.5,
       "monthAgo": {
         "price": 295.83,
@@ -9316,7 +9316,7 @@
           262.9,
           277.8,
           287.8,
-          234.9
+          221.5
         ]
       },
       "splits": [],
@@ -9325,7 +9325,7 @@
     },
     "COIN": {
       "name": "Coinbase Global, Inc.",
-      "price": 159.84,
+      "price": 161.09,
       "previousClose": 159.6,
       "monthAgo": {
         "price": 195.11,
@@ -9406,7 +9406,7 @@
           146.3,
           188.1,
           186.4,
-          159.8
+          159.6
         ]
       },
       "splits": [],
@@ -9415,7 +9415,7 @@
     },
     "COO": {
       "name": "The Cooper Companies, Inc.",
-      "price": 59.68,
+      "price": 59.88,
       "previousClose": 61.14,
       "monthAgo": {
         "price": 55.38,
@@ -9496,7 +9496,7 @@
           72.32,
           70.09,
           56.53,
-          59.68
+          61.14
         ]
       },
       "splits": [
@@ -9510,7 +9510,7 @@
     },
     "COP": {
       "name": "ConocoPhillips",
-      "price": 147.88,
+      "price": 147.96,
       "previousClose": 151.37,
       "monthAgo": {
         "price": 127.3,
@@ -9591,7 +9591,7 @@
           120.5,
           132.5,
           125.2,
-          147.9
+          151.4
         ]
       },
       "splits": [],
@@ -9600,7 +9600,7 @@
     },
     "COR": {
       "name": "Cencora, Inc.",
-      "price": 327.49,
+      "price": 325.37,
       "previousClose": 330,
       "monthAgo": {
         "price": 306.92,
@@ -9681,7 +9681,7 @@
           311.3,
           323.6,
           300.3,
-          327.5
+          330
         ]
       },
       "splits": [],
@@ -9690,7 +9690,7 @@
     },
     "COST": {
       "name": "Costco Wholesale Corporation",
-      "price": 992.72,
+      "price": 992.13,
       "previousClose": 1005.16,
       "monthAgo": {
         "price": 922.77,
@@ -9771,7 +9771,7 @@
           951.9,
           943.9,
           910.3,
-          992.7
+          1005
         ]
       },
       "splits": [],
@@ -9780,7 +9780,7 @@
     },
     "CPAY": {
       "name": "Corpay, Inc.",
-      "price": 397.67,
+      "price": 397.02,
       "previousClose": 399.72,
       "monthAgo": {
         "price": 398.11,
@@ -9861,7 +9861,7 @@
           382.1,
           404.3,
           388.6,
-          397.7
+          399.7
         ]
       },
       "splits": [],
@@ -9870,7 +9870,7 @@
     },
     "CPRT": {
       "name": "Copart, Inc.",
-      "price": 28.88,
+      "price": 28.92,
       "previousClose": 29.15,
       "monthAgo": {
         "price": 27.59,
@@ -9951,7 +9951,7 @@
           29.12,
           32.99,
           27.28,
-          28.88
+          29.15
         ]
       },
       "splits": [
@@ -9969,7 +9969,7 @@
     },
     "CPT": {
       "name": "Camden Property Trust",
-      "price": 101.43,
+      "price": 101.52,
       "previousClose": 102,
       "monthAgo": {
         "price": 98.12,
@@ -10050,7 +10050,7 @@
           110.8,
           105.8,
           96.73,
-          101.4
+          102
         ]
       },
       "splits": [],
@@ -10059,7 +10059,7 @@
     },
     "CRH": {
       "name": "CRH plc",
-      "price": 85.37,
+      "price": 85.77,
       "previousClose": 85.43,
       "monthAgo": {
         "price": 85.04,
@@ -10140,7 +10140,7 @@
           95.01,
           94.29,
           82.8,
-          85.37
+          85.43
         ]
       },
       "splits": [],
@@ -10149,7 +10149,7 @@
     },
     "CRL": {
       "name": "Charles River Laboratories International, Inc.",
-      "price": 356.38,
+      "price": 358.84,
       "previousClose": 357.27,
       "monthAgo": {
         "price": 292.84,
@@ -10230,7 +10230,7 @@
           232.5,
           288.2,
           295,
-          356.4
+          357.3
         ]
       },
       "splits": [],
@@ -10239,7 +10239,7 @@
     },
     "CRM": {
       "name": "Salesforce, Inc.",
-      "price": 242.52,
+      "price": 240.89,
       "previousClose": 247.61,
       "monthAgo": {
         "price": 234.02,
@@ -10320,7 +10320,7 @@
           184,
           257.5,
           229.6,
-          242.5
+          247.6
         ]
       },
       "splits": [],
@@ -10329,7 +10329,7 @@
     },
     "CRWD": {
       "name": "CrowdStrike Holdings, Inc.",
-      "price": 267.75,
+      "price": 268.02,
       "previousClose": 261.83,
       "monthAgo": {
         "price": 252.13,
@@ -10410,7 +10410,7 @@
           190.9,
           231,
           264.8,
-          267.8
+          261.8
         ]
       },
       "splits": [
@@ -10424,7 +10424,7 @@
     },
     "CSCO": {
       "name": "Cisco Systems, Inc.",
-      "price": 112.11,
+      "price": 111.38,
       "previousClose": 110.24,
       "monthAgo": {
         "price": 106.7,
@@ -10505,7 +10505,7 @@
           116,
           110.5,
           107.6,
-          112.1
+          110.2
         ]
       },
       "splits": [],
@@ -10514,7 +10514,7 @@
     },
     "CSGP": {
       "name": "CoStar Group, Inc.",
-      "price": 32.42,
+      "price": 32.01,
       "previousClose": 33.7,
       "monthAgo": {
         "price": 28.09,
@@ -10595,7 +10595,7 @@
           28.76,
           32.07,
           27.4,
-          32.42
+          33.7
         ]
       },
       "splits": [],
@@ -10604,7 +10604,7 @@
     },
     "CSX": {
       "name": "CSX Corporation",
-      "price": 51.93,
+      "price": 52.27,
       "previousClose": 51.31,
       "monthAgo": {
         "price": 46.78,
@@ -10685,7 +10685,7 @@
           50.4,
           50.51,
           46.51,
-          51.92
+          51.31
         ]
       },
       "splits": [],
@@ -10694,7 +10694,7 @@
     },
     "CTAS": {
       "name": "Cintas Corporation",
-      "price": 213.66,
+      "price": 214.8,
       "previousClose": 225.93,
       "monthAgo": {
         "price": 199.91,
@@ -10775,7 +10775,7 @@
           204.6,
           201.8,
           195.1,
-          213.7
+          225.9
         ]
       },
       "splits": [
@@ -10789,7 +10789,7 @@
     },
     "CTSH": {
       "name": "Cognizant Technology Solutions Corporation",
-      "price": 66.17,
+      "price": 66.22,
       "previousClose": 69.34,
       "monthAgo": {
         "price": 57.33,
@@ -10870,7 +10870,7 @@
           55.35,
           64.58,
           57.44,
-          66.17
+          69.34
         ]
       },
       "splits": [],
@@ -10879,7 +10879,7 @@
     },
     "CVNA": {
       "name": "Carvana Co.",
-      "price": 58.7,
+      "price": 59.23,
       "previousClose": 56.61,
       "monthAgo": {
         "price": 65.06,
@@ -10960,7 +10960,7 @@
           62.36,
           73.46,
           62.54,
-          58.69
+          56.61
         ]
       },
       "splits": [
@@ -10974,7 +10974,7 @@
     },
     "CVS": {
       "name": "CVS Health Corporation",
-      "price": 91.5,
+      "price": 91.13,
       "previousClose": 92.53,
       "monthAgo": {
         "price": 89.13,
@@ -11055,7 +11055,7 @@
           104.4,
           93.91,
           85.69,
-          91.5
+          92.53
         ]
       },
       "splits": [],
@@ -11064,7 +11064,7 @@
     },
     "CVX": {
       "name": "Chevron Corporation",
-      "price": 227.8,
+      "price": 228.23,
       "previousClose": 232.01,
       "monthAgo": {
         "price": 204.45,
@@ -11145,7 +11145,7 @@
           196.8,
           206.1,
           204.2,
-          227.8
+          232
         ]
       },
       "splits": [],
@@ -11154,7 +11154,7 @@
     },
     "D": {
       "name": "Dominion Energy, Inc.",
-      "price": 65.13,
+      "price": 65.36,
       "previousClose": 65.1,
       "monthAgo": {
         "price": 60.68,
@@ -11235,7 +11235,7 @@
           69.17,
           66.01,
           60.52,
-          65.13
+          65.1
         ]
       },
       "splits": [],
@@ -11244,7 +11244,7 @@
     },
     "DAL": {
       "name": "Delta Air Lines, Inc.",
-      "price": 80.53,
+      "price": 81.45,
       "previousClose": 79.16,
       "monthAgo": {
         "price": 84.94,
@@ -11325,7 +11325,7 @@
           87.44,
           78,
           83.46,
-          80.53
+          79.16
         ]
       },
       "splits": [],
@@ -11334,7 +11334,7 @@
     },
     "DASH": {
       "name": "DoorDash, Inc.",
-      "price": 172.75,
+      "price": 170.56,
       "previousClose": 168.44,
       "monthAgo": {
         "price": 193.36,
@@ -11415,7 +11415,7 @@
           196.2,
           231.7,
           183.6,
-          172.8
+          168.4
         ]
       },
       "splits": [],
@@ -11424,7 +11424,7 @@
     },
     "DD": {
       "name": "DuPont de Nemours, Inc.",
-      "price": 137.28,
+      "price": 137.67,
       "previousClose": 136.25,
       "monthAgo": {
         "price": 131.71,
@@ -11505,7 +11505,7 @@
           137,
           134.6,
           129.9,
-          137.3
+          136.3
         ]
       },
       "splits": [
@@ -11523,7 +11523,7 @@
     },
     "DDOG": {
       "name": "Datadog, Inc.",
-      "price": 280.08,
+      "price": 280.82,
       "previousClose": 280.24,
       "monthAgo": {
         "price": 268.13,
@@ -11604,7 +11604,7 @@
           268,
           237,
           273.9,
-          280.1
+          280.2
         ]
       },
       "splits": [],
@@ -11613,7 +11613,7 @@
     },
     "DE": {
       "name": "Deere & Company",
-      "price": 639.78,
+      "price": 639.58,
       "previousClose": 641.25,
       "monthAgo": {
         "price": 690.46,
@@ -11694,7 +11694,7 @@
           592.7,
           654.9,
           671.5,
-          639.8
+          641.3
         ]
       },
       "splits": [],
@@ -11703,7 +11703,7 @@
     },
     "DECK": {
       "name": "Deckers Outdoor Corporation",
-      "price": 79.43,
+      "price": 80.54,
       "previousClose": 80.37,
       "monthAgo": {
         "price": 78.67,
@@ -11784,7 +11784,7 @@
           96.88,
           87.08,
           78.14,
-          79.43
+          80.37
         ]
       },
       "splits": [
@@ -11798,7 +11798,7 @@
     },
     "DELL": {
       "name": "Dell Technologies Inc.",
-      "price": 503.21,
+      "price": 501.96,
       "previousClose": 467.09,
       "monthAgo": {
         "price": 562.89,
@@ -11879,7 +11879,7 @@
           405.4,
           456,
           538,
-          503.2
+          467.1
         ]
       },
       "splits": [
@@ -11893,7 +11893,7 @@
     },
     "DG": {
       "name": "Dollar General Corporation",
-      "price": 126.91,
+      "price": 126.86,
       "previousClose": 128.42,
       "monthAgo": {
         "price": 124.84,
@@ -11974,7 +11974,7 @@
           127.1,
           126.8,
           119.6,
-          126.9
+          128.4
         ]
       },
       "splits": [],
@@ -11983,7 +11983,7 @@
     },
     "DGX": {
       "name": "Quest Diagnostics Incorporated",
-      "price": 240.37,
+      "price": 242.56,
       "previousClose": 242.95,
       "monthAgo": {
         "price": 236.32,
@@ -12064,7 +12064,7 @@
           233,
           240.3,
           233.1,
-          240.4
+          242.9
         ]
       },
       "splits": [],
@@ -12073,7 +12073,7 @@
     },
     "DHI": {
       "name": "D.R. Horton, Inc.",
-      "price": 145.21,
+      "price": 147.02,
       "previousClose": 146.52,
       "monthAgo": {
         "price": 141.51,
@@ -12154,7 +12154,7 @@
           143.1,
           144.6,
           136.6,
-          145.2
+          146.5
         ]
       },
       "splits": [],
@@ -12163,7 +12163,7 @@
     },
     "DHR": {
       "name": "Danaher Corporation",
-      "price": 231.84,
+      "price": 232,
       "previousClose": 232.97,
       "monthAgo": {
         "price": 224.49,
@@ -12244,7 +12244,7 @@
           195,
           213.6,
           221.6,
-          231.8
+          233
         ]
       },
       "splits": [
@@ -12258,7 +12258,7 @@
     },
     "DIS": {
       "name": "The Walt Disney Company",
-      "price": 109.68,
+      "price": 110.23,
       "previousClose": 110.4,
       "monthAgo": {
         "price": 106.15,
@@ -12339,7 +12339,7 @@
           96.19,
           107.6,
           104.9,
-          109.7
+          110.4
         ]
       },
       "splits": [],
@@ -12348,7 +12348,7 @@
     },
     "DLR": {
       "name": "Digital Realty Trust, Inc.",
-      "price": 177.19,
+      "price": 179.01,
       "previousClose": 174.53,
       "monthAgo": {
         "price": 178.61,
@@ -12429,7 +12429,7 @@
           188.5,
           185.6,
           175.5,
-          177.2
+          174.5
         ]
       },
       "splits": [],
@@ -12438,7 +12438,7 @@
     },
     "DLTR": {
       "name": "Dollar Tree, Inc.",
-      "price": 123.62,
+      "price": 123.65,
       "previousClose": 124.92,
       "monthAgo": {
         "price": 114.07,
@@ -12519,7 +12519,7 @@
           127.2,
           126.6,
           114,
-          123.6
+          124.9
         ]
       },
       "splits": [],
@@ -12528,7 +12528,7 @@
     },
     "DOC": {
       "name": "Healthpeak Properties, Inc.",
-      "price": 18.98,
+      "price": 19.02,
       "previousClose": 19.36,
       "monthAgo": {
         "price": 20.31,
@@ -12609,7 +12609,7 @@
           21.83,
           20.82,
           19.97,
-          18.98
+          19.36
         ]
       },
       "splits": [],
@@ -12618,7 +12618,7 @@
     },
     "DOV": {
       "name": "Dover Corporation",
-      "price": 205.05,
+      "price": 206.18,
       "previousClose": 202.51,
       "monthAgo": {
         "price": 191.88,
@@ -12699,7 +12699,7 @@
           204.6,
           194.2,
           187.1,
-          205.1
+          202.5
         ]
       },
       "splits": [],
@@ -12708,7 +12708,7 @@
     },
     "DOW": {
       "name": "Dow Inc.",
-      "price": 33.83,
+      "price": 33.78,
       "previousClose": 33.99,
       "monthAgo": {
         "price": 28.02,
@@ -12789,7 +12789,7 @@
           30.29,
           30.52,
           27.54,
-          33.83
+          33.99
         ]
       },
       "splits": [],
@@ -12798,7 +12798,7 @@
     },
     "DPZ": {
       "name": "Domino's Pizza, Inc.",
-      "price": 309.6,
+      "price": 312.03,
       "previousClose": 313.32,
       "monthAgo": {
         "price": 292.14,
@@ -12879,7 +12879,7 @@
           347.4,
           342.1,
           299.6,
-          309.6
+          313.3
         ]
       },
       "splits": [],
@@ -12888,7 +12888,7 @@
     },
     "DRI": {
       "name": "Darden Restaurants, Inc.",
-      "price": 213.53,
+      "price": 213.96,
       "previousClose": 213.25,
       "monthAgo": {
         "price": 199.75,
@@ -12969,7 +12969,7 @@
           203.6,
           214.3,
           193.3,
-          213.5
+          213.3
         ]
       },
       "splits": [],
@@ -12978,7 +12978,7 @@
     },
     "DTE": {
       "name": "DTE Energy Company",
-      "price": 131.63,
+      "price": 132.67,
       "previousClose": 131.74,
       "monthAgo": {
         "price": 121.44,
@@ -13059,7 +13059,7 @@
           141.9,
           135.6,
           121.8,
-          131.6
+          131.7
         ]
       },
       "splits": [],
@@ -13068,7 +13068,7 @@
     },
     "DUK": {
       "name": "Duke Energy Corporation",
-      "price": 124.04,
+      "price": 124.8,
       "previousClose": 124.44,
       "monthAgo": {
         "price": 113.35,
@@ -13149,7 +13149,7 @@
           125.4,
           119.9,
           114,
-          124
+          124.4
         ]
       },
       "splits": [],
@@ -13158,7 +13158,7 @@
     },
     "DVA": {
       "name": "DaVita Inc.",
-      "price": 180.78,
+      "price": 181.69,
       "previousClose": 184.03,
       "monthAgo": {
         "price": 178.47,
@@ -13239,7 +13239,7 @@
           240.1,
           176,
           174.9,
-          180.8
+          184
         ]
       },
       "splits": [],
@@ -13248,7 +13248,7 @@
     },
     "DVN": {
       "name": "Devon Energy Corporation",
-      "price": 50.71,
+      "price": 51.23,
       "previousClose": 51.64,
       "monthAgo": {
         "price": 47.05,
@@ -13329,7 +13329,7 @@
           45.13,
           48.51,
           46.04,
-          50.71
+          51.64
         ]
       },
       "splits": [],
@@ -13338,7 +13338,7 @@
     },
     "DXCM": {
       "name": "DexCom, Inc.",
-      "price": 78.87,
+      "price": 78.56,
       "previousClose": 78.57,
       "monthAgo": {
         "price": 86.62,
@@ -13419,7 +13419,7 @@
           83.45,
           91.06,
           86.29,
-          78.87
+          78.57
         ]
       },
       "splits": [
@@ -13433,7 +13433,7 @@
     },
     "EBAY": {
       "name": "eBay Inc.",
-      "price": 117.54,
+      "price": 117.83,
       "previousClose": 118.62,
       "monthAgo": {
         "price": 107.9,
@@ -13514,7 +13514,7 @@
           114,
           103.6,
           106.1,
-          117.5
+          118.6
         ]
       },
       "splits": [],
@@ -13523,7 +13523,7 @@
     },
     "ECHO": {
       "name": "EchoStar Corporation",
-      "price": 90.76,
+      "price": 90.39,
       "previousClose": 89.26,
       "monthAgo": {
         "price": 90.11,
@@ -13604,7 +13604,7 @@
           84.09,
           86.44,
           89.41,
-          90.76
+          89.26
         ]
       },
       "splits": [],
@@ -13613,7 +13613,7 @@
     },
     "ECL": {
       "name": "Ecolab Inc.",
-      "price": 292.26,
+      "price": 291.27,
       "previousClose": 288.89,
       "monthAgo": {
         "price": 279.49,
@@ -13694,7 +13694,7 @@
           277.6,
           283.2,
           274.6,
-          292.3
+          288.9
         ]
       },
       "splits": [],
@@ -13703,7 +13703,7 @@
     },
     "ED": {
       "name": "Consolidated Edison, Inc.",
-      "price": 114.69,
+      "price": 115.03,
       "previousClose": 115.42,
       "monthAgo": {
         "price": 103.1,
@@ -13784,7 +13784,7 @@
           108.8,
           107,
           102.2,
-          114.7
+          115.4
         ]
       },
       "splits": [],
@@ -13793,7 +13793,7 @@
     },
     "EFX": {
       "name": "Equifax Inc.",
-      "price": 175.68,
+      "price": 175.71,
       "previousClose": 178.56,
       "monthAgo": {
         "price": 148.11,
@@ -13874,7 +13874,7 @@
           172.6,
           189.2,
           137.2,
-          175.7
+          178.6
         ]
       },
       "splits": [],
@@ -13883,7 +13883,7 @@
     },
     "EG": {
       "name": "Everest Group, Ltd.",
-      "price": 389.71,
+      "price": 391.09,
       "previousClose": 397.61,
       "monthAgo": {
         "price": 370.43,
@@ -13964,7 +13964,7 @@
           374.1,
           374.6,
           365.2,
-          389.7
+          397.6
         ]
       },
       "splits": [],
@@ -13973,7 +13973,7 @@
     },
     "EIX": {
       "name": "Edison International",
-      "price": 58.12,
+      "price": 58.19,
       "previousClose": 57.78,
       "monthAgo": {
         "price": 52.65,
@@ -14054,7 +14054,7 @@
           73.37,
           53.98,
           53.73,
-          58.12
+          57.78
         ]
       },
       "splits": [],
@@ -14063,7 +14063,7 @@
     },
     "EL": {
       "name": "The Estée Lauder Companies Inc.",
-      "price": 107.69,
+      "price": 108.35,
       "previousClose": 108.82,
       "monthAgo": {
         "price": 94.47,
@@ -14144,7 +14144,7 @@
           83.9,
           102.3,
           92.77,
-          107.7
+          108.8
         ]
       },
       "splits": [],
@@ -14153,7 +14153,7 @@
     },
     "ELV": {
       "name": "Elevance Health, Inc.",
-      "price": 419.97,
+      "price": 421.49,
       "previousClose": 431.32,
       "monthAgo": {
         "price": 396.09,
@@ -14234,7 +14234,7 @@
           375.8,
           392.5,
           388.8,
-          420
+          431.3
         ]
       },
       "splits": [],
@@ -14243,7 +14243,7 @@
     },
     "EME": {
       "name": "EMCOR Group, Inc.",
-      "price": 665.54,
+      "price": 666.36,
       "previousClose": 665.93,
       "monthAgo": {
         "price": 762.21,
@@ -14324,7 +14324,7 @@
           797.4,
           734.5,
           754.5,
-          665.5
+          665.9
         ]
       },
       "splits": [],
@@ -14333,7 +14333,7 @@
     },
     "EMR": {
       "name": "Emerson Electric Co.",
-      "price": 164.38,
+      "price": 166.27,
       "previousClose": 161.7,
       "monthAgo": {
         "price": 158.23,
@@ -14414,7 +14414,7 @@
           149.8,
           152.4,
           155.1,
-          164.4
+          161.7
         ]
       },
       "splits": [],
@@ -14423,7 +14423,7 @@
     },
     "EOG": {
       "name": "EOG Resources, Inc.",
-      "price": 161.32,
+      "price": 161.1,
       "previousClose": 163.68,
       "monthAgo": {
         "price": 140.35,
@@ -14504,7 +14504,7 @@
           148.7,
           145,
           137.8,
-          161.3
+          163.7
         ]
       },
       "splits": [],
@@ -14513,7 +14513,7 @@
     },
     "EQIX": {
       "name": "Equinix, Inc.",
-      "price": 995.81,
+      "price": 999.38,
       "previousClose": 967.65,
       "monthAgo": {
         "price": 1008.08,
@@ -14594,7 +14594,7 @@
           1019,
           1047,
           1012,
-          995.8
+          967.7
         ]
       },
       "splits": [],
@@ -14603,7 +14603,7 @@
     },
     "EQT": {
       "name": "EQT Corporation",
-      "price": 54.83,
+      "price": 56.27,
       "previousClose": 54.85,
       "monthAgo": {
         "price": 50.81,
@@ -14684,7 +14684,7 @@
           53.29,
           54.18,
           48.56,
-          54.83
+          54.85
         ]
       },
       "splits": [],
@@ -14693,7 +14693,7 @@
     },
     "ERIE": {
       "name": "Erie Indemnity Company",
-      "price": 243.2,
+      "price": 246.88,
       "previousClose": 251.3,
       "monthAgo": {
         "price": 222.86,
@@ -14774,7 +14774,7 @@
           242,
           255.6,
           219.1,
-          243.2
+          251.3
         ]
       },
       "splits": [],
@@ -14783,7 +14783,7 @@
     },
     "ES": {
       "name": "Eversource Energy",
-      "price": 67.3,
+      "price": 67.76,
       "previousClose": 67.55,
       "monthAgo": {
         "price": 63.67,
@@ -14864,7 +14864,7 @@
           71.59,
           70.14,
           64.16,
-          67.3
+          67.55
         ]
       },
       "splits": [],
@@ -14873,7 +14873,7 @@
     },
     "ESS": {
       "name": "Essex Property Trust, Inc.",
-      "price": 275.1,
+      "price": 274.85,
       "previousClose": 275.3,
       "monthAgo": {
         "price": 271.61,
@@ -14954,7 +14954,7 @@
           284.1,
           283,
           269.4,
-          275.1
+          275.3
         ]
       },
       "splits": [],
@@ -14963,7 +14963,7 @@
     },
     "ETN": {
       "name": "Eaton Corporation plc",
-      "price": 381.95,
+      "price": 384.2,
       "previousClose": 371.92,
       "monthAgo": {
         "price": 439.98,
@@ -15044,7 +15044,7 @@
           415.2,
           401.9,
           429.7,
-          382
+          371.9
         ]
       },
       "splits": [],
@@ -15053,7 +15053,7 @@
     },
     "ETR": {
       "name": "Entergy Corporation",
-      "price": 107.92,
+      "price": 108.43,
       "previousClose": 107.5,
       "monthAgo": {
         "price": 98.57,
@@ -15134,7 +15134,7 @@
           107.6,
           106.3,
           99.26,
-          107.9
+          107.5
         ]
       },
       "splits": [
@@ -15148,7 +15148,7 @@
     },
     "EVRG": {
       "name": "Evergy, Inc.",
-      "price": 84.63,
+      "price": 85.3,
       "previousClose": 84.61,
       "monthAgo": {
         "price": 78.04,
@@ -15229,7 +15229,7 @@
           83.01,
           81.02,
           78.44,
-          84.63
+          84.61
         ]
       },
       "splits": [],
@@ -15238,7 +15238,7 @@
     },
     "EW": {
       "name": "Edwards Lifesciences Corporation",
-      "price": 90.51,
+      "price": 90.82,
       "previousClose": 90.56,
       "monthAgo": {
         "price": 86.29,
@@ -15319,7 +15319,7 @@
           86.07,
           90.75,
           86.32,
-          90.51
+          90.56
         ]
       },
       "splits": [],
@@ -15328,7 +15328,7 @@
     },
     "EXC": {
       "name": "Exelon Corporation",
-      "price": 44.24,
+      "price": 44.7,
       "previousClose": 44.54,
       "monthAgo": {
         "price": 40.34,
@@ -15409,7 +15409,7 @@
           45.82,
           43.72,
           40.4,
-          44.24
+          44.54
         ]
       },
       "splits": [
@@ -15423,7 +15423,7 @@
     },
     "EXE": {
       "name": "Expand Energy Corporation",
-      "price": 93.86,
+      "price": 94.62,
       "previousClose": 94.02,
       "monthAgo": {
         "price": 86.84,
@@ -15504,7 +15504,7 @@
           94.03,
           98.16,
           84.09,
-          93.86
+          94.02
         ]
       },
       "splits": [],
@@ -15513,7 +15513,7 @@
     },
     "EXPD": {
       "name": "Expeditors International of Washington, Inc.",
-      "price": 198.31,
+      "price": 199.64,
       "previousClose": 196.43,
       "monthAgo": {
         "price": 187.46,
@@ -15594,7 +15594,7 @@
           167.9,
           189.6,
           184.6,
-          198.3
+          196.4
         ]
       },
       "splits": [],
@@ -15603,7 +15603,7 @@
     },
     "EXPE": {
       "name": "Expedia Group, Inc.",
-      "price": 279.94,
+      "price": 278.08,
       "previousClose": 283.97,
       "monthAgo": {
         "price": 264.17,
@@ -15684,7 +15684,7 @@
           294.7,
           317.1,
           263.4,
-          279.9
+          284
         ]
       },
       "splits": [],
@@ -15693,7 +15693,7 @@
     },
     "EXR": {
       "name": "Extra Space Storage Inc.",
-      "price": 144.01,
+      "price": 144.55,
       "previousClose": 143.37,
       "monthAgo": {
         "price": 133.35,
@@ -15774,7 +15774,7 @@
           148,
           141.1,
           131.5,
-          144
+          143.4
         ]
       },
       "splits": [],
@@ -15783,7 +15783,7 @@
     },
     "F": {
       "name": "Ford Motor Company",
-      "price": 11.68,
+      "price": 11.71,
       "previousClose": 11.58,
       "monthAgo": {
         "price": 12.71,
@@ -15864,7 +15864,7 @@
           14.68,
           13.94,
           12.06,
-          11.68
+          11.58
         ]
       },
       "splits": [],
@@ -15873,7 +15873,7 @@
     },
     "FANG": {
       "name": "Diamondback Energy, Inc.",
-      "price": 203.52,
+      "price": 204.48,
       "previousClose": 207.13,
       "monthAgo": {
         "price": 186.67,
@@ -15954,7 +15954,7 @@
           202.9,
           200.5,
           183.8,
-          203.5
+          207.1
         ]
       },
       "splits": [],
@@ -15963,7 +15963,7 @@
     },
     "FAST": {
       "name": "Fastenal Company",
-      "price": 51.33,
+      "price": 51.55,
       "previousClose": 52.47,
       "monthAgo": {
         "price": 50.43,
@@ -16044,7 +16044,7 @@
           47.71,
           49.31,
           49.53,
-          51.33
+          52.47
         ]
       },
       "splits": [
@@ -16058,7 +16058,7 @@
     },
     "FCX": {
       "name": "Freeport-McMoRan Inc.",
-      "price": 65.75,
+      "price": 65.95,
       "previousClose": 65.16,
       "monthAgo": {
         "price": 72.31,
@@ -16139,7 +16139,7 @@
           62.63,
           75.74,
           70,
-          65.75
+          65.16
         ]
       },
       "splits": [],
@@ -16148,7 +16148,7 @@
     },
     "FDS": {
       "name": "FactSet Research Systems Inc.",
-      "price": 309.39,
+      "price": 309.54,
       "previousClose": 323.39,
       "monthAgo": {
         "price": 273.08,
@@ -16229,7 +16229,7 @@
           263.2,
           313.5,
           270,
-          309.4
+          323.4
         ]
       },
       "splits": [],
@@ -16238,7 +16238,7 @@
     },
     "FDX": {
       "name": "FedEx Corporation",
-      "price": 305.44,
+      "price": 307.1,
       "previousClose": 300.58,
       "monthAgo": {
         "price": 285.85,
@@ -16319,7 +16319,7 @@
           307.4,
           327.4,
           285.1,
-          305.4
+          300.6
         ]
       },
       "splits": [
@@ -16333,7 +16333,7 @@
     },
     "FDXF": {
       "name": "FedEx Freight Holding Company, Inc.",
-      "price": 106.56,
+      "price": 108.5,
       "previousClose": 109.45,
       "monthAgo": {
         "price": 113.18,
@@ -16350,7 +16350,7 @@
           140.5,
           133.7,
           109.4,
-          106.6
+          109.4
         ]
       },
       "splits": [],
@@ -16359,7 +16359,7 @@
     },
     "FE": {
       "name": "FirstEnergy Corp.",
-      "price": 45.88,
+      "price": 46.27,
       "previousClose": 46.18,
       "monthAgo": {
         "price": 43.3,
@@ -16440,7 +16440,7 @@
           48.31,
           45.86,
           43.33,
-          45.88
+          46.18
         ]
       },
       "splits": [],
@@ -16449,7 +16449,7 @@
     },
     "FERG": {
       "name": "Ferguson Enterprises Inc.",
-      "price": 227.75,
+      "price": 229.56,
       "previousClose": 229.52,
       "monthAgo": {
         "price": 222.74,
@@ -16530,7 +16530,7 @@
           234.3,
           224.5,
           222.6,
-          227.7
+          229.5
         ]
       },
       "splits": [],
@@ -16539,7 +16539,7 @@
     },
     "FFIV": {
       "name": "F5, Inc.",
-      "price": 457.68,
+      "price": 459.36,
       "previousClose": 461.6,
       "monthAgo": {
         "price": 443.06,
@@ -16620,7 +16620,7 @@
           402.6,
           407.1,
           445.2,
-          457.7
+          461.6
         ]
       },
       "splits": [],
@@ -16629,7 +16629,7 @@
     },
     "FICO": {
       "name": "Fair Isaac Corporation",
-      "price": 693.98,
+      "price": 691.74,
       "previousClose": 708.07,
       "monthAgo": {
         "price": 863.09,
@@ -16710,7 +16710,7 @@
           1123,
           1147,
           592.5,
-          694
+          708.1
         ]
       },
       "splits": [],
@@ -16719,7 +16719,7 @@
     },
     "FIS": {
       "name": "Fidelity National Information Services, Inc.",
-      "price": 35.69,
+      "price": 35.61,
       "previousClose": 36.87,
       "monthAgo": {
         "price": 35.41,
@@ -16800,7 +16800,7 @@
           44.77,
           40.77,
           32.9,
-          35.69
+          36.87
         ]
       },
       "splits": [],
@@ -16809,7 +16809,7 @@
     },
     "FISV": {
       "name": "Fiserv, Inc.",
-      "price": 47.53,
+      "price": 47.4,
       "previousClose": 48.33,
       "monthAgo": {
         "price": 46.48,
@@ -16890,7 +16890,7 @@
           53.94,
           53.31,
           45.18,
-          47.53
+          48.33
         ]
       },
       "splits": [],
@@ -16899,7 +16899,7 @@
     },
     "FITB": {
       "name": "Fifth Third Bancorp",
-      "price": 53.56,
+      "price": 53.59,
       "previousClose": 53.1,
       "monthAgo": {
         "price": 52.1,
@@ -16980,7 +16980,7 @@
           56.5,
           53.77,
           50.58,
-          53.56
+          53.1
         ]
       },
       "splits": [],
@@ -16989,7 +16989,7 @@
     },
     "FIX": {
       "name": "Comfort Systems USA, Inc.",
-      "price": 1279.57,
+      "price": 1288.61,
       "previousClose": 1244.19,
       "monthAgo": {
         "price": 1658.91,
@@ -17070,7 +17070,7 @@
           1730,
           1546,
           1654,
-          1280
+          1244
         ]
       },
       "splits": [],
@@ -17079,7 +17079,7 @@
     },
     "FLEX": {
       "name": "Flex Ltd.",
-      "price": 80.94,
+      "price": 83.35,
       "previousClose": 76.99,
       "monthAgo": {
         "price": 114.68,
@@ -17160,7 +17160,7 @@
           113.8,
           109.3,
           110,
-          80.94
+          76.99
         ]
       },
       "splits": [
@@ -17174,7 +17174,7 @@
     },
     "FOX": {
       "name": "Fox Corporation",
-      "price": 57.21,
+      "price": 57.43,
       "previousClose": 58.15,
       "monthAgo": {
         "price": 56.54,
@@ -17255,7 +17255,7 @@
           51.94,
           60.22,
           56.3,
-          57.21
+          58.15
         ]
       },
       "splits": [],
@@ -17264,7 +17264,7 @@
     },
     "FOXA": {
       "name": "Fox Corporation",
-      "price": 64.29,
+      "price": 64.53,
       "previousClose": 65.33,
       "monthAgo": {
         "price": 63.07,
@@ -17345,7 +17345,7 @@
           58.23,
           67.35,
           62.65,
-          64.29
+          65.33
         ]
       },
       "splits": [],
@@ -17354,7 +17354,7 @@
     },
     "FRT": {
       "name": "Federal Realty Investment Trust",
-      "price": 109.47,
+      "price": 109.67,
       "previousClose": 109.23,
       "monthAgo": {
         "price": 110.52,
@@ -17435,7 +17435,7 @@
           124.1,
           116,
           108.3,
-          109.5
+          109.2
         ]
       },
       "splits": [],
@@ -17444,7 +17444,7 @@
     },
     "FSLR": {
       "name": "First Solar, Inc.",
-      "price": 175.51,
+      "price": 175.85,
       "previousClose": 168.15,
       "monthAgo": {
         "price": 177.71,
@@ -17525,7 +17525,7 @@
           211,
           201.9,
           175.2,
-          175.5
+          168.1
         ]
       },
       "splits": [],
@@ -17534,7 +17534,7 @@
     },
     "FTNT": {
       "name": "Fortinet, Inc.",
-      "price": 185.38,
+      "price": 185,
       "previousClose": 183.33,
       "monthAgo": {
         "price": 173.46,
@@ -17615,7 +17615,7 @@
           161.9,
           170.9,
           178.8,
-          185.4
+          183.3
         ]
       },
       "splits": [
@@ -17629,7 +17629,7 @@
     },
     "FTV": {
       "name": "Fortive Corporation",
-      "price": 60.93,
+      "price": 61.62,
       "previousClose": 60.78,
       "monthAgo": {
         "price": 56.09,
@@ -17710,7 +17710,7 @@
           59.21,
           58.84,
           54.81,
-          60.93
+          60.78
         ]
       },
       "splits": [
@@ -17724,7 +17724,7 @@
     },
     "GD": {
       "name": "General Dynamics Corporation",
-      "price": 356.59,
+      "price": 354.89,
       "previousClose": 357.04,
       "monthAgo": {
         "price": 336.72,
@@ -17805,7 +17805,7 @@
           383.4,
           371.4,
           331.8,
-          356.6
+          357
         ]
       },
       "splits": [],
@@ -17814,7 +17814,7 @@
     },
     "GDDY": {
       "name": "GoDaddy Inc.",
-      "price": 105.77,
+      "price": 106.21,
       "previousClose": 109.82,
       "monthAgo": {
         "price": 97.14,
@@ -17895,7 +17895,7 @@
           82.74,
           97.88,
           95.51,
-          105.8
+          109.8
         ]
       },
       "splits": [],
@@ -17904,7 +17904,7 @@
     },
     "GE": {
       "name": "GE Aerospace",
-      "price": 296.57,
+      "price": 297.66,
       "previousClose": 288.43,
       "monthAgo": {
         "price": 327.09,
@@ -17985,7 +17985,7 @@
           360.1,
           335.7,
           312.3,
-          296.6
+          288.4
         ]
       },
       "splits": [
@@ -18003,7 +18003,7 @@
     },
     "GEHC": {
       "name": "GE HealthCare Technologies Inc.",
-      "price": 70.5,
+      "price": 71.11,
       "previousClose": 71.98,
       "monthAgo": {
         "price": 66.63,
@@ -18067,7 +18067,7 @@
           68.02,
           71.23,
           65.37,
-          70.5
+          71.98
         ]
       },
       "splits": [],
@@ -18076,7 +18076,7 @@
     },
     "GEN": {
       "name": "Gen Digital Inc.",
-      "price": 24.06,
+      "price": 24.25,
       "previousClose": 24.41,
       "monthAgo": {
         "price": 21.62,
@@ -18157,7 +18157,7 @@
           27.45,
           31,
           22.02,
-          24.06
+          24.41
         ]
       },
       "splits": [],
@@ -18166,7 +18166,7 @@
     },
     "GEV": {
       "name": "GE Vernova Inc.",
-      "price": 876.94,
+      "price": 895.08,
       "previousClose": 855.12,
       "monthAgo": {
         "price": 957.63,
@@ -18212,7 +18212,7 @@
           990.3,
           898.5,
           950.5,
-          876.9
+          855.1
         ]
       },
       "splits": [],
@@ -18221,7 +18221,7 @@
     },
     "GILD": {
       "name": "Gilead Sciences, Inc.",
-      "price": 157.94,
+      "price": 159.08,
       "previousClose": 158.69,
       "monthAgo": {
         "price": 150.93,
@@ -18302,7 +18302,7 @@
           130.2,
           146.3,
           149.1,
-          157.9
+          158.7
         ]
       },
       "splits": [],
@@ -18311,7 +18311,7 @@
     },
     "GIS": {
       "name": "General Mills, Inc.",
-      "price": 33.26,
+      "price": 33.47,
       "previousClose": 33.7,
       "monthAgo": {
         "price": 33.64,
@@ -18392,7 +18392,7 @@
           35.75,
           41.2,
           32.16,
-          33.26
+          33.7
         ]
       },
       "splits": [],
@@ -18401,7 +18401,7 @@
     },
     "GL": {
       "name": "Globe Life Inc.",
-      "price": 155.9,
+      "price": 156.99,
       "previousClose": 156.82,
       "monthAgo": {
         "price": 167.04,
@@ -18482,7 +18482,7 @@
           182.3,
           172.7,
           165.6,
-          155.9
+          156.8
         ]
       },
       "splits": [],
@@ -18491,7 +18491,7 @@
     },
     "GLW": {
       "name": "Corning Incorporated",
-      "price": 126.49,
+      "price": 126.3,
       "previousClose": 127.74,
       "monthAgo": {
         "price": 156.74,
@@ -18572,7 +18572,7 @@
           138.3,
           148.7,
           153.8,
-          126.5
+          127.7
         ]
       },
       "splits": [],
@@ -18581,7 +18581,7 @@
     },
     "GM": {
       "name": "General Motors Company",
-      "price": 80.45,
+      "price": 80.54,
       "previousClose": 76.31,
       "monthAgo": {
         "price": 82.63,
@@ -18662,7 +18662,7 @@
           88.86,
           86.32,
           77,
-          80.45
+          76.31
         ]
       },
       "splits": [],
@@ -18671,7 +18671,7 @@
     },
     "GNRC": {
       "name": "Generac Holdings Inc.",
-      "price": 192.56,
+      "price": 193.71,
       "previousClose": 189.23,
       "monthAgo": {
         "price": 208.14,
@@ -18752,7 +18752,7 @@
           197.1,
           185.4,
           206.9,
-          192.6
+          189.2
         ]
       },
       "splits": [],
@@ -18761,7 +18761,7 @@
     },
     "GOOG": {
       "name": "Alphabet Inc.",
-      "price": 317.69,
+      "price": 316.83,
       "previousClose": 314.19,
       "monthAgo": {
         "price": 341.08,
@@ -18842,7 +18842,7 @@
           356.6,
           335.4,
           340.7,
-          317.7
+          314.2
         ]
       },
       "splits": [
@@ -18856,7 +18856,7 @@
     },
     "GOOGL": {
       "name": "Alphabet Inc.",
-      "price": 321.42,
+      "price": 320.58,
       "previousClose": 316.8,
       "monthAgo": {
         "price": 343.92,
@@ -18937,7 +18937,7 @@
           356.1,
           339.4,
           344.1,
-          321.4
+          316.8
         ]
       },
       "splits": [
@@ -18951,7 +18951,7 @@
     },
     "GPC": {
       "name": "Genuine Parts Company",
-      "price": 120.21,
+      "price": 121.8,
       "previousClose": 123.22,
       "monthAgo": {
         "price": 129.61,
@@ -19032,7 +19032,7 @@
           124.4,
           135.7,
           125.7,
-          120.2
+          123.2
         ]
       },
       "splits": [],
@@ -19041,7 +19041,7 @@
     },
     "GPN": {
       "name": "Global Payments Inc.",
-      "price": 82.2,
+      "price": 81.43,
       "previousClose": 81.86,
       "monthAgo": {
         "price": 86.49,
@@ -19122,7 +19122,7 @@
           84.08,
           91.05,
           81.67,
-          82.2
+          81.86
         ]
       },
       "splits": [],
@@ -19131,7 +19131,7 @@
     },
     "GRMN": {
       "name": "Garmin Ltd.",
-      "price": 288.11,
+      "price": 289.34,
       "previousClose": 292.92,
       "monthAgo": {
         "price": 294.14,
@@ -19212,7 +19212,7 @@
           293.8,
           284.1,
           286.8,
-          288.1
+          292.9
         ]
       },
       "splits": [],
@@ -19221,7 +19221,7 @@
     },
     "GS": {
       "name": "The Goldman Sachs Group, Inc.",
-      "price": 911.2,
+      "price": 911.77,
       "previousClose": 893.28,
       "monthAgo": {
         "price": 935.45,
@@ -19302,7 +19302,7 @@
           1018,
           1026,
           900.4,
-          911.2
+          893.3
         ]
       },
       "splits": [],
@@ -19311,7 +19311,7 @@
     },
     "GWW": {
       "name": "W.W. Grainger, Inc.",
-      "price": 1334.51,
+      "price": 1342.72,
       "previousClose": 1357.6,
       "monthAgo": {
         "price": 1243.07,
@@ -19392,7 +19392,7 @@
           1382,
           1309,
           1246,
-          1335
+          1358
         ]
       },
       "splits": [],
@@ -19401,7 +19401,7 @@
     },
     "HAL": {
       "name": "Halliburton Company",
-      "price": 35.31,
+      "price": 35.62,
       "previousClose": 35.44,
       "monthAgo": {
         "price": 32.76,
@@ -19482,7 +19482,7 @@
           32.25,
           36.85,
           31.8,
-          35.31
+          35.44
         ]
       },
       "splits": [],
@@ -19491,7 +19491,7 @@
     },
     "HAS": {
       "name": "Hasbro, Inc.",
-      "price": 118.54,
+      "price": 118.33,
       "previousClose": 117.96,
       "monthAgo": {
         "price": 88.09,
@@ -19572,7 +19572,7 @@
           93.94,
           94.1,
           87.68,
-          118.5
+          118
         ]
       },
       "splits": [],
@@ -19581,7 +19581,7 @@
     },
     "HBAN": {
       "name": "Huntington Bancshares Incorporated",
-      "price": 15.74,
+      "price": 15.71,
       "previousClose": 15.73,
       "monthAgo": {
         "price": 15.64,
@@ -19671,7 +19671,7 @@
     },
     "HCA": {
       "name": "HCA Healthcare, Inc.",
-      "price": 442.22,
+      "price": 449.96,
       "previousClose": 465.26,
       "monthAgo": {
         "price": 435.61,
@@ -19752,7 +19752,7 @@
           402.6,
           414.5,
           426.7,
-          442.2
+          465.3
         ]
       },
       "splits": [],
@@ -19761,7 +19761,7 @@
     },
     "HD": {
       "name": "The Home Depot, Inc.",
-      "price": 318.43,
+      "price": 318.5,
       "previousClose": 319.38,
       "monthAgo": {
         "price": 293.2,
@@ -19842,7 +19842,7 @@
           332,
           327.8,
           284.5,
-          318.4
+          319.4
         ]
       },
       "splits": [],
@@ -19851,7 +19851,7 @@
     },
     "HIG": {
       "name": "The Hartford Insurance Group, Inc.",
-      "price": 133.76,
+      "price": 133.51,
       "previousClose": 135.94,
       "monthAgo": {
         "price": 124.23,
@@ -19932,7 +19932,7 @@
           141.9,
           137.4,
           122.4,
-          133.8
+          135.9
         ]
       },
       "splits": [],
@@ -19941,7 +19941,7 @@
     },
     "HII": {
       "name": "Huntington Ingalls Industries, Inc.",
-      "price": 282.02,
+      "price": 281.32,
       "previousClose": 281.05,
       "monthAgo": {
         "price": 264.02,
@@ -20022,7 +20022,7 @@
           326.5,
           291.2,
           267.1,
-          282
+          281
         ]
       },
       "splits": [],
@@ -20031,7 +20031,7 @@
     },
     "HLT": {
       "name": "Hilton Worldwide Holdings Inc.",
-      "price": 339.27,
+      "price": 344.65,
       "previousClose": 351.89,
       "monthAgo": {
         "price": 313.96,
@@ -20112,7 +20112,7 @@
           320.5,
           316.3,
           318.1,
-          339.3
+          351.9
         ]
       },
       "splits": [],
@@ -20121,7 +20121,7 @@
     },
     "HON": {
       "name": "Honeywell International Inc.",
-      "price": 217.37,
+      "price": 218.81,
       "previousClose": 219.28,
       "monthAgo": {
         "price": 212.55,
@@ -20202,7 +20202,7 @@
           243.1,
           213.5,
           210.9,
-          217.4
+          219.3
         ]
       },
       "splits": [
@@ -20220,7 +20220,7 @@
     },
     "HONA": {
       "name": "Honeywell Aerospace Inc.",
-      "price": 168.66,
+      "price": 167.9,
       "previousClose": 168.64,
       "monthAgo": {
         "price": 158.78,
@@ -20236,7 +20236,7 @@
           206.7,
           158.1,
           155,
-          168.7
+          168.6
         ]
       },
       "splits": [],
@@ -20245,7 +20245,7 @@
     },
     "HOOD": {
       "name": "Robinhood Markets, Inc.",
-      "price": 96.16,
+      "price": 94.56,
       "previousClose": 92.84,
       "monthAgo": {
         "price": 119.4,
@@ -20326,7 +20326,7 @@
           86.56,
           104.8,
           112.5,
-          96.16
+          92.84
         ]
       },
       "splits": [],
@@ -20335,7 +20335,7 @@
     },
     "HPE": {
       "name": "Hewlett Packard Enterprise Company",
-      "price": 60.7,
+      "price": 60.84,
       "previousClose": 58.72,
       "monthAgo": {
         "price": 62.94,
@@ -20416,7 +20416,7 @@
           47.9,
           52.24,
           63.89,
-          60.7
+          58.72
         ]
       },
       "splits": [],
@@ -20425,7 +20425,7 @@
     },
     "HPQ": {
       "name": "HP Inc.",
-      "price": 33.76,
+      "price": 33.58,
       "previousClose": 34.09,
       "monthAgo": {
         "price": 31.3,
@@ -20506,7 +20506,7 @@
           27.27,
           30.02,
           31.28,
-          33.76
+          34.09
         ]
       },
       "splits": [],
@@ -20515,7 +20515,7 @@
     },
     "HRL": {
       "name": "Hormel Foods Corporation",
-      "price": 20.78,
+      "price": 20.87,
       "previousClose": 20.95,
       "monthAgo": {
         "price": 19.71,
@@ -20596,7 +20596,7 @@
           25.01,
           21.85,
           19.94,
-          20.77
+          20.95
         ]
       },
       "splits": [],
@@ -20605,7 +20605,7 @@
     },
     "HSIC": {
       "name": "Henry Schein, Inc.",
-      "price": 83.91,
+      "price": 84.25,
       "previousClose": 84.51,
       "monthAgo": {
         "price": 86.37,
@@ -20686,7 +20686,7 @@
           85.75,
           89.8,
           83.97,
-          83.91
+          84.51
         ]
       },
       "splits": [],
@@ -20695,7 +20695,7 @@
     },
     "HST": {
       "name": "Host Hotels & Resorts, Inc.",
-      "price": 24.85,
+      "price": 25.22,
       "previousClose": 25.06,
       "monthAgo": {
         "price": 22.42,
@@ -20776,7 +20776,7 @@
           25.13,
           21.93,
           22.39,
-          24.84
+          25.06
         ]
       },
       "splits": [],
@@ -20785,7 +20785,7 @@
     },
     "HSY": {
       "name": "The Hershey Company",
-      "price": 164.41,
+      "price": 164.51,
       "previousClose": 168.23,
       "monthAgo": {
         "price": 166.37,
@@ -20866,7 +20866,7 @@
           175.1,
           176.2,
           157.6,
-          164.4
+          168.2
         ]
       },
       "splits": [],
@@ -20875,7 +20875,7 @@
     },
     "HUBB": {
       "name": "Hubbell Incorporated",
-      "price": 436.56,
+      "price": 434.28,
       "previousClose": 459.4,
       "monthAgo": {
         "price": 466.62,
@@ -20956,7 +20956,7 @@
           472.5,
           453,
           453.6,
-          436.6
+          459.4
         ]
       },
       "splits": [],
@@ -20965,7 +20965,7 @@
     },
     "HUM": {
       "name": "Humana Inc.",
-      "price": 412.06,
+      "price": 414.85,
       "previousClose": 417.22,
       "monthAgo": {
         "price": 397.93,
@@ -21046,7 +21046,7 @@
           363.9,
           383.2,
           381.6,
-          412.1
+          417.2
         ]
       },
       "splits": [],
@@ -21055,7 +21055,7 @@
     },
     "HWM": {
       "name": "Howmet Aerospace Inc.",
-      "price": 191,
+      "price": 191.99,
       "previousClose": 194.36,
       "monthAgo": {
         "price": 232.48,
@@ -21136,7 +21136,7 @@
           282.3,
           244.9,
           226.2,
-          191
+          194.4
         ]
       },
       "splits": [],
@@ -21145,7 +21145,7 @@
     },
     "IBKR": {
       "name": "Interactive Brokers Group, Inc.",
-      "price": 82.16,
+      "price": 82.25,
       "previousClose": 80.59,
       "monthAgo": {
         "price": 89.24,
@@ -21226,7 +21226,7 @@
           87.99,
           97.29,
           85.42,
-          82.16
+          80.59
         ]
       },
       "splits": [
@@ -21240,7 +21240,7 @@
     },
     "IBM": {
       "name": "International Business Machines Corporation",
-      "price": 249.98,
+      "price": 250.25,
       "previousClose": 253.44,
       "monthAgo": {
         "price": 225.51,
@@ -21321,7 +21321,7 @@
           223.6,
           233.9,
           219.9,
-          250
+          253.4
         ]
       },
       "splits": [
@@ -21335,7 +21335,7 @@
     },
     "ICE": {
       "name": "Intercontinental Exchange, Inc.",
-      "price": 156.87,
+      "price": 155.44,
       "previousClose": 160.05,
       "monthAgo": {
         "price": 154.31,
@@ -21416,7 +21416,7 @@
           152.5,
           160.7,
           152,
-          156.9
+          160.1
         ]
       },
       "splits": [],
@@ -21425,7 +21425,7 @@
     },
     "IDXX": {
       "name": "IDEXX Laboratories, Inc.",
-      "price": 562.23,
+      "price": 561.25,
       "previousClose": 570.21,
       "monthAgo": {
         "price": 519.26,
@@ -21506,7 +21506,7 @@
           559.1,
           556.7,
           522.2,
-          562.2
+          570.2
         ]
       },
       "splits": [],
@@ -21515,7 +21515,7 @@
     },
     "IEX": {
       "name": "IDEX Corporation",
-      "price": 232.67,
+      "price": 233.21,
       "previousClose": 231.06,
       "monthAgo": {
         "price": 230.08,
@@ -21596,7 +21596,7 @@
           230.4,
           228.6,
           228,
-          232.7
+          231.1
         ]
       },
       "splits": [],
@@ -21605,7 +21605,7 @@
     },
     "IFF": {
       "name": "International Flavors & Fragrances Inc.",
-      "price": 91.96,
+      "price": 93.21,
       "previousClose": 93.69,
       "monthAgo": {
         "price": 85.69,
@@ -21686,7 +21686,7 @@
           79.22,
           86.33,
           83.48,
-          91.96
+          93.69
         ]
       },
       "splits": [],
@@ -21695,7 +21695,7 @@
     },
     "ILMN": {
       "name": "Illumina, Inc.",
-      "price": 281.05,
+      "price": 279.47,
       "previousClose": 271.04,
       "monthAgo": {
         "price": 270,
@@ -21776,7 +21776,7 @@
           205.1,
           213.6,
           273.7,
-          281
+          271
         ]
       },
       "splits": [
@@ -21790,7 +21790,7 @@
     },
     "INCY": {
       "name": "Incyte Corporation",
-      "price": 115.74,
+      "price": 116.6,
       "previousClose": 113.31,
       "monthAgo": {
         "price": 123.89,
@@ -21871,7 +21871,7 @@
           119.5,
           123.2,
           121.3,
-          115.7
+          113.3
         ]
       },
       "splits": [],
@@ -21880,7 +21880,7 @@
     },
     "INTC": {
       "name": "Intel Corporation",
-      "price": 93.71,
+      "price": 93.74,
       "previousClose": 90.47,
       "monthAgo": {
         "price": 123,
@@ -21961,7 +21961,7 @@
           90.2,
           89.51,
           120.2,
-          93.71
+          90.47
         ]
       },
       "splits": [],
@@ -21970,7 +21970,7 @@
     },
     "INTU": {
       "name": "Intuit Inc.",
-      "price": 326.82,
+      "price": 328.45,
       "previousClose": 339.89,
       "monthAgo": {
         "price": 275.79,
@@ -22051,7 +22051,7 @@
           316.1,
           359.3,
           275.7,
-          326.8
+          339.9
         ]
       },
       "splits": [],
@@ -22060,7 +22060,7 @@
     },
     "INVH": {
       "name": "Invitation Homes Inc.",
-      "price": 27.15,
+      "price": 27.19,
       "previousClose": 27.52,
       "monthAgo": {
         "price": 26.62,
@@ -22141,7 +22141,7 @@
           29.72,
           29.14,
           26.33,
-          27.15
+          27.52
         ]
       },
       "splits": [],
@@ -22150,7 +22150,7 @@
     },
     "IP": {
       "name": "International Paper Company",
-      "price": 33.19,
+      "price": 33.38,
       "previousClose": 33.4,
       "monthAgo": {
         "price": 35.02,
@@ -22231,7 +22231,7 @@
           40.83,
           37.93,
           33.17,
-          33.19
+          33.4
         ]
       },
       "splits": [],
@@ -22240,7 +22240,7 @@
     },
     "IQV": {
       "name": "IQVIA Holdings Inc.",
-      "price": 270.55,
+      "price": 271.55,
       "previousClose": 273.6,
       "monthAgo": {
         "price": 270.37,
@@ -22321,7 +22321,7 @@
           235,
           261.2,
           268.9,
-          270.5
+          273.6
         ]
       },
       "splits": [],
@@ -22330,7 +22330,7 @@
     },
     "IR": {
       "name": "Ingersoll Rand Inc.",
-      "price": 75.2,
+      "price": 75.53,
       "previousClose": 74.52,
       "monthAgo": {
         "price": 76.08,
@@ -22411,7 +22411,7 @@
           83.38,
           77.05,
           75.11,
-          75.2
+          74.52
         ]
       },
       "splits": [],
@@ -22420,7 +22420,7 @@
     },
     "IRM": {
       "name": "Iron Mountain Incorporated",
-      "price": 114.95,
+      "price": 115.34,
       "previousClose": 113.08,
       "monthAgo": {
         "price": 111.38,
@@ -22501,7 +22501,7 @@
           122.3,
           115.3,
           110.9,
-          114.9
+          113.1
         ]
       },
       "splits": [],
@@ -22510,7 +22510,7 @@
     },
     "ISRG": {
       "name": "Intuitive Surgical, Inc.",
-      "price": 444.35,
+      "price": 445.88,
       "previousClose": 451.63,
       "monthAgo": {
         "price": 405.18,
@@ -22591,7 +22591,7 @@
           353.3,
           376.9,
           406.6,
-          444.3
+          451.6
         ]
       },
       "splits": [],
@@ -22600,7 +22600,7 @@
     },
     "IT": {
       "name": "Gartner, Inc.",
-      "price": 223.32,
+      "price": 220.93,
       "previousClose": 231.03,
       "monthAgo": {
         "price": 187.9,
@@ -22681,7 +22681,7 @@
           151,
           198.1,
           186.5,
-          223.3
+          231
         ]
       },
       "splits": [],
@@ -22690,7 +22690,7 @@
     },
     "ITW": {
       "name": "Illinois Tool Works Inc.",
-      "price": 274.2,
+      "price": 275.93,
       "previousClose": 276.22,
       "monthAgo": {
         "price": 274.32,
@@ -22771,7 +22771,7 @@
           287,
           275.4,
           257.3,
-          274.2
+          276.2
         ]
       },
       "splits": [],
@@ -22780,7 +22780,7 @@
     },
     "IVZ": {
       "name": "Invesco Ltd.",
-      "price": 28.69,
+      "price": 28.43,
       "previousClose": 28.53,
       "monthAgo": {
         "price": 30.92,
@@ -22861,7 +22861,7 @@
           29.6,
           32.78,
           30.16,
-          28.68
+          28.53
         ]
       },
       "splits": [],
@@ -22870,7 +22870,7 @@
     },
     "J": {
       "name": "Jacobs Solutions Inc.",
-      "price": 146.71,
+      "price": 148.34,
       "previousClose": 147.14,
       "monthAgo": {
         "price": 138.37,
@@ -22951,7 +22951,7 @@
           134.9,
           149.1,
           135.3,
-          146.7
+          147.1
         ]
       },
       "splits": [
@@ -22969,7 +22969,7 @@
     },
     "JBHT": {
       "name": "J.B. Hunt Transport Services, Inc.",
-      "price": 229.09,
+      "price": 231.95,
       "previousClose": 224.48,
       "monthAgo": {
         "price": 225.46,
@@ -23050,7 +23050,7 @@
           271.8,
           265.5,
           224.1,
-          229.1
+          224.5
         ]
       },
       "splits": [],
@@ -23059,7 +23059,7 @@
     },
     "JBL": {
       "name": "Jabil Inc.",
-      "price": 283,
+      "price": 283.29,
       "previousClose": 275.68,
       "monthAgo": {
         "price": 316.74,
@@ -23140,7 +23140,7 @@
           315,
           305.3,
           286.9,
-          283
+          275.7
         ]
       },
       "splits": [],
@@ -23149,7 +23149,7 @@
     },
     "JCI": {
       "name": "Johnson Controls International plc",
-      "price": 151.34,
+      "price": 155.88,
       "previousClose": 147.5,
       "monthAgo": {
         "price": 150.2,
@@ -23230,7 +23230,7 @@
           146.7,
           138.2,
           148.6,
-          151.3
+          147.5
         ]
       },
       "splits": [],
@@ -23239,7 +23239,7 @@
     },
     "JKHY": {
       "name": "Jack Henry & Associates, Inc.",
-      "price": 158.67,
+      "price": 158.25,
       "previousClose": 162.35,
       "monthAgo": {
         "price": 147.79,
@@ -23320,7 +23320,7 @@
           154,
           167.9,
           143.2,
-          158.7
+          162.4
         ]
       },
       "splits": [],
@@ -23329,7 +23329,7 @@
     },
     "JNJ": {
       "name": "Johnson & Johnson",
-      "price": 267.33,
+      "price": 268.73,
       "previousClose": 266.3,
       "monthAgo": {
         "price": 271.22,
@@ -23410,7 +23410,7 @@
           256.4,
           265.9,
           264.7,
-          267.3
+          266.3
         ]
       },
       "splits": [],
@@ -23419,7 +23419,7 @@
     },
     "JPM": {
       "name": "JPMorgan Chase & Co.",
-      "price": 336,
+      "price": 335.79,
       "previousClose": 334.04,
       "monthAgo": {
         "price": 343.06,
@@ -23500,7 +23500,7 @@
           351.8,
           356,
           330.8,
-          336
+          334
         ]
       },
       "splits": [],
@@ -23509,7 +23509,7 @@
     },
     "KDP": {
       "name": "Keurig Dr Pepper Inc.",
-      "price": 34.78,
+      "price": 34.86,
       "previousClose": 34.99,
       "monthAgo": {
         "price": 31.95,
@@ -23590,7 +23590,7 @@
           31.12,
           31.86,
           30.34,
-          34.78
+          34.99
         ]
       },
       "splits": [],
@@ -23599,7 +23599,7 @@
     },
     "KEY": {
       "name": "KeyCorp",
-      "price": 21.21,
+      "price": 21.15,
       "previousClose": 21.21,
       "monthAgo": {
         "price": 20.61,
@@ -23680,7 +23680,7 @@
           22.59,
           21.61,
           20.07,
-          21.2
+          21.21
         ]
       },
       "splits": [],
@@ -23689,7 +23689,7 @@
     },
     "KEYS": {
       "name": "Keysight Technologies, Inc.",
-      "price": 334.01,
+      "price": 336.1,
       "previousClose": 326.04,
       "monthAgo": {
         "price": 362.15,
@@ -23770,7 +23770,7 @@
           319.1,
           322.7,
           364,
-          334
+          326
         ]
       },
       "splits": [],
@@ -23779,7 +23779,7 @@
     },
     "KHC": {
       "name": "The Kraft Heinz Company",
-      "price": 24.18,
+      "price": 24.06,
       "previousClose": 24.73,
       "monthAgo": {
         "price": 23.63,
@@ -23860,7 +23860,7 @@
           25.85,
           25.67,
           22.72,
-          24.18
+          24.73
         ]
       },
       "splits": [],
@@ -23869,7 +23869,7 @@
     },
     "KIM": {
       "name": "Kimco Realty Corporation",
-      "price": 23.63,
+      "price": 23.7,
       "previousClose": 23.65,
       "monthAgo": {
         "price": 22.44,
@@ -23950,7 +23950,7 @@
           25.48,
           23.71,
           22.21,
-          23.63
+          23.65
         ]
       },
       "splits": [],
@@ -23959,7 +23959,7 @@
     },
     "KKR": {
       "name": "KKR & Co. Inc.",
-      "price": 91.61,
+      "price": 91.92,
       "previousClose": 91.62,
       "monthAgo": {
         "price": 96.67,
@@ -24040,7 +24040,7 @@
           101.4,
           109.7,
           91.3,
-          91.61
+          91.62
         ]
       },
       "splits": [],
@@ -24049,7 +24049,7 @@
     },
     "KLAC": {
       "name": "KLA Corporation",
-      "price": 152.62,
+      "price": 153.66,
       "previousClose": 149.21,
       "monthAgo": {
         "price": 187.92,
@@ -24130,7 +24130,7 @@
           182.8,
           175.4,
           194.9,
-          152.6
+          149.2
         ]
       },
       "splits": [
@@ -24144,7 +24144,7 @@
     },
     "KMB": {
       "name": "Kimberly-Clark Corporation",
-      "price": 108.7,
+      "price": 109.1,
       "previousClose": 109.63,
       "monthAgo": {
         "price": 98.43,
@@ -24225,7 +24225,7 @@
           109.3,
           107.9,
           97.43,
-          108.7
+          109.6
         ]
       },
       "splits": [],
@@ -24234,7 +24234,7 @@
     },
     "KMI": {
       "name": "Kinder Morgan, Inc.",
-      "price": 33.74,
+      "price": 33.85,
       "previousClose": 33.94,
       "monthAgo": {
         "price": 30.75,
@@ -24315,7 +24315,7 @@
           32.18,
           32.24,
           30.15,
-          33.74
+          33.94
         ]
       },
       "splits": [],
@@ -24324,7 +24324,7 @@
     },
     "KO": {
       "name": "The Coca-Cola Company",
-      "price": 91.84,
+      "price": 91.18,
       "previousClose": 92.7,
       "monthAgo": {
         "price": 87.81,
@@ -24405,7 +24405,7 @@
           87.59,
           88.67,
           86.08,
-          91.84
+          92.7
         ]
       },
       "splits": [],
@@ -24414,7 +24414,7 @@
     },
     "KR": {
       "name": "The Kroger Co.",
-      "price": 65.46,
+      "price": 65.87,
       "previousClose": 66.77,
       "monthAgo": {
         "price": 58.74,
@@ -24495,7 +24495,7 @@
           57.74,
           57.54,
           58.62,
-          65.46
+          66.77
         ]
       },
       "splits": [],
@@ -24504,7 +24504,7 @@
     },
     "KVUE": {
       "name": "Kenvue Inc.",
-      "price": 19.36,
+      "price": 19.43,
       "previousClose": 19.5,
       "monthAgo": {
         "price": 17.8,
@@ -24563,7 +24563,7 @@
           19.24,
           18.88,
           17.66,
-          19.36
+          19.5
         ]
       },
       "splits": [],
@@ -24572,7 +24572,7 @@
     },
     "L": {
       "name": "Loews Corporation",
-      "price": 110.56,
+      "price": 111.02,
       "previousClose": 111.42,
       "monthAgo": {
         "price": 104.82,
@@ -24653,7 +24653,7 @@
           116,
           108.3,
           104.4,
-          110.6
+          111.4
         ]
       },
       "splits": [],
@@ -24662,7 +24662,7 @@
     },
     "LDOS": {
       "name": "Leidos Holdings, Inc.",
-      "price": 138.96,
+      "price": 139.64,
       "previousClose": 139.86,
       "monthAgo": {
         "price": 123.61,
@@ -24743,7 +24743,7 @@
           115.6,
           140.2,
           121.8,
-          139
+          139.9
         ]
       },
       "splits": [],
@@ -24752,7 +24752,7 @@
     },
     "LEN": {
       "name": "Lennar Corporation",
-      "price": 83.14,
+      "price": 84.58,
       "previousClose": 83.98,
       "monthAgo": {
         "price": 82.15,
@@ -24833,7 +24833,7 @@
           82.35,
           84.11,
           81.59,
-          83.14
+          83.98
         ]
       },
       "splits": [
@@ -24847,7 +24847,7 @@
     },
     "LH": {
       "name": "Labcorp Holdings Inc.",
-      "price": 326.99,
+      "price": 331.17,
       "previousClose": 329.9,
       "monthAgo": {
         "price": 309.64,
@@ -24928,7 +24928,7 @@
           309.2,
           332.7,
           308.1,
-          327
+          329.9
         ]
       },
       "splits": [
@@ -24942,7 +24942,7 @@
     },
     "LHX": {
       "name": "L3Harris Technologies, Inc.",
-      "price": 258.46,
+      "price": 259.4,
       "previousClose": 260.23,
       "monthAgo": {
         "price": 237.69,
@@ -25023,7 +25023,7 @@
           277.1,
           266.3,
           236.8,
-          258.5
+          260.2
         ]
       },
       "splits": [],
@@ -25032,7 +25032,7 @@
     },
     "LII": {
       "name": "Lennox International Inc.",
-      "price": 364.09,
+      "price": 372.05,
       "previousClose": 365.64,
       "monthAgo": {
         "price": 373.77,
@@ -25113,7 +25113,7 @@
           415.9,
           382.6,
           355,
-          364.1
+          365.6
         ]
       },
       "splits": [],
@@ -25122,7 +25122,7 @@
     },
     "LIN": {
       "name": "Linde plc",
-      "price": 506.16,
+      "price": 508.65,
       "previousClose": 507.56,
       "monthAgo": {
         "price": 469.89,
@@ -25203,7 +25203,7 @@
           478.4,
           489.6,
           474.6,
-          506.2
+          507.6
         ]
       },
       "splits": [],
@@ -25212,7 +25212,7 @@
     },
     "LITE": {
       "name": "Lumentum Holdings Inc.",
-      "price": 867.88,
+      "price": 866.18,
       "previousClose": 818.1,
       "monthAgo": {
         "price": 941.65,
@@ -25293,7 +25293,7 @@
           713.9,
           914.8,
           971.3,
-          867.9
+          818.1
         ]
       },
       "splits": [],
@@ -25302,7 +25302,7 @@
     },
     "LLY": {
       "name": "Eli Lilly and Company",
-      "price": 1282.17,
+      "price": 1281.91,
       "previousClose": 1279.14,
       "monthAgo": {
         "price": 1183.46,
@@ -25383,7 +25383,7 @@
           1149,
           1157,
           1157,
-          1282
+          1279
         ]
       },
       "splits": [],
@@ -25392,7 +25392,7 @@
     },
     "LMT": {
       "name": "Lockheed Martin Corporation",
-      "price": 628.82,
+      "price": 622.99,
       "previousClose": 635.2,
       "monthAgo": {
         "price": 519.56,
@@ -25473,7 +25473,7 @@
           582.7,
           561.2,
           509.3,
-          628.8
+          635.2
         ]
       },
       "splits": [],
@@ -25482,7 +25482,7 @@
     },
     "LNT": {
       "name": "Alliant Energy Corporation",
-      "price": 69.52,
+      "price": 70.04,
       "previousClose": 69.5,
       "monthAgo": {
         "price": 63.6,
@@ -25563,7 +25563,7 @@
           70.78,
           67.98,
           63.3,
-          69.52
+          69.5
         ]
       },
       "splits": [],
@@ -25572,7 +25572,7 @@
     },
     "LOW": {
       "name": "Lowe's Companies, Inc.",
-      "price": 197.06,
+      "price": 198.18,
       "previousClose": 198.22,
       "monthAgo": {
         "price": 189.28,
@@ -25653,7 +25653,7 @@
           207.8,
           204.7,
           184.3,
-          197.1
+          198.2
         ]
       },
       "splits": [],
@@ -25662,7 +25662,7 @@
     },
     "LRCX": {
       "name": "Lam Research Corporation",
-      "price": 239.47,
+      "price": 240.85,
       "previousClose": 237.5,
       "monthAgo": {
         "price": 315.21,
@@ -25743,7 +25743,7 @@
           293,
           301.5,
           328.5,
-          239.5
+          237.5
         ]
       },
       "splits": [
@@ -25757,7 +25757,7 @@
     },
     "LULU": {
       "name": "lululemon athletica inc.",
-      "price": 103.61,
+      "price": 104.59,
       "previousClose": 102.91,
       "monthAgo": {
         "price": 101.3,
@@ -25838,7 +25838,7 @@
           118.9,
           120.3,
           96.19,
-          103.6
+          102.9
         ]
       },
       "splits": [],
@@ -25847,7 +25847,7 @@
     },
     "LUV": {
       "name": "Southwest Airlines Co.",
-      "price": 43.15,
+      "price": 43.44,
       "previousClose": 42.85,
       "monthAgo": {
         "price": 42.68,
@@ -25928,7 +25928,7 @@
           44.97,
           38.53,
           41.64,
-          43.15
+          42.85
         ]
       },
       "splits": [],
@@ -25937,7 +25937,7 @@
     },
     "LVS": {
       "name": "Las Vegas Sands Corp.",
-      "price": 36.03,
+      "price": 36.12,
       "previousClose": 36.57,
       "monthAgo": {
         "price": 38.99,
@@ -26018,7 +26018,7 @@
           48.89,
           43.81,
           37.81,
-          36.03
+          36.57
         ]
       },
       "splits": [],
@@ -26027,7 +26027,7 @@
     },
     "LYB": {
       "name": "LyondellBasell Industries N.V.",
-      "price": 67.39,
+      "price": 67.43,
       "previousClose": 67.35,
       "monthAgo": {
         "price": 58.14,
@@ -26108,7 +26108,7 @@
           62.08,
           65.08,
           57.47,
-          67.39
+          67.35
         ]
       },
       "splits": [],
@@ -26117,7 +26117,7 @@
     },
     "LYV": {
       "name": "Live Nation Entertainment, Inc.",
-      "price": 171.66,
+      "price": 171.97,
       "previousClose": 172.58,
       "monthAgo": {
         "price": 170.87,
@@ -26198,7 +26198,7 @@
           174.1,
           179.9,
           169.3,
-          171.7
+          172.6
         ]
       },
       "splits": [],
@@ -26207,7 +26207,7 @@
     },
     "MA": {
       "name": "Mastercard Incorporated",
-      "price": 608.98,
+      "price": 609.85,
       "previousClose": 613.5,
       "monthAgo": {
         "price": 567.65,
@@ -26288,7 +26288,7 @@
           573.1,
           589.3,
           551.5,
-          609
+          613.5
         ]
       },
       "splits": [],
@@ -26297,7 +26297,7 @@
     },
     "MAA": {
       "name": "Mid-America Apartment Communities, Inc.",
-      "price": 118.55,
+      "price": 118.75,
       "previousClose": 119.58,
       "monthAgo": {
         "price": 118.35,
@@ -26378,7 +26378,7 @@
           132.3,
           128.9,
           117.7,
-          118.6
+          119.6
         ]
       },
       "splits": [],
@@ -26387,7 +26387,7 @@
     },
     "MAR": {
       "name": "Marriott International, Inc.",
-      "price": 386.22,
+      "price": 390.23,
       "previousClose": 394.75,
       "monthAgo": {
         "price": 352.03,
@@ -26468,7 +26468,7 @@
           372.8,
           341.8,
           355.7,
-          386.2
+          394.8
         ]
       },
       "splits": [],
@@ -26477,7 +26477,7 @@
     },
     "MAS": {
       "name": "Masco Corporation",
-      "price": 74.65,
+      "price": 75.17,
       "previousClose": 75.51,
       "monthAgo": {
         "price": 68.85,
@@ -26558,7 +26558,7 @@
           71.48,
           72.16,
           67.4,
-          74.65
+          75.51
         ]
       },
       "splits": [],
@@ -26567,7 +26567,7 @@
     },
     "MCD": {
       "name": "McDonald's Corporation",
-      "price": 248.82,
+      "price": 249.47,
       "previousClose": 250.83,
       "monthAgo": {
         "price": 236.5,
@@ -26648,7 +26648,7 @@
           270.6,
           263.5,
           230.9,
-          248.8
+          250.8
         ]
       },
       "splits": [],
@@ -26657,7 +26657,7 @@
     },
     "MCHP": {
       "name": "Microchip Technology Incorporated",
-      "price": 78.78,
+      "price": 80.17,
       "previousClose": 75.9,
       "monthAgo": {
         "price": 78.69,
@@ -26738,7 +26738,7 @@
           74.29,
           73.45,
           77.77,
-          78.78
+          75.9
         ]
       },
       "splits": [
@@ -26752,7 +26752,7 @@
     },
     "MCK": {
       "name": "McKesson Corporation",
-      "price": 971.5,
+      "price": 967.02,
       "previousClose": 992.87,
       "monthAgo": {
         "price": 866.64,
@@ -26833,7 +26833,7 @@
           856.2,
           885.3,
           853.8,
-          971.5
+          992.9
         ]
       },
       "splits": [],
@@ -26842,7 +26842,7 @@
     },
     "MCO": {
       "name": "Moody's Corporation",
-      "price": 471.92,
+      "price": 474,
       "previousClose": 484.45,
       "monthAgo": {
         "price": 468.7,
@@ -26923,7 +26923,7 @@
           478.4,
           504.6,
           454.1,
-          471.9
+          484.5
         ]
       },
       "splits": [],
@@ -26932,7 +26932,7 @@
     },
     "MDLZ": {
       "name": "Mondelez International, Inc.",
-      "price": 62.17,
+      "price": 62.35,
       "previousClose": 62.97,
       "monthAgo": {
         "price": 60.25,
@@ -27013,7 +27013,7 @@
           62.31,
           62.07,
           57.82,
-          62.17
+          62.97
         ]
       },
       "splits": [],
@@ -27022,7 +27022,7 @@
     },
     "MDT": {
       "name": "Medtronic plc",
-      "price": 93.86,
+      "price": 93.95,
       "previousClose": 94.79,
       "monthAgo": {
         "price": 88.64,
@@ -27103,7 +27103,7 @@
           85.39,
           90.65,
           86.29,
-          93.86
+          94.79
         ]
       },
       "splits": [],
@@ -27112,7 +27112,7 @@
     },
     "MET": {
       "name": "MetLife, Inc.",
-      "price": 100.06,
+      "price": 99.98,
       "previousClose": 100.04,
       "monthAgo": {
         "price": 97.7,
@@ -27193,7 +27193,7 @@
           96.13,
           95.17,
           94.16,
-          100.1
+          100
         ]
       },
       "splits": [],
@@ -27202,7 +27202,7 @@
     },
     "META": {
       "name": "Meta Platforms, Inc.",
-      "price": 624.08,
+      "price": 620.19,
       "previousClose": 630.56,
       "monthAgo": {
         "price": 751.66,
@@ -27283,7 +27283,7 @@
           556.7,
           572.3,
           725.2,
-          624.1
+          630.6
         ]
       },
       "splits": [],
@@ -27292,7 +27292,7 @@
     },
     "MGM": {
       "name": "MGM Resorts International",
-      "price": 27.94,
+      "price": 27.99,
       "previousClose": 28.54,
       "monthAgo": {
         "price": 32.58,
@@ -27373,7 +27373,7 @@
           44.57,
           41.36,
           31.05,
-          27.94
+          28.54
         ]
       },
       "splits": [],
@@ -27382,7 +27382,7 @@
     },
     "MKC": {
       "name": "McCormick & Company, Incorporated",
-      "price": 47.37,
+      "price": 47.48,
       "previousClose": 47.97,
       "monthAgo": {
         "price": 47.94,
@@ -27463,7 +27463,7 @@
           50.9,
           54.22,
           46.4,
-          47.37
+          47.97
         ]
       },
       "splits": [],
@@ -27472,7 +27472,7 @@
     },
     "MLM": {
       "name": "Martin Marietta Materials, Inc.",
-      "price": 501.96,
+      "price": 503.69,
       "previousClose": 503.92,
       "monthAgo": {
         "price": 484.3,
@@ -27553,7 +27553,7 @@
           525.1,
           518.7,
           479.8,
-          502
+          503.9
         ]
       },
       "splits": [],
@@ -27562,7 +27562,7 @@
     },
     "MMM": {
       "name": "3M Company",
-      "price": 170.92,
+      "price": 171.58,
       "previousClose": 172.79,
       "monthAgo": {
         "price": 169.55,
@@ -27643,7 +27643,7 @@
           176.3,
           171.8,
           164.1,
-          170.9
+          172.8
         ]
       },
       "splits": [
@@ -27657,7 +27657,7 @@
     },
     "MNST": {
       "name": "Monster Beverage Corporation",
-      "price": 45.7,
+      "price": 45.44,
       "previousClose": 46.44,
       "monthAgo": {
         "price": 43.11,
@@ -27738,7 +27738,7 @@
           48.19,
           45.92,
           41.62,
-          45.7
+          46.44
         ]
       },
       "splits": [
@@ -27756,7 +27756,7 @@
     },
     "MO": {
       "name": "Altria Group, Inc.",
-      "price": 73.26,
+      "price": 73.49,
       "previousClose": 73.62,
       "monthAgo": {
         "price": 68.82,
@@ -27837,7 +27837,7 @@
           68.33,
           68.48,
           67.34,
-          73.26
+          73.62
         ]
       },
       "splits": [],
@@ -27846,7 +27846,7 @@
     },
     "MOS": {
       "name": "The Mosaic Company",
-      "price": 18.41,
+      "price": 18.79,
       "previousClose": 17.71,
       "monthAgo": {
         "price": 23.01,
@@ -27927,7 +27927,7 @@
           22.12,
           24.12,
           21.65,
-          18.41
+          17.71
         ]
       },
       "splits": [],
@@ -27936,7 +27936,7 @@
     },
     "MPC": {
       "name": "Marathon Petroleum Corporation",
-      "price": 440.16,
+      "price": 435.98,
       "previousClose": 470.64,
       "monthAgo": {
         "price": 393.52,
@@ -28017,7 +28017,7 @@
           316.5,
           373.3,
           395.4,
-          440.2
+          470.6
         ]
       },
       "splits": [],
@@ -28026,7 +28026,7 @@
     },
     "MPWR": {
       "name": "Monolithic Power Systems, Inc.",
-      "price": 1193.35,
+      "price": 1211.89,
       "previousClose": 1167.27,
       "monthAgo": {
         "price": 1367.43,
@@ -28107,7 +28107,7 @@
           1426,
           1268,
           1347,
-          1193
+          1167
         ]
       },
       "splits": [],
@@ -28116,7 +28116,7 @@
     },
     "MRK": {
       "name": "Merck & Co., Inc.",
-      "price": 142.19,
+      "price": 141.82,
       "previousClose": 140.61,
       "monthAgo": {
         "price": 148.78,
@@ -28197,7 +28197,7 @@
           130.2,
           147.8,
           145.3,
-          142.2
+          140.6
         ]
       },
       "splits": [],
@@ -28206,7 +28206,7 @@
     },
     "MRNA": {
       "name": "Moderna, Inc.",
-      "price": 198.34,
+      "price": 207.97,
       "previousClose": 198.85,
       "monthAgo": {
         "price": 198.88,
@@ -28287,7 +28287,7 @@
           54.82,
           140.3,
           192.6,
-          198.3
+          198.9
         ]
       },
       "splits": [],
@@ -28296,7 +28296,7 @@
     },
     "MRSH": {
       "name": "Marsh & McLennan Companies, Inc.",
-      "price": 189.6,
+      "price": 190.67,
       "previousClose": 194.72,
       "monthAgo": {
         "price": 171.12,
@@ -28377,7 +28377,7 @@
           189.7,
           189.8,
           170.7,
-          189.6
+          194.7
         ]
       },
       "splits": [],
@@ -28386,7 +28386,7 @@
     },
     "MRVL": {
       "name": "Marvell Technology, Inc.",
-      "price": 241.69,
+      "price": 243.57,
       "previousClose": 233.78,
       "monthAgo": {
         "price": 261.94,
@@ -28467,7 +28467,7 @@
           187.6,
           211.7,
           264.2,
-          241.7
+          233.8
         ]
       },
       "splits": [],
@@ -28476,7 +28476,7 @@
     },
     "MS": {
       "name": "Morgan Stanley",
-      "price": 187.31,
+      "price": 186.91,
       "previousClose": 183.49,
       "monthAgo": {
         "price": 196.31,
@@ -28557,7 +28557,7 @@
           210.4,
           213.3,
           188.1,
-          187.3
+          183.5
         ]
       },
       "splits": [],
@@ -28566,7 +28566,7 @@
     },
     "MSCI": {
       "name": "MSCI Inc.",
-      "price": 603.82,
+      "price": 601.75,
       "previousClose": 617.67,
       "monthAgo": {
         "price": 551.36,
@@ -28647,7 +28647,7 @@
           572.2,
           570.6,
           538.7,
-          603.8
+          617.7
         ]
       },
       "splits": [],
@@ -28656,7 +28656,7 @@
     },
     "MSFT": {
       "name": "Microsoft Corporation",
-      "price": 531.85,
+      "price": 531.33,
       "previousClose": 532.6,
       "monthAgo": {
         "price": 516.17,
@@ -28737,7 +28737,7 @@
           464.7,
           507.3,
           512.9,
-          531.8
+          532.6
         ]
       },
       "splits": [],
@@ -28746,7 +28746,7 @@
     },
     "MSI": {
       "name": "Motorola Solutions, Inc.",
-      "price": 483.91,
+      "price": 483.61,
       "previousClose": 485.62,
       "monthAgo": {
         "price": 456.88,
@@ -28827,7 +28827,7 @@
           435.8,
           485.3,
           446,
-          483.9
+          485.6
         ]
       },
       "splits": [],
@@ -28836,7 +28836,7 @@
     },
     "MTB": {
       "name": "M&T Bank Corporation",
-      "price": 221.19,
+      "price": 221.31,
       "previousClose": 221.8,
       "monthAgo": {
         "price": 221.19,
@@ -28917,7 +28917,7 @@
           246.3,
           233.9,
           217.6,
-          221.2
+          221.8
         ]
       },
       "splits": [],
@@ -28926,7 +28926,7 @@
     },
     "MTD": {
       "name": "Mettler-Toledo International Inc.",
-      "price": 1678.85,
+      "price": 1685.32,
       "previousClose": 1669.62,
       "monthAgo": {
         "price": 1511.64,
@@ -29007,7 +29007,7 @@
           1416,
           1405,
           1511,
-          1679
+          1670
         ]
       },
       "splits": [],
@@ -29016,7 +29016,7 @@
     },
     "MU": {
       "name": "Micron Technology, Inc.",
-      "price": 930.02,
+      "price": 928.76,
       "previousClose": 903.7,
       "monthAgo": {
         "price": 1082.28,
@@ -29097,7 +29097,7 @@
           823,
           958.7,
           1065,
-          930
+          903.7
         ]
       },
       "splits": [],
@@ -29106,7 +29106,7 @@
     },
     "NCLH": {
       "name": "Norwegian Cruise Line Holdings Ltd.",
-      "price": 15.93,
+      "price": 15.75,
       "previousClose": 15.25,
       "monthAgo": {
         "price": 14.61,
@@ -29187,7 +29187,7 @@
           18.53,
           16.14,
           14.66,
-          15.93
+          15.25
         ]
       },
       "splits": [],
@@ -29196,7 +29196,7 @@
     },
     "NDAQ": {
       "name": "Nasdaq, Inc.",
-      "price": 104.01,
+      "price": 104.36,
       "previousClose": 104.72,
       "monthAgo": {
         "price": 93.55,
@@ -29277,7 +29277,7 @@
           94.19,
           98.61,
           92.01,
-          104
+          104.7
         ]
       },
       "splits": [
@@ -29291,7 +29291,7 @@
     },
     "NDSN": {
       "name": "Nordson Corporation",
-      "price": 323.33,
+      "price": 324.3,
       "previousClose": 321.98,
       "monthAgo": {
         "price": 325.77,
@@ -29372,7 +29372,7 @@
           297.8,
           321.7,
           327.9,
-          323.3
+          322
         ]
       },
       "splits": [],
@@ -29381,7 +29381,7 @@
     },
     "NEE": {
       "name": "NextEra Energy, Inc.",
-      "price": 82.08,
+      "price": 82.42,
       "previousClose": 82.04,
       "monthAgo": {
         "price": 76.08,
@@ -29462,7 +29462,7 @@
           86.92,
           82.34,
           75.74,
-          82.07
+          82.04
         ]
       },
       "splits": [],
@@ -29471,7 +29471,7 @@
     },
     "NEM": {
       "name": "Newmont Corporation",
-      "price": 112.28,
+      "price": 112.64,
       "previousClose": 110.39,
       "monthAgo": {
         "price": 121.43,
@@ -29552,7 +29552,7 @@
           93.71,
           126.1,
           115.3,
-          112.3
+          110.4
         ]
       },
       "splits": [],
@@ -29561,7 +29561,7 @@
     },
     "NFLX": {
       "name": "Netflix, Inc.",
-      "price": 62.77,
+      "price": 62.52,
       "previousClose": 63.9,
       "monthAgo": {
         "price": 71.15,
@@ -29642,7 +29642,7 @@
           71.71,
           81.05,
           69.58,
-          62.76
+          63.9
         ]
       },
       "splits": [
@@ -29656,7 +29656,7 @@
     },
     "NI": {
       "name": "NiSource Inc.",
-      "price": 43.43,
+      "price": 43.6,
       "previousClose": 43.44,
       "monthAgo": {
         "price": 39.42,
@@ -29737,7 +29737,7 @@
           44.43,
           40.92,
           39,
-          43.43
+          43.44
         ]
       },
       "splits": [],
@@ -29746,7 +29746,7 @@
     },
     "NKE": {
       "name": "NIKE, Inc.",
-      "price": 37.44,
+      "price": 37.56,
       "previousClose": 37.91,
       "monthAgo": {
         "price": 35.75,
@@ -29827,7 +29827,7 @@
           41.71,
           39.06,
           35.4,
-          37.44
+          37.91
         ]
       },
       "splits": [],
@@ -29836,7 +29836,7 @@
     },
     "NOC": {
       "name": "Northrop Grumman Corporation",
-      "price": 556.6,
+      "price": 551.23,
       "previousClose": 565.41,
       "monthAgo": {
         "price": 510.52,
@@ -29917,7 +29917,7 @@
           542.5,
           539.7,
           483.5,
-          556.6
+          565.4
         ]
       },
       "splits": [],
@@ -29926,7 +29926,7 @@
     },
     "NOW": {
       "name": "ServiceNow, Inc.",
-      "price": 155.74,
+      "price": 154.78,
       "previousClose": 158.18,
       "monthAgo": {
         "price": 135.62,
@@ -30007,7 +30007,7 @@
           111.2,
           148,
           134,
-          155.7
+          158.2
         ]
       },
       "splits": [
@@ -30021,7 +30021,7 @@
     },
     "NRG": {
       "name": "NRG Energy, Inc.",
-      "price": 94.75,
+      "price": 95.27,
       "previousClose": 93.61,
       "monthAgo": {
         "price": 100.37,
@@ -30102,7 +30102,7 @@
           134.3,
           110.1,
           95.65,
-          94.75
+          93.61
         ]
       },
       "splits": [],
@@ -30111,7 +30111,7 @@
     },
     "NSC": {
       "name": "Norfolk Southern Corporation",
-      "price": 337.32,
+      "price": 339.74,
       "previousClose": 333.99,
       "monthAgo": {
         "price": 313,
@@ -30192,7 +30192,7 @@
           335.5,
           342.8,
           309,
-          337.3
+          334
         ]
       },
       "splits": [],
@@ -30201,7 +30201,7 @@
     },
     "NTAP": {
       "name": "NetApp, Inc.",
-      "price": 230.24,
+      "price": 227.58,
       "previousClose": 222.08,
       "monthAgo": {
         "price": 201.15,
@@ -30282,7 +30282,7 @@
           178.5,
           185.3,
           210.1,
-          230.2
+          222.1
         ]
       },
       "splits": [],
@@ -30291,7 +30291,7 @@
     },
     "NTRS": {
       "name": "Northern Trust Corporation",
-      "price": 170.77,
+      "price": 170.35,
       "previousClose": 169.55,
       "monthAgo": {
         "price": 175.73,
@@ -30372,7 +30372,7 @@
           182.2,
           185.6,
           169.4,
-          170.8
+          169.6
         ]
       },
       "splits": [],
@@ -30381,7 +30381,7 @@
     },
     "NUE": {
       "name": "Nucor Corporation",
-      "price": 272.34,
+      "price": 270.79,
       "previousClose": 257.35,
       "monthAgo": {
         "price": 247.25,
@@ -30462,7 +30462,7 @@
           257.3,
           249.6,
           233.8,
-          272.3
+          257.4
         ]
       },
       "splits": [],
@@ -30471,7 +30471,7 @@
     },
     "NVDA": {
       "name": "NVIDIA Corporation",
-      "price": 217.97,
+      "price": 217.94,
       "previousClose": 216,
       "monthAgo": {
         "price": 225.07,
@@ -30552,7 +30552,7 @@
           200.8,
           220.8,
           228.4,
-          218
+          216
         ]
       },
       "splits": [
@@ -30566,7 +30566,7 @@
     },
     "NVR": {
       "name": "NVR, Inc.",
-      "price": 5698.24,
+      "price": 5806.02,
       "previousClose": 5727.77,
       "monthAgo": {
         "price": 6297.6,
@@ -30647,7 +30647,7 @@
           6147,
           6315,
           6154,
-          5698
+          5728
         ]
       },
       "splits": [],
@@ -30656,7 +30656,7 @@
     },
     "NWS": {
       "name": "News Corporation",
-      "price": 32.89,
+      "price": 32.76,
       "previousClose": 33.47,
       "monthAgo": {
         "price": 31.75,
@@ -30737,7 +30737,7 @@
           31.27,
           34.41,
           31.72,
-          32.89
+          33.47
         ]
       },
       "splits": [],
@@ -30746,7 +30746,7 @@
     },
     "NWSA": {
       "name": "News Corporation",
-      "price": 30.07,
+      "price": 29.97,
       "previousClose": 30.59,
       "monthAgo": {
         "price": 28.49,
@@ -30827,7 +30827,7 @@
           27.56,
           30.71,
           28.65,
-          30.07
+          30.59
         ]
       },
       "splits": [],
@@ -30836,7 +30836,7 @@
     },
     "NXPI": {
       "name": "NXP Semiconductors N.V.",
-      "price": 249.85,
+      "price": 253.5,
       "previousClose": 245.83,
       "monthAgo": {
         "price": 238.08,
@@ -30917,7 +30917,7 @@
           229.2,
           224.6,
           237.5,
-          249.9
+          245.8
         ]
       },
       "splits": [],
@@ -30926,7 +30926,7 @@
     },
     "O": {
       "name": "Realty Income Corporation",
-      "price": 56.88,
+      "price": 56.82,
       "previousClose": 57.16,
       "monthAgo": {
         "price": 55.54,
@@ -31007,7 +31007,7 @@
           63.87,
           61.28,
           54.3,
-          56.88
+          57.16
         ]
       },
       "splits": [
@@ -31021,7 +31021,7 @@
     },
     "ODFL": {
       "name": "Old Dominion Freight Line, Inc.",
-      "price": 184.89,
+      "price": 187.03,
       "previousClose": 182.47,
       "monthAgo": {
         "price": 173.3,
@@ -31102,7 +31102,7 @@
           212.1,
           200,
           173.8,
-          184.9
+          182.5
         ]
       },
       "splits": [
@@ -31116,7 +31116,7 @@
     },
     "OKE": {
       "name": "ONEOK, Inc.",
-      "price": 95.47,
+      "price": 96.01,
       "previousClose": 96.36,
       "monthAgo": {
         "price": 88.63,
@@ -31197,7 +31197,7 @@
           90.81,
           96.01,
           85.27,
-          95.47
+          96.36
         ]
       },
       "splits": [],
@@ -31206,7 +31206,7 @@
     },
     "OMC": {
       "name": "Omnicom Group Inc.",
-      "price": 78.65,
+      "price": 78.73,
       "previousClose": 79.83,
       "monthAgo": {
         "price": 76.15,
@@ -31287,7 +31287,7 @@
           78.7,
           87.53,
           73.63,
-          78.64
+          79.83
         ]
       },
       "splits": [],
@@ -31296,7 +31296,7 @@
     },
     "ON": {
       "name": "ON Semiconductor Corporation",
-      "price": 77.74,
+      "price": 78.67,
       "previousClose": 74.06,
       "monthAgo": {
         "price": 77.2,
@@ -31377,7 +31377,7 @@
           81.61,
           74.09,
           76.87,
-          77.74
+          74.06
         ]
       },
       "splits": [],
@@ -31386,7 +31386,7 @@
     },
     "ORCL": {
       "name": "Oracle Corporation",
-      "price": 131.09,
+      "price": 130.53,
       "previousClose": 126.06,
       "monthAgo": {
         "price": 137.1,
@@ -31467,7 +31467,7 @@
           129.9,
           149.1,
           137.3,
-          131.1
+          126.1
         ]
       },
       "splits": [],
@@ -31476,7 +31476,7 @@
     },
     "ORLY": {
       "name": "O'Reilly Automotive, Inc.",
-      "price": 89.64,
+      "price": 89.82,
       "previousClose": 91.05,
       "monthAgo": {
         "price": 86.12,
@@ -31557,7 +31557,7 @@
           89.35,
           88.8,
           85.41,
-          89.64
+          91.05
         ]
       },
       "splits": [
@@ -31571,7 +31571,7 @@
     },
     "OTIS": {
       "name": "Otis Worldwide Corporation",
-      "price": 74.08,
+      "price": 74.19,
       "previousClose": 75.27,
       "monthAgo": {
         "price": 65.94,
@@ -31652,7 +31652,7 @@
           71.95,
           71.13,
           64.32,
-          74.08
+          75.27
         ]
       },
       "splits": [],
@@ -31661,7 +31661,7 @@
     },
     "OXY": {
       "name": "Occidental Petroleum Corporation",
-      "price": 62.72,
+      "price": 62.73,
       "previousClose": 64.07,
       "monthAgo": {
         "price": 56.86,
@@ -31742,7 +31742,7 @@
           57.07,
           60.18,
           55.32,
-          62.72
+          64.07
         ]
       },
       "splits": [],
@@ -31751,7 +31751,7 @@
     },
     "P": {
       "name": "Everpure, Inc.",
-      "price": 138.06,
+      "price": 138.73,
       "previousClose": 131.33,
       "monthAgo": {
         "price": 126,
@@ -31832,7 +31832,7 @@
           77.17,
           92.95,
           130.8,
-          138.1
+          131.3
         ]
       },
       "splits": [],
@@ -31841,7 +31841,7 @@
     },
     "PANW": {
       "name": "Palo Alto Networks, Inc.",
-      "price": 403.14,
+      "price": 401.7,
       "previousClose": 390.46,
       "monthAgo": {
         "price": 374.74,
@@ -31922,7 +31922,7 @@
           331.8,
           382.1,
           397.3,
-          403.1
+          390.5
         ]
       },
       "splits": [
@@ -31940,7 +31940,7 @@
     },
     "PAYX": {
       "name": "Paychex, Inc.",
-      "price": 110.99,
+      "price": 109.26,
       "previousClose": 115.7,
       "monthAgo": {
         "price": 101.37,
@@ -32021,7 +32021,7 @@
           116.8,
           127.3,
           98.5,
-          111
+          115.7
         ]
       },
       "splits": [],
@@ -32030,7 +32030,7 @@
     },
     "PCAR": {
       "name": "PACCAR Inc",
-      "price": 101.8,
+      "price": 103.73,
       "previousClose": 104.37,
       "monthAgo": {
         "price": 111.31,
@@ -32111,7 +32111,7 @@
           132.7,
           124.1,
           109.8,
-          101.8
+          104.4
         ]
       },
       "splits": [
@@ -32125,7 +32125,7 @@
     },
     "PCG": {
       "name": "PG&E Corporation",
-      "price": 12.98,
+      "price": 12.96,
       "previousClose": 12.85,
       "monthAgo": {
         "price": 12.34,
@@ -32206,7 +32206,7 @@
           17.38,
           13.27,
           12.25,
-          12.98
+          12.85
         ]
       },
       "splits": [],
@@ -32215,7 +32215,7 @@
     },
     "PEG": {
       "name": "Public Service Enterprise Group Incorporated",
-      "price": 72.2,
+      "price": 72.82,
       "previousClose": 72.11,
       "monthAgo": {
         "price": 67.02,
@@ -32296,7 +32296,7 @@
           76.68,
           73.33,
           67.34,
-          72.2
+          72.11
         ]
       },
       "splits": [],
@@ -32305,7 +32305,7 @@
     },
     "PEP": {
       "name": "PepsiCo, Inc.",
-      "price": 133.41,
+      "price": 133.5,
       "previousClose": 135.46,
       "monthAgo": {
         "price": 128.63,
@@ -32386,7 +32386,7 @@
           139.6,
           140.3,
           126.7,
-          133.4
+          135.5
         ]
       },
       "splits": [],
@@ -32395,7 +32395,7 @@
     },
     "PFE": {
       "name": "Pfizer Inc.",
-      "price": 29.7,
+      "price": 29.8,
       "previousClose": 29.79,
       "monthAgo": {
         "price": 28.67,
@@ -32476,7 +32476,7 @@
           25.01,
           28.46,
           28.52,
-          29.7
+          29.79
         ]
       },
       "splits": [],
@@ -32485,7 +32485,7 @@
     },
     "PFG": {
       "name": "Principal Financial Group, Inc.",
-      "price": 110.7,
+      "price": 111.98,
       "previousClose": 110.13,
       "monthAgo": {
         "price": 114.77,
@@ -32566,7 +32566,7 @@
           113.7,
           110.2,
           112,
-          110.7
+          110.1
         ]
       },
       "splits": [],
@@ -32575,7 +32575,7 @@
     },
     "PG": {
       "name": "The Procter & Gamble Company",
-      "price": 158.84,
+      "price": 159.23,
       "previousClose": 159.92,
       "monthAgo": {
         "price": 146.23,
@@ -32656,7 +32656,7 @@
           144.5,
           145.1,
           145.3,
-          158.8
+          159.9
         ]
       },
       "splits": [],
@@ -32665,7 +32665,7 @@
     },
     "PGR": {
       "name": "The Progressive Corporation",
-      "price": 224.97,
+      "price": 225.6,
       "previousClose": 229.25,
       "monthAgo": {
         "price": 205.5,
@@ -32746,7 +32746,7 @@
           211.4,
           218.1,
           207.3,
-          225
+          229.3
         ]
       },
       "splits": [],
@@ -32755,7 +32755,7 @@
     },
     "PH": {
       "name": "Parker-Hannifin Corporation",
-      "price": 900.09,
+      "price": 900.73,
       "previousClose": 904.43,
       "monthAgo": {
         "price": 978.33,
@@ -32836,7 +32836,7 @@
           976.5,
           979.4,
           955.4,
-          900.1
+          904.4
         ]
       },
       "splits": [],
@@ -32845,7 +32845,7 @@
     },
     "PHM": {
       "name": "PulteGroup, Inc.",
-      "price": 120.66,
+      "price": 121.63,
       "previousClose": 121.31,
       "monthAgo": {
         "price": 119.85,
@@ -32926,7 +32926,7 @@
           126.5,
           126.3,
           116.1,
-          120.7
+          121.3
         ]
       },
       "splits": [],
@@ -32935,7 +32935,7 @@
     },
     "PKG": {
       "name": "Packaging Corporation of America",
-      "price": 251.07,
+      "price": 253.01,
       "previousClose": 253.74,
       "monthAgo": {
         "price": 237.18,
@@ -33016,7 +33016,7 @@
           245.8,
           233.9,
           229.3,
-          251.1
+          253.7
         ]
       },
       "splits": [],
@@ -33025,7 +33025,7 @@
     },
     "PLD": {
       "name": "Prologis, Inc.",
-      "price": 126.64,
+      "price": 126.47,
       "previousClose": 126.31,
       "monthAgo": {
         "price": 133.05,
@@ -33106,7 +33106,7 @@
           144.6,
           139.9,
           129.8,
-          126.6
+          126.3
         ]
       },
       "splits": [],
@@ -33115,7 +33115,7 @@
     },
     "PLTR": {
       "name": "Palantir Technologies Inc.",
-      "price": 199.74,
+      "price": 198.73,
       "previousClose": 198.84,
       "monthAgo": {
         "price": 189.67,
@@ -33196,7 +33196,7 @@
           123.1,
           186.4,
           187.1,
-          199.7
+          198.8
         ]
       },
       "splits": [],
@@ -33205,7 +33205,7 @@
     },
     "PM": {
       "name": "Philip Morris International Inc.",
-      "price": 202.87,
+      "price": 202.62,
       "previousClose": 201.87,
       "monthAgo": {
         "price": 190.48,
@@ -33286,7 +33286,7 @@
           190.8,
           187.3,
           190.8,
-          202.9
+          201.9
         ]
       },
       "splits": [],
@@ -33295,7 +33295,7 @@
     },
     "PNC": {
       "name": "The PNC Financial Services Group, Inc.",
-      "price": 227.32,
+      "price": 227.54,
       "previousClose": 225.84,
       "monthAgo": {
         "price": 225.64,
@@ -33376,7 +33376,7 @@
           249.9,
           239.6,
           222.3,
-          227.3
+          225.8
         ]
       },
       "splits": [],
@@ -33385,7 +33385,7 @@
     },
     "PNR": {
       "name": "Pentair plc",
-      "price": 62.1,
+      "price": 62.29,
       "previousClose": 55.22,
       "monthAgo": {
         "price": 53.66,
@@ -33466,7 +33466,7 @@
           65.44,
           60.46,
           52.99,
-          62.1
+          55.22
         ]
       },
       "splits": [],
@@ -33475,7 +33475,7 @@
     },
     "PNW": {
       "name": "Pinnacle West Capital Corporation",
-      "price": 105.45,
+      "price": 106.31,
       "previousClose": 105.34,
       "monthAgo": {
         "price": 91.74,
@@ -33556,7 +33556,7 @@
           101,
           97.64,
           93.04,
-          105.4
+          105.3
         ]
       },
       "splits": [],
@@ -33565,7 +33565,7 @@
     },
     "PODD": {
       "name": "Insulet Corporation",
-      "price": 148.31,
+      "price": 149.83,
       "previousClose": 149.26,
       "monthAgo": {
         "price": 136.13,
@@ -33646,7 +33646,7 @@
           165.4,
           148.7,
           130.5,
-          148.3
+          149.3
         ]
       },
       "splits": [],
@@ -33655,7 +33655,7 @@
     },
     "PPG": {
       "name": "PPG Industries, Inc.",
-      "price": 111.6,
+      "price": 113.44,
       "previousClose": 109.9,
       "monthAgo": {
         "price": 107.52,
@@ -33736,7 +33736,7 @@
           110.5,
           112.2,
           104.3,
-          111.6
+          109.9
         ]
       },
       "splits": [],
@@ -33745,7 +33745,7 @@
     },
     "PPL": {
       "name": "PPL Corporation",
-      "price": 34.94,
+      "price": 35.18,
       "previousClose": 34.92,
       "monthAgo": {
         "price": 32.03,
@@ -33826,7 +33826,7 @@
           35.21,
           34.13,
           32.89,
-          34.94
+          34.92
         ]
       },
       "splits": [],
@@ -33835,7 +33835,7 @@
     },
     "PRU": {
       "name": "Prudential Financial, Inc.",
-      "price": 115.09,
+      "price": 115.21,
       "previousClose": 115.79,
       "monthAgo": {
         "price": 119.45,
@@ -33916,7 +33916,7 @@
           122.1,
           117.6,
           113.6,
-          115.1
+          115.8
         ]
       },
       "splits": [],
@@ -33925,7 +33925,7 @@
     },
     "PSA": {
       "name": "Public Storage",
-      "price": 311.68,
+      "price": 312.47,
       "previousClose": 306.97,
       "monthAgo": {
         "price": 287.97,
@@ -34006,7 +34006,7 @@
           324.2,
           307,
           282.8,
-          311.7
+          307
         ]
       },
       "splits": [],
@@ -34015,7 +34015,7 @@
     },
     "PSX": {
       "name": "Phillips 66",
-      "price": 269.23,
+      "price": 268.53,
       "previousClose": 288.85,
       "monthAgo": {
         "price": 255.75,
@@ -34096,7 +34096,7 @@
           211.7,
           246.6,
           255.3,
-          269.2
+          288.9
         ]
       },
       "splits": [],
@@ -34105,7 +34105,7 @@
     },
     "PTC": {
       "name": "PTC Inc.",
-      "price": 194.27,
+      "price": 194.62,
       "previousClose": 194.25,
       "monthAgo": {
         "price": 138.12,
@@ -34195,7 +34195,7 @@
     },
     "PWR": {
       "name": "Quanta Services, Inc.",
-      "price": 577.6,
+      "price": 578.83,
       "previousClose": 563.93,
       "monthAgo": {
         "price": 649.13,
@@ -34276,7 +34276,7 @@
           667.4,
           607.1,
           642.5,
-          577.6
+          563.9
         ]
       },
       "splits": [],
@@ -34285,7 +34285,7 @@
     },
     "PYPL": {
       "name": "PayPal Holdings, Inc.",
-      "price": 55.76,
+      "price": 56.09,
       "previousClose": 54.99,
       "monthAgo": {
         "price": 55.04,
@@ -34366,7 +34366,7 @@
           57.21,
           52.67,
           52.53,
-          55.76
+          54.99
         ]
       },
       "splits": [],
@@ -34375,7 +34375,7 @@
     },
     "Q": {
       "name": "Qnity Electronics, Inc.",
-      "price": 118,
+      "price": 118.75,
       "previousClose": 114.07,
       "monthAgo": {
         "price": 124.69,
@@ -34402,7 +34402,7 @@
           131.2,
           119.4,
           125.7,
-          118
+          114.1
         ]
       },
       "splits": [],
@@ -34411,7 +34411,7 @@
     },
     "QCOM": {
       "name": "QUALCOMM Incorporated",
-      "price": 180.76,
+      "price": 184.17,
       "previousClose": 179.6,
       "monthAgo": {
         "price": 201.97,
@@ -34492,7 +34492,7 @@
           147.6,
           170.5,
           184,
-          180.8
+          179.6
         ]
       },
       "splits": [],
@@ -34501,7 +34501,7 @@
     },
     "RCL": {
       "name": "Royal Caribbean Cruises Ltd.",
-      "price": 304.26,
+      "price": 295.92,
       "previousClose": 280.6,
       "monthAgo": {
         "price": 242.7,
@@ -34582,7 +34582,7 @@
           318.3,
           268.7,
           265.9,
-          304.3
+          280.6
         ]
       },
       "splits": [],
@@ -34591,7 +34591,7 @@
     },
     "RDDT": {
       "name": "Reddit, Inc.",
-      "price": 138.88,
+      "price": 136.46,
       "previousClose": 138.45,
       "monthAgo": {
         "price": 149.84,
@@ -34637,7 +34637,7 @@
           140.7,
           147.8,
           142.4,
-          138.9
+          138.4
         ]
       },
       "splits": [],
@@ -34646,7 +34646,7 @@
     },
     "REG": {
       "name": "Regency Centers Corporation",
-      "price": 73.6,
+      "price": 74.28,
       "previousClose": 73.67,
       "monthAgo": {
         "price": 73.23,
@@ -34727,7 +34727,7 @@
           80.29,
           74.77,
           71.88,
-          73.6
+          73.67
         ]
       },
       "splits": [],
@@ -34736,7 +34736,7 @@
     },
     "REGN": {
       "name": "Regeneron Pharmaceuticals, Inc.",
-      "price": 809.9,
+      "price": 816.1,
       "previousClose": 807.67,
       "monthAgo": {
         "price": 788.04,
@@ -34817,7 +34817,7 @@
           762.6,
           799.1,
           758.3,
-          809.9
+          807.7
         ]
       },
       "splits": [],
@@ -34826,7 +34826,7 @@
     },
     "RF": {
       "name": "Regions Financial Corporation",
-      "price": 28.6,
+      "price": 28.5,
       "previousClose": 28.61,
       "monthAgo": {
         "price": 27.62,
@@ -34907,7 +34907,7 @@
           30.95,
           29.88,
           26.88,
-          28.59
+          28.61
         ]
       },
       "splits": [],
@@ -34916,7 +34916,7 @@
     },
     "RJF": {
       "name": "Raymond James Financial, Inc.",
-      "price": 158.56,
+      "price": 158.12,
       "previousClose": 158.07,
       "monthAgo": {
         "price": 159.87,
@@ -34997,7 +34997,7 @@
           176,
           178.2,
           158,
-          158.6
+          158.1
         ]
       },
       "splits": [],
@@ -35006,7 +35006,7 @@
     },
     "RL": {
       "name": "Ralph Lauren Corporation",
-      "price": 391.39,
+      "price": 391.25,
       "previousClose": 386.95,
       "monthAgo": {
         "price": 357.1,
@@ -35087,7 +35087,7 @@
           380.3,
           346.9,
           355.1,
-          391.4
+          387
         ]
       },
       "splits": [],
@@ -35096,7 +35096,7 @@
     },
     "RMD": {
       "name": "ResMed Inc.",
-      "price": 249.68,
+      "price": 250.8,
       "previousClose": 253.2,
       "monthAgo": {
         "price": 222,
@@ -35177,7 +35177,7 @@
           211,
           240.1,
           221.1,
-          249.7
+          253.2
         ]
       },
       "splits": [],
@@ -35186,7 +35186,7 @@
     },
     "ROK": {
       "name": "Rockwell Automation, Inc.",
-      "price": 437.46,
+      "price": 439.2,
       "previousClose": 429.89,
       "monthAgo": {
         "price": 434.15,
@@ -35267,7 +35267,7 @@
           480.1,
           424.4,
           435.3,
-          437.5
+          429.9
         ]
       },
       "splits": [],
@@ -35276,7 +35276,7 @@
     },
     "ROL": {
       "name": "Rollins, Inc.",
-      "price": 33.73,
+      "price": 34.01,
       "previousClose": 34.55,
       "monthAgo": {
         "price": 30.03,
@@ -35357,7 +35357,7 @@
           37.97,
           36.07,
           30.12,
-          33.73
+          34.55
         ]
       },
       "splits": [],
@@ -35366,7 +35366,7 @@
     },
     "ROP": {
       "name": "Roper Technologies, Inc.",
-      "price": 434.67,
+      "price": 434.48,
       "previousClose": 441.65,
       "monthAgo": {
         "price": 358.56,
@@ -35447,7 +35447,7 @@
           392,
           424.6,
           349.4,
-          434.7
+          441.6
         ]
       },
       "splits": [],
@@ -35456,7 +35456,7 @@
     },
     "ROST": {
       "name": "Ross Stores, Inc.",
-      "price": 229.47,
+      "price": 230.09,
       "previousClose": 234.11,
       "monthAgo": {
         "price": 236.12,
@@ -35537,7 +35537,7 @@
           251.1,
           228.5,
           233.4,
-          229.5
+          234.1
         ]
       },
       "splits": [],
@@ -35546,7 +35546,7 @@
     },
     "RSG": {
       "name": "Republic Services, Inc.",
-      "price": 235.67,
+      "price": 235.66,
       "previousClose": 241.31,
       "monthAgo": {
         "price": 212.1,
@@ -35627,7 +35627,7 @@
           210.6,
           220.9,
           209.9,
-          235.7
+          241.3
         ]
       },
       "splits": [],
@@ -35636,7 +35636,7 @@
     },
     "RTX": {
       "name": "RTX Corporation",
-      "price": 196.69,
+      "price": 194.6,
       "previousClose": 197.48,
       "monthAgo": {
         "price": 189.4,
@@ -35717,7 +35717,7 @@
           215.2,
           207.7,
           185.6,
-          196.7
+          197.5
         ]
       },
       "splits": [],
@@ -35726,7 +35726,7 @@
     },
     "RVTY": {
       "name": "Revvity, Inc.",
-      "price": 161.32,
+      "price": 161.86,
       "previousClose": 160.39,
       "monthAgo": {
         "price": 151.11,
@@ -35807,7 +35807,7 @@
           112.5,
           128.7,
           152.9,
-          161.3
+          160.4
         ]
       },
       "splits": [],
@@ -35816,7 +35816,7 @@
     },
     "SBAC": {
       "name": "SBA Communications Corporation",
-      "price": 180.68,
+      "price": 184.24,
       "previousClose": 185.92,
       "monthAgo": {
         "price": 166.15,
@@ -35897,7 +35897,7 @@
           181,
           189.7,
           160.1,
-          180.7
+          185.9
         ]
       },
       "splits": [],
@@ -35906,7 +35906,7 @@
     },
     "SBUX": {
       "name": "Starbucks Corporation",
-      "price": 102.36,
+      "price": 103.04,
       "previousClose": 102.69,
       "monthAgo": {
         "price": 94.86,
@@ -35987,7 +35987,7 @@
           105.3,
           106.3,
           93.96,
-          102.4
+          102.7
         ]
       },
       "splits": [],
@@ -35996,7 +35996,7 @@
     },
     "SCHW": {
       "name": "The Charles Schwab Corporation",
-      "price": 89.48,
+      "price": 89.3,
       "previousClose": 89.73,
       "monthAgo": {
         "price": 99.03,
@@ -36077,7 +36077,7 @@
           105.2,
           109.8,
           97.74,
-          89.48
+          89.73
         ]
       },
       "splits": [],
@@ -36086,7 +36086,7 @@
     },
     "SHW": {
       "name": "The Sherwin-Williams Company",
-      "price": 326.23,
+      "price": 326.01,
       "previousClose": 335.16,
       "monthAgo": {
         "price": 329.1,
@@ -36167,7 +36167,7 @@
           340.9,
           338.8,
           323.3,
-          326.2
+          335.2
         ]
       },
       "splits": [],
@@ -36176,7 +36176,7 @@
     },
     "SJM": {
       "name": "The J. M. Smucker Company",
-      "price": 127.52,
+      "price": 127.41,
       "previousClose": 128.64,
       "monthAgo": {
         "price": 121,
@@ -36257,7 +36257,7 @@
           119.3,
           131.2,
           118.9,
-          127.5
+          128.6
         ]
       },
       "splits": [],
@@ -36266,7 +36266,7 @@
     },
     "SKYD": {
       "name": "Skydance Corporation",
-      "price": 7.59,
+      "price": 7.75,
       "previousClose": 7.49,
       "monthAgo": {
         "price": 9.96,
@@ -36347,7 +36347,7 @@
           7.96,
           10.91,
           10.33,
-          7.59
+          7.49
         ]
       },
       "splits": [],
@@ -36356,7 +36356,7 @@
     },
     "SLB": {
       "name": "SLB N.V.",
-      "price": 53.5,
+      "price": 54.08,
       "previousClose": 53.08,
       "monthAgo": {
         "price": 51.54,
@@ -36437,7 +36437,7 @@
           49.59,
           60.1,
           48.72,
-          53.5
+          53.08
         ]
       },
       "splits": [],
@@ -36446,7 +36446,7 @@
     },
     "SMCI": {
       "name": "Super Micro Computer, Inc.",
-      "price": 35.08,
+      "price": 35.09,
       "previousClose": 32.69,
       "monthAgo": {
         "price": 43.26,
@@ -36527,7 +36527,7 @@
           28.4,
           37.28,
           41.07,
-          35.08
+          32.69
         ]
       },
       "splits": [
@@ -36541,7 +36541,7 @@
     },
     "SNA": {
       "name": "Snap-on Incorporated",
-      "price": 357.34,
+      "price": 357.51,
       "previousClose": 357.88,
       "monthAgo": {
         "price": 369.2,
@@ -36622,7 +36622,7 @@
           410.4,
           386.3,
           363.4,
-          357.3
+          357.9
         ]
       },
       "splits": [],
@@ -36631,7 +36631,7 @@
     },
     "SNDK": {
       "name": "Sandisk Corporation",
-      "price": 1305.48,
+      "price": 1304.84,
       "previousClose": 1255.58,
       "monthAgo": {
         "price": 1777.8,
@@ -36666,7 +36666,7 @@
           1215,
           1567,
           1740,
-          1305
+          1256
         ]
       },
       "splits": [],
@@ -36675,7 +36675,7 @@
     },
     "SNPS": {
       "name": "Synopsys, Inc.",
-      "price": 473.26,
+      "price": 474.42,
       "previousClose": 454.33,
       "monthAgo": {
         "price": 425.76,
@@ -36756,7 +36756,7 @@
           388.8,
           439.6,
           434.9,
-          473.3
+          454.3
         ]
       },
       "splits": [],
@@ -36765,7 +36765,7 @@
     },
     "SO": {
       "name": "The Southern Company",
-      "price": 92.1,
+      "price": 92.65,
       "previousClose": 92.57,
       "monthAgo": {
         "price": 82.88,
@@ -36846,7 +36846,7 @@
           94.54,
           88,
           82.89,
-          92.1
+          92.57
         ]
       },
       "splits": [],
@@ -36855,7 +36855,7 @@
     },
     "SOLV": {
       "name": "Solventum Corporation",
-      "price": 82.89,
+      "price": 82.98,
       "previousClose": 85.81,
       "monthAgo": {
         "price": 89.5,
@@ -36901,7 +36901,7 @@
           85.44,
           91.06,
           88.15,
-          82.89
+          85.81
         ]
       },
       "splits": [],
@@ -36910,7 +36910,7 @@
     },
     "SPG": {
       "name": "Simon Property Group, Inc.",
-      "price": 212.16,
+      "price": 212.28,
       "previousClose": 212.69,
       "monthAgo": {
         "price": 204.82,
@@ -36991,7 +36991,7 @@
           229.4,
           212.3,
           200.8,
-          212.2
+          212.7
         ]
       },
       "splits": [],
@@ -37000,7 +37000,7 @@
     },
     "SPGI": {
       "name": "S&P Global Inc.",
-      "price": 446.78,
+      "price": 448.93,
       "previousClose": 450.65,
       "monthAgo": {
         "price": 403.3,
@@ -37081,7 +37081,7 @@
           411.9,
           435.8,
           394.5,
-          446.8
+          450.6
         ]
       },
       "splits": [
@@ -37095,7 +37095,7 @@
     },
     "SRE": {
       "name": "Sempra",
-      "price": 84.37,
+      "price": 85.01,
       "previousClose": 84.24,
       "monthAgo": {
         "price": 77.93,
@@ -37176,7 +37176,7 @@
           88.55,
           81.7,
           77.96,
-          84.37
+          84.24
         ]
       },
       "splits": [
@@ -37190,7 +37190,7 @@
     },
     "STE": {
       "name": "STERIS plc",
-      "price": 227.44,
+      "price": 228.49,
       "previousClose": 230.12,
       "monthAgo": {
         "price": 208.93,
@@ -37271,7 +37271,7 @@
           228.4,
           232.6,
           210,
-          227.4
+          230.1
         ]
       },
       "splits": [],
@@ -37280,7 +37280,7 @@
     },
     "STLD": {
       "name": "Steel Dynamics, Inc.",
-      "price": 243.83,
+      "price": 246.8,
       "previousClose": 237.55,
       "monthAgo": {
         "price": 233.66,
@@ -37361,7 +37361,7 @@
           251.3,
           232.6,
           221.6,
-          243.8
+          237.6
         ]
       },
       "splits": [],
@@ -37370,7 +37370,7 @@
     },
     "STT": {
       "name": "State Street Corporation",
-      "price": 171.04,
+      "price": 170.89,
       "previousClose": 169.94,
       "monthAgo": {
         "price": 181.34,
@@ -37451,7 +37451,7 @@
           184.2,
           191.4,
           174.6,
-          171
+          169.9
         ]
       },
       "splits": [],
@@ -37460,7 +37460,7 @@
     },
     "STX": {
       "name": "Seagate Technology Holdings plc",
-      "price": 673.88,
+      "price": 667.85,
       "previousClose": 644.21,
       "monthAgo": {
         "price": 916.83,
@@ -37541,7 +37541,7 @@
           856.1,
           828.4,
           922.3,
-          673.9
+          644.2
         ]
       },
       "splits": [],
@@ -37550,7 +37550,7 @@
     },
     "STZ": {
       "name": "Constellation Brands, Inc.",
-      "price": 131.02,
+      "price": 130.63,
       "previousClose": 135.62,
       "monthAgo": {
         "price": 113.63,
@@ -37631,7 +37631,7 @@
           130.2,
           130.6,
           113.1,
-          131
+          135.6
         ]
       },
       "splits": [],
@@ -37640,7 +37640,7 @@
     },
     "SW": {
       "name": "Smurfit Westrock Plc",
-      "price": 42.31,
+      "price": 42.54,
       "previousClose": 42.24,
       "monthAgo": {
         "price": 46.41,
@@ -37721,7 +37721,7 @@
           45.97,
           46.9,
           44.1,
-          42.31
+          42.24
         ]
       },
       "splits": [],
@@ -37730,7 +37730,7 @@
     },
     "SWK": {
       "name": "Stanley Black & Decker, Inc.",
-      "price": 98.82,
+      "price": 99.32,
       "previousClose": 99.37,
       "monthAgo": {
         "price": 91.4,
@@ -37811,7 +37811,7 @@
           94.58,
           96.37,
           88.59,
-          98.82
+          99.37
         ]
       },
       "splits": [],
@@ -37820,7 +37820,7 @@
     },
     "SWKS": {
       "name": "Skyworks Solutions, Inc.",
-      "price": 85.29,
+      "price": 85.48,
       "previousClose": 83.34,
       "monthAgo": {
         "price": 89.34,
@@ -37901,7 +37901,7 @@
           62.28,
           67.01,
           85.48,
-          85.29
+          83.34
         ]
       },
       "splits": [],
@@ -37910,7 +37910,7 @@
     },
     "SYF": {
       "name": "Synchrony Financial",
-      "price": 75.6,
+      "price": 74.97,
       "previousClose": 74.83,
       "monthAgo": {
         "price": 72.94,
@@ -37991,7 +37991,7 @@
           75.79,
           77.08,
           70.97,
-          75.6
+          74.83
         ]
       },
       "splits": [],
@@ -38000,7 +38000,7 @@
     },
     "SYK": {
       "name": "Stryker Corporation",
-      "price": 299.62,
+      "price": 301.42,
       "previousClose": 306.13,
       "monthAgo": {
         "price": 272.36,
@@ -38081,7 +38081,7 @@
           325.7,
           323.8,
           275.4,
-          299.6
+          306.1
         ]
       },
       "splits": [],
@@ -38090,7 +38090,7 @@
     },
     "SYY": {
       "name": "Sysco Corporation",
-      "price": 81.9,
+      "price": 82.3,
       "previousClose": 82.16,
       "monthAgo": {
         "price": 78.46,
@@ -38171,7 +38171,7 @@
           85.24,
           81.08,
           77.96,
-          81.9
+          82.16
         ]
       },
       "splits": [],
@@ -38261,7 +38261,7 @@
           23.25,
           25.89,
           24.4,
-          20.94
+          20.85
         ]
       },
       "splits": [
@@ -38275,7 +38275,7 @@
     },
     "TDG": {
       "name": "TransDigm Group Incorporated",
-      "price": 1128.54,
+      "price": 1130.23,
       "previousClose": 1129.7,
       "monthAgo": {
         "price": 1116.2,
@@ -38356,7 +38356,7 @@
           1254,
           1172,
           1083,
-          1129
+          1130
         ]
       },
       "splits": [],
@@ -38365,7 +38365,7 @@
     },
     "TDY": {
       "name": "Teledyne Technologies Incorporated",
-      "price": 647.15,
+      "price": 654.99,
       "previousClose": 645.47,
       "monthAgo": {
         "price": 614.15,
@@ -38446,7 +38446,7 @@
           655.6,
           613,
           606.8,
-          647.1
+          645.5
         ]
       },
       "splits": [],
@@ -38455,7 +38455,7 @@
     },
     "TECH": {
       "name": "Bio-Techne Corporation",
-      "price": 72.69,
+      "price": 72.6,
       "previousClose": 72.69,
       "monthAgo": {
         "price": 72.61,
@@ -38536,7 +38536,7 @@
           72.09,
           72.31,
           72.47,
-          72.68
+          72.69
         ]
       },
       "splits": [
@@ -38550,7 +38550,7 @@
     },
     "TEL": {
       "name": "TE Connectivity plc",
-      "price": 217.5,
+      "price": 225.35,
       "previousClose": 213.86,
       "monthAgo": {
         "price": 218.59,
@@ -38631,7 +38631,7 @@
           205.7,
           205.3,
           211.1,
-          217.5
+          213.9
         ]
       },
       "splits": [],
@@ -38640,7 +38640,7 @@
     },
     "TER": {
       "name": "Teradyne, Inc.",
-      "price": 325.06,
+      "price": 323.68,
       "previousClose": 309,
       "monthAgo": {
         "price": 398.38,
@@ -38721,7 +38721,7 @@
           367.7,
           349.8,
           400.9,
-          325.1
+          309
         ]
       },
       "splits": [],
@@ -38730,7 +38730,7 @@
     },
     "TFC": {
       "name": "Truist Financial Corporation",
-      "price": 48.87,
+      "price": 48.54,
       "previousClose": 48.91,
       "monthAgo": {
         "price": 47.66,
@@ -38811,7 +38811,7 @@
           51.84,
           49.58,
           46.3,
-          48.87
+          48.91
         ]
       },
       "splits": [],
@@ -38820,7 +38820,7 @@
     },
     "TGT": {
       "name": "Target Corporation",
-      "price": 148.64,
+      "price": 148.01,
       "previousClose": 148.53,
       "monthAgo": {
         "price": 157.45,
@@ -38901,7 +38901,7 @@
           144.5,
           160.9,
           156.7,
-          148.6
+          148.5
         ]
       },
       "splits": [],
@@ -38910,7 +38910,7 @@
     },
     "TJX": {
       "name": "The TJX Companies, Inc.",
-      "price": 140.55,
+      "price": 140.2,
       "previousClose": 143.7,
       "monthAgo": {
         "price": 130.06,
@@ -38991,7 +38991,7 @@
           157.3,
           133.9,
           132.3,
-          140.6
+          143.7
         ]
       },
       "splits": [],
@@ -39000,7 +39000,7 @@
     },
     "TKO": {
       "name": "TKO Group Holdings, Inc.",
-      "price": 171.45,
+      "price": 172.18,
       "previousClose": 171.23,
       "monthAgo": {
         "price": 182.67,
@@ -39081,7 +39081,7 @@
           181.8,
           182.6,
           179.7,
-          171.4
+          171.2
         ]
       },
       "splits": [],
@@ -39090,7 +39090,7 @@
     },
     "TMO": {
       "name": "Thermo Fisher Scientific Inc.",
-      "price": 693.5,
+      "price": 693.02,
       "previousClose": 684.89,
       "monthAgo": {
         "price": 675,
@@ -39171,7 +39171,7 @@
           574.3,
           617.1,
           675,
-          693.5
+          684.9
         ]
       },
       "splits": [],
@@ -39180,7 +39180,7 @@
     },
     "TMUS": {
       "name": "T-Mobile US, Inc.",
-      "price": 147.07,
+      "price": 146.83,
       "previousClose": 146.93,
       "monthAgo": {
         "price": 165.43,
@@ -39261,7 +39261,7 @@
           172.7,
           180.4,
           163.1,
-          147.1
+          146.9
         ]
       },
       "splits": [],
@@ -39270,7 +39270,7 @@
     },
     "TPL": {
       "name": "Texas Pacific Land Corporation",
-      "price": 331.04,
+      "price": 330.43,
       "previousClose": 333.46,
       "monthAgo": {
         "price": 341.07,
@@ -39351,7 +39351,7 @@
           402.6,
           374.3,
           325.8,
-          331
+          333.5
         ]
       },
       "splits": [
@@ -39369,7 +39369,7 @@
     },
     "TPR": {
       "name": "Tapestry, Inc.",
-      "price": 110.03,
+      "price": 111.39,
       "previousClose": 110.9,
       "monthAgo": {
         "price": 113.88,
@@ -39450,7 +39450,7 @@
           152.4,
           123.4,
           115,
-          110
+          110.9
         ]
       },
       "splits": [],
@@ -39459,7 +39459,7 @@
     },
     "TRGP": {
       "name": "Targa Resources Corp.",
-      "price": 301.95,
+      "price": 302.61,
       "previousClose": 304.68,
       "monthAgo": {
         "price": 277.84,
@@ -39540,7 +39540,7 @@
           270.4,
           293.6,
           270.3,
-          301.9
+          304.7
         ]
       },
       "splits": [],
@@ -39549,7 +39549,7 @@
     },
     "TRMB": {
       "name": "Trimble Inc.",
-      "price": 63.02,
+      "price": 63.16,
       "previousClose": 63.37,
       "monthAgo": {
         "price": 57.85,
@@ -39630,7 +39630,7 @@
           56.58,
           59.94,
           57.11,
-          63.02
+          63.37
         ]
       },
       "splits": [],
@@ -39639,7 +39639,7 @@
     },
     "TROW": {
       "name": "T. Rowe Price Group, Inc.",
-      "price": 103.84,
+      "price": 103.63,
       "previousClose": 103.49,
       "monthAgo": {
         "price": 105.51,
@@ -39720,7 +39720,7 @@
           111.8,
           111.3,
           104.1,
-          103.8
+          103.5
         ]
       },
       "splits": [],
@@ -39729,7 +39729,7 @@
     },
     "TRV": {
       "name": "The Travelers Companies, Inc.",
-      "price": 394.85,
+      "price": 397.03,
       "previousClose": 400.17,
       "monthAgo": {
         "price": 363.04,
@@ -39810,7 +39810,7 @@
           374.4,
           365.9,
           356.5,
-          394.9
+          400.2
         ]
       },
       "splits": [],
@@ -39819,7 +39819,7 @@
     },
     "TSCO": {
       "name": "Tractor Supply Company",
-      "price": 32.01,
+      "price": 32.24,
       "previousClose": 32.53,
       "monthAgo": {
         "price": 32.27,
@@ -39900,7 +39900,7 @@
           30.77,
           34.9,
           31.29,
-          32.01
+          32.53
         ]
       },
       "splits": [
@@ -39914,7 +39914,7 @@
     },
     "TSLA": {
       "name": "Tesla, Inc.",
-      "price": 405.73,
+      "price": 407.46,
       "previousClose": 391.62,
       "monthAgo": {
         "price": 372.11,
@@ -39995,7 +39995,7 @@
           311.2,
           368,
           354.8,
-          405.7
+          391.6
         ]
       },
       "splits": [
@@ -40009,7 +40009,7 @@
     },
     "TSN": {
       "name": "Tyson Foods, Inc.",
-      "price": 55.59,
+      "price": 55.75,
       "previousClose": 56.4,
       "monthAgo": {
         "price": 50.92,
@@ -40090,7 +40090,7 @@
           57.96,
           55.14,
           50.53,
-          55.59
+          56.4
         ]
       },
       "splits": [],
@@ -40099,7 +40099,7 @@
     },
     "TT": {
       "name": "Trane Technologies plc",
-      "price": 456.3,
+      "price": 461.07,
       "previousClose": 455.03,
       "monthAgo": {
         "price": 454.44,
@@ -40180,7 +40180,7 @@
           455,
           444.4,
           452,
-          456.3
+          455
         ]
       },
       "splits": [],
@@ -40189,7 +40189,7 @@
     },
     "TTWO": {
       "name": "Take-Two Interactive Software, Inc.",
-      "price": 201.21,
+      "price": 201.28,
       "previousClose": 203.35,
       "monthAgo": {
         "price": 201.44,
@@ -40270,7 +40270,7 @@
           242.9,
           219.7,
           207.5,
-          201.2
+          203.4
         ]
       },
       "splits": [],
@@ -40279,7 +40279,7 @@
     },
     "TWLO": {
       "name": "Twilio Inc.",
-      "price": 254.18,
+      "price": 254.56,
       "previousClose": 263.65,
       "monthAgo": {
         "price": 275.8,
@@ -40360,7 +40360,7 @@
           197.4,
           235.6,
           292.5,
-          254.2
+          263.6
         ]
       },
       "splits": [],
@@ -40369,7 +40369,7 @@
     },
     "TXN": {
       "name": "Texas Instruments Incorporated",
-      "price": 306.8,
+      "price": 308.91,
       "previousClose": 298.12,
       "monthAgo": {
         "price": 278.07,
@@ -40450,7 +40450,7 @@
           275.7,
           260.9,
           280.1,
-          306.8
+          298.1
         ]
       },
       "splits": [],
@@ -40459,7 +40459,7 @@
     },
     "TXT": {
       "name": "Textron Inc.",
-      "price": 77.91,
+      "price": 78.18,
       "previousClose": 78.11,
       "monthAgo": {
         "price": 76.59,
@@ -40540,7 +40540,7 @@
           85.26,
           80.56,
           76.2,
-          77.91
+          78.11
         ]
       },
       "splits": [],
@@ -40549,7 +40549,7 @@
     },
     "TYL": {
       "name": "Tyler Technologies, Inc.",
-      "price": 379.96,
+      "price": 378.62,
       "previousClose": 386.38,
       "monthAgo": {
         "price": 325.57,
@@ -40630,7 +40630,7 @@
           309.6,
           372.2,
           318.6,
-          380
+          386.4
         ]
       },
       "splits": [],
@@ -40639,7 +40639,7 @@
     },
     "UAL": {
       "name": "United Airlines Holdings, Inc.",
-      "price": 103.43,
+      "price": 104.71,
       "previousClose": 100.69,
       "monthAgo": {
         "price": 113.99,
@@ -40720,7 +40720,7 @@
           121.3,
           108,
           110.9,
-          103.4
+          100.7
         ]
       },
       "splits": [],
@@ -40729,7 +40729,7 @@
     },
     "UBER": {
       "name": "Uber Technologies, Inc.",
-      "price": 66,
+      "price": 65.78,
       "previousClose": 66.13,
       "monthAgo": {
         "price": 69.62,
@@ -40810,7 +40810,7 @@
           70.36,
           75.65,
           68.51,
-          66
+          66.13
         ]
       },
       "splits": [],
@@ -40819,7 +40819,7 @@
     },
     "UDR": {
       "name": "UDR, Inc.",
-      "price": 35.6,
+      "price": 35.61,
       "previousClose": 35.7,
       "monthAgo": {
         "price": 33.84,
@@ -40900,7 +40900,7 @@
           38.16,
           36.95,
           33.55,
-          35.6
+          35.7
         ]
       },
       "splits": [],
@@ -40909,7 +40909,7 @@
     },
     "UHS": {
       "name": "Universal Health Services, Inc.",
-      "price": 174.52,
+      "price": 177.32,
       "previousClose": 185.71,
       "monthAgo": {
         "price": 178.86,
@@ -40990,7 +40990,7 @@
           168.4,
           170.3,
           174.3,
-          174.5
+          185.7
         ]
       },
       "splits": [],
@@ -40999,7 +40999,7 @@
     },
     "ULTA": {
       "name": "Ulta Beauty, Inc.",
-      "price": 625.55,
+      "price": 626.88,
       "previousClose": 625.33,
       "monthAgo": {
         "price": 545.2,
@@ -41080,7 +41080,7 @@
           512.8,
           537.1,
           546.2,
-          625.5
+          625.3
         ]
       },
       "splits": [],
@@ -41089,7 +41089,7 @@
     },
     "UNH": {
       "name": "UnitedHealth Group Incorporated",
-      "price": 408.8,
+      "price": 410.39,
       "previousClose": 410.7,
       "monthAgo": {
         "price": 376.59,
@@ -41170,7 +41170,7 @@
           414.4,
           389.4,
           367.1,
-          408.8
+          410.7
         ]
       },
       "splits": [],
@@ -41179,7 +41179,7 @@
     },
     "UNP": {
       "name": "Union Pacific Corporation",
-      "price": 298.72,
+      "price": 299.88,
       "previousClose": 296.97,
       "monthAgo": {
         "price": 273.79,
@@ -41260,7 +41260,7 @@
           292.1,
           300.7,
           272.1,
-          298.7
+          297
         ]
       },
       "splits": [],
@@ -41269,7 +41269,7 @@
     },
     "UPS": {
       "name": "United Parcel Service, Inc.",
-      "price": 104.51,
+      "price": 106.09,
       "previousClose": 100.32,
       "monthAgo": {
         "price": 93.96,
@@ -41350,7 +41350,7 @@
           104.2,
           104.2,
           93.44,
-          104.5
+          100.3
         ]
       },
       "splits": [],
@@ -41359,7 +41359,7 @@
     },
     "URI": {
       "name": "United Rentals, Inc.",
-      "price": 1164.78,
+      "price": 1162,
       "previousClose": 1121.9,
       "monthAgo": {
         "price": 1047.06,
@@ -41440,7 +41440,7 @@
           1079,
           1038,
           1001,
-          1165
+          1122
         ]
       },
       "splits": [],
@@ -41449,7 +41449,7 @@
     },
     "USB": {
       "name": "U.S. Bancorp",
-      "price": 59.81,
+      "price": 59.74,
       "previousClose": 59.7,
       "monthAgo": {
         "price": 59.33,
@@ -41530,7 +41530,7 @@
           63.01,
           61.58,
           57.76,
-          59.81
+          59.7
         ]
       },
       "splits": [],
@@ -41539,7 +41539,7 @@
     },
     "V": {
       "name": "Visa Inc.",
-      "price": 399.66,
+      "price": 401.86,
       "previousClose": 404.16,
       "monthAgo": {
         "price": 367.38,
@@ -41620,7 +41620,7 @@
           366.1,
           379.4,
           359.3,
-          399.7
+          404.2
         ]
       },
       "splits": [],
@@ -41629,7 +41629,7 @@
     },
     "VEEV": {
       "name": "Veeva Systems Inc.",
-      "price": 313.18,
+      "price": 313.46,
       "previousClose": 318.18,
       "monthAgo": {
         "price": 280.68,
@@ -41710,7 +41710,7 @@
           203.8,
           285.7,
           285.5,
-          313.2
+          318.2
         ]
       },
       "splits": [],
@@ -41719,7 +41719,7 @@
     },
     "VICI": {
       "name": "VICI Properties Inc.",
-      "price": 23.77,
+      "price": 23.7,
       "previousClose": 24.02,
       "monthAgo": {
         "price": 23.51,
@@ -41800,7 +41800,7 @@
           26.35,
           25.65,
           22.97,
-          23.77
+          24.02
         ]
       },
       "splits": [],
@@ -41809,7 +41809,7 @@
     },
     "VLO": {
       "name": "Valero Energy Corporation",
-      "price": 392.99,
+      "price": 387.34,
       "previousClose": 426.76,
       "monthAgo": {
         "price": 387.18,
@@ -41890,7 +41890,7 @@
           312.9,
           358.9,
           387.6,
-          393
+          426.8
         ]
       },
       "splits": [],
@@ -41899,7 +41899,7 @@
     },
     "VLTO": {
       "name": "Veralto Corporation",
-      "price": 102.77,
+      "price": 103.19,
       "previousClose": 103.35,
       "monthAgo": {
         "price": 97.14,
@@ -41953,7 +41953,7 @@
           94.17,
           98.57,
           94.32,
-          102.8
+          103.3
         ]
       },
       "splits": [],
@@ -41962,7 +41962,7 @@
     },
     "VMC": {
       "name": "Vulcan Materials Company",
-      "price": 261.49,
+      "price": 262.5,
       "previousClose": 261.48,
       "monthAgo": {
         "price": 245,
@@ -42051,8 +42051,8 @@
       "dividend": 2.05
     },
     "VMRK": {
-      "name": "AvalonBay Communities, Inc.",
-      "price": 62.48,
+      "name": "Vivmark Residential",
+      "price": 62.55,
       "previousClose": 62.78,
       "monthAgo": {
         "price": 61.51,
@@ -42133,7 +42133,7 @@
           66.45,
           65.14,
           60.76,
-          62.48
+          62.78
         ]
       },
       "splits": [],
@@ -42142,7 +42142,7 @@
     },
     "VRSK": {
       "name": "Verisk Analytics, Inc.",
-      "price": 188.19,
+      "price": 187.73,
       "previousClose": 196.19,
       "monthAgo": {
         "price": 169.21,
@@ -42223,7 +42223,7 @@
           194.9,
           193.8,
           167.9,
-          188.2
+          196.2
         ]
       },
       "splits": [],
@@ -42232,7 +42232,7 @@
     },
     "VRSN": {
       "name": "VeriSign, Inc.",
-      "price": 301.8,
+      "price": 304.04,
       "previousClose": 308.72,
       "monthAgo": {
         "price": 287.25,
@@ -42313,7 +42313,7 @@
           290,
           288.3,
           282,
-          301.8
+          308.7
         ]
       },
       "splits": [],
@@ -42322,7 +42322,7 @@
     },
     "VRT": {
       "name": "Vertiv Holdings Co",
-      "price": 208.62,
+      "price": 208.56,
       "previousClose": 199.78,
       "monthAgo": {
         "price": 253.28,
@@ -42403,7 +42403,7 @@
           241.6,
           258.7,
           241.3,
-          208.6
+          199.8
         ]
       },
       "splits": [],
@@ -42412,7 +42412,7 @@
     },
     "VRTX": {
       "name": "Vertex Pharmaceuticals Incorporated",
-      "price": 515.09,
+      "price": 521.03,
       "previousClose": 517.49,
       "monthAgo": {
         "price": 526.19,
@@ -42493,7 +42493,7 @@
           477.1,
           544.5,
           522.8,
-          515.1
+          517.5
         ]
       },
       "splits": [],
@@ -42502,7 +42502,7 @@
     },
     "VST": {
       "name": "Vistra Corp.",
-      "price": 145.15,
+      "price": 146.66,
       "previousClose": 141.73,
       "monthAgo": {
         "price": 138.46,
@@ -42583,7 +42583,7 @@
           148.2,
           137.4,
           138.4,
-          145.1
+          141.7
         ]
       },
       "splits": [],
@@ -42592,7 +42592,7 @@
     },
     "VTR": {
       "name": "Ventas, Inc.",
-      "price": 84.06,
+      "price": 83.34,
       "previousClose": 87.42,
       "monthAgo": {
         "price": 86.59,
@@ -42673,7 +42673,7 @@
           93.51,
           91.17,
           85.02,
-          84.06
+          87.42
         ]
       },
       "splits": [],
@@ -42682,7 +42682,7 @@
     },
     "VTRS": {
       "name": "Viatris Inc.",
-      "price": 18.66,
+      "price": 18.72,
       "previousClose": 18.29,
       "monthAgo": {
         "price": 17.83,
@@ -42763,7 +42763,7 @@
           17.56,
           16.51,
           17.72,
-          18.66
+          18.29
         ]
       },
       "splits": [],
@@ -42772,7 +42772,7 @@
     },
     "VYLR": {
       "name": "Vylor Inc.",
-      "price": 73.54,
+      "price": 72.06,
       "previousClose": 73.94,
       "monthAgo": null,
       "yearAgo": null,
@@ -42785,7 +42785,7 @@
     },
     "VZ": {
       "name": "Verizon Communications Inc.",
-      "price": 43.84,
+      "price": 43.93,
       "previousClose": 43.1,
       "monthAgo": {
         "price": 47.08,
@@ -42866,7 +42866,7 @@
           46.81,
           50.02,
           45.87,
-          43.84
+          43.1
         ]
       },
       "splits": [],
@@ -42875,7 +42875,7 @@
     },
     "WAB": {
       "name": "Westinghouse Air Brake Technologies Corporation",
-      "price": 277.11,
+      "price": 278.95,
       "previousClose": 277.67,
       "monthAgo": {
         "price": 288,
@@ -42956,7 +42956,7 @@
           290.9,
           285.9,
           287.2,
-          277.1
+          277.7
         ]
       },
       "splits": [],
@@ -42965,7 +42965,7 @@
     },
     "WAT": {
       "name": "Waters Corporation",
-      "price": 463.26,
+      "price": 468.55,
       "previousClose": 455.98,
       "monthAgo": {
         "price": 433.54,
@@ -43046,7 +43046,7 @@
           377.3,
           414.6,
           439.4,
-          463.3
+          456
         ]
       },
       "splits": [],
@@ -43055,7 +43055,7 @@
     },
     "WDAY": {
       "name": "Workday, Inc.",
-      "price": 206.28,
+      "price": 205.46,
       "previousClose": 208.5,
       "monthAgo": {
         "price": 189.45,
@@ -43136,7 +43136,7 @@
           160.3,
           197.4,
           190.5,
-          206.3
+          208.5
         ]
       },
       "splits": [],
@@ -43145,7 +43145,7 @@
     },
     "WDC": {
       "name": "Western Digital Corporation",
-      "price": 381.38,
+      "price": 380.88,
       "previousClose": 356.13,
       "monthAgo": {
         "price": 456.81,
@@ -43226,7 +43226,7 @@
           544.8,
           450.5,
           454.5,
-          381.4
+          356.1
         ]
       },
       "splits": [
@@ -43240,7 +43240,7 @@
     },
     "WEC": {
       "name": "WEC Energy Group, Inc.",
-      "price": 110.9,
+      "price": 111.43,
       "previousClose": 111.12,
       "monthAgo": {
         "price": 101.45,
@@ -43321,7 +43321,7 @@
           109.4,
           106.2,
           100.8,
-          110.9
+          111.1
         ]
       },
       "splits": [],
@@ -43330,7 +43330,7 @@
     },
     "WELL": {
       "name": "Welltower Inc.",
-      "price": 227.44,
+      "price": 226.72,
       "previousClose": 240.61,
       "monthAgo": {
         "price": 231.37,
@@ -43411,7 +43411,7 @@
           234.4,
           236.2,
           230.2,
-          227.4
+          240.6
         ]
       },
       "splits": [],
@@ -43420,7 +43420,7 @@
     },
     "WFC": {
       "name": "Wells Fargo & Company",
-      "price": 82.77,
+      "price": 82.66,
       "previousClose": 82.65,
       "monthAgo": {
         "price": 82.97,
@@ -43501,7 +43501,7 @@
           86.45,
           86.39,
           80.05,
-          82.77
+          82.65
         ]
       },
       "splits": [],
@@ -43510,7 +43510,7 @@
     },
     "WM": {
       "name": "Waste Management, Inc.",
-      "price": 234.72,
+      "price": 235.81,
       "previousClose": 241.02,
       "monthAgo": {
         "price": 206.83,
@@ -43591,7 +43591,7 @@
           226.6,
           218.9,
           203.9,
-          234.7
+          241
         ]
       },
       "splits": [],
@@ -43600,7 +43600,7 @@
     },
     "WMB": {
       "name": "The Williams Companies, Inc.",
-      "price": 73.5,
+      "price": 74.09,
       "previousClose": 71.75,
       "monthAgo": {
         "price": 69.26,
@@ -43681,7 +43681,7 @@
           71.54,
           75.05,
           67.97,
-          73.5
+          71.75
         ]
       },
       "splits": [],
@@ -43690,7 +43690,7 @@
     },
     "WMT": {
       "name": "Walmart Inc.",
-      "price": 119.02,
+      "price": 119.32,
       "previousClose": 120.29,
       "monthAgo": {
         "price": 107.98,
@@ -43771,7 +43771,7 @@
           111.2,
           104.9,
           103.9,
-          119
+          120.3
         ]
       },
       "splits": [
@@ -43785,7 +43785,7 @@
     },
     "WRB": {
       "name": "W. R. Berkley Corporation",
-      "price": 72.08,
+      "price": 72.38,
       "previousClose": 73.79,
       "monthAgo": {
         "price": 66.82,
@@ -43866,7 +43866,7 @@
           72.54,
           67.56,
           67.54,
-          72.08
+          73.79
         ]
       },
       "splits": [
@@ -43884,7 +43884,7 @@
     },
     "WSM": {
       "name": "Williams-Sonoma, Inc.",
-      "price": 250.92,
+      "price": 250.45,
       "previousClose": 249.96,
       "monthAgo": {
         "price": 231.9,
@@ -43965,7 +43965,7 @@
           228.7,
           228.3,
           227.9,
-          250.9
+          250
         ]
       },
       "splits": [
@@ -43979,7 +43979,7 @@
     },
     "WST": {
       "name": "West Pharmaceutical Services, Inc.",
-      "price": 395.61,
+      "price": 398.29,
       "previousClose": 394.73,
       "monthAgo": {
         "price": 370.44,
@@ -44060,7 +44060,7 @@
           341,
           341.1,
           370.8,
-          395.6
+          394.7
         ]
       },
       "splits": [],
@@ -44069,7 +44069,7 @@
     },
     "WTW": {
       "name": "Willis Towers Watson Public Limited Company",
-      "price": 315.53,
+      "price": 319.66,
       "previousClose": 324.67,
       "monthAgo": {
         "price": 293.99,
@@ -44150,7 +44150,7 @@
           335.9,
           338.5,
           288.2,
-          315.5
+          324.7
         ]
       },
       "splits": [],
@@ -44159,7 +44159,7 @@
     },
     "WY": {
       "name": "Weyerhaeuser Company",
-      "price": 19.22,
+      "price": 19.39,
       "previousClose": 19.58,
       "monthAgo": {
         "price": 20.01,
@@ -44240,7 +44240,7 @@
           25.03,
           23.37,
           19.05,
-          19.22
+          19.58
         ]
       },
       "splits": [],
@@ -44249,7 +44249,7 @@
     },
     "WYNN": {
       "name": "Wynn Resorts, Limited",
-      "price": 72.7,
+      "price": 72.42,
       "previousClose": 74.2,
       "monthAgo": {
         "price": 81.12,
@@ -44330,7 +44330,7 @@
           99.31,
           91.28,
           79.43,
-          72.7
+          74.2
         ]
       },
       "splits": [],
@@ -44339,7 +44339,7 @@
     },
     "XEL": {
       "name": "Xcel Energy Inc.",
-      "price": 77.61,
+      "price": 78.14,
       "previousClose": 77.86,
       "monthAgo": {
         "price": 69.8,
@@ -44420,7 +44420,7 @@
           78.2,
           75.69,
           70.48,
-          77.61
+          77.86
         ]
       },
       "splits": [],
@@ -44429,7 +44429,7 @@
     },
     "XOM": {
       "name": "ExxonMobil Holdings Corporation",
-      "price": 180.68,
+      "price": 179.91,
       "previousClose": 184.54,
       "monthAgo": {
         "price": 160.59,
@@ -44510,7 +44510,7 @@
           155.4,
           160.9,
           162.8,
-          180.7
+          184.5
         ]
       },
       "splits": [],
@@ -44519,7 +44519,7 @@
     },
     "XYL": {
       "name": "Xylem Inc.",
-      "price": 95.12,
+      "price": 92.86,
       "previousClose": 108.24,
       "monthAgo": {
         "price": 102.63,
@@ -44600,7 +44600,7 @@
           117,
           110.1,
           101.3,
-          95.11
+          108.2
         ]
       },
       "splits": [],
@@ -44609,7 +44609,7 @@
     },
     "XYZ": {
       "name": "Block, Inc.",
-      "price": 74.67,
+      "price": 74.87,
       "previousClose": 74.55,
       "monthAgo": {
         "price": 76.42,
@@ -44690,7 +44690,7 @@
           81.24,
           82.02,
           73.53,
-          74.67
+          74.55
         ]
       },
       "splits": [],
@@ -44699,7 +44699,7 @@
     },
     "YUM": {
       "name": "Yum! Brands, Inc.",
-      "price": 147.71,
+      "price": 149.54,
       "previousClose": 149.47,
       "monthAgo": {
         "price": 138.63,
@@ -44780,7 +44780,7 @@
           153.3,
           153.3,
           136.3,
-          147.7
+          149.5
         ]
       },
       "splits": [],
@@ -44789,7 +44789,7 @@
     },
     "ZBH": {
       "name": "Zimmer Biomet Holdings, Inc.",
-      "price": 95.44,
+      "price": 96.06,
       "previousClose": 97.44,
       "monthAgo": {
         "price": 91.04,
@@ -44870,7 +44870,7 @@
           93.93,
           100,
           88.83,
-          95.44
+          97.44
         ]
       },
       "splits": [
@@ -44884,7 +44884,7 @@
     },
     "ZBRA": {
       "name": "Zebra Technologies Corporation",
-      "price": 380.69,
+      "price": 381.67,
       "previousClose": 384.15,
       "monthAgo": {
         "price": 370.04,
@@ -44965,7 +44965,7 @@
           293.8,
           353.5,
           373.3,
-          380.7
+          384.1
         ]
       },
       "splits": [],
@@ -44974,7 +44974,7 @@
     },
     "ZTS": {
       "name": "Zoetis Inc.",
-      "price": 78.19,
+      "price": 78.23,
       "previousClose": 80.97,
       "monthAgo": {
         "price": 71.05,
@@ -45055,7 +45055,7 @@
           77.29,
           77.1,
           69.83,
-          78.19
+          80.97
         ]
       },
       "splits": [],
