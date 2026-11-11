@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-10T03:47:03.095Z",
+  "asOf": "2026-11-11T01:28:10.299Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -43216,8 +43216,8 @@
       "balanceSheet": {
         "debt": null,
         "cash": {
-          "millions": 2478,
-          "date": "2026-07-04"
+          "millions": 3467,
+          "date": "2026-10-03"
         }
       },
       "netIncome": 1744,
@@ -43225,8 +43225,8 @@
       "intangibleAmortization": 254,
       "eps": 7.52,
       "ttmEps": {
-        "value": 12.53,
-        "end": "2026-07-04",
+        "value": 15.7,
+        "end": "2026-10-03",
         "annual": {
           "value": 7.52,
           "start": "2025-01-01",
@@ -43234,16 +43234,16 @@
           "filed": "2026-02-25"
         },
         "ytd": {
-          "value": 8.27,
+          "value": 14.06,
           "start": "2026-01-01",
-          "end": "2026-07-04",
-          "filed": "2026-08-12"
+          "end": "2026-10-03",
+          "filed": "2026-11-10"
         },
         "priorYtd": {
-          "value": 3.26,
+          "value": 5.88,
           "start": "2025-01-01",
-          "end": "2025-07-05",
-          "filed": "2026-08-12"
+          "end": "2025-10-04",
+          "filed": "2026-11-10"
         },
         "concept": "EarningsPerShareDiluted"
       },
@@ -43318,8 +43318,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 226.88,
-          "date": "2026-07-04"
+          "millions": 224.94,
+          "date": "2026-10-03"
         },
         "diluted": {
           "millions": 231,
@@ -51127,12 +51127,12 @@
       "incomeTax": 28.4,
       "balanceSheet": {
         "debt": {
-          "millions": 3205.3,
-          "date": "2026-07-05"
+          "millions": 2634.1,
+          "date": "2026-10-04"
         },
         "cash": {
-          "millions": 1022.9,
-          "date": "2026-07-05"
+          "millions": 592.8,
+          "date": "2026-10-04"
         }
       },
       "netIncome": 241.2,
@@ -51140,8 +51140,8 @@
       "intangibleAmortization": 335.6,
       "eps": 2.07,
       "ttmEps": {
-        "value": 2.08,
-        "end": "2026-07-05",
+        "value": 2.24,
+        "end": "2026-10-04",
         "annual": {
           "value": 2.07,
           "start": "2024-12-30",
@@ -51149,16 +51149,16 @@
           "filed": "2026-02-24"
         },
         "ytd": {
-          "value": 0.82,
+          "value": 1.38,
           "start": "2025-12-29",
-          "end": "2026-07-05",
-          "filed": "2026-08-11"
+          "end": "2026-10-04",
+          "filed": "2026-11-10"
         },
         "priorYtd": {
-          "value": 0.81,
+          "value": 1.21,
           "start": "2024-12-30",
-          "end": "2025-06-29",
-          "filed": "2026-08-11"
+          "end": "2025-09-28",
+          "filed": "2026-11-10"
         },
         "concept": "EarningsPerShareDiluted"
       },
@@ -51233,8 +51233,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 111.59,
-          "date": "2026-08-06"
+          "millions": 111.64,
+          "date": "2026-11-06"
         },
         "diluted": {
           "millions": 116.6,
@@ -54055,12 +54055,12 @@
       "incomeTax": 49.6,
       "balanceSheet": {
         "debt": {
-          "millions": 496.9,
-          "date": "2026-07-03"
+          "millions": 2472.8,
+          "date": "2026-10-02"
         },
         "cash": {
-          "millions": 790,
-          "date": "2026-07-03"
+          "millions": 2606.1,
+          "date": "2026-10-02"
         }
       },
       "netIncome": 477.1,
@@ -54068,26 +54068,16 @@
       "intangibleAmortization": 184.3,
       "eps": 3.08,
       "ttmEps": {
-        "value": 1.93,
-        "end": "2026-07-03",
+        "value": 1.14,
+        "end": "2026-10-02",
         "annual": {
-          "value": 3.08,
-          "start": "2024-09-28",
-          "end": "2025-10-03",
-          "filed": "2025-11-07"
-        },
-        "ytd": {
-          "value": 0.99,
+          "value": 1.14,
           "start": "2025-10-04",
-          "end": "2026-07-03",
-          "filed": "2026-07-28"
+          "end": "2026-10-02",
+          "filed": "2026-11-10"
         },
-        "priorYtd": {
-          "value": 2.14,
-          "start": "2024-09-28",
-          "end": "2025-06-27",
-          "filed": "2026-07-28"
-        },
+        "ytd": null,
+        "priorYtd": null,
         "concept": "EarningsPerShareDiluted"
       },
       "prior": {
@@ -54161,8 +54151,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 150.47,
-          "date": "2026-07-23"
+          "millions": 234.85,
+          "date": "2026-11-04"
         },
         "diluted": {
           "millions": 155.1,
@@ -54682,12 +54672,12 @@
       "incomeTax": 555,
       "balanceSheet": {
         "debt": {
-          "millions": 32760,
-          "date": "2026-06-27"
+          "millions": 33890,
+          "date": "2026-09-30"
         },
         "cash": {
-          "millions": 2773,
-          "date": "2026-06-27"
+          "millions": 2279,
+          "date": "2026-09-30"
         }
       },
       "netIncome": 2074,
@@ -54695,26 +54685,16 @@
       "intangibleAmortization": 201,
       "eps": 32.08,
       "ttmEps": {
-        "value": 32.97,
-        "end": "2026-06-27",
+        "value": 35.51,
+        "end": "2026-09-30",
         "annual": {
-          "value": 32.08,
-          "start": "2024-10-01",
-          "end": "2025-09-30",
-          "filed": "2025-11-12"
-        },
-        "ytd": {
-          "value": 25.2,
+          "value": 35.51,
           "start": "2025-10-01",
-          "end": "2026-06-27",
-          "filed": "2026-08-04"
+          "end": "2026-09-30",
+          "filed": "2026-11-10"
         },
-        "priorYtd": {
-          "value": 24.31,
-          "start": "2024-10-01",
-          "end": "2025-06-28",
-          "filed": "2026-08-04"
-        },
+        "ytd": null,
+        "priorYtd": null,
         "concept": "EarningsPerShareDiluted"
       },
       "prior": {
@@ -54784,8 +54764,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 55.28,
-          "date": "2026-07-31"
+          "millions": 54.59,
+          "date": "2026-10-30"
         },
         "diluted": {
           "millions": 58.2,
@@ -61329,8 +61309,8 @@
           "date": "2025-12-31"
         },
         "cash": {
-          "millions": 539,
-          "date": "2026-07-04"
+          "millions": 593,
+          "date": "2026-10-03"
         }
       },
       "netIncome": 642.6,
@@ -61338,8 +61318,8 @@
       "intangibleAmortization": 118,
       "eps": 10.76,
       "ttmEps": {
-        "value": 3.95,
-        "end": "2026-07-04",
+        "value": 2.39,
+        "end": "2026-10-03",
         "annual": {
           "value": 10.76,
           "start": "2025-01-01",
@@ -61347,16 +61327,16 @@
           "filed": "2026-02-23"
         },
         "ytd": {
-          "value": -2.31,
+          "value": -1.37,
           "start": "2026-01-01",
-          "end": "2026-07-04",
-          "filed": "2026-08-11"
+          "end": "2026-10-03",
+          "filed": "2026-11-10"
         },
         "priorYtd": {
-          "value": 4.5,
+          "value": 7,
           "start": "2025-01-01",
-          "end": "2025-06-28",
-          "filed": "2026-08-11"
+          "end": "2025-09-27",
+          "filed": "2026-11-10"
         },
         "concept": "EarningsPerShareDiluted"
       },
@@ -61431,8 +61411,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 98.25,
-          "date": "2026-08-07"
+          "millions": 98.29,
+          "date": "2026-11-06"
         },
         "diluted": {
           "millions": 59.71,
