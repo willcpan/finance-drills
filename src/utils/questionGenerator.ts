@@ -450,6 +450,70 @@ const preferSimple = (pool: StockData[], difficulty: DifficultyLevel): StockData
   return simple.length >= 20 ? simple : pool;
 };
 
+// ---------------------------------------------------------------------------
+// Not the same company twice in a row
+//
+// A question picks its type first and then a company uniformly from that
+// type's pool, and the pools differ in size tenfold: Recovery Gain draws from
+// the 86 stocks really down on the year, Revenue Growth from 490. A company in
+// a small pool therefore comes up far more often than its share of the index,
+// and with no memory nothing stopped it coming straight back. The last few
+// dozen companies asked about are kept out of the draw, within a run and
+// across runs (per browser, like the stats), unless that would leave the pool
+// too thin to be random.
+// ---------------------------------------------------------------------------
+
+const RECENT_LIMIT = 50;
+// Below this many left to draw from, the memory shortens rather than the
+// draw narrowing to a handful.
+const MIN_DRAW = 20;
+const RECENT_KEY = "finance-drills:recent-companies";
+
+const loadRecent = (): string[] => {
+  try {
+    const raw = window.localStorage.getItem(RECENT_KEY);
+    const parsed: unknown = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed.filter((t): t is string => typeof t === "string").slice(-RECENT_LIMIT) : [];
+  } catch {
+    return [];
+  }
+};
+
+const saveRecent = (recent: string[]): void => {
+  try {
+    window.localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+  } catch {
+    // Private mode or blocked storage: the memory lasts the page instead.
+  }
+};
+
+let recent: string[] = typeof window === "undefined" ? [] : loadRecent();
+
+// For tests, and for a player who wants the full deck back.
+export const forgetRecent = (): void => {
+  recent = [];
+  saveRecent(recent);
+};
+
+// The pool less the companies most recently asked about: as many of them as
+// can be excluded while leaving MIN_DRAW to choose from. Pure, so the rule
+// can be tested without drawing.
+export const withoutRecent = <T extends { ticker: string }>(pool: T[], asked: readonly string[], minDraw = MIN_DRAW): T[] => {
+  let excluded = new Set(asked);
+  let open = pool.filter(s => !excluded.has(s.ticker));
+  // Forget from the oldest end until enough remain.
+  for (let keep = asked.length - 1; open.length < minDraw && keep >= 0; keep--) {
+    excluded = new Set(asked.slice(-keep));
+    open = pool.filter(s => !excluded.has(s.ticker));
+  }
+  return open.length > 0 ? open : pool;
+};
+
+const remember = (ticker: string): void => {
+  recent = [...recent.filter(t => t !== ticker), ticker].slice(-RECENT_LIMIT);
+  saveRecent(recent);
+};
+
 export const eligibleCount = (type: QuestionType): number => ELIGIBLE[type].length;
 
 export const availableTypes = (): QuestionType[] =>
@@ -1101,8 +1165,10 @@ export const generateQuestion = (
   // Fall back to a type that actually has stock behind it.
   const chosen = type && ELIGIBLE[type].length > 0 ? type : pickFrom(usable);
   const pool = preferSimple(ELIGIBLE[chosen], difficulty);
+  const stock = pickFrom(withoutRecent(pool, recent));
+  remember(stock.ticker);
 
-  return GENERATORS[chosen](pickFrom(pool), difficulty);
+  return GENERATORS[chosen](stock, difficulty);
 };
 
 // Check whether the answer is close enough. The tolerance is absolute and

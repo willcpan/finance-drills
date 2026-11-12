@@ -1,6 +1,8 @@
 import { describe, it, expect } from "vitest";
 import {
   ALL_QUESTION_TYPES,
+  forgetRecent,
+  withoutRecent,
   QUESTION_META,
   runOrder,
   availableTypes,
@@ -567,4 +569,38 @@ describe("runOrder", () => {
     const order = runOrder(["peRatio", "revenueCagr", "marketCap"], 3);
     expect(new Set(order).size).toBe(3);
   });
+
+describe("not the same company twice in a row", () => {
+  const named = (...tickers: string[]) => tickers.map(ticker => ({ ticker }));
+
+  it("keeps the companies last asked about out of the draw", () => {
+    const pool = named("A", "B", "C", "D", "E", "F");
+    expect(withoutRecent(pool, ["B", "E"], 2).map(s => s.ticker)).toEqual(["A", "C", "D", "F"]);
+  });
+
+  it("forgets the oldest first when the pool would run too thin", () => {
+    // Four to exclude from six leaves two; with three wanted, the oldest
+    // (A) is let back in.
+    const pool = named("A", "B", "C", "D", "E", "F");
+    expect(withoutRecent(pool, ["A", "B", "C", "D"], 3).map(s => s.ticker)).toEqual(["A", "E", "F"]);
+    // A pool entirely of recent names still draws from itself.
+    expect(withoutRecent(named("A", "B"), ["A", "B"], 5).map(s => s.ticker)).toEqual(["A", "B"]);
+  });
+
+  it("does not ask about one company twice in a run", () => {
+    forgetRecent();
+    for (let run = 0; run < 200; run++) {
+      const tickers = generateQuestions(10, "easy").map(q => q.stockData!.ticker);
+      expect(new Set(tickers).size, tickers.join(" ")).toBe(10);
+    }
+  });
+
+  it("spreads consecutive questions of one type across the pool", () => {
+    // Recovery Gain has the smallest pool. Fifty draws in a row still never
+    // repeat while the pool is bigger than the memory.
+    forgetRecent();
+    const tickers = Array.from({ length: 50 }, () => generateQuestion("recoveryGain", "easy").stockData!.ticker);
+    expect(new Set(tickers).size).toBe(50);
+  });
+});
 });
