@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-18T03:06:10.847Z",
+  "asOf": "2026-11-19T02:48:11.981Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -17163,8 +17163,8 @@
       "balanceSheet": {
         "debt": null,
         "cash": {
-          "millions": 2078.7,
-          "date": "2026-06-30"
+          "millions": 2060.4,
+          "date": "2026-09-30"
         }
       },
       "netIncome": 3585.2,
@@ -17172,26 +17172,16 @@
       "intangibleAmortization": null,
       "eps": 11.57,
       "ttmEps": {
-        "value": 10.49,
-        "end": "2026-06-30",
+        "value": 10.11,
+        "end": "2026-09-30",
         "annual": {
-          "value": 11.57,
-          "start": "2024-10-01",
-          "end": "2025-09-30",
-          "filed": "2025-11-19"
-        },
-        "ytd": {
-          "value": 7.45,
+          "value": 10.11,
           "start": "2025-10-01",
-          "end": "2026-06-30",
-          "filed": "2026-07-23"
+          "end": "2026-09-30",
+          "filed": "2026-11-18"
         },
-        "priorYtd": {
-          "value": 8.53,
-          "start": "2024-10-01",
-          "end": "2025-06-30",
-          "filed": "2026-07-23"
-        },
+        "ytd": null,
+        "priorYtd": null,
         "concept": "EarningsPerShareDiluted"
       },
       "prior": {
@@ -17265,8 +17255,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 279.7,
-          "date": "2026-07-16"
+          "millions": 267.6,
+          "date": "2026-11-12"
         },
         "diluted": {
           "millions": 309.9,
