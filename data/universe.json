@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-11-25T04:31:28.064Z",
+  "asOf": "2026-11-26T03:47:00.027Z",
   "index": "S&P 500",
   "sources": {
     "constituents": "Wikipedia: List of S&P 500 companies",
@@ -1406,12 +1406,12 @@
       "incomeTax": 479,
       "balanceSheet": {
         "debt": {
-          "millions": 2500,
-          "date": "2026-07-31"
+          "millions": 3476,
+          "date": "2026-10-31"
         },
         "cash": {
-          "millions": 4098,
-          "date": "2026-07-31"
+          "millions": 1677,
+          "date": "2026-10-31"
         }
       },
       "netIncome": 1124,
@@ -1419,8 +1419,8 @@
       "intangibleAmortization": 53,
       "eps": 5.23,
       "ttmEps": {
-        "value": 7.72,
-        "end": "2026-07-31",
+        "value": 8.8,
+        "end": "2026-10-31",
         "annual": {
           "value": 5.23,
           "start": "2025-02-01",
@@ -1428,16 +1428,16 @@
           "filed": "2026-03-03"
         },
         "ytd": {
-          "value": 4.64,
+          "value": 7.33,
           "start": "2026-02-01",
-          "end": "2026-07-31",
-          "filed": "2026-08-28"
+          "end": "2026-10-31",
+          "filed": "2026-11-25"
         },
         "priorYtd": {
-          "value": 2.15,
+          "value": 3.76,
           "start": "2025-02-01",
-          "end": "2025-07-31",
-          "filed": "2026-08-28"
+          "end": "2025-10-31",
+          "filed": "2026-11-25"
         },
         "concept": "EarningsPerShareDiluted"
       },
@@ -1512,8 +1512,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 209,
-          "date": "2026-08-21"
+          "millions": 208,
+          "date": "2026-11-19"
         },
         "diluted": {
           "millions": 215,
@@ -36278,8 +36278,8 @@
           "date": "2026-01-30"
         },
         "cash": {
-          "millions": 3172,
-          "date": "2026-07-31"
+          "millions": 3428,
+          "date": "2026-10-30"
         }
       },
       "netIncome": 6654,
@@ -36287,8 +36287,8 @@
       "intangibleAmortization": 140,
       "eps": 11.85,
       "ttmEps": {
-        "value": 11.83,
-        "end": "2026-07-31",
+        "value": 11.92,
+        "end": "2026-10-30",
         "annual": {
           "value": 11.85,
           "start": "2025-02-01",
@@ -36296,16 +36296,16 @@
           "filed": "2026-03-23"
         },
         "ytd": {
-          "value": 7.17,
+          "value": 10.14,
           "start": "2026-01-31",
-          "end": "2026-07-31",
-          "filed": "2026-08-27"
+          "end": "2026-10-30",
+          "filed": "2026-11-25"
         },
         "priorYtd": {
-          "value": 7.19,
+          "value": 10.07,
           "start": "2025-02-01",
-          "end": "2025-08-01",
-          "filed": "2026-08-27"
+          "end": "2025-10-31",
+          "filed": "2026-11-25"
         },
         "concept": "EarningsPerShareDiluted"
       },
@@ -36381,7 +36381,7 @@
       "shareCounts": {
         "cover": {
           "millions": 561.05,
-          "date": "2026-08-25"
+          "date": "2026-11-23"
         },
         "diluted": {
           "millions": 560,
@@ -55330,8 +55330,8 @@
           "date": "2026-01-31"
         },
         "cash": {
-          "millions": 5411,
-          "date": "2026-08-01"
+          "millions": 4464,
+          "date": "2026-10-31"
         }
       },
       "netIncome": 3705,
@@ -55339,8 +55339,8 @@
       "intangibleAmortization": null,
       "eps": 8.13,
       "ttmEps": {
-        "value": 9.64,
-        "end": "2026-08-01",
+        "value": 10.76,
+        "end": "2026-10-31",
         "annual": {
           "value": 8.13,
           "start": "2025-02-02",
@@ -55348,16 +55348,16 @@
           "filed": "2026-03-11"
         },
         "ytd": {
-          "value": 5.83,
+          "value": 8.47,
           "start": "2026-02-01",
-          "end": "2026-08-01",
-          "filed": "2026-08-28"
+          "end": "2026-10-31",
+          "filed": "2026-11-25"
         },
         "priorYtd": {
-          "value": 4.32,
+          "value": 5.84,
           "start": "2025-02-02",
-          "end": "2025-08-02",
-          "filed": "2026-08-28"
+          "end": "2025-11-01",
+          "filed": "2026-11-25"
         },
         "concept": "EarningsPerShareDiluted"
       },
@@ -55432,8 +55432,8 @@
       },
       "shareCounts": {
         "cover": {
-          "millions": 454.3,
-          "date": "2026-08-21"
+          "millions": 452.74,
+          "date": "2026-11-18"
         },
         "diluted": {
           "millions": 455.6,
