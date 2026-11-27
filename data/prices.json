@@ -21324,12 +21324,7 @@
           243.5
         ]
       },
-      "splits": [
-        {
-          "date": "2021-11-04",
-          "ratio": 1.046
-        }
-      ],
+      "splits": [],
       "listed": "1962-01-02",
       "dividend": 6.75
     },
@@ -42078,7 +42073,7 @@
       "dividend": 2.08
     },
     "VMRK": {
-      "name": "Vivmark Residential",
+      "name": "AvalonBay Communities, Inc.",
       "price": 65.33,
       "previousClose": 64.64,
       "monthAgo": {
